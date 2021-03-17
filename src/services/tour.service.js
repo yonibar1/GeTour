@@ -67,13 +67,8 @@ function save(tour) {
 
 function getEmptyTour(title, price) {
     return {
-<<<<<<< HEAD
-        title: '',
-        price: '',
-=======
         title,
         price,
->>>>>>> 9a23cb9882243593136a23c439fc74ded8744aec
         startedAt: Date.now(),
         capacity: utilService.getRandomInt(1, 20),
         members: utilService.getRandomInt(1, 20),
