@@ -19,13 +19,9 @@ export default {
       const tours = await tourService.query();
       this.tours = tours;
     },
-  },
-  created() {
-    this.loadTours();
-  },
-  components: {
-    tourList,
+    created() {
+      this.loadTours();
+    },
   },
 };
 </script>
-
