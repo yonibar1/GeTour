@@ -40,11 +40,6 @@ const routes = [
         name: 'tour-details',
         component: tourDetails,
     },
-    {
-        path: '/:tourId',
-        name: 'tour-details',
-        component: tourDetails,
-    },
 ];
 
 const router = new VueRouter({

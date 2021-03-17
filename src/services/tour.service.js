@@ -2,7 +2,6 @@
 import { storageService } from './async-storage.service.js';
 // import { httpService } from './http.service.js';
 import { utilService } from './util.service.js';
-// import { storageService } from './storage.service.js';
 
 // const KEY = 'toursDB';
 const TOURS_KEY = 'tours';
@@ -95,13 +94,11 @@ function _createTours() {
         ];
         localStorage.setItem(TOURS_KEY, JSON.stringify(tours));
     }
-
     return tours;
 }
 
 function _createTour(title, price) {
     const tour = getEmptyTour(title, price);
     tour._id = utilService.makeId();
-
     return tour;
 }

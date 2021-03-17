@@ -55,15 +55,15 @@ export const tourStore = {
         //         console.log('Cannot set filter', err);
         //     }
         // },
-        async query({ commit }) {
-            try {
-                const tours = await tourService.query()
-                commit({ type: 'query', tours })
-                return tours
-            } catch (err) {
-                console.log('Cannot get Tours', err);
-            }
-        },
+        // async query({ commit }) {
+        //     try {
+        //         const tours = await tourService.query()
+        //         commit({ type: 'query', tours })
+        //         return tours
+        //     } catch (err) {
+        //         console.log('Cannot get Tours', err);
+        //     }
+        // },
         async getTourToEdit({ commit }, { id }) {
             try {
                 if (!id) {
