@@ -1,7 +1,7 @@
 <template>
-  <div class="tour-filter">
+  <section class="tour-filter">
     <h1>Filter</h1>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,10 +1,9 @@
 <template>
-  <div class="tour-edit">
+  <section class="tour-edit">
     <h1>Edit</h1>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {};
 </script>
-

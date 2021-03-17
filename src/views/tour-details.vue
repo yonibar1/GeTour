@@ -1,7 +1,7 @@
 <template>
-  <div class="tour-details">
+  <section class="tour-details">
     <h1>Details</h1>
-  </div>
+  </section>
 </template>
 
 <script>

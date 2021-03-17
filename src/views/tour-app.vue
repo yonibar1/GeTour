@@ -1,7 +1,7 @@
 <template>
-  <div class="tour-app">
+  <section class="tour-app">
     <h1>Tour App</h1>
-  </div>
+  </section>
 </template>
 
 <script>

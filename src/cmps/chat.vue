@@ -1,7 +1,7 @@
 <template>
-  <div class="chat">
+  <section class="chat">
     <h1>Chat</h1>
-  </div>
+  </section>
 </template>
 
 <script>
