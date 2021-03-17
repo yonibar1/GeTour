@@ -1,21 +1,36 @@
 <template>
-    <section class="tour-preview">
-        <h2>{{ tour.title }}</h2>
-        <h3>{{ tour.byUser.fullname }}</h3>
-        <h4>{{ tour.daysCount }} Days</h4>
-        <h4>{{ tour.members }} Members</h4>
-        <h3>{{ tour.price }} $</h3>
-        {{ tour.rate }}
-    </section>
+  <section class="tour-preview">
+    <div class="preview-img-container">
+      <router-link :to="'/tour-details/' + tour._id">
+        <img src="../assets/img/hero.jpg" alt="" />
+      </router-link>
+    </div>
+    <h3>{{ tour.title }}</h3>
+    <p>{{ tour.byUser.fullname }}</p>
+    <p></p>
+    <p>{{ tour.daysCount }} Days</p>
+    <p>{{ tour.members }}/{{ tour.capacity }} Joined</p>
+    <router-link :to="'/edit/' + tour._id">Edit</router-link>
+    <div class="price-rate-container">
+      <p>{{ tour.price }} $</p>
+      {{ tour.rate }}⭐
+    </div>
+    <button @click="removeTour(tour._id)">X</button>
+  </section>
 </template>
 
 <script>
 export default {
-    props: {
-        tour: {
-            type: Object,
-        },
+  props: {
+    tour: {
+      type: Object,
     },
-    created() {},
+  },
+  methods: {
+    removeTour(id) {
+      this.$emit("removeTour", id);
+    },
+  },
+  created() {},
 };
 </script>
