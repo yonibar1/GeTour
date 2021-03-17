@@ -1,4 +1,21 @@
 .tour-app {
     // background-image: url("../../assets/img/hero.jpg");
     background-color: rgb(231, 231, 255);
+    padding: $main-padding;
+    .categories {
+        display: flex;
+        justify-content: center;
+        li {
+            .category-card {
+                img {
+                    @include ratio-square;
+                    border-radius: 10px;
+                    // object-fit: cover;
+                }
+            }
+        }
+        li:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
 }

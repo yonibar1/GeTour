@@ -49,7 +49,7 @@ export default {
       //   .then(() => {
       //     // this.$router.push("/tour-app");
       //   });
-    }
+    },
   },
 };
 </script>
