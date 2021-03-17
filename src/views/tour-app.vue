@@ -3,10 +3,10 @@
         <tour-filter />
         Categories:
         <ul>
-            <li><router-link>Europe</router-link></li>
-            <li><router-link>Asia</router-link></li>
-            <li><router-link>Australia</router-link></li>
-            <li><router-link>USA</router-link></li>
+            <li><router-link to="/">Europe</router-link></li>
+            <li><router-link to="/">Asia</router-link></li>
+            <li><router-link to="/">Australia</router-link></li>
+            <li><router-link to="/">USA</router-link></li>
         </ul>
     </section>
 </template>
