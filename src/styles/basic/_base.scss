@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: GreatVibes, serif;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: rem(50px);
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+}

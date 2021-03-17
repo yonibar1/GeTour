@@ -6,8 +6,8 @@
       </router-link>
     </div>
     <nav>
-      <router-link to="/edit">Become a guide</router-link>
-      <router-link to="/login-signup">Signup</router-link>
+      <router-link to="/edit">Become a guide</router-link> |
+      <router-link to="/login-signup">Signup</router-link> |
       <router-link to="/login-signup">Login</router-link>
     </nav>
   </section>

@@ -1,6 +1,8 @@
 <template>
   <section class="tour-filter">
-    <h1>Filter</h1>
+    <label>
+    <input type="text">
+    </label>
   </section>
 </template>
 

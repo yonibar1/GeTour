@@ -1,16 +1,18 @@
 <template>
   <section class="tour-app">
-    <h1>Tour App</h1>
+    <tour-filter/>
   </section>
 </template>
 
 <script>
 import tourList from "@/cmps/tour-list.vue";
+import tourFilter from "@/cmps/tour-filter.vue";
 
 export default {
-  name: "home",
+  name: "tour-app",
   components: {
     tourList,
+    tourFilter,
   },
 };
 </script>
