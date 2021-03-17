@@ -1,10 +1,25 @@
+.app-header {
+    position: fixed;
+    height: 80px;
+    background-color: #ffffff6b;
+}
+
+
 .tour-app {
-    // background-image: url("../../assets/img/hero.jpg");
-    background-color: rgb(231, 231, 255);
-    padding: $main-padding;
+    .hero-container {
+        height: 600px;
+        img {
+            object-fit:cover;
+            background-attachment: fixed;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    }
     .categories {
         display: flex;
         justify-content: center;
+        padding: $main-padding;
         li {
             .category-card {
                 img {

@@ -1,6 +1,9 @@
 <template>
   <section class="tour-app">
+    <div class="hero-container">
+      <img src="../assets/img/hero.jpg" alt="">
     <tour-filter />
+    </div>
     <ul class="categories">
       <li>
         <router-link to="/">
