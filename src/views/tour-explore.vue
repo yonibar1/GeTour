@@ -1,11 +1,12 @@
 <template>
     <section class="tour-explore">
+        fdgfdsf
+        {{ tours }}
         <tour-list v-if="tours" :tours="tours"></tour-list>
     </section>
 </template>
 
 <script>
-import { tourService } from '../services/tour.service.js';
 import tourList from '../cmps/tour-list';
 export default {
     data() {
@@ -15,14 +16,14 @@ export default {
     },
     methods: {
         async loadTours() {
-            console.log('loading tours...');
-            const tours = await tourService.query();
+            const tours = await this.$store.dispatch({ type: 'query' });
             this.tours = tours;
         },
     },
-        created() {
-            this.loadTours();
-        },
+    created() {
+        console.log('loading tours...');
+        this.loadTours();
+    },
     components: {
         tourList,
     },

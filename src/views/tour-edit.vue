@@ -1,6 +1,7 @@
 <template>
   <section class="tour-edit">
-    <form @submit.prevent="saveTour" action="">
+    <form v-if="tourToEdit" @submit.prevent="saveTour" action="">
+      {{tourToEdit}}
       <input v-model="tourToEdit.title" placeholder="Title" type="text" />
       <input v-model="tourToEdit.price" placeholder="Price" type="number" />
       <input
