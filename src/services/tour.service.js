@@ -68,7 +68,7 @@ function getEmptyTour() {
     return {
         title: '',
         price: '',
-        statedAt: Date.now(),
+        startedAt: Date.now(),
         capacity: utilService.getRandomInt(1, 20),
         members: utilService.getRandomInt(1, 20),
         daysCount: utilService.getRandomInt(1, 5),

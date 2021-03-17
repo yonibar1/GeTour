@@ -5,7 +5,7 @@
 </template>
 
 <script>
-// import tourService from "../services/tour.service.js";
+import { tourService } from "../services/tour.service.js";
 import tourList from "../cmps/tour-list";
 export default {
   data() {
@@ -14,10 +14,10 @@ export default {
     };
   },
   methods: {
-    loadTours() {
+    async loadTours() {
       console.log("loading tours...");
-      // const tours = tourService.query();
-      // this.tours = tours;
+      const tours = await tourService.query();
+      this.tours = tours;
     },
   },
   created() {

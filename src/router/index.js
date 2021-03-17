@@ -26,11 +26,6 @@ const routes = [
         component: loginSignup,
     },
     {
-        path: '/:tourId',
-        name: 'tour-details',
-        component: tourDetails,
-    },
-    {
         path: '/edit/:tourId?',
         name: 'tour-edit',
         component: tourEdit,
@@ -39,6 +34,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: about,
+    },
+    {
+        path: '/:tourId',
+        name: 'tour-details',
+        component: tourDetails,
     },
     {
         path: '/:tourId',
