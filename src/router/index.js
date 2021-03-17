@@ -36,7 +36,7 @@ const routes = [
         component: about,
     },
     {
-        path: '/tour-details/:tourId?',
+        path: '/tour-details/:tourId',
         name: 'tour-details',
         component: tourDetails,
     },

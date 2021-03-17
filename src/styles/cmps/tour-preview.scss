@@ -1,0 +1,18 @@
+.tour-preview{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // align-items: center;
+    border-radius: 10px;
+    .preview-img-container{
+        width: 100%;
+        img{
+            border-radius:10px;
+        }
+    }
+    .price-rate-container{
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -7,6 +7,8 @@
         justify-content: center;
         li {
             .category-card {
+                @include aspect-ratio(100, 100);
+                width: 300px;
                 img {
                     border-radius: 10px;
                     // object-fit: cover;

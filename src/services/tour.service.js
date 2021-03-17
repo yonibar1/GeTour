@@ -91,6 +91,15 @@ function _createTours() {
             _createTour('Parisian Nights', 300),
             _createTour('Lovely Amsterdam', 500),
             _createTour('Barcelona For Couples', 700),
+            _createTour('New York Street\'s', 350),
+            _createTour('Merom Golan Valleys', 20),
+            _createTour('Budapest Eye', 240),
+            _createTour('Koh Samui Beaches', 700),
+            _createTour('Rio Carnivals', 150),
+            _createTour('The Taste Of Rome', 700),
+            _createTour('Prague Views', 300),
+            _createTour('The Western Wall', 80),
+            _createTour('Through The Jungle', 1000),
         ];
         localStorage.setItem(TOURS_KEY, JSON.stringify(tours));
     }
