@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <h1>HIIIIIIII</h1>
-    <h2>baba</h2>
     <app-header />
     <router-view />
   </div>
@@ -21,6 +19,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
 }
 
 #nav {

@@ -10,9 +10,18 @@
 @import 'basic/layout';
 
 // COMPONENTS
+@import 'cmps/app-footer';
 @import 'cmps/app-header';
-@import 'cmps/about';
-@import 'cmps/toy-app';
-@import 'cmps/toy-list';
-@import 'cmps/toy-details';
-@import 'cmps/toy-edit';
+@import 'cmps/chart';
+@import 'cmps/chat';
+@import 'cmps/dashboard';
+@import 'cmps/login-signup';
+@import 'cmps/tour-app';
+@import 'cmps/tour-details';
+@import 'cmps/tour-edit';
+@import 'cmps/tour-explore';
+@import 'cmps/tour-filter';
+@import 'cmps/tour-list';
+@import 'cmps/tour-map';
+@import 'cmps/tour-preview';
+@import 'cmps/tour-review';

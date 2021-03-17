@@ -1,3 +1,4 @@
+import './styles/styles.scss'
 import Vue from 'vue'
 import app from './app.vue'
 import './registerServiceWorker'

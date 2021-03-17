@@ -5,19 +5,22 @@
 html {
     font-family: Montserrat, sans-serif;
     line-height: 1.6;
-    color: $clr2;
 }
 
 body {
     margin: 0;
-    background-image: url('~@/assets/img/toybackground.jpg');
-    background-size:cover;
-    background-attachment: fixed;
+    background-size: cover;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: GreatVibes, serif;
-    margin: 0 0 1rem;
+    margin: 0;
+    padding: 0;
     font-weight: 500;
 }
 
@@ -26,14 +29,24 @@ h1 {
 }
 
 p {
-    max-width: 48ch;
-    margin: 0 0 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
 }
 
 img {
     width: 100%;
 }
 
-button{
+button {
     cursor: pointer;
 }
