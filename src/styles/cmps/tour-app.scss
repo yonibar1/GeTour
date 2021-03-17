@@ -8,7 +8,6 @@
         li {
             .category-card {
                 img {
-                    @include ratio-square;
                     border-radius: 10px;
                     // object-fit: cover;
                 }
