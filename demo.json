@@ -30,7 +30,11 @@
             "string of url.png",
             "string of url.jpg"
         ],
-        "amenities": ["childrens", "water trail", "etc"],
+        "amenities": [
+            "childrens",
+            "water trail",
+            "etc"
+        ],
         "description": "loremipsum",
         "byUser": {
             "_id": "mongodbID",

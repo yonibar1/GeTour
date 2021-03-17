@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <h1>HIIIIIIII</h1>
-    <h2>baba</h2>
     <app-header />
     <router-view />
   </div>

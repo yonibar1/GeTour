@@ -25,7 +25,7 @@ const routes = [
         component: tourDetails,
     },
     {
-        path: '/:tourId?',
+        path: '/edit/:tourId?',
         name: 'tour-edit',
         component: tourEdit,
     },
