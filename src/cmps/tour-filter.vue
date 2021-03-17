@@ -1,8 +1,12 @@
 <template>
   <section class="tour-filter">
-    <label>
+<form action="">
+    <router-link to="/explore">
+      <button><i class="fas fa-search"></i></button>
+    </router-link>
     <input type="text">
-    </label>
+</form>
+
   </section>
 </template>
 

@@ -1,11 +1,19 @@
 <template>
   <section class="tour-preview">
-    <h1>Preview</h1>
+    {{ tour.title }}
+    {{ tour.price }}
+    {{ tour.byUser.fullname }}
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    tour: {
+      type: Object,
+    },
+  },
+};
 </script>
 
 <style>

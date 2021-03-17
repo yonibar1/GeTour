@@ -5,6 +5,7 @@ import tourExplore from '../views/tour-explore.vue';
 import tourDetails from '../views/tour-details.vue';
 import tourEdit from '../views/tour-edit.vue';
 import about from '../views/about.vue';
+import loginSignup from '../views/login-signup.vue';
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,11 @@ const routes = [
         component: tourExplore,
     },
     {
+        path: '/login-signup',
+        name: 'login-signup',
+        component: loginSignup,
+    },
+    {
         path: '/:tourId',
         name: 'tour-details',
         component: tourDetails,
@@ -33,6 +39,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: about,
+    },
+    {
+        path: '/:tourId',
+        name: 'tour-details',
+        component: tourDetails,
     },
 ];
 
