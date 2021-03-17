@@ -3,6 +3,8 @@
         "_id": "mongodbID",
         "title": "around paris",
         "tourDate": 11286341283,
+        "maxParticipents": 10,
+        "bookedUsers": 8,
         "daysCount": 3,
         "price": 100,
         "difficulty": 2,
@@ -28,11 +30,7 @@
             "string of url.png",
             "string of url.jpg"
         ],
-        "amenities": [
-            "childrens",
-            "water trail",
-            "etc"
-        ],
+        "amenities": ["childrens", "water trail", "etc"],
         "description": "loremipsum",
         "byUser": {
             "_id": "mongodbID",
