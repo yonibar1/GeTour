@@ -1,10 +1,10 @@
 [
-    (tour = {
+    {
         _id: 'mongodbID',
         title: 'around paris',
         startAt: 11286341283,
         capacity: 10,
-        // insert all the thing about orders//
+        bookedUsers: [{}],
         daysCount: 3,
         price: 100,
         difficulty: 2,
@@ -52,8 +52,8 @@
                 },
             },
         ],
-    }),
-    (user = {
+    },
+    {
         _id: 'mongodbID',
         fullname: 'muki puki',
         username: 'muki101',
@@ -61,8 +61,8 @@
         avatar: 'someurl.jpg',
         birthDate: '1989-07-20',
         isGuide: false,
-    }),
-    (order = {
+    },
+    {
         _id: 'mongodbID',
         orderBy: [
             {
@@ -74,5 +74,5 @@
         orderAt: 1231231312,
         guestsCount: 3,
         price: 300, //should be the number of participants * tour price//
-    }),
+    },
 ];
