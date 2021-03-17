@@ -1,7 +1,5 @@
 <template>
     <section class="tour-explore">
-        fdgfdsf
-        {{ tours }}
         <tour-list v-if="tours" :tours="tours"></tour-list>
     </section>
 </template>

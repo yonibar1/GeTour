@@ -6,6 +6,8 @@
         <h4>{{ tour.members }} Members</h4>
         <h3>{{ tour.price }} $</h3>
         {{ tour.rate }}
+        <router-link :to="'/tour-details/' + tour._id">Details</router-link> |
+        <router-link to="/edit">Edit</router-link> |
     </section>
 </template>
 
