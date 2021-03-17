@@ -4,7 +4,7 @@ import { storageService } from './async-storage.service.js';
 import { utilService } from './util.service.js';
 // import { storageService } from './storage.service.js';
 
-const KEY = 'toursDB';
+// const KEY = 'toursDB';
 const TOURS_KEY = 'tours';
 // const TOURS_URL = 'tours/';
 
@@ -17,9 +17,7 @@ export const tourService = {
     // saveUser,
     // queryAllByType,
 };
-
 _createTours();
-
 function query() {
     // filterBy = {}, pageIdx = 0 - as a paramater
     // const params = {
@@ -27,7 +25,10 @@ function query() {
     //     pageIdx,
     // };
     // return httpService.get(TOUR_URL, params);
-    return storageService.query(TOURS_KEY);
+
+    var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
+    console.log('tours:', tours);
+    return tours;
 }
 
 // function queryAllByType(type) {
@@ -64,11 +65,16 @@ function save(tour) {
 //     return savedUser;
 // }
 
-function getEmptyTour() {
+function getEmptyTour(title, price) {
     return {
+<<<<<<< HEAD
         title: '',
         price: '',
-        statedAt: Date.now(),
+=======
+        title,
+        price,
+>>>>>>> 9a23cb9882243593136a23c439fc74ded8744aec
+        startedAt: Date.now(),
         capacity: utilService.getRandomInt(1, 20),
         members: utilService.getRandomInt(1, 20),
         daysCount: utilService.getRandomInt(1, 5),
@@ -85,15 +91,16 @@ function getEmptyTour() {
 }
 
 function _createTours() {
-    var tours = JSON.parse(localStorage.getItem(KEY));
+    var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     if (!tours || !tours.length) {
         tours = [
             _createTour('Parisian Nights', 300),
             _createTour('Lovely Amsterdam', 500),
             _createTour('Barcelona For Couples', 700),
         ];
-        localStorage.setItem(KEY, JSON.stringify(tours));
+        localStorage.setItem(TOURS_KEY, JSON.stringify(tours));
     }
+
     return tours;
 }
 
