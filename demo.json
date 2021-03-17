@@ -2,7 +2,7 @@
     {
         "_id": "mongodbID",
         "title": "around paris",
-        "tourDate": "2015-08-12",
+        "tourDate": 11286341283,
         "daysCount": 3,
         "price": 100,
         "difficulty": 2,
@@ -28,13 +28,22 @@
             "string of url.png",
             "string of url.jpg"
         ],
-        "tags": ["childrens", "water trail", "etc"],
+        "amenities": [
+            "childrens",
+            "water trail",
+            "etc"
+        ],
         "description": "loremipsum",
+        "byUser": {
+            "_id": "mongodbID",
+            "name": "Yaron Biton",
+            "avatar": "someurl.jpg"
+        },
         "reviews": [
             {
                 "id": "u101",
                 "txt": "the best trip",
-                "createdAt": "2015-08-12",
+                "createdAt": 11286341283,
                 "rate": "number of stars",
                 "byUser": {
                     "fullname": "muki puki",
@@ -42,14 +51,8 @@
                     "avatar": "avatar.jpg"
                 }
             }
-        ],
-        "byTourGuide": {
-            "id": "mongodbID",
-            "name": "Yaron Biton",
-            "avatar": "someurl.jpg"
-        }
+        ]
     },
-    // users//
     {
         "_id": "mongodbID",
         "fullname": "muki puki",
@@ -57,6 +60,6 @@
         "password": "secret",
         "avatar": "someurl.jpg",
         "birthDate": "1989-07-20",
-        "isGuide": "false"
+        "isGuide": false
     }
 ]
