@@ -1,5 +1,5 @@
-<template>
-  <section class="app-header">
+<template >
+  <section class="app-header" ref="header">
     <div class="logo-container">
       <router-link to="/">
         <img src="../assets/logo.svg" alt="" />
@@ -13,6 +13,44 @@
   </section>
 </template>
 
+   
 <script>
-export default {};
+export default {
+  watch: {
+    $route: {
+      deep: true,
+      immediate: true,
+      handler: function (val) {
+        if (val.fullPath !== "/" && val.name !== "tour-app") {
+          this.$refs.header.classList.add("lala");
+        } else {
+          this.$refs.header.classList.remove("lala");
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 10) {
+              this.$refs.header.style.backgroundColor = "white";
+            } else {
+              this.$refs.header.style.backgroundColor = "transparent";
+            }
+          });
+        }
+      },
+    },
+
+    // }
+    // $route(val) {},
+    // '$route'(val) {
+    //   if (val.fullPath === "/" && val.name === "tour-app") {
+    //     window.addEventListener("scroll", () => {
+    //       if (window.scrollY > 10) {
+    //         console.log('added listener');
+    //         this.$refs.header.style.backgroundColor = "white";
+    //       } else {
+    //         this.$refs.header.style.backgroundColor = "transparent";
+    //       }
+    //     });
+    //   }
+    // },
+    // },
+  },
+};
 </script>
