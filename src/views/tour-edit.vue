@@ -61,6 +61,8 @@
         Description:
         <el-input
           type="textarea"
+          maxlength="100"
+          show-word-limit
           v-model="tourToEdit.description"
           :autosize="{ minRows: 2, maxRows: 4 }"
           placeholder="Description"

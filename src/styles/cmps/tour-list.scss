@@ -1,18 +1,30 @@
 .tour-list {
-    margin-top: 10px;
+    margin: 70px 0;
     padding:$main-padding;
     ul {
         display: grid;
         grid-template-columns: repeat(4, minmax(100px, 1fr));
         grid-gap: 30px;
     }
-    .list-filter-container{
-        height: 100px;
-        width: 100%;
-        background-color: $main-clr;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    
+}
+.list-filter-container{
+    height: 100px;
+    width: 100%;
+    margin-top: 70px;
+    background-color: $main-clr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &>:not(:first-child){
+        margin-inline-start: 10px;
     }
-
+    button{
+        padding:10px;
+        color: $main-clr;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background-color: white;
+    }
 }
