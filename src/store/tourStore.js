@@ -83,14 +83,6 @@ export const tourStore = {
         },
         async saveTour({ commit }, { tour }) {
             const type = (tour._id) ? 'updateTour' : 'addTour'
-
-            // vv BUG vv 
-
-            // const savedTour = await tourService.save(tour)
-            // console.log(savedTour, 'AFTER');
-            // console.log(tour, 'GOT');
-            // commit({ type, savedTour })
-            // return savedTour
             const tourAfterSave = await tourService.save(tour)
             commit({ type, tourAfterSave })
             return tourAfterSave

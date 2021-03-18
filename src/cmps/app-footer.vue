@@ -1,6 +1,6 @@
 <template>
   <section class="app-footer">
-    <h1>footer</h1>
+    <p>Footer</p>
   </section>
 </template>
 
