@@ -18,21 +18,26 @@
             </div>
             <!-- <h2>Tour Guide: {{ tour.user.fullname }}</h2> -->
         </div>
-        <div class="details-container-secondry">
-            <h3>{{ tour.members }} In Tour</h3>
-            <h3>Tour Date: {{ tour.startedAt }}</h3>
-            <h3>{{ tour.daysCount }} Days</h3>
-            <!-- <h3>{{ tour.locs.name }}</h3> -->
-        </div>
-        <div class="tour-order">
-            <form @submit.prevent="orderAtrip">
-                <h3>{{ tour.price }}</h3>
-                <label>How Many Travellers <input type="number"/></label>
-                <label>Any Speacial Requests:</label>
-                <textarea placeholder="I Would Like..." />
-                <label>To Pay:{{ tour.price }}</label>
-                <button>Order Tour</button>
-            </form>
+        <div class="order-details-container">
+            <div class="details-container-secondry">
+                <h3>
+                    {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
+                </h3>
+                <!-- <span>{{ date | moment }}</span> -->
+                <h3>Tour Date: {{ tour.startedAt | moment }}</h3>
+                <h3>{{ tour.daysCount }} Days</h3>
+                <!-- <h3>{{ tour.locs.name }}</h3> -->
+            </div>
+            <div class="tour-order">
+                <form @submit.prevent="orderAtrip">
+                    <h3>Price: {{ tour.price }}</h3>
+                    <label>How Many Travellers <input type="number"/></label>
+                    <label>Any Speacial Requests:</label>
+                    <textarea placeholder="I Would Like..." />
+                    <label>To Pay:{{ tour.price }}</label>
+                    <button>Order Tour</button>
+                </form>
+            </div>
         </div>
         <!-- <ul class="review-list">
             <li v-for="review in reviews" :key="review._id">
@@ -71,6 +76,7 @@
 
 <script>
 import { tourService } from '../services/tour.service.js';
+import moment from 'moment';
 // import chat from '@/cmps/chat.vue';
 export default {
     data() {
@@ -116,6 +122,11 @@ export default {
         //     });
         //     this.reviewToEdit = { txt: '', aboutUserId: null };
         // },
+    },
+    filters: {
+        moment: function(date) {
+            return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+        },
     },
     watch: {
         '$route.params.tourId'() {
