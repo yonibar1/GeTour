@@ -5,25 +5,20 @@
         <img src="../assets/img/hero.jpg" alt="" />
       </router-link>
     </div>
+    <div class="mini-user-container">
+      <div class="mini-user-img"></div>
+      <p>Guide Name</p>
+    </div>
     <h3>{{ tour.title }}</h3>
     <p>{{ tour.byUser.fullname }}</p>
     <p></p>
     <p>{{ tour.daysCount }} Days</p>
     <p>{{ tour.members }}/{{ tour.capacity }} Joined</p>
-    <router-link :to="'/edit/' + tour._id">Edit</router-link>
+    <!-- <router-link :to="'/edit/' + tour._id">Edit</router-link> -->
     <div class="price-rate-container">
       <p>{{ tour.price }} $</p>
-      <el-rate
-        v-model="value"
-        disabled
-        show-score
-        text-color="#ff9900"
-        score-template="{rate} points"
-      >
-      </el-rate>
-      <!-- {{ tour.rate }}⭐ -->
+      <p>{{ tour.rate }}⭐</p>
     </div>
-    <button @click="removeTour(tour._id)">X</button>
   </section>
 </template>
 

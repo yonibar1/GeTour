@@ -1,9 +1,10 @@
 .tour-list {
     margin-top: 10px;
+    padding:$main-padding;
     ul {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 10px;
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+        grid-gap: 30px;
     }
 
 }
