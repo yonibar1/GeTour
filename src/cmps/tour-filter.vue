@@ -1,18 +1,24 @@
 <template>
   <section class="tour-filter">
-    <form @submit.prevent="whatInTheVal()" action="">
-      <el-date-picker
-        v-model="value"
-        type="daterange"
-        range-separator="To"
-        start-placeholder="Start date"
-        end-placeholder="End date"
+    <form @submit.prevent="getAns()" action="" >
+      <div class="con">
+      <el-input
+        class="destination-input"
+        placeholder="Destination"
+        v-model="desVal"
+        clearable
       >
+      </el-input>
+      </div>
+      <el-date-picker
+        v-model="timeVal"
+        type="datetimerange"
+        align="right"
+        start-placeholder="Start Date"
+        end-placeholder="End Date"
+        :default-time="['12:00:00', '08:00:00']">
       </el-date-picker>
-      <button>???</button>
-      <!-- <router-link to="/explore">
-        <button><i class="fas fa-search"></i></button>
-      </router-link> -->
+      <el-button class="save-btn" icon="el-icon-search" circle></el-button>
     </form>
   </section>
 </template>
@@ -21,15 +27,15 @@
 export default {
   data() {
     return {
-      value: "",
+      timeVal: '',
+      desVal: ''
     };
   },
   methods: {
-    whatInTheVal() {
-      var lala = this.value[0]
-      var timestamp = lala.getTime();
-      console.log('timestamp:', timestamp)
-      console.log(new Date(timestamp))
+    getAns() {
+      var destination = this.desVal;
+      var startTimestamp = this.timeVal[0].getTime();
+      var endTimestamp = this.timeVal[1].getTime();
     },
   },
 };
