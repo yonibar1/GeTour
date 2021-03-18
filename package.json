@@ -9,7 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+<<<<<<< HEAD
     "element-ui": "^2.15.1",
+=======
+    "jquery": "^3.6.0",
+    "jsdom": "^16.5.1",
+>>>>>>> c0195c043ac65db8d79bd3b133ade677a3c8400b
     "node-sass": "^5.0.0",
     "register-service-worker": "^1.7.1",
     "sass": "^1.32.8",

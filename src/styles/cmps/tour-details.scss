@@ -1,9 +1,60 @@
 .tour-details {
-    background-color: red;
+
+    background-color: rgb(150, 150, 150);
     height: 100vh;
     display: grid;
 
-    .details-container-primary {
-        border: 1px solid black;
+
+
+    .images-container {
+        margin: 0 auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: .375rem;
+        grid-template-areas:
+            "first-img first-img img-2 img3"
+            "first-img first-img img4 img4"
+            "first-img first-img . ."
+            "first-img first-img . .";
+    }
+
+    .first-img {
+        grid-area: first-img;
+
+        img {
+            height: 96%;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+
+    }
+
+    .img-2 {
+        grid-area: img-2;
+
+        img {
+            height: 100%;
+        }
+
+    }
+
+    .img3 {
+        grid-area: img3;
+
+        img {
+            height: 100%;
+            border-top-right-radius: 12px;
+        }
+
+    }
+
+    .img4 {
+        grid-area: img4;
+
+        img {
+            border-bottom-right-radius: 10px;
+        }
     }
 }

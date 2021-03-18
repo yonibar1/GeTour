@@ -3,7 +3,18 @@
         <div class="details-container-primary">
             <h2>{{ tour.title }}</h2>
             <div class="images-container">
-                <!-- {{imgs}} -->
+                <div class="first-img">
+                    <img src="../assets/img/hero3.jpg" alt="" />
+                </div>
+                <div class="img-2">
+                    <img src="../assets/img/hero2.jpg" alt="" />
+                </div>
+                <div class="img3">
+                    <img src="../assets/img/hero3.jpg" alt="" />
+                </div>
+                <div class="img4">
+                    <img src="../assets/img/hero.jpg" alt="" />
+                </div>
             </div>
             <!-- <h2>Tour Guide: {{ tour.user.fullname }}</h2> -->
         </div>
@@ -89,8 +100,8 @@ export default {
         async loadTour() {
             try {
                 const id = this.$route.params.tourId;
-                console.log('id:', id);
                 const tour = await tourService.getById(id);
+                console.log('tour:', tour.imgs);
                 this.tour = tour;
                 // this.$store.dispatch({ type: 'loadReviews' });
                 // this.$store.dispatch({ type: 'loadUsers' });
