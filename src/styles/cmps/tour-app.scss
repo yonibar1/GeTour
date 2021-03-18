@@ -13,24 +13,30 @@
 
     .categories {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+        grid-gap: 6px;
         padding: $main-padding;
-        margin-top:60px;
+        margin-top: 60px;
 
         li {
             .category-card {
                 @include aspect-ratio(100, 100);
-                width: 300px;
 
+                // width: 300px;
                 img {
                     border-radius: 10px;
-                    // object-fit: cover;
+
                 }
             }
         }
 
-        li:not(:last-child) {
-            margin-right: 20px;
+
+    }
+
+    @include for-mobile-layout {
+        .categories {
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
         }
+
     }
 }
