@@ -1,44 +1,38 @@
 <template>
   <section class="tour-edit">
-    <form v-if="tourToEdit" @submit.prevent="saveTour" action="">
-      <label>
-        Title:
+    <el-form v-if="tourToEdit" action="">
+      <el-form-item label-position="left" label="Title: ">
         <el-input v-model="tourToEdit.title" placeholder="Title" type="text" />
-      </label>
-      <label>
-        Price:
+      </el-form-item>
+      <el-form-item label="Price">
         <el-input-number
           v-model.number="tourToEdit.price"
           placeholder="Price"
           type="number"
         />
-      </label>
-      <label>
-        Capacity:
+      </el-form-item>
+      <el-form-item label="Capacity">
         <el-input-number
           v-model.number="tourToEdit.capacity"
           placeholder="Capacity"
           type="number"
         />
-      </label>
-      <label>
-        Days Count:
+      </el-form-item>
+      <el-form-item label="Days Count:">
         <el-input-number
           v-model.number="tourToEdit.daysCount"
           placeholder="Days"
           type="number"
         />
-      </label>
-      <label>
-        Difficulty:
+      </el-form-item>
+      <el-form-item label="Difficulty:">
         <el-input-number
           v-model.number="tourToEdit.difficulty"
           placeholder="Difficulty"
           type="number"
         />
-      </label>
-      <label>
-        Tags:
+      </el-form-item>
+      <el-form-item label="Tags: ">
         <el-select v-model="tourToEdit.tags" multiple placeholder="Select">
           <el-option
             v-for="item in options"
@@ -48,17 +42,8 @@
           >
           </el-option>
         </el-select>
-
-        <!-- <select v-model="tourToEdit.tags">
-          <option value="children">Suitable for children</option>
-          <option value="water">Water Trail</option>
-          <option value="urbanic">Urbanic</option>
-          <option value="nature">Nature</option>
-          <option value="food">Food</option>
-        </select> -->
-      </label>
-      <label>
-        Description:
+      </el-form-item>
+      <el-form-item label="Days Count:">
         <el-input
           type="textarea"
           maxlength="100"
@@ -68,15 +53,16 @@
           placeholder="Description"
         >
         </el-input>
-      </label>
-      <label>
-        Images:
+      </el-form-item>
+      <el-form-item label-position="left" label="Days Count:">
         <input multiple type="file" />
-      </label>
-      <!-- V-MODEL ON FILE INPUT -->
-      <button v-if="tourToEdit._id">Update Tour</button>
-      <button v-else>Create Tour</button>
-    </form>
+        <!-- V-MODEL ON FILE INPUT -->
+      </el-form-item>
+      <el-button type="success" @click="saveTour" v-if="tourToEdit._id"
+        >Update Tour</el-button
+      >
+      <el-button type="success" @click="saveTour" v-else>Create Tour</el-button>
+    </el-form>
   </section>
 </template>
 

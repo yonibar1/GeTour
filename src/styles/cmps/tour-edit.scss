@@ -1,29 +1,34 @@
 .tour-edit {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    margin-top: 60px;
-    background-color: #f3f3f3;
-    width: 30rem;
-    height: 30rem;
+    margin: 60px auto;
+    // background-color: #f3f3f3;
+    border:1px solid $main-clr;
+    width: 40rem;
+    color:$black;
+    // height: 30rem;
     border-radius: 10px;
     form {
-        width: 25rem;
+        width: 30rem;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
         margin-bottom: 10px;
+        padding:20px;
+        &>*{
+            margin-bottom:20px;
+        }
         input {
             width: 100%;
-            margin-bottom: 5px;
+            // margin-bottom: 5px;
             // padding-left: 30px;
         }
         textarea{
             resize: none;
         }
         button {
-            padding:10px;
-            background-color: $main-clr;
+            padding:15px;
+            // background-color: $main-clr;
             border-radius: 5px;
             outline: none;
             border: none;

@@ -1,0 +1,34 @@
+.tour-explore{
+            .tour-filter {
+                position: static;
+                background-color: $main-clr;
+                height: 60px;
+                max-width: 50rem;
+                border-radius: 30px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                form {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    padding: 20px;
+                    input,
+                    .el-date-editor {
+                        border-radius: 50px;
+                        border: none;
+                    }
+                    .el-button {
+                        color: white;
+                        background-color: $main-clr;
+                    }
+                    .destination-input {
+                        width: 200px;
+                    }
+                }
+            }
+}
