@@ -1,6 +1,11 @@
 <template>
   <section>
     <div class="tour-list">
+      <div class="list-filter-container">
+        <button>Price</button>
+        <button>Guid</button>
+        <button>Top Rated</button>
+      </div>
       <ul>
         <li v-for="tour in tours" :key="tour._id">
           <tour-preview @removeTour="removeTour" :tour="tour"></tour-preview>
