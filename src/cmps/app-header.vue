@@ -21,16 +21,19 @@ export default {
       deep: true,
       immediate: true,
       handler: function (val) {
-        if (val.fullPath !== "/" && val.name !== "tour-app") {
+        console.log(val.fullPath, "hander");
+        if (val.fullPath !== "/") {
+          console.log(val, "val");
           this.$refs.header.classList.add("lala");
         } else {
-          this.$refs.header.classList.remove("lala");
           window.addEventListener("scroll", () => {
             if (window.scrollY > 10) {
+              console.log(val.fullPath, "added event listener");
               this.$refs.header.style.backgroundColor = "white";
             } else {
               this.$refs.header.style.backgroundColor = "transparent";
             }
+            this.$refs.header.classList.remove("lala");
           });
         }
       },

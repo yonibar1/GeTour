@@ -7,9 +7,29 @@
     border-radius: 10px;
     .preview-img-container{
         width: 100%;
+        @include aspect-ratio(100,80);
         img{
             border-radius:10px;
+            height: 100%;
         }
+    }
+    .mini-user-container{
+        align-items: center;
+        display: flex;
+        .mini-user-img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $main-clr;
+            margin: 5px 5px 5px 0;
+        }
+    }
+    h3{
+        color: $black;
+    }
+    p{
+        color: $muted;
+
     }
     .price-rate-container{
         display: flex;
