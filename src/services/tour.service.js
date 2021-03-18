@@ -26,19 +26,16 @@ function query() {
     // return httpService.get(TOUR_URL, params);
 
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
-    console.log('tours:', tours);
     return tours;
 }
 
 // function queryAllByType(type) {
-//     console.log('type:', type);
 //     if (!type) {
 //         return httpService.get(TOUR_URL);
 //     }
 // }
 
 function getById(id) {
-    // console.log('id:', id);
     // return httpService.get(TOUR_URL + id);
     return storageService.get(TOURS_KEY, id);
 }
@@ -81,10 +78,23 @@ function getEmptyTour(title, price) {
             // { url: '../assets/img/hero2.jpg' },
             // { url: '../assets/img/hero.jpg' },
         ],
-        tags: [],
-        description: 'lorem ipsum dolor sit amet, consectetur adipis',
+        tags: ['Water Trail', 'For Children'],
+        description:
+            'Get in the mood with a visit to Barcelona’s naughtiest attraction. The Erotic Museum holds 800+ pieces to lust over. It will take you on an erotic journey  from ancient societies to pinup culture. Enjoy a passionate adventure with your other half and take a look at eroticism’s historical influence of humankind through the past. And who knows, perhaps you’ll get some ideas for the not so distant future. ',
         byUser: {},
-        reviews: [],
+        reviews: [
+            {
+                id: 'u101',
+                txt: 'the best trip',
+                createdAt: 11286341283,
+                rate: utilService.getRandomInt(0,5),
+                byUser: {
+                    fullname: 'muki puki',
+                    _id: utilService.makeId(),
+                    avatar: 'avatar.jpg',
+                },
+            },
+        ],
     };
 }
 

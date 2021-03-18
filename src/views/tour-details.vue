@@ -23,10 +23,11 @@
                 <h3>
                     {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
                 </h3>
-                <!-- <span>{{ date | moment }}</span> -->
                 <h3>Tour Date: {{ tour.startedAt | moment }}</h3>
                 <h3>{{ tour.daysCount }} Days</h3>
+                <h4>{{ tour.tags }}</h4>
                 <!-- <h3>{{ tour.locs.name }}</h3> -->
+                <p>{{ tour.description }}</p>
             </div>
             <div class="tour-order">
                 <form @submit.prevent="orderAtrip">
@@ -39,25 +40,25 @@
                 </form>
             </div>
         </div>
-        <!-- <ul class="review-list">
-            <li v-for="review in reviews" :key="review._id">
-                <p>
-                    About
-                    <router-link :to="`user/${review.aboutTour._id}`">
-                        {{ review.aboutTour.name }}
-                    </router-link>
-                </p>
-                <h3>{{ review.txt }}</h3>
-                <p>
-                    By
-                    <router-link :to="`user/${review.byUser._id}`">
-                        {{ review.byUser.fullname }}
-                    </router-link>
-                </p>
-                <hr />
-            </li>
-        </ul>
-        <form @submit.prevent="addReview()">
+        <div class="review-list">
+            <ul v-if="reviews">
+                <li v-for="review in reviews" :key="review.id">
+                    <div class="mini-user">
+                        <div class="mini-user-img"></div>
+                        <div class="mini-user-details">
+                            <p>
+                                <router-link :to="`user/${review.byUser._id}`">
+                                    {{ review.byUser.fullname }}
+                                </router-link>
+                                {{ review.createdAt  | moment}}
+                            </p>
+                        </div>
+                    </div>
+                    <h3>{{ review.txt }}</h3>
+                </li>
+            </ul>
+        </div>
+        <!-- <form @submit.prevent="addReview()">
             <h2>What Do You Thinking About That Tour :</h2>
             <select v-model="reviewToEdit.aboutTourId">
                 <option v-for="user in users" :key="user._id" :value="user._id">
@@ -69,13 +70,12 @@
                 v-model="reviewToEdit.txt"
             ></textarea>
             <button>Save</button>
-        </form>
-        <chat :tourId="tour._id" /> -->
+        </form> -->
+        <!-- <chat :tourId="tour._id" />  -->
     </section>
 </template>
 
 <script>
-import { tourService } from '../services/tour.service.js';
 import moment from 'moment';
 // import chat from '@/cmps/chat.vue';
 export default {
@@ -85,31 +85,38 @@ export default {
             //     txt: '',
             //     aboutTourId: null,
             // },
-            tour: null,
+            // reviews: this.tour.reviews,
+            reviews: [],
         };
     },
     created() {
         this.loadTour();
     },
     computed: {
-        // reviews() {
-        //     return this.$store.getters.reviews;
-        // },
+        tour() {
+            return this.$store.getters.tour;
+        },
         // users() {
         //     return this.$store.getters.users;
         // },
         // loggedInUser() {
         //     return this.$store.getters.loggedinUser;
         // },
+        relativeTime(time) {
+            return moment(time).fromNow();
+        },
     },
     methods: {
         async loadTour() {
             try {
                 const id = this.$route.params.tourId;
-                const tour = await tourService.getById(id);
-                console.log('tour:', tour.imgs);
-                this.tour = tour;
-                // this.$store.dispatch({ type: 'loadReviews' });
+                const tour = await this.$store.dispatch({
+                    type: 'loadTour',
+                    id,
+                });
+                this.reviews = tour.reviews;
+                console.log('  this.reviews:', this.reviews);
+
                 // this.$store.dispatch({ type: 'loadUsers' });
             } catch {
                 console.log('Cant Show Tour Details');

@@ -4,6 +4,32 @@
     height: 100%;
     display: grid;
 
+    .review-list {
+        border: 1px solid black;
+
+        .mini-user {
+            display: flex;
+
+            .mini-user-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: $main-clr;
+                margin: 5px 5px 5px 0;
+            }
+
+            .mini-user-details {
+                p {
+
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+        }
+
+    }
+
     .details-container-primary {
         display: flex;
         flex-direction: column;
@@ -69,10 +95,9 @@
     .order-details-container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         margin-inline-end: rem(100px);
         margin-inline-start: rem(100px);
-        height: 300px;
+        height: 500px;
 
         .details-container-secondry {
             background-color: rgba(172, 168, 168, 0.151);
@@ -81,16 +106,15 @@
             width: 40%;
             display: flex;
             flex-direction: column;
+            line-height: 40px;
 
         }
 
         .tour-order {
             background-color: rgba(172, 168, 168, 0.151);
             border-radius: 14px;
-            height: 100%;
+            height: 70%;
             width: 40%;
-
-
 
             form {
                 height: 100%;
@@ -109,10 +133,5 @@
                 resize: none;
             }
         }
-
     }
-
-
-
-
 }
