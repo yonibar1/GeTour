@@ -2,7 +2,7 @@
   <section class="app-header" ref="header">
     <div class="logo-container">
       <router-link to="/">
-        <img v-if="isScrolling === false" ref="logoImg" src="@/assets/logo-w.svg" alt="" />
+        <img v-if="!isScrolling" ref="logoImg" src="@/assets/logo-w.svg" alt="" />
         <img v-else src="@/assets/logo1.svg" alt="" />
       </router-link>
     </div>
@@ -28,7 +28,6 @@ export default {
       immediate: true,
       handler: function (val) {
         if (val.fullPath !== "/") {
-          console.log(val, "val");
           this.$refs.header.classList.add("relative-pos");
         } else {
           window.addEventListener("scroll", () => {
