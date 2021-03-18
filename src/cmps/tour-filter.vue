@@ -19,6 +19,10 @@
         :default-time="['12:00:00', '08:00:00']"
       >
       </el-date-picker>
+      <div @click="openRange()">Price</div>
+      <div v-if="open" class="range-box">
+        <el-slider v-model="value" range :max="100"> </el-slider>
+      </div>
       <el-button class="save-btn" icon="el-icon-search" circle></el-button>
     </form>
   </section>
@@ -30,14 +34,24 @@ export default {
     return {
       timeVal: "",
       desVal: "",
+      value: 0,
+      open: false,
     };
   },
   methods: {
-    getAns() {
-      // var destination = this.desVal;
-      // var startTimestamp = this.timeVal[0].getTime();
-      // var endTimestamp = this.timeVal[1].getTime();
+    openRange() {
+      if (this.open === true) {
+        this.open = false;
+        console.log(this.open);
+      } else {
+        this.open = true;
+      }
     },
+    // getAns() {
+    //   var destination = this.desVal;
+    //   var startTimestamp = this.timeVal[0].getTime();
+    //   var endTimestamp = this.timeVal[1].getTime();
+    // },
   },
 };
 </script>

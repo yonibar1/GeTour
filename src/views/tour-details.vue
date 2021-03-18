@@ -40,20 +40,28 @@
             </div>
         </div>
         <div class="review-list">
+            <h2>reviews:</h2>
             <ul v-if="reviews">
                 <li v-for="review in reviews" :key="review.id">
-                    <div class="mini-user">
-                        <div class="mini-user-img"></div>
-                        <div class="mini-user-details">
-                            <p>
+                    <div class="review">
+                        <div class="mini-user">
+                            <div class="mini-user-img">
+                                <img src="../assets/img/avatar.jpg" alt="" />
+                            </div>
+                            <div class="mini-user-details">
                                 <router-link :to="`user/${review.byUser._id}`">
                                     {{ review.byUser.fullname }}
                                 </router-link>
-                                {{ review.createdAt | moment }}
+                                <h6>{{ review.createdAt | moment }}</h6>
+                            </div>
+                        </div>
+                        <div class="ranks-txt">
+                            <h3>❞{{ review.txt }}❞</h3>
+                            <p>
+                                {{ review.rate }}<i class="el-icon-star-on"></i>
                             </p>
                         </div>
                     </div>
-                    <h3>{{ review.txt }}</h3>
                 </li>
             </ul>
         </div>
@@ -84,7 +92,6 @@ export default {
             //     txt: '',
             //     aboutTourId: null,
             // },
-            // reviews: this.tour.reviews,
             reviews: [],
         };
     },
