@@ -16,7 +16,6 @@
                     <img src="../assets/img/hero.jpg" alt="" />
                 </div>
             </div>
-            <!-- <h2>Tour Guide: {{ tour.user.fullname }}</h2> -->
         </div>
         <div class="order-details-container">
             <div class="details-container-secondry">
@@ -50,7 +49,7 @@
                                 <router-link :to="`user/${review.byUser._id}`">
                                     {{ review.byUser.fullname }}
                                 </router-link>
-                                {{ review.createdAt  | moment}}
+                                {{ review.createdAt | moment }}
                             </p>
                         </div>
                     </div>
@@ -102,9 +101,6 @@ export default {
         // loggedInUser() {
         //     return this.$store.getters.loggedinUser;
         // },
-        relativeTime(time) {
-            return moment(time).fromNow();
-        },
     },
     methods: {
         async loadTour() {
@@ -130,6 +126,16 @@ export default {
         //     this.reviewToEdit = { txt: '', aboutUserId: null };
         // },
     },
+    // async orderTour() {
+    //   console.log("Ordering");
+    // },
+    // async addReview() {
+    //     await this.$store.dispatch({
+    //         type: 'addReview',
+    //         review: this.reviewToEdit,
+    //     });
+    //     this.reviewToEdit = { txt: '', aboutUserId: null };
+    // },
     filters: {
         moment: function(date) {
             return moment(date).format('MMMM Do YYYY, h:mm:ss a');

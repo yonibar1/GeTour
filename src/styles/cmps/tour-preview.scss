@@ -5,6 +5,11 @@
     justify-content: space-between;
     // align-items: center;
     border-radius: 10px;
+    box-shadow: 0 0 0 0 #cecece;
+    transition: box-shadow .3s;
+    &:hover{
+        box-shadow:0px 0px 12px 1px #cecece;
+    }
     .preview-img-container{
         width: 100%;
         @include aspect-ratio(100,80);
@@ -19,16 +24,27 @@
         .mini-user-img{
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            background-color: $main-clr;
+            // background-color: $main-clr;
             margin: 5px 5px 5px 0;
+            @include aspect-ratio(100,100);
+            img{
+                border-radius: 50%;
+            }
         }
+    }
+    .tour-description-container{
+        padding:0 10px 10px;
     }
     h3{
         color: $black;
     }
     p{
         color: $muted;
+        i{
+            margin-right:5px;
+            font-size:20px;
+            color: #ff9900;
+        }
 
     }
     .price-rate-container{

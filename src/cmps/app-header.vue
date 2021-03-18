@@ -2,7 +2,8 @@
   <section class="app-header" ref="header">
     <div class="logo-container">
       <router-link to="/">
-        <img src="../assets/logo.svg" alt="" />
+        <img v-if="isScrolling === false" ref="logoImg" src="@/assets/logo-w.svg" alt="" />
+        <img v-else src="@/assets/logo1.svg" alt="" />
       </router-link>
     </div>
     <nav>
@@ -16,21 +17,29 @@
    
 <script>
 export default {
+  data() {
+    return {
+      isScrolling: false
+    }
+  },
   watch: {
     $route: {
       deep: true,
       immediate: true,
       handler: function (val) {
         if (val.fullPath !== "/") {
-          this.$refs.header.classList.add("lala");
+          console.log(val, "val");
+          this.$refs.header.classList.add("relative-pos");
         } else {
           window.addEventListener("scroll", () => {
             if (window.scrollY > 10) {
+              this.isScrolling = true
               this.$refs.header.style.backgroundColor = "white";
             } else {
+              this.isScrolling = false
               this.$refs.header.style.backgroundColor = "transparent";
             }
-            this.$refs.header.classList.remove("lala");
+            this.$refs.header.classList.remove("relative-pos");
           });
         }
       },

@@ -1,5 +1,8 @@
 .app-header {
-    &.lala {
+    .logo-container {
+        width: 150px;
+    }
+    &.relative-pos {
         position: relative;
     }
     position: fixed;
@@ -7,7 +10,7 @@
     left: 0;
     z-index: 10000;
     transition: all 0.2s ease-in-out;
-    height: auto;
+    height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
