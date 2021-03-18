@@ -1,36 +1,79 @@
 <template>
   <section class="tour-edit">
     <form v-if="tourToEdit" @submit.prevent="saveTour" action="">
-      {{ tourToEdit }}
-      <input v-model="tourToEdit.title" placeholder="Title" type="text" />
-      <input v-model="tourToEdit.price" placeholder="Price" type="number" />
-      <input
-        v-model="tourToEdit.capacity"
-        placeholder="Capacity"
-        type="number"
-      />
-      <input v-model="tourToEdit.daysCount" placeholder="Days" type="number" />
-      <input
-        v-model="tourToEdit.difficulty"
-        placeholder="Difficulty"
-        type="number"
-      />
-      <select v-model="tourToEdit.tags">
-        <option value="children">Suitable for children</option>
-        <option value="water">Water Trail</option>
-        <option value="urbanic">Urbanic</option>
-        <option value="nature">Nature</option>
-        <option value="food">Food</option>
-      </select>
-      <textarea
-        v-model="tourToEdit.description"
-        placeholder="Description"
-        cols="30"
-        rows="10"
-      ></textarea>
-      <input multiple type="file" />
+      <label>
+        Title:
+        <el-input v-model="tourToEdit.title" placeholder="Title" type="text" />
+      </label>
+      <label>
+        Price:
+        <el-input-number
+          v-model.number="tourToEdit.price"
+          placeholder="Price"
+          type="number"
+        />
+      </label>
+      <label>
+        Capacity:
+        <el-input-number
+          v-model.number="tourToEdit.capacity"
+          placeholder="Capacity"
+          type="number"
+        />
+      </label>
+      <label>
+        Days Count:
+        <el-input-number
+          v-model.number="tourToEdit.daysCount"
+          placeholder="Days"
+          type="number"
+        />
+      </label>
+      <label>
+        Difficulty:
+        <el-input-number
+          v-model.number="tourToEdit.difficulty"
+          placeholder="Difficulty"
+          type="number"
+        />
+      </label>
+      <label>
+        Tags:
+        <el-select v-model="tourToEdit.tags" multiple placeholder="Select">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+
+        <!-- <select v-model="tourToEdit.tags">
+          <option value="children">Suitable for children</option>
+          <option value="water">Water Trail</option>
+          <option value="urbanic">Urbanic</option>
+          <option value="nature">Nature</option>
+          <option value="food">Food</option>
+        </select> -->
+      </label>
+      <label>
+        Description:
+        <el-input
+          type="textarea"
+          v-model="tourToEdit.description"
+          :autosize="{ minRows: 2, maxRows: 4 }"
+          placeholder="Description"
+        >
+        </el-input>
+      </label>
+      <label>
+        Images:
+        <input multiple type="file" />
+      </label>
       <!-- V-MODEL ON FILE INPUT -->
-      <button>Save</button>
+      <button v-if="tourToEdit._id">Update Tour</button>
+      <button v-else>Create Tour</button>
     </form>
   </section>
 </template>
@@ -41,6 +84,13 @@ export default {
   data() {
     return {
       tourToEdit: null,
+      options: [
+        { label: "Water", value: "water" },
+        { label: "Children", value: "children" },
+        { label: "Urbanic", value: "urbanic" },
+        { label: "Nature", value: "nature" },
+        { label: "Food", value: "food" },
+      ],
     };
   },
   computed: {},

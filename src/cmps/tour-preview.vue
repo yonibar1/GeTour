@@ -13,7 +13,15 @@
     <router-link :to="'/edit/' + tour._id">Edit</router-link>
     <div class="price-rate-container">
       <p>{{ tour.price }} $</p>
-      {{ tour.rate }}⭐
+      <el-rate
+        v-model="value"
+        disabled
+        show-score
+        text-color="#ff9900"
+        score-template="{rate} points"
+      >
+      </el-rate>
+      <!-- {{ tour.rate }}⭐ -->
     </div>
     <button @click="removeTour(tour._id)">X</button>
   </section>
@@ -26,11 +34,18 @@ export default {
       type: Object,
     },
   },
+  data() {
+    return {
+      rate: 0,
+    };
+  },
   methods: {
     removeTour(id) {
       this.$emit("removeTour", id);
     },
   },
-  created() {},
+  created() {
+    this.rate = this.tour.rate;
+  },
 };
 </script>
