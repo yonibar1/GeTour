@@ -1,7 +1,6 @@
 .tour-app {
     .hero-container {
         height: 600px;
-
         img {
             object-fit: cover;
             background-attachment: fixed;
@@ -10,27 +9,27 @@
             padding: 0;
         }
     }
+}
 
-    .categories {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        padding: $main-padding;
-        margin-top:60px;
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: $main-padding;
+    margin-top: 60px;
 
-        li {
-            .category-card {
-                @include aspect-ratio(100, 100);
-                width: 300px;
+    li {
+        .category-card {
+            @include aspect-ratio(100, 100);
+            width: 300px;
 
-                img {
-                    border-radius: 10px;
-                    // object-fit: cover;
-                }
+            img {
+                border-radius: 10px;
+                // object-fit: cover;
             }
         }
+    }
 
-        li:not(:last-child) {
-            margin-right: 20px;
-        }
+    li:not(:last-child) {
+        margin-right: 20px;
     }
 }
