@@ -1,6 +1,10 @@
 .tour-app {
+    h1 {
+        font-size: 40px;
+        color: $main-clr;
+    }
     .hero-container {
-        height: 600px;
+        height: 650px;
 
         img {
             object-fit: cover;
@@ -10,9 +14,21 @@
             padding: 0;
         }
     }
-    .categories-container {
-        .el-button {
-            float: right;
+    .categories-container,
+    .guides-container {
+        // border-top: solid 1px $muted;
+        // border-bottom: solid 1px $muted;
+        margin: 60px 0;
+        padding: $main-padding;
+        button {
+            color: $main-clr;
+            position: absolute;
+            right: 10px;
+            &:hover {
+                background-color: $main-clr;
+                opacity: 0.4;
+                color: white;
+            }
         }
     }
 
@@ -20,16 +36,22 @@
         display: grid;
         grid-template-columns: repeat(4, minmax(100px, 1fr));
         grid-gap: 6px;
-        padding: $main-padding;
-        margin-top: 60px;
+        margin-top: 30px;
 
         li {
+            a:hover {
+                color: $main-clr
+            }
             .category-card {
-                @include aspect-ratio(100, 100);
-
-                // width: 300px;
+                @include aspect-ratio(80, 80);
                 img {
                     border-radius: 10px;
+                }
+            }
+            .avatar-card {
+                @include aspect-ratio(100, 100);
+                img {
+                    border-radius: 50%;
                 }
             }
         }

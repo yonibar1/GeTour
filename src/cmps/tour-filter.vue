@@ -1,30 +1,52 @@
 <template>
   <section class="tour-filter">
-    <form @submit.prevent="getAns()" action="">
+    <form action="">
       <div class="con">
         <el-input
           class="destination-input"
           placeholder="Destination"
-          v-model="desVal"
+          v-model="destinationVal"
           clearable
         >
         </el-input>
       </div>
       <el-date-picker
-        v-model="timeVal"
-        type="datetimerange"
+        v-model="dateVal"
+        type="daterange"
         align="right"
         start-placeholder="Start Date"
         end-placeholder="End Date"
-        :default-time="['12:00:00', '08:00:00']"
+        default-value="2010-10-01"
       >
       </el-date-picker>
-      <div @click="openRange()">Price</div>
-      <div v-if="open" class="range-box">
-        <el-slider v-model="value" range :max="100"> </el-slider>
-        From: {{ value[0] }} To: {{ value[1] }}
+      <div @click="toggleRangeBox()">{{ priceToShow }}</div>
+      <div v-if="isOpen" class="range-box">
+        <div class="rane-box-header">
+          <h4>Pick Your Price</h4>
+          <el-slider v-model="value" range :max="200"> </el-slider>
+        </div>
+        <div class="price-box-container">
+          <div class="min-box">
+            min price
+            <br />
+            <span> $ {{ value[0] }} </span>
+          </div>
+          -
+          <div class="min-box">
+            max price
+            <br />
+            <span> $ {{ value[1] }} </span>
+          </div>
+        </div>
       </div>
-      <el-button class="save-btn" icon="el-icon-search" circle></el-button>
+      <router-link to="/explore">
+      <el-button
+        @click="setFilter()"
+        class="save-btn"
+        icon="el-icon-search"
+        circle
+      ></el-button>
+      </router-link>
     </form>
   </section>
 </template>
@@ -33,26 +55,38 @@
 export default {
   data() {
     return {
-      timeVal: "",
-      desVal: "",
+      dateVal: "",
+      destinationVal: "",
       value: 0,
-      open: false,
+      isOpen: false,
+      priceToShow: "Price",
     };
   },
   methods: {
-    openRange() {
-      if (this.open === true) {
-        this.open = false;
-        console.log(this.open);
+    toggleRangeBox() {
+      if (this.isOpen === true) {
+        this.isOpen = false;
+        this.setPrice();
       } else {
-        this.open = true;
+        this.isOpen = true;
       }
     },
-    // getAns() {
-    //   var destination = this.desVal;
-    //   var startTimestamp = this.timeVal[0].getTime();
-    //   var endTimestamp = this.timeVal[1].getTime();
-    // },
+    setPrice() {
+      const min = this.value[0];
+      const max = this.value[1];
+      this.priceToShow = `$${min} - $${max}`;
+    },
+    setFilter() {
+      const filterBy = {
+        byDestination: this.destinationVal,
+        byDate: this.dateVal,
+        byPriceRange: {
+          min: this.value[0],
+          max: this.value[1],
+        },
+      }
+      console.log(filterBy);
+    },
   },
 };
 </script>
