@@ -98,6 +98,19 @@ function getEmptyTour(title, price) {
     };
 }
 
+// function getEmptyReview(txt) {
+//     return {
+//         txt,
+//         createdAt: moment(Date.now()).fromnow(),
+//         rate,
+//         byUser: {
+//             fullname,
+//             _id: utilService.makeId(),
+//             avatar: 'avatar.jpg',
+//         },
+//     };
+// }
+
 function _createTours() {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     if (!tours || !tours.length) {
@@ -125,3 +138,9 @@ function _createTour(title, price) {
     tour._id = utilService.makeId();
     return tour;
 }
+
+// function _createReview(txt) {
+//     const review = getEmptyReview(txt);
+//     review.id = utilService.makeId();
+//     return review;
+// }
