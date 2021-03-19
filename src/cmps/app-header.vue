@@ -39,18 +39,18 @@ export default {
       handler: function (val) {
         if (val.fullPath === "/") {
           window.addEventListener("scroll", this.onScroll);
-          if (this.$refs.header.classList.contains("relative-pos")) {
-            this.$refs.header.classList.remove("relative-pos");
-          }
+          this.isScrolling = false;
+          this.$refs.header.classList.remove("relative-pos");
+          this.$refs.header.style.backgroundColor = "transparent";
         } else {
           console.log("not home");
+          this.isScrolling = true;
           window.removeEventListener("scroll", this.onScroll);
           this.$refs.header.classList.add("relative-pos");
+          this.$refs.header.style.backgroundColor = "white";
         }
       },
     },
   },
-  mounted() {},
-  created() {},
 };
 </script>
