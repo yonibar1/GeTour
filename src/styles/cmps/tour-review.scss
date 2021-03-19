@@ -1,6 +1,7 @@
 .review-list {
     display: flex;
     flex-direction: column;
+    margin-top: rem(10px);
     margin-inline-start: rem(100px);
     margin-inline-end: rem(100px);
 
@@ -34,7 +35,7 @@
             }
         }
 
-       
+
 
         h2 {
             margin-top: rem(10px);
@@ -42,11 +43,6 @@
             text-transform: capitalize;
             font-family: OpenSans, serif;
             text-decoration: underline;
-        }
-
-        ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
         }
 
         li {
@@ -72,6 +68,8 @@
 
             .mini-user {
                 display: flex;
+                // display: grid;
+                // grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 
                 .mini-user-img {
                     width: 40px;
@@ -98,4 +96,3 @@
 
     }
 }
-
