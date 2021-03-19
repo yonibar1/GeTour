@@ -87,7 +87,7 @@ function getEmptyTour(title, price) {
                 id: 'u101',
                 txt: 'the best trip',
                 createdAt: 11286341283,
-                rate: utilService.getRandomInt(0,5),
+                rate: utilService.getRandomInt(0, 5),
                 byUser: {
                     fullname: 'muki puki',
                     _id: utilService.makeId(),
