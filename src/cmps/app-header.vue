@@ -27,26 +27,31 @@ export default {
       isScrolling: false,
     };
   },
+  methos: {
+    onScroll() {
+      if (window.scrollY > 10) {
+        console.log("yesssss");
+        this.isScrolling = true;
+        this.$refs.header.style.backgroundColor = "white";
+      } else {
+        this.isScrolling = false;
+        this.$refs.header.style.backgroundColor = "transparent";
+      }
+    },
+  },
   watch: {
     $route: {
       deep: true,
       immediate: true,
       handler: function (val) {
-        if (val.fullPath !== "/") {
+        if (val.fullPath === "/") {
+          console.log("im home");
+          window.addEventListener("scroll", this.onScroll);
+          this.$refs.header.classList.remove("relative-pos");
+        } else {
           console.log("not home");
           this.$refs.header.classList.add("relative-pos");
-          window.removeEventListener("scroll");
-        } else {
-          window.addEventListener("scroll", () => {
-            if (window.scrollY > 10) {
-              this.isScrolling = true;
-              this.$refs.header.style.backgroundColor = "white";
-            } else {
-              this.isScrolling = false;
-              this.$refs.header.style.backgroundColor = "transparent";
-            }
-            this.$refs.header.classList.remove("relative-pos");
-          });
+          window.removeEventListener("scroll", this.onScroll);
         }
       },
     },
