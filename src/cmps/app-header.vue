@@ -1,9 +1,9 @@
 <template >
-  <section class="app-header" ref="header" >
+  <section class="app-header" ref="header">
     <div class="logo-container">
       <router-link to="/">
         <img v-if="!isScrolling" src="@/assets/logo-w.svg" alt="" />
-        <img v-else src="@/assets/logo1.svg" alt=""/>
+        <img v-else src="@/assets/logo1.svg" alt="" />
       </router-link>
     </div>
     <nav>
@@ -24,36 +24,33 @@ export default {
   },
   methods: {
     onScroll() {
-      console.log($route);
-      //   console.log(this.$refs);
-      //   console.log("hoh");
-      //   if (window.scrollY > 10) {
-      //     console.log("yesssss");
-      //     this.isScrolling = true;
-      //     this.$refs.header.style.backgroundColor = "white";
-      //   } else {
-      //     this.isScrolling = false;
-      //     this.$refs.header.style.backgroundColor = "transparent";
-      //   }
+      if (window.scrollY > 10) {
+        this.isScrolling = true;
+        this.$refs.header.style.backgroundColor = "white";
+      } else {
+        this.isScrolling = false;
+        this.$refs.header.style.backgroundColor = "transparent";
+      }
     },
   },
-  // watch: {
-  //   $route: {
-  //     deep: true,
-  //     immediate: true,
-  //     handler: function (val) {
-  //       if (val.fullPath === "/") {
-  //         console.log("im home");
-  //         window.addEventListener("scroll", this.onScroll);
-  //         console.log(this.$refs);
-  //         // this.$refs.header.classList.remove("relative-pos");
-  //       } else {
-  //         console.log("not home");
-  //         this.$refs.header.classList.add("relative-pos");
-  //         window.removeEventListener("scroll", this.onScroll);
-  //       }
-  //     },
-  //   },
-  // },
+  watch: {
+    $route: {
+      immediate: true,
+      handler: function (val) {
+        if (val.fullPath === "/") {
+          window.addEventListener("scroll", this.onScroll);
+          if (this.$refs.header.classList.contains("relative-pos")) {
+            this.$refs.header.classList.remove("relative-pos");
+          }
+        } else {
+          console.log("not home");
+          window.removeEventListener("scroll", this.onScroll);
+          this.$refs.header.classList.add("relative-pos");
+        }
+      },
+    },
+  },
+  mounted() {},
+  created() {},
 };
 </script>
