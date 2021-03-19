@@ -2,7 +2,12 @@
   <section class="app-header" ref="header">
     <div class="logo-container">
       <router-link to="/">
-        <img v-if="!isScrolling" ref="logoImg" src="@/assets/logo-w.svg" alt="" />
+        <img
+          v-if="!isScrolling"
+          ref="logoImg"
+          src="@/assets/logo-w.svg"
+          alt=""
+        />
         <img v-else src="@/assets/logo1.svg" alt="" />
       </router-link>
     </div>
@@ -19,8 +24,8 @@
 export default {
   data() {
     return {
-      isScrolling: false
-    }
+      isScrolling: false,
+    };
   },
   watch: {
     $route: {
@@ -28,16 +33,16 @@ export default {
       immediate: true,
       handler: function (val) {
         if (val.fullPath !== "/") {
-          console.log('not home');
+          console.log("not home");
           this.$refs.header.classList.add("relative-pos");
-          window.removeEventListener("scroll")
+          window.removeEventListener("scroll");
         } else {
           window.addEventListener("scroll", () => {
             if (window.scrollY > 10) {
-              this.isScrolling = true
+              this.isScrolling = true;
               this.$refs.header.style.backgroundColor = "white";
             } else {
-              this.isScrolling = false
+              this.isScrolling = false;
               this.$refs.header.style.backgroundColor = "transparent";
             }
             this.$refs.header.classList.remove("relative-pos");
