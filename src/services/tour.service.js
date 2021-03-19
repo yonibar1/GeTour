@@ -83,33 +83,25 @@ function getEmptyTour(title, price) {
             'Get in the mood with a visit to Barcelona’s naughtiest attraction. The Erotic Museum holds 800+ pieces to lust over. It will take you on an erotic journey  from ancient societies to pinup culture. Enjoy a passionate adventure with your other half and take a look at eroticism’s historical influence of humankind through the past. And who knows, perhaps you’ll get some ideas for the not so distant future. ',
         byUser: {},
         reviews: [
-            {
-                id: 'u101',
-                txt: 'the best trip',
-                createdAt: 11286341283,
-                rate: utilService.getRandomInt(0, 5),
-                byUser: {
-                    fullname: 'muki puki',
-                    _id: utilService.makeId(),
-                    avatar: 'avatar.jpg',
-                },
-            },
+            _createReview('nice one'),
+            _createReview('one of the worst'),
+            _createReview('ahla bahla'),
         ],
     };
 }
 
-// function getEmptyReview(txt) {
-//     return {
-//         txt,
-//         createdAt: moment(Date.now()).fromnow(),
-//         rate,
-//         byUser: {
-//             fullname,
-//             _id: utilService.makeId(),
-//             avatar: 'avatar.jpg',
-//         },
-//     };
-// }
+function getEmptyReview(txt, rate = 3) {
+    return {
+        txt,
+        createdAt: Date.now(),
+        rate,
+        byUser: {
+            fullname: 'koko me eilat',
+            _id: utilService.makeId(),
+            avatar: 'avatar.jpg',
+        },
+    };
+}
 
 function _createTours() {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
@@ -139,8 +131,8 @@ function _createTour(title, price) {
     return tour;
 }
 
-// function _createReview(txt) {
-//     const review = getEmptyReview(txt);
-//     review.id = utilService.makeId();
-//     return review;
-// }
+function _createReview(txt, rate) {
+    const review = getEmptyReview(txt, rate);
+    review.id = utilService.makeId();
+    return review;
+}
