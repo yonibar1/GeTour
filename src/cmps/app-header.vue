@@ -28,7 +28,9 @@ export default {
       immediate: true,
       handler: function (val) {
         if (val.fullPath !== "/") {
+          console.log('not home');
           this.$refs.header.classList.add("relative-pos");
+          window.removeEventListener("scroll")
         } else {
           window.addEventListener("scroll", () => {
             if (window.scrollY > 10) {

@@ -5,7 +5,9 @@
       <tour-filter />
     </div>
     <div class="categories-container">
-      <el-button round>See All</el-button>
+      <router-link to="/explore">
+        <el-button round>See All</el-button>
+      </router-link>
       <ul class="categories">
         <li>
           <router-link to="/">
