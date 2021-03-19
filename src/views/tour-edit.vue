@@ -1,7 +1,7 @@
 <template>
   <section class="tour-edit">
     <el-form v-if="tourToEdit" action="">
-      <el-form-item label-position="left" label="Title: ">
+      <el-form-item label-position="left" label="Title ">
         <el-input v-model="tourToEdit.title" placeholder="Title" type="text" />
       </el-form-item>
       <el-form-item label="Price">
@@ -11,28 +11,28 @@
           type="number"
         />
       </el-form-item>
-      <el-form-item label="Capacity">
+      <el-form-item label="Capacity ">
         <el-input-number
           v-model.number="tourToEdit.capacity"
           placeholder="Capacity"
           type="number"
         />
       </el-form-item>
-      <el-form-item label="Days Count:">
+      <el-form-item label="Days Count ">
         <el-input-number
           v-model.number="tourToEdit.daysCount"
           placeholder="Days"
           type="number"
         />
       </el-form-item>
-      <el-form-item label="Difficulty:">
+      <el-form-item label="Difficulty ">
         <el-input-number
           v-model.number="tourToEdit.difficulty"
           placeholder="Difficulty"
           type="number"
         />
       </el-form-item>
-      <el-form-item label="Tags: ">
+      <el-form-item label="Tags ">
         <el-select v-model="tourToEdit.tags" multiple placeholder="Select">
           <el-option
             v-for="item in options"
@@ -43,7 +43,7 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="Days Count:">
+      <el-form-item label="Description ">
         <el-input
           type="textarea"
           maxlength="100"
@@ -54,14 +54,17 @@
         >
         </el-input>
       </el-form-item>
-      <el-form-item label-position="left" label="Days Count:">
-        <input multiple type="file" />
+      <el-form-item label-position="left">
+        <label class="upload-images">
+          Upload Images
+          <i class="fas fa-cloud-upload-alt">
+            <input class="file-input" multiple type="file" />
+          </i>
+        </label>
         <!-- V-MODEL ON FILE INPUT -->
       </el-form-item>
-      <el-button type="success" @click="saveTour" v-if="tourToEdit._id"
-        >Update Tour</el-button
-      >
-      <el-button type="success" @click="saveTour" v-else>Create Tour</el-button>
+      <el-button @click="saveTour" v-if="tourToEdit._id">Update Tour</el-button>
+      <el-button @click="saveTour" v-else>Create Tour</el-button>
     </el-form>
   </section>
 </template>
@@ -73,8 +76,8 @@ export default {
     return {
       tourToEdit: null,
       options: [
-        { label: "Water", value: "water" },
-        { label: "Children", value: "children" },
+        { label: "Water Trail", value: "water trail" },
+        { label: "For Children", value: "for children" },
         { label: "Urbanic", value: "urbanic" },
         { label: "Nature", value: "nature" },
         { label: "Food", value: "food" },

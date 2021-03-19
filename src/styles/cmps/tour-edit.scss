@@ -1,22 +1,43 @@
 .tour-edit {
+    background-color: #fff;
     display: flex;
     flex-direction: column;
-    margin: 60px auto;
-    // background-color: #f3f3f3;
-    border:1px solid $main-clr;
-    width: 40rem;
+    margin: 60px auto 0;
+    background-color:$main-clr;
+    // border:1px solid $main-clr;
+    width: 100%;
     color:$black;
+    padding:20px;
     // height: 30rem;
     border-radius: 10px;
     form {
+        background-color: snow;
         width: 30rem;
         display: flex;
         flex-direction: column;
+        border-radius: 20px;
         margin: 0 auto;
         margin-bottom: 10px;
         padding:20px;
+        div.el-form-item{
+            display: flex;
+            align-items: center;
+            .upload-images{
+                display: inline;
+            }
+
+        }
+        .file-input{
+            // opacity: 0;
+            display: none;
+        }
         &>*{
             margin-bottom:20px;
+        }
+        i.fas{
+            font-size: 40px;
+            color: $main-clr;
+            cursor: pointer;
         }
         input {
             width: 100%;
@@ -28,11 +49,23 @@
         }
         button {
             padding:15px;
-            // background-color: $main-clr;
+            background-color: $main-clr;
             border-radius: 5px;
             outline: none;
             border: none;
-            color: white;
+            color: snow;
+            transition: .3s;
+            &:hover{
+                // background-color: snow;
+                // color: $main-clr;
+                // box-shadow: 0 0 1px 1px $main-clr;
+
+
+                background-color: $main-clr;
+            color: snow;
+
+                opacity: 85%;
+            }
         }
     }
 }
