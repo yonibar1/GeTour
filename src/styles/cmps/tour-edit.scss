@@ -1,18 +1,24 @@
 .tour-edit {
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    margin: 60px auto 0;
+    // display: flex;
+    // flex-direction: column;
+    margin: 20px auto 0;
     background-color:$main-clr;
     // border:1px solid $main-clr;
     width: 100%;
     color:$black;
-    padding:20px;
     // height: 30rem;
     border-radius: 10px;
+    .edit-background-image-container{
+        z-index:1;
+        position: relative;
+    }
     form {
-        background-color: snow;
-        width: 30rem;
+        background-color: #fffafadb;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 40rem;
         display: flex;
         flex-direction: column;
         border-radius: 20px;
@@ -26,6 +32,9 @@
                 display: inline;
             }
 
+        }
+        .input-number{
+            width: 200px;
         }
         .file-input{
             // opacity: 0;
@@ -56,15 +65,14 @@
             color: snow;
             transition: .3s;
             &:hover{
-                // background-color: snow;
-                // color: $main-clr;
-                // box-shadow: 0 0 1px 1px $main-clr;
+                background-color: snow;
+                color: $main-clr;
+                box-shadow: 0 0 1px 1px $main-clr;
 
 
-                background-color: $main-clr;
-            color: snow;
-
-                opacity: 85%;
+                // background-color: $main-clr;
+                // color: snow;
+                // opacity: 85%;
             }
         }
     }

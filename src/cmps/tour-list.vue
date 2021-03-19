@@ -1,15 +1,10 @@
 <template>
   <section>
-    <!-- <div class="list-filter-container">
-      <button>Price</button>
-      <button>Guide</button>
-      <button>Top Rated</button>
-    </div> -->
     <tour-filter />
     <div class="tour-list">
       <ul>
         <li v-for="tour in tours" :key="tour._id">
-          <tour-preview @removeTour="removeTour" :tour="tour"></tour-preview>
+          <tour-preview :tour="tour"></tour-preview>
         </li>
       </ul>
     </div>
@@ -28,11 +23,7 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    removeTour(id) {
-      this.$store.dispatch({ type: "removeTour", id });
-    },
-  },
+  methods: {},
   created() {},
   components: {
     tourPreview,
