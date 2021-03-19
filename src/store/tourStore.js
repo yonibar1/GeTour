@@ -1,16 +1,18 @@
 import { tourService } from '../services/tour.service';
+import { utilService } from '../services/util.service';
 export const tourStore = {
     state: {
         tours: [],
         tour: null,
         tourToEdit: null,
-        reviews: [],
+        // reviews: [],
     },
     getters: {
         tours(state) {
             return state.tours;
         },
         tour(state) {
+            console.log('Getters',state.tour);
             return state.tour;
         },
         tourToEdit(state) {
@@ -24,7 +26,8 @@ export const tourStore = {
         query(state, { tours }) {
             state.tours = tours;
         },
-        setTour(state, { tour }) {
+        setTour(state,{tour}) {
+            console.log('Tour', tour);
             state.tour = tour;
         },
         loadReviews(state, { reviews }) {
@@ -48,9 +51,9 @@ export const tourStore = {
             });
             state.tours.splice(idx, 1);
         },
-        addReview(state, { review }) {
-            state.reviews.push(review);
-        },
+        // addReview(state, { review }) {
+        //     state.reviews.push(review);
+        // },
     },
     actions: {
         // async loadChat(state, { tourId }) {
@@ -117,10 +120,16 @@ export const tourStore = {
                 console.log('Cannot get Tours', err);
             }
         },
-        async addReview({ commit }, { review }) {
+        async addReview({ commit }, { review, tourId }) {
             try {
-                console.log('review added', review);
-                commit({ type: 'addReview' }, review);
+                const tourById = await tourService.getById(tourId);
+                review.id=utilService.makeId()
+                tourById.reviews.push(review);
+
+                const tour = await tourService.save(tourById);
+                console.log('tourAfterSave:', tour);
+                // commit({ type: 'updateTour', tour });
+                commit({ type: 'setTour', tour });
             } catch (err) {
                 console.log('Cannot add review', err);
             }
@@ -128,6 +137,3 @@ export const tourStore = {
     },
     modules: {},
 };
-
-
-

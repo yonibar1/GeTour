@@ -91,7 +91,7 @@
                     placeholder="We Need Your Opinion"
                 >
                 </el-input>
-                <el-button>Add Review</el-button>
+                <button>Add Review</button>
             </form>
         </div>
         <!-- <chat :tourId="tour._id" />  -->
@@ -106,7 +106,13 @@ export default {
         return {
             reviewToEdit: {
                 txt: '',
-                // aboutTourId: null,
+                createdAt: Date.now(),
+                rate: 2,
+                byUser: {
+                    fullname: 'muki tuki',
+                    avatar: 'avatar.jpg',
+                    _id: 'u201',
+                },
             },
             reviews: [],
         };
@@ -129,36 +135,29 @@ export default {
         async loadTour() {
             try {
                 const id = this.$route.params.tourId;
-                const tour = await this.$store.dispatch({
+                await this.$store.dispatch({
                     type: 'loadTour',
                     id,
                 });
-                this.reviews = tour.reviews;
-                console.log('  this.reviews:', this.reviews);
-
+                this.reviews = this.tour.reviews;
                 // this.$store.dispatch({ type: 'loadUsers' });
             } catch {
                 console.log('Cant Show Tour Details');
             }
         },
         async addReview() {
+            console.log('this.reviewToEdit:', this.reviewToEdit);
             await this.$store.dispatch({
                 type: 'addReview',
                 review: this.reviewToEdit,
+                tourId: this.tour._id,
             });
-            this.reviewToEdit = { txt: '', aboutUserId: null };
+            this.reviewToEdit = { txt: '' };
         },
     },
     // async orderTour() {
     //   console.log("Ordering");
     // },
-    async addReview() {
-        await this.$store.dispatch({
-            type: 'addReview',
-            review: this.reviewToEdit,
-        });
-        this.reviewToEdit = { txt: '' };
-    },
     filters: {
         moment: function(date) {
             return moment(date).format('MMMM Do YYYY, h:mm:ss a');
