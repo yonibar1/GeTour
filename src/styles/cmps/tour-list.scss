@@ -7,23 +7,3 @@
         grid-gap: 30px;
     }
 }
-.list-filter-container{
-    height: 100px;
-    width: 100%;
-    margin-top: 70px;
-    background-color: $main-clr;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &>:not(:first-child){
-        margin-inline-start: 10px;
-    }
-    button{
-        padding:10px;
-        color: $main-clr;
-        border-radius: 5px;
-        outline: none;
-        border: none;
-        background-color: white;
-    }
-}

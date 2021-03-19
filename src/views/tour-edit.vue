@@ -1,71 +1,81 @@
 <template>
   <section class="tour-edit">
-    <el-form v-if="tourToEdit" action="">
-      <el-form-item label-position="left" label="Title ">
-        <el-input v-model="tourToEdit.title" placeholder="Title" type="text" />
-      </el-form-item>
-      <el-form-item label="Price">
-        <el-input-number
-          v-model.number="tourToEdit.price"
-          placeholder="Price"
-          type="number"
-        />
-      </el-form-item>
-      <el-form-item label="Capacity ">
-        <el-input-number
-          v-model.number="tourToEdit.capacity"
-          placeholder="Capacity"
-          type="number"
-        />
-      </el-form-item>
-      <el-form-item label="Days Count ">
-        <el-input-number
-          v-model.number="tourToEdit.daysCount"
-          placeholder="Days"
-          type="number"
-        />
-      </el-form-item>
-      <el-form-item label="Difficulty ">
-        <el-input-number
-          v-model.number="tourToEdit.difficulty"
-          placeholder="Difficulty"
-          type="number"
-        />
-      </el-form-item>
-      <el-form-item label="Tags ">
-        <el-select v-model="tourToEdit.tags" multiple placeholder="Select">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
+    <div class="edit-background-image-container">
+      <img src="@/assets/img/signup-img.jpg" />
+      <el-form v-if="tourToEdit" action="">
+        <el-form-item label-position="left" label="Title ">
+          <el-input
+            v-model="tourToEdit.title"
+            placeholder="Title"
+            type="text"
+          />
+        </el-form-item>
+        <el-form-item label="Price">
+          <el-input-number
+            class="input-number"
+            v-model.number="tourToEdit.price"
+            placeholder="Price"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item label="Capacity ">
+          <el-input-number
+            v-model.number="tourToEdit.capacity"
+            placeholder="Capacity"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item label="Days Count ">
+          <el-input-number
+            v-model.number="tourToEdit.daysCount"
+            placeholder="Days"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item label="Difficulty ">
+          <el-input-number
+            v-model.number="tourToEdit.difficulty"
+            placeholder="Difficulty"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item label="Tags ">
+          <el-select v-model="tourToEdit.tags" multiple placeholder="Select">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="Description ">
+          <el-input
+            type="textarea"
+            maxlength="100"
+            show-word-limit
+            v-model="tourToEdit.description"
+            :autosize="{ minRows: 2, maxRows: 4 }"
+            placeholder="Description"
           >
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="Description ">
-        <el-input
-          type="textarea"
-          maxlength="100"
-          show-word-limit
-          v-model="tourToEdit.description"
-          :autosize="{ minRows: 2, maxRows: 4 }"
-          placeholder="Description"
+          </el-input>
+        </el-form-item>
+        <el-form-item label-position="left">
+          <label class="upload-images">
+            Upload Images
+            <i class="fas fa-cloud-upload-alt">
+              <input class="file-input" multiple type="file" />
+            </i>
+          </label>
+          <!-- V-MODEL ON FILE INPUT -->
+        </el-form-item>
+        <el-button @click="saveTour" v-if="tourToEdit._id"
+          >Update Tour</el-button
         >
-        </el-input>
-      </el-form-item>
-      <el-form-item label-position="left">
-        <label class="upload-images">
-          Upload Images
-          <i class="fas fa-cloud-upload-alt">
-            <input class="file-input" multiple type="file" />
-          </i>
-        </label>
-        <!-- V-MODEL ON FILE INPUT -->
-      </el-form-item>
-      <el-button @click="saveTour" v-if="tourToEdit._id">Update Tour</el-button>
-      <el-button @click="saveTour" v-else>Create Tour</el-button>
-    </el-form>
+        <el-button @click="saveTour" v-else>Create Tour</el-button>
+      </el-form>
+    </div>
   </section>
 </template>
 

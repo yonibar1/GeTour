@@ -38,11 +38,7 @@ export default {
       rate: 0,
     };
   },
-  methods: {
-    removeTour(id) {
-      this.$emit("removeTour", id);
-    },
-  },
+  methods: {},
   created() {
     this.rate = this.tour.rate;
   },
