@@ -22,6 +22,7 @@
       <div @click="openRange()">Price</div>
       <div v-if="open" class="range-box">
         <el-slider v-model="value" range :max="100"> </el-slider>
+        From: {{ value[0] }} To: {{ value[1] }}
       </div>
       <el-button class="save-btn" icon="el-icon-search" circle></el-button>
     </form>
