@@ -87,7 +87,7 @@ function getEmptyTour(title, price) {
                 id: 'u101',
                 txt: 'the best trip',
                 createdAt: 11286341283,
-                rate: utilService.getRandomInt(0,5),
+                rate: utilService.getRandomInt(0, 5),
                 byUser: {
                     fullname: 'muki puki',
                     _id: utilService.makeId(),
@@ -97,6 +97,19 @@ function getEmptyTour(title, price) {
         ],
     };
 }
+
+// function getEmptyReview(txt) {
+//     return {
+//         txt,
+//         createdAt: moment(Date.now()).fromnow(),
+//         rate,
+//         byUser: {
+//             fullname,
+//             _id: utilService.makeId(),
+//             avatar: 'avatar.jpg',
+//         },
+//     };
+// }
 
 function _createTours() {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
@@ -125,3 +138,9 @@ function _createTour(title, price) {
     tour._id = utilService.makeId();
     return tour;
 }
+
+// function _createReview(txt) {
+//     const review = getEmptyReview(txt);
+//     review.id = utilService.makeId();
+//     return review;
+// }

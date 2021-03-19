@@ -4,6 +4,34 @@
     height: 100%;
     display: grid;
 
+    .add-review-container {
+        margin-inline-start: rem(100px);
+        width: 30%;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+            textarea {
+                height: 190px;
+                width: 100%;
+                resize: none;
+                font-family: OpenSans, serif;
+                color:black;
+                margin-bottom:5px;
+                border-radius:14px;
+
+            }
+
+            button {
+                width: 30%;
+                align-self: center;
+            }
+        }
+    }
+
     .review-list {
         display: flex;
         flex-direction: column;
@@ -169,6 +197,7 @@
 
                 button {
                     width: 50%;
+                    align-self: center;
                 }
             }
 

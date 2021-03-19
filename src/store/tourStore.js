@@ -111,13 +111,23 @@ export const tourStore = {
         async loadTour({ commit }, { id }) {
             try {
                 const tour = await tourService.getById(id);
-                console.log('tour:', tour);
                 commit({ type: 'setTour', tour });
                 return tour;
             } catch (err) {
                 console.log('Cannot get Tours', err);
             }
         },
+        async addReview({ commit }, { review }) {
+            try {
+                console.log('review added', review);
+                commit({ type: 'addReview' }, review);
+            } catch (err) {
+                console.log('Cannot add review', err);
+            }
+        },
     },
     modules: {},
 };
+
+
+

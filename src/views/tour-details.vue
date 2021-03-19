@@ -29,14 +29,28 @@
                 <p>{{ tour.description }}</p>
             </div>
             <div class="tour-order">
-                <form @submit.prevent="orderAtrip">
-                    <h3>Price: {{ tour.price }}</h3>
-                    <label>How Many Travellers <input type="number"/></label>
-                    <label>Any Speacial Requests:</label>
-                    <textarea placeholder="I Would Like..." />
-                    <label>To Pay:{{ tour.price }}</label>
-                    <button>Order Tour</button>
-                </form>
+                <el-form @submit.prevent="orderAtrip">
+                    <el-form-item label="Price:">
+                        {{ tour.price }}</el-form-item
+                    >
+                    <el-form-item label="How Many Travellers :">
+                        <el-input-number type="number" />
+                    </el-form-item>
+                    <el-form-item label="Any Speacial Requests:">
+                        <el-input
+                            type="textarea"
+                            maxlength="100"
+                            show-word-limit
+                            :autosize="{ minRows: 2, maxRows: 4 }"
+                            placeholder="Any Speacial Requests..."
+                        >
+                        </el-input>
+                    </el-form-item>
+                    <el-form-item label="To Pay:">{{
+                        tour.price
+                    }}</el-form-item>
+                    <el-button>Order Tour</el-button>
+                </el-form>
             </div>
         </div>
         <div class="review-list">
@@ -65,19 +79,21 @@
                 </li>
             </ul>
         </div>
-        <!-- <form @submit.prevent="addReview()">
-            <h2>What Do You Thinking About That Tour :</h2>
-            <select v-model="reviewToEdit.aboutTourId">
-                <option v-for="user in users" :key="user._id" :value="user._id">
-                    {{ user.fullname }}
-                </option>
-            </select>
-            <textarea
-                placeholder="We Need Your Opinion"
-                v-model="reviewToEdit.txt"
-            ></textarea>
-            <button>Save</button>
-        </form> -->
+        <div class="add-review-container">
+            <form @submit.prevent="addReview()">
+                <!-- <h2>What Do You Thinking About That Tour :</h2> -->
+                <el-input
+                    type="textarea"
+                    maxlength="100"
+                    show-word-limit
+                    v-model="reviewToEdit.txt"
+                    :autosize="{ minRows: 2, maxRows: 4 }"
+                    placeholder="We Need Your Opinion"
+                >
+                </el-input>
+                <el-button>Add Review</el-button>
+            </form>
+        </div>
         <!-- <chat :tourId="tour._id" />  -->
     </section>
 </template>
@@ -88,10 +104,10 @@ import moment from 'moment';
 export default {
     data() {
         return {
-            // reviewToEdit: {
-            //     txt: '',
-            //     aboutTourId: null,
-            // },
+            reviewToEdit: {
+                txt: '',
+                // aboutTourId: null,
+            },
             reviews: [],
         };
     },
@@ -125,24 +141,24 @@ export default {
                 console.log('Cant Show Tour Details');
             }
         },
-        // async addReview() {
-        //     await this.$store.dispatch({
-        //         type: 'addReview',
-        //         review: this.reviewToEdit,
-        //     });
-        //     this.reviewToEdit = { txt: '', aboutUserId: null };
-        // },
+        async addReview() {
+            await this.$store.dispatch({
+                type: 'addReview',
+                review: this.reviewToEdit,
+            });
+            this.reviewToEdit = { txt: '', aboutUserId: null };
+        },
     },
     // async orderTour() {
     //   console.log("Ordering");
     // },
-    // async addReview() {
-    //     await this.$store.dispatch({
-    //         type: 'addReview',
-    //         review: this.reviewToEdit,
-    //     });
-    //     this.reviewToEdit = { txt: '', aboutUserId: null };
-    // },
+    async addReview() {
+        await this.$store.dispatch({
+            type: 'addReview',
+            review: this.reviewToEdit,
+        });
+        this.reviewToEdit = { txt: '' };
+    },
     filters: {
         moment: function(date) {
             return moment(date).format('MMMM Do YYYY, h:mm:ss a');
