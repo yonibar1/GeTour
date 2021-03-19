@@ -5,14 +5,14 @@ export const tourStore = {
         tours: [],
         tour: null,
         tourToEdit: null,
-        // reviews: [],
+        reviews: [],
     },
     getters: {
         tours(state) {
             return state.tours;
         },
         tour(state) {
-            console.log('Getters',state.tour);
+            console.log('Getters', state.tour);
             return state.tour;
         },
         tourToEdit(state) {
@@ -26,7 +26,7 @@ export const tourStore = {
         query(state, { tours }) {
             state.tours = tours;
         },
-        setTour(state,{tour}) {
+        setTour(state, { tour }) {
             console.log('Tour', tour);
             state.tour = tour;
         },
@@ -51,9 +51,9 @@ export const tourStore = {
             });
             state.tours.splice(idx, 1);
         },
-        // addReview(state, { review }) {
-        //     state.reviews.push(review);
-        // },
+        addReview(state, { review }) {
+            state.reviews.push(review);
+        },
     },
     actions: {
         // async loadChat(state, { tourId }) {
@@ -120,15 +120,24 @@ export const tourStore = {
                 console.log('Cannot get Tours', err);
             }
         },
+        async loadReviews({ commit }, { id }) {
+            try {
+                const tour = await tourService.getById(id)
+                const reviews = tour.reviews
+                commit({ type: 'loadReviews', reviews })
+
+            } catch (err) {
+                console.log(err);
+            }
+        },
         async addReview({ commit }, { review, tourId }) {
             try {
+                review.id = utilService.makeId()
+                commit({ type: 'addReview', review })
                 const tourById = await tourService.getById(tourId);
-                review.id=utilService.makeId()
-                tourById.reviews.push(review);
-
+                tourById.reviews.push(review)
                 const tour = await tourService.save(tourById);
-                console.log('tourAfterSave:', tour);
-                // commit({ type: 'updateTour', tour });
+                console.log(tour, 'Tour After Save');
                 commit({ type: 'setTour', tour });
             } catch (err) {
                 console.log('Cannot add review', err);
