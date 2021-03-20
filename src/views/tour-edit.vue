@@ -70,6 +70,7 @@
           </label>
           <!-- V-MODEL ON FILE INPUT -->
         </el-form-item>
+        <tour-map />
         <el-button @click="saveTour" v-if="tourToEdit._id"
           >Update Tour</el-button
         >
@@ -80,6 +81,7 @@
 </template>
 
 <script>
+import tourMap from "../cmps/tour-map";
 export default {
   name: "tourEdit",
   data() {
@@ -116,6 +118,9 @@ export default {
         console.log("Cannot load Tour", err);
       }
     },
+  },
+  components: {
+    tourMap,
   },
 };
 </script>
