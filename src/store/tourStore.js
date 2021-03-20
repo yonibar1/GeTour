@@ -64,16 +64,16 @@ export const tourStore = {
         },
     },
     actions: {
-        // async loadChat(state, { tourId }) {
-        //     const tour = await tourService.getById(tourId)
-        //     state.commit({ type: 'setChatHistory', chat: tour.chatHistory })
-        // },
-        // async saveMsg(state, { data }) {
-        //     const tour = await tourService.getById(data.tourId)
-        //     tour.chatHistory = data.msgs
-        //     const tourAfterSave = await tourService.save(tour)
-        //     state.commit({ type: 'updateTour', tourAfterSave })
-        // },
+        async loadChat(state, { tourId }) {
+            const tour = await tourService.getById(tourId)
+            state.commit({ type: 'setChatHistory', chat: tour.chatHistory })
+        },
+        async saveMsg(state, { data }) {
+            const tour = await tourService.getById(data.tourId)
+            tour.chatHistory = data.msgs
+            const tourAfterSave = await tourService.save(tour)
+            state.commit({ type: 'updateTour', tourAfterSave })
+        },
         async setFilter(state, { filter }) {
             try {
                 const tours = await tourService.query(filter)
