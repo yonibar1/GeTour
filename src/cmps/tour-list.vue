@@ -1,6 +1,6 @@
 <template>
   <section>
-    <tour-filter />
+    <!-- <tour-filter /> -->
     <div class="tour-list">
       <ul>
         <li v-for="tour in tours" :key="tour._id">
@@ -13,7 +13,7 @@
 
 <script>
 import tourPreview from "./tour-preview";
-import tourFilter from "./tour-filter";
+// import tourFilter from "./tour-filter";
 export default {
   props: {
     tours: {
@@ -27,7 +27,7 @@ export default {
   created() {},
   components: {
     tourPreview,
-    tourFilter,
+    // tourFilter,
   },
 };
 </script>

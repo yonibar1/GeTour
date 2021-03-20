@@ -6,7 +6,7 @@ import { utilService } from './util.service.js';
 // const KEY = 'toursDB';
 const TOURS_KEY = 'tours';
 // const TOURS_URL = 'tours/';
-
+// const STAR = '⭐';
 export const tourService = {
     query,
     getById,
@@ -18,21 +18,23 @@ export const tourService = {
 };
 _createTours();
 function query(filterBy = {}) {
-    console.log('filterBy in service:', filterBy)
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
-    var toursCopy = JSON.parse(JSON.stringify(tours))
-    
-    console.log('filterBy.byPriceRange:', filterBy.byPriceRange)
+    var toursCopy = JSON.parse(JSON.stringify(tours));
     if (filterBy.byPriceRange) {
-        toursCopy = toursCopy.filter(tour => {
-            return tour.price > filterBy.byPriceRange.min && tour.price < filterBy.byPriceRange.max
-        })
+        toursCopy = toursCopy.filter((tour) => {
+            return (
+                tour.price > filterBy.byPriceRange.min &&
+                tour.price < filterBy.byPriceRange.max
+            );
+        });
     }
 
     if (filterBy.byDestination) {
-        toursCopy = toursCopy.filter(tour => {
-            return tour.country.toLowerCase().includes(filterBy.byDestination.toLowerCase())
-        })
+        toursCopy = toursCopy.filter((tour) => {
+            return tour.country
+                .toLowerCase()
+                .includes(filterBy.byDestination.toLowerCase());
+        });
     }
     return toursCopy;
 }
@@ -79,7 +81,7 @@ function getEmptyTour(title, price, country) {
         members: utilService.getRandomInt(1, 20),
         daysCount: utilService.getRandomInt(1, 5),
         difficulty: utilService.getRandomInt(1, 5),
-        rate: utilService.getRandomInt(1, 5),
+        rate: utilService.getRandomInt(1, 5) ,
         msgs: [],
         locs: [],
         imgs: [

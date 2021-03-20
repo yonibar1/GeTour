@@ -59,7 +59,7 @@
         <div class="review-list">
             <tour-review :tour="tour" :reviews="reviews" />
         </div>
-        <chat :tourId="tour._id" />
+        <!-- <chat :tourId="tour._id" /> -->
         <div class="order-modal">
             <el-dialog
                 title="Your Order"
@@ -84,14 +84,14 @@
                 </span>
             </el-dialog>
         </div>
-        F
+   
     </section>
 </template>
 
 <script>
 import tourReview from '../cmps/tour-review';
 import moment from 'moment';
-import chat from '@/cmps/chat.vue';
+// import chat from '@/cmps/chat.vue';
 export default {
     data() {
         return {
@@ -152,7 +152,7 @@ export default {
     },
     components: {
         tourReview,
-        chat,
+        // chat,
     },
 };
 </script>

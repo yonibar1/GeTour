@@ -27,12 +27,14 @@
                 <el-input
                     type="textarea"
                     maxlength="100"
-                   
                     v-model="reviewToEdit.txt"
                     :autosize="{ minRows: 2, maxRows: 4 }"
                     placeholder="We Need Your Opinion"
                 >
                 </el-input>
+                <!-- <el-form-item label="Rate Your Tour..."></el-form-item>
+                <el-input-number type="number" v-model="reviewToEdit.rate"></el-input-number>  -->
+
                 <button>Add Review</button>
             </form>
         </div>
@@ -52,7 +54,7 @@ export default {
             reviewToEdit: {
                 txt: '',
                 createdAt: Date.now(),
-                rate: 2,
+                rate: null,
                 byUser: {
                     fullname: 'muki tuki',
                     avatar: 'avatar.jpg',
@@ -73,14 +75,25 @@ export default {
                 review: this.reviewToEdit,
                 tourId: this.tour._id,
             });
-            this.reviewToEdit = { txt: '' };
+            this.reviewToEdit = {
+                txt: '',
+                createdAt: Date.now(),
+                rate: null,
+                byUser: {
+                    fullname: 'muki tuki',
+                    avatar: 'avatar.jpg',
+                    _id: 'u201',
+                },
+            };
         },
         async loadReviews(id) {
+            console.log('this.reviewToEdit load:', this.reviewToEdit);
             await this.$store.dispatch({ type: 'loadReviews', id });
         },
     },
     created() {
         this.loadReviews(this.tour._id);
+        console.log('to edit', this.reviewToEdit);
     },
     filters: {
         moment: function(date) {

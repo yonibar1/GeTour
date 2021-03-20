@@ -43,6 +43,11 @@
                             font-size: 14px;
                             text-transform: capitalize;
                         }
+
+                        i {
+                            color: rgb(214, 214, 54);
+                            text-shadow: 0 1px 0 rgb(22, 21, 21);
+                        }
                     }
 
                     .mini-user {
@@ -109,9 +114,10 @@
                     font-size: 14px;
                     margin-bottom: 10px;
                 }
-                button:hover{
-                    background-color: rgba(185, 247, 255,0.4);
-                    color:rgb(103, 103, 255);
+
+                button:hover {
+                    background-color: rgba(185, 247, 255, 0.4);
+                    color: rgb(103, 103, 255);
                 }
 
             }
