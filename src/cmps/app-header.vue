@@ -1,5 +1,9 @@
 <template >
-  <section class="app-header" ref="header">
+  <section
+    class="app-header"
+    ref="header"
+    :class="{ scrollClass: isScrolling, staticPos: isStaticPos }"
+  >
     <div class="logo-container">
       <router-link to="/">
         <img v-if="!isScrolling" src="@/assets/logo-w.svg" alt="" />
@@ -7,9 +11,23 @@
       </router-link>
     </div>
     <nav>
-      <router-link to="/edit"> <button>Become a guide</button></router-link> |
-      <router-link to="/login-signup"><button>Sign Up</button></router-link> |
-      <router-link to="/login-signup"><button>Login</button></router-link>
+      <router-link to="/edit">
+        <button :class="{ scrollClass: isScrolling }">
+          Become a guide
+        </button></router-link
+      >
+      |
+      <router-link to="/login-signup"
+        ><button :class="{ scrollClass: isScrolling }">
+          Sign Up
+        </button></router-link
+      >
+      |
+      <router-link to="/login-signup"
+        ><button :class="{ scrollClass: isScrolling }">
+          Login
+        </button></router-link
+      >
     </nav>
   </section>
 </template>
@@ -20,15 +38,15 @@ export default {
   data() {
     return {
       isScrolling: false,
+      isStaticPos: false,
     };
   },
   methods: {
     onScroll() {
       if (window.scrollY > 10) {
         this.isScrolling = true;
-        this.$refs.header.style.backgroundColor = "white";
+      } else {
         this.isScrolling = false;
-        this.$refs.header.style.backgroundColor = "transparent";
       }
     },
   },
@@ -37,20 +55,16 @@ export default {
       immediate: true,
       handler: function (val) {
         if (val.fullPath === "/") {
-          console.log('in fafi');
           window.addEventListener("scroll", this.onScroll);
           this.isScrolling = false;
-          this.$refs.header.classList.remove("relative-pos");
-          this.$refs.header.style.backgroundColor = "transparent";
+          this.isStaticPos = false;
         } else {
-          console.log("not home");
-          this.isScrolling = true;
           window.removeEventListener("scroll", this.onScroll);
-          this.$refs.header.classList.add("relative-pos");
-          this.$refs.header.style.backgroundColor = "white";
+          this.isStaticPos = true;
+          this.isScrolling = true;
         }
-      },
-    },
+      }
+    }
   },
 };
 </script>

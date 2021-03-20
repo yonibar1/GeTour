@@ -1,10 +1,5 @@
 .app-header {
-    .logo-container {
-        width: 150px;
-    }
-    &.relative-pos {
-        position: relative;
-    }
+    background-color: transparent;
     position: fixed;
     top: 0;
     left: 0;
@@ -16,6 +11,9 @@
     align-items: center;
     justify-content: space-between;
     padding: $main-padding;
+    .logo-container {
+        width: 150px;
+    }
     nav {
         color: white;
         font-size: 20px;
@@ -28,11 +26,20 @@
             transition: 0.2s;
             &:hover {
                 color: white;
-                background-color: rgba(50, 167, 155, 0.397);
+                background-color: #32a79b65;
             }
         }
         a {
             color: white;
         }
     }
+}
+
+.scrollClass {
+    background-color: white !important;
+    color: $main-clr !important;
+}
+
+.staticPos {
+    position: static;
 }
