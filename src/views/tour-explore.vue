@@ -18,7 +18,7 @@ export default {
       this.tours = tours;
     },
   },
-  created() {
+  mounted() {
     this.loadTours();
   },
   components: {

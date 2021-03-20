@@ -21,18 +21,19 @@ function query(filterBy = {}) {
     console.log('filterBy in service:', filterBy)
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     var toursCopy = JSON.parse(JSON.stringify(tours))
-
-    if(filterBy.byDestination) {
+    
+    console.log('filterBy.byPriceRange:', filterBy.byPriceRange)
+    if (filterBy.byPriceRange) {
         toursCopy = toursCopy.filter(tour => {
-            console.log( tour.country.toLowerCase().includes(filterBy.byDestination.toLowerCase()))
+            return tour.price > filterBy.byPriceRange.min && tour.price < filterBy.byPriceRange.max
+        })
+    }
+
+    if (filterBy.byDestination) {
+        toursCopy = toursCopy.filter(tour => {
             return tour.country.toLowerCase().includes(filterBy.byDestination.toLowerCase())
         })
     }
-    // if(filterBy.byPrice) {
-    //     toursCopy = toursCopy.filter(tour => {
-    //         return tour.price > filterBy.byPrice.min && tour.price < filterBy.byPrice.max
-    //     })
-    // }
     return toursCopy;
 }
 

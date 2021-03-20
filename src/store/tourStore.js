@@ -7,7 +7,11 @@ export const tourStore = {
         tour: null,
         tourToEdit: null,
         reviews: [],
-        filterBy: {},
+        filterBy: {
+            byDestination: "",
+            byDate: "",
+            byPriceRange: { min: 0, max: 10000 },
+        }
     },
     getters: {
         tours(state) {
@@ -35,7 +39,7 @@ export const tourStore = {
         },
         setFilterBy(state, { filter }) {
             state.filterBy = filter;
-            console.log('set filter in mutation', filter);
+
         },
         loadReviews(state, { reviews }) {
             state.reviews = reviews;
@@ -83,17 +87,14 @@ export const tourStore = {
             console.log('setFilter in store:', filter)
             try {
                 state.commit({ type: 'setFilterBy', filter });
-                console.log(state.filterBy);
-                // const tours = await tourService.query(state.filterBy);
-                // state.commit({ type: 'query', tours });
-
             } catch (err) {
                 console.log('Cannot set filter', err);
             }
         },
         async query(state) {
+            console.log('state.filterBy in Query-store', state);
             try {
-                const tours = await tourService.query(state.filterBy);
+                const tours = await tourService.query(state.state.filterBy);
                 state.commit({ type: 'query', tours });
                 return tours;
             } catch (err) {
