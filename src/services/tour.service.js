@@ -17,16 +17,24 @@ export const tourService = {
     // queryAllByType,
 };
 _createTours();
-function query() {
-    // filterBy = {}, pageIdx = 0 - as a paramater
-    // const params = {
-    //     filterBy,
-    //     pageIdx,
-    // };
-    // return httpService.get(TOUR_URL, params);
-
+function query(filterBy = {}) {
+    console.log('filterBy in service:', filterBy)
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
-    return tours;
+    var toursCopy = JSON.parse(JSON.stringify(tours))
+    
+    console.log('filterBy.byPriceRange:', filterBy.byPriceRange)
+    if (filterBy.byPriceRange) {
+        toursCopy = toursCopy.filter(tour => {
+            return tour.price > filterBy.byPriceRange.min && tour.price < filterBy.byPriceRange.max
+        })
+    }
+
+    if (filterBy.byDestination) {
+        toursCopy = toursCopy.filter(tour => {
+            return tour.country.toLowerCase().includes(filterBy.byDestination.toLowerCase())
+        })
+    }
+    return toursCopy;
 }
 
 // function queryAllByType(type) {
@@ -61,9 +69,10 @@ function save(tour) {
 //     return savedUser;
 // }
 
-function getEmptyTour(title, price) {
+function getEmptyTour(title, price, country) {
     return {
         title,
+        country,
         price,
         startedAt: Date.now(),
         capacity: utilService.getRandomInt(1, 20),
@@ -107,26 +116,26 @@ function _createTours() {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     if (!tours || !tours.length) {
         tours = [
-            _createTour('Parisian Nights', 300),
-            _createTour('Lovely Amsterdam', 500),
-            _createTour('Barcelona For Couples', 700),
-            _createTour("New York Street's", 350),
-            _createTour('Merom Golan Valleys', 20),
-            _createTour('Budapest Eye', 240),
-            _createTour('Koh Samui Beaches', 700),
-            _createTour('Rio Carnivals', 150),
-            _createTour('The Taste Of Rome', 700),
-            _createTour('Prague Views', 300),
-            _createTour('The Western Wall', 80),
-            _createTour('Through The Jungle', 1000),
+            _createTour('Parisian Nights', 300, 'France'),
+            _createTour('Lovely Amsterdam', 500, 'Netherlands'),
+            _createTour('Barcelona For Couples', 700, 'Spain'),
+            _createTour("New York Street's", 350, 'USA'),
+            _createTour('Merom Golan Valleys', 20, 'Israel'),
+            _createTour('Budapest Eye', 240, 'Hungary'),
+            _createTour('Koh Samui Beaches', 700, 'Thailand'),
+            _createTour('Rio Carnivals', 150, 'Brazil'),
+            _createTour('The Taste Of Rome', 700, 'Italy'),
+            _createTour('Prague Views', 300, 'Czech Republic'),
+            _createTour('The Western Wall', 80, 'Israel'),
+            _createTour('Through The Jungle', 1000, 'Thailand'),
         ];
         localStorage.setItem(TOURS_KEY, JSON.stringify(tours));
     }
     return tours;
 }
 
-function _createTour(title, price) {
-    const tour = getEmptyTour(title, price);
+function _createTour(title, price, country) {
+    const tour = getEmptyTour(title, price, country);
     tour._id = utilService.makeId();
     return tour;
 }
