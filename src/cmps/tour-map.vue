@@ -6,64 +6,44 @@
       :zoom="9"
       map-type-id="terrain"
       style="width: 100%; height: 200px"
+      @click="addCheckPoint"
     >
       <GmapMarker
         :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
+        v-for="(c, index) in checkPoints"
+        :position="c.pos"
         :clickable="true"
         :draggable="true"
-        @click="center = m.position"
+        @click="center = c.pos"
       />
     </GmapMap>
-    <div class="map-buttons-container">
-      <el-button
-        v-for="marker in markers"
-        @click="goTo(marker.position)"
-        :key="marker._id"
-        >{{ marker.name }}</el-button
-      >
-    </div>
+    <el-button @click="saveCheckPoints">Save Check Points</el-button>
+    <el-button @click="clearChechPoints">Clear</el-button>
   </section>
 </template>
 
 <script>
 export default {
   methods: {
-    goTo(pos) {
-      this.$refs.mapRef.$mapPromise.then((map) => {
-        map.panTo(pos);
-      });
+    addCheckPoint(ev) {
+      const checkPoint = {
+        pos: { lat: ev.latLng.lat(), lng: ev.latLng.lng() },
+      };
+      this.checkPoints.push(checkPoint);
+    },
+    saveCheckPoints() {
+      this.$emit("setCheckPoints", this.checkPoints);
+      this.checkPoints = [];
+    },
+    clearChechPoints() {
+      this.checkPoints = [];
+      this.$emit("setCheckPoints", this.checkPoints);
     },
   },
   data() {
     return {
-      markers: [
-        {
-          _id: "123",
-          name: "Jerusalem",
-          position: { lat: 31.771959, lng: 35.217018 },
-        },
-        {
-          _id: "124",
-          name: "Tel Aviv",
-          position: { lat: 32.0853, lng: 34.781769 },
-        },
-        {
-          _id: "125",
-          name: "Kfar Tavor",
-          position: { lat: 32.688229, lng: 35.421181 },
-        },
-        {
-          _id: "126",
-          name: "Eilat",
-          position: { lat: 29.55036, lng: 34.952278 },
-        },
-      ],
+      checkPoints: [],
     };
   },
 };
 </script>
-
-<style>
-</style>
