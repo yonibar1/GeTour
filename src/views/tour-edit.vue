@@ -70,7 +70,10 @@
           </label>
           <!-- V-MODEL ON FILE INPUT -->
         </el-form-item>
-        <tour-map />
+        <label>
+          Enter Tour Checkpoints
+          <tour-map @setCheckPoints="setCheckPoints" />
+        </label>
         <el-button @click="saveTour" v-if="tourToEdit._id"
           >Update Tour</el-button
         >
@@ -117,6 +120,10 @@ export default {
       } catch (err) {
         console.log("Cannot load Tour", err);
       }
+    },
+    setCheckPoints(cp) {
+      this.tourToEdit.locs = cp;
+      console.log(this.tourToEdit);
     },
   },
   components: {
