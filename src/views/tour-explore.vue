@@ -10,12 +10,16 @@ export default {
   data() {
     return {
       tours: [],
+      filterBy: this.$store.getters.filterBy,
     };
   },
   methods: {
     async loadTours() {
-      const tours = await this.$store.dispatch({ type: "query" });
-      this.tours = tours;
+      if (!this.filterBy.length) {
+        console.log('this.filterBy:', this.filterBy)
+        const tours = await this.$store.dispatch({ type: "query" });
+        this.tours = tours;
+      }
     },
   },
   created() {

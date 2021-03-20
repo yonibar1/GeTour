@@ -7,9 +7,9 @@
       </router-link>
     </div>
     <nav>
-      <router-link to="/edit">Become a guide</router-link> |
-      <router-link to="/login-signup">Signup</router-link> |
-      <router-link to="/login-signup">Login</router-link>
+      <router-link to="/edit"> <button>Become a guide</button></router-link> |
+      <router-link to="/login-signup"><button>Sign Up</button></router-link> |
+      <router-link to="/login-signup"><button>Login</button></router-link>
     </nav>
   </section>
 </template>
@@ -27,7 +27,6 @@ export default {
       if (window.scrollY > 10) {
         this.isScrolling = true;
         this.$refs.header.style.backgroundColor = "white";
-      } else {
         this.isScrolling = false;
         this.$refs.header.style.backgroundColor = "transparent";
       }
@@ -38,6 +37,7 @@ export default {
       immediate: true,
       handler: function (val) {
         if (val.fullPath === "/") {
+          console.log('in fafi');
           window.addEventListener("scroll", this.onScroll);
           this.isScrolling = false;
           this.$refs.header.classList.remove("relative-pos");

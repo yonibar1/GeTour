@@ -25,6 +25,11 @@ const routes = [
         name: 'login-signup',
         component: loginSignup,
     },
+    // {
+    //     path: '/login-signup/:userId?',
+    //     name: 'user-profile',
+    //     component: userProfile,
+    // },
     {
         path: '/edit/:tourId?',
         name: 'tour-edit',
