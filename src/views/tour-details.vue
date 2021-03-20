@@ -2,6 +2,7 @@
     <section v-if="tour" class="tour-details">
         <div class="details-container-primary">
             <h2>{{ tour.title }}</h2>
+            <h5>{{tour.country}}</h5>
             <div class="images-container">
                 <div class="first-img">
                     <img src="../assets/img/hero3.jpg" alt="" />
@@ -20,6 +21,7 @@
         <div class="order-details-container">
             <div class="details-container-secondry">
                 <h3>{{ tour.startedAt | moment }}</h3>
+                <!-- <h3>In {{ tour.country }}</h3> -->
                 <h3>Tour Duration: {{ tour.daysCount }} Days</h3>
                 <h3>
                     {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
@@ -66,6 +68,7 @@
                 :before-close="handleClose"
             >
                 <h3>{{ tour.title }}</h3>
+                <h5>{{ tour.country}}</h5>
                 <h4>{{ tour.startedAt | moment }}</h4>
                 <p>
                     Your Order Has been sent to the tour guide for approval we
