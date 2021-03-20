@@ -40,12 +40,12 @@
         </div>
       </div>
       <router-link to="/explore">
-      <el-button
-        @click="setFilter()"
-        class="save-btn"
-        icon="el-icon-search"
-        circle
-      ></el-button>
+        <el-button
+          @click="setFilter()"
+          class="save-btn"
+          icon="el-icon-search"
+          circle
+        ></el-button>
       </router-link>
     </form>
   </section>
@@ -72,6 +72,7 @@ export default {
       }
     },
     setPrice() {
+      console.log(this.value);
       const min = this.value[0];
       const max = this.value[1];
       this.priceToShow = `$${min} - $${max}`;
@@ -84,7 +85,7 @@ export default {
           min: this.value[0],
           max: this.value[1],
         },
-      }
+      };
       console.log(filterBy);
     },
   },

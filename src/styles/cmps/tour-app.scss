@@ -18,7 +18,7 @@
     .guides-container {
         // border-top: solid 1px $muted;
         // border-bottom: solid 1px $muted;
-        margin: 60px 0;
+        margin: 100px 0;
         padding: $main-padding;
         button {
             color: $main-clr;
@@ -32,15 +32,22 @@
         }
     }
 
+    .guides-container .categories {
+        max-width: 60rem;
+        margin: 0 auto;
+    }
+
+    .guides-container .categories, .categories-container  .categories {
+        margin-top: 50px;
+    }
+
     .categories {
         display: grid;
         grid-template-columns: repeat(4, minmax(100px, 1fr));
         grid-gap: 6px;
-        margin-top: 30px;
-
         li {
             a:hover {
-                color: $main-clr
+                color: $main-clr;
             }
             .category-card {
                 @include aspect-ratio(80, 80);
@@ -49,7 +56,7 @@
                 }
             }
             .avatar-card {
-                @include aspect-ratio(100, 100);
+                @include aspect-ratio(60, 60);
                 img {
                     border-radius: 50%;
                 }
