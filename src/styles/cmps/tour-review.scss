@@ -5,10 +5,77 @@
     margin-inline-start: rem(100px);
     margin-inline-end: rem(100px);
 
-    .tour-review {
-        .add-review-container {
+    h2 {
+        text-decoration: underline;
+        text-shadow: 1px 1px 1px rgb(255, 213, 150);
+    }
 
-            margin-inline-start: rem(100px);
+    .tour-review {
+        height: 50%;
+
+
+        ul {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+            li {
+                width: rem(200px);
+
+
+                .review {
+                    box-shadow: 1.5px 1.5px 1.5px rgb(56, 56, 56);
+                    height: 150px;
+                    background-color: rgba(221, 220, 220, 0.459);
+                    margin-bottom: rem(10px);
+                    padding: rem(10px);
+                    border-radius: 14px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+
+                    .ranks-txt {
+                        display: flex;
+                        justify-content: space-between;
+
+                        h3 {
+                            font-size: 14px;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    .mini-user {
+                        display: flex;
+
+
+                        .mini-user-img {
+                            width: 40px;
+                            height: 40px;
+                            margin: 5px 5px 5px 0;
+                            @include aspect-ratio(100, 100);
+
+                            img {
+                                border-radius: 50%;
+
+                            }
+                        }
+
+                        .mini-user-details {
+                            display: flex;
+                            flex-direction: column;
+
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        .add-review-container {
+            // margin-inline-start: rem(100px);
             width: 30%;
 
             form {
@@ -18,24 +85,37 @@
 
 
                 textarea {
-                    height: 190px;
-                    width: 100%;
+                    // height: 100%;
+                    width: 350px;
                     resize: none;
                     font-family: OpenSans, serif;
                     color: black;
                     margin-bottom: 5px;
+                    border: 1px solid rgb(56, 56, 56);
                     border-radius: 14px;
 
                 }
 
                 button {
-                    width: 30%;
+                    width: 112px;
+                    height: 40px;
                     align-self: center;
+                    background-color: #fff;
+                    color: #606266;
+                    border: 1px solid #DCDFE6;
+                    border-radius: 4px;
+                    transition: .1s;
+                    font-weight: 500;
+                    font-size: 14px;
+                    margin-bottom: 10px;
                 }
+                button:hover{
+                    background-color: rgba(185, 247, 255,0.4);
+                    color:rgb(103, 103, 255);
+                }
+
             }
         }
-
-
 
         h2 {
             margin-top: rem(10px);
@@ -44,55 +124,5 @@
             font-family: OpenSans, serif;
             text-decoration: underline;
         }
-
-        li {
-            width: 40%;
-        }
-
-        .review {
-            width: 50%;
-            background-color: rgba(221, 220, 220, 0.459);
-            margin-bottom: rem(10px);
-            padding: rem(10px);
-            border-radius: 14px;
-
-            .ranks-txt {
-                display: flex;
-                justify-content: space-between;
-
-                h3 {
-                    font-size: 14px;
-                    text-transform: capitalize;
-                }
-            }
-
-            .mini-user {
-                display: flex;
-                // display: grid;
-                // grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-
-                .mini-user-img {
-                    width: 40px;
-                    height: 40px;
-                    margin: 5px 5px 5px 0;
-                    @include aspect-ratio(100, 100);
-
-                    img {
-                        border-radius: 50%;
-
-                    }
-                }
-
-                .mini-user-details {
-                    display: flex;
-                    flex-direction: column;
-
-
-                }
-
-            }
-
-        }
-
     }
 }
