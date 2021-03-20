@@ -27,7 +27,7 @@
                 <el-input
                     type="textarea"
                     maxlength="100"
-                    show-word-limit
+                   
                     v-model="reviewToEdit.txt"
                     :autosize="{ minRows: 2, maxRows: 4 }"
                     placeholder="We Need Your Opinion"
