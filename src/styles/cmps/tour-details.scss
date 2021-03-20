@@ -87,9 +87,11 @@
         }
 
         .tour-order {
+
+
             background-color: rgba(172, 168, 168, 0.151);
             border-radius: 14px;
-            height: 80%;
+            height: 85%;
             width: 30%;
 
             form {
@@ -103,12 +105,12 @@
                 button {
                     width: 50%;
                     align-self: center;
+                    margin-top: -20px;
                 }
             }
 
             textarea {
                 resize: none;
-               
             }
         }
     }

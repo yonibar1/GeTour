@@ -2,18 +2,18 @@ import { tourService } from '../services/tour.service';
 import { utilService } from '../services/util.service';
 export const tourStore = {
     state: {
+        // chatHistory: [],
         tours: [],
         tour: null,
         tourToEdit: null,
         reviews: [],
-        filterBy: {}
+        filterBy: {},
     },
     getters: {
         tours(state) {
             return state.tours;
         },
         tour(state) {
-            console.log('Getters', state.tour);
             return state.tour;
         },
         tourToEdit(state) {
@@ -31,7 +31,6 @@ export const tourStore = {
             state.tours = tours;
         },
         setTour(state, { tour }) {
-            console.log('Tour', tour);
             state.tour = tour;
         },
         setfilterBy(state, { filterBy }) {
@@ -62,22 +61,28 @@ export const tourStore = {
         addReview(state, { review }) {
             state.reviews.push(review);
         },
+        // setChatHistory(state, { chat }) {
+        //     console.log('chat:', chat)
+        //     state.chatHistory = chat;
+        // },
     },
     actions: {
-        async loadChat(state, { tourId }) {
-            const tour = await tourService.getById(tourId)
-            state.commit({ type: 'setChatHistory', chat: tour.chatHistory })
-        },
-        async saveMsg(state, { data }) {
-            const tour = await tourService.getById(data.tourId)
-            tour.chatHistory = data.msgs
-            const tourAfterSave = await tourService.save(tour)
-            state.commit({ type: 'updateTour', tourAfterSave })
-        },
+        // async loadChat(state, payload) {
+        //     // console.log('payload:', payload)
+        //     // const tour = await tourService.getById(tourId);
+        //     state.commit({ type: 'setChatHistory', chat: tour.chatHistory });
+        // },
+        // async saveMsg(state, { data }) {
+        //     // console.log('data:', data)
+        //     const tour = await tourService.getById(data.tourId);
+        //     tour.chatHistory = data.msgs;
+        //     const tourAfterSave = await tourService.save(tour);
+        //     state.commit({ type: 'updateTour', tourAfterSave });
+        // },
         async setFilter(state, { filter }) {
             try {
-                const tours = await tourService.query(filter)
-                state.commit({ type: 'query', tours })
+                const tours = await tourService.query(filter);
+                state.commit({ type: 'query', tours });
             } catch (err) {
                 console.log('Cannot set filter', err);
             }
@@ -130,20 +135,19 @@ export const tourStore = {
         },
         async loadReviews({ commit }, { id }) {
             try {
-                const tour = await tourService.getById(id)
-                const reviews = tour.reviews
-                commit({ type: 'loadReviews', reviews })
-
+                const tour = await tourService.getById(id);
+                const reviews = tour.reviews;
+                commit({ type: 'loadReviews', reviews });
             } catch (err) {
                 console.log(err);
             }
         },
         async addReview({ commit }, { review, tourId }) {
             try {
-                review.id = utilService.makeId()
-                commit({ type: 'addReview', review })
+                review.id = utilService.makeId();
+                commit({ type: 'addReview', review });
                 const tourById = await tourService.getById(tourId);
-                tourById.reviews.push(review)
+                tourById.reviews.push(review);
                 const tour = await tourService.save(tourById);
                 console.log(tour, 'Tour After Save');
                 commit({ type: 'setTour', tour });
