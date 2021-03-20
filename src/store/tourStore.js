@@ -33,9 +33,9 @@ export const tourStore = {
         setTour(state, { tour }) {
             state.tour = tour;
         },
-        setfilterBy(state, { filterBy }) {
-            console.log('set filter in mutation', filterBy);
-            state.filterBy = filterBy;
+        setFilterBy(state, { filter }) {
+            state.filterBy = filter;
+            console.log('set filter in mutation', filter);
         },
         loadReviews(state, { reviews }) {
             state.reviews = reviews;
@@ -80,17 +80,21 @@ export const tourStore = {
         //     state.commit({ type: 'updateTour', tourAfterSave });
         // },
         async setFilter(state, { filter }) {
+            console.log('setFilter in store:', filter)
             try {
-                const tours = await tourService.query(filter);
-                state.commit({ type: 'query', tours });
+                state.commit({ type: 'setFilterBy', filter });
+                console.log(state.filterBy);
+                // const tours = await tourService.query(state.filterBy);
+                // state.commit({ type: 'query', tours });
+
             } catch (err) {
                 console.log('Cannot set filter', err);
             }
         },
-        async query({ commit }) {
+        async query(state) {
             try {
-                const tours = await tourService.query();
-                commit({ type: 'query', tours });
+                const tours = await tourService.query(state.filterBy);
+                state.commit({ type: 'query', tours });
                 return tours;
             } catch (err) {
                 console.log('Cannot get Tours', err);
