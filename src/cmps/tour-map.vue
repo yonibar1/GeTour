@@ -11,10 +11,10 @@
       <GmapMarker
         :key="index"
         v-for="(c, index) in checkPoints"
-        :position="c.pos"
+        :position="c"
         :clickable="true"
         :draggable="true"
-        @click="center = c.pos"
+        @click="center = c"
       />
     </GmapMap>
     <el-button @click="saveCheckPoints">Save Check Points</el-button>
@@ -26,10 +26,11 @@
 export default {
   methods: {
     addCheckPoint(ev) {
-      const checkPoint = {
-        pos: { lat: ev.latLng.lat(), lng: ev.latLng.lng() },
+      const pos = {
+        lat: ev.latLng.lat(),
+        lng: ev.latLng.lng(),
       };
-      this.checkPoints.push(checkPoint);
+      this.checkPoints.push(pos);
     },
     saveCheckPoints() {
       this.$emit("setCheckPoints", this.checkPoints);
