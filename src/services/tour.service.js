@@ -6,7 +6,6 @@ import { utilService } from './util.service.js';
 // const KEY = 'toursDB';
 const TOURS_KEY = 'tours';
 // const TOURS_URL = 'tours/';
-// const STAR = '⭐';
 export const tourService = {
     query,
     getById,
