@@ -108,7 +108,7 @@ function getEmptyReview(txt, rate = 3) {
         createdAt: Date.now(),
         rate,
         byUser: {
-            fullname: 'koko me eilat',
+            fullname: 'Josh Wellington',
             _id: utilService.makeId(),
             avatar: 'avatar.jpg',
         },
