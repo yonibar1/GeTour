@@ -32,9 +32,10 @@
                     placeholder="We Need Your Opinion"
                 >
                 </el-input>
-                <!-- <el-form-item label="Rate Your Tour..."></el-form-item>
-                <el-input-number type="number" v-model="reviewToEdit.rate"></el-input-number>  -->
-
+                <el-input-number
+                    type="number"
+                    v-model="reviewToEdit.rate"
+                ></el-input-number>
                 <button>Add Review</button>
             </form>
         </div>
