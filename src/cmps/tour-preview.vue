@@ -1,10 +1,9 @@
 <template>
   <section class="tour-preview">
-      <router-link :to="'/tour-details/' + tour._id">
-    <div class="preview-img-container">
+    <router-link :to="'/tour-details/' + tour._id">
+      <div class="preview-img-container">
         <img :src="require(`../assets/demo-tours/${tour.imgUrl}`)" alt="" />
-    </div>
-
+      </div>
       <div class="tour-description-container">
         <div class="mini-user-container">
           <div class="mini-user-img">
