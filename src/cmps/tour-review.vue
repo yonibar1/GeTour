@@ -1,5 +1,22 @@
 <template>
     <section class="tour-review">
+        <div class="add-review-container">
+            <form @submit.prevent="addReview()">
+                <el-input
+                    type="textarea"
+                    maxlength="100"
+                    v-model="reviewToEdit.txt"
+                    :autosize="{ minRows: 2, maxRows: 4 }"
+                    placeholder="We Need Your Opinion"
+                >
+                </el-input>
+                <el-input-number
+                    type="number"
+                    v-model="reviewToEdit.rate"
+                ></el-input-number>
+                <button>Add Review</button>
+            </form>
+        </div>
         <ul v-if="reviews">
             <li v-for="review in reviews" :key="review.id">
                 <div class="review">
@@ -22,23 +39,6 @@
                 </div>
             </li>
         </ul>
-        <div class="add-review-container">
-            <form @submit.prevent="addReview()">
-                <el-input
-                    type="textarea"
-                    maxlength="100"
-                    v-model="reviewToEdit.txt"
-                    :autosize="{ minRows: 2, maxRows: 4 }"
-                    placeholder="We Need Your Opinion"
-                >
-                </el-input>
-                <el-input-number
-                    type="number"
-                    v-model="reviewToEdit.rate"
-                ></el-input-number>
-                <button>Add Review</button>
-            </form>
-        </div>
     </section>
 </template>
 
