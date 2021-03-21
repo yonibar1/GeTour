@@ -2,7 +2,7 @@
     <section v-if="tour" class="tour-details">
         <div class="details-container-primary">
             <h2>{{ tour.title }}</h2>
-            <h5>{{tour.country}}</h5>
+            <h5>{{ tour.country }}</h5>
             <div class="images-container">
                 <div class="first-img">
                     <img src="../assets/img/amsterdam/amsterdam5.jpg" alt="" />
@@ -16,7 +16,7 @@
                 <div class="img4">
                     <img src="../assets/img/amsterdam/amsterdam4.jpg" alt="" />
                 </div>
-                  <div class="img5">
+                <div class="img5">
                     <img src="../assets/img/amsterdam/amsterdam2.jpg" alt="" />
                 </div>
             </div>
@@ -24,7 +24,6 @@
         <div class="order-details-container">
             <div class="details-container-secondry">
                 <h3>{{ tour.startedAt | moment }}</h3>
-                <!-- <h3>In {{ tour.country }}</h3> -->
                 <h3>Tour Duration: {{ tour.daysCount }} Days</h3>
                 <h3>
                     {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
@@ -34,13 +33,12 @@
                 <p>{{ tour.description }}</p>
             </div>
             <div class="tour-order">
-                <!-- <el-form @submit.prevent="orderAtrip"> -->
                 <el-form>
                     <el-form-item label="Price:">
                         {{ tour.price }}</el-form-item
                     >
                     <el-form-item label="How Many Travellers :">
-                        <el-input-number type="number" />
+                        <el-input-number type="number"></el-input-number>
                     </el-form-item>
                     <el-form-item label="Any Speacial Requests:">
                         <el-input
@@ -71,7 +69,7 @@
                 :before-close="handleClose"
             >
                 <h3>{{ tour.title }}</h3>
-                <h5>{{ tour.country}}</h5>
+                <h5>{{ tour.country }}</h5>
                 <h4>{{ tour.startedAt | moment }}</h4>
                 <p>
                     Your Order Has been sent to the tour guide for approval we
@@ -87,7 +85,6 @@
                 </span>
             </el-dialog>
         </div>
-   
     </section>
 </template>
 
