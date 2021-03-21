@@ -5,7 +5,12 @@
             <tour-filter />
         </div>
         <div class="categories-container">
-            <h1>Top Places</h1>
+            <div class="categories-explore">
+                <h1>Top Places</h1>
+                <router-link to="/explore">
+                    <el-button round>See All</el-button>
+                </router-link>
+            </div>
             <ul class="categories">
                 <li>
                     <router-link to="/explore">
@@ -41,17 +46,16 @@
                         </div>
                         Best tours in USA
                     </router-link>
-                    <router-link to="/explore">
-                        <el-button round>See All</el-button>
-                    </router-link>
                 </li>
             </ul>
         </div>
         <div class="guides-container">
+            <div class="categories-explore">
             <h1>Top guides of the week</h1>
             <router-link to="/explore">
                 <el-button round>See All</el-button>
             </router-link>
+            </div>
             <ul class="categories">
                 <li>
                     <router-link to="/explore">

@@ -80,17 +80,14 @@
         }
 
         .add-review-container {
-            // margin-inline-start: rem(100px);
-            width: 30%;
+            margin-top:5px;
+            // margin-inline-start: rem(2px);
+            width: 100%;
 
             form {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
 
                 textarea {
-                    // height: 100%;
+
                     width: 350px;
                     resize: none;
                     font-family: OpenSans, serif;
@@ -101,8 +98,12 @@
 
                 }
 
+                input {
+                    // margin-left: 20px;
+                }
+
                 button {
-                    width: 112px;
+                    width: 152px;
                     height: 40px;
                     align-self: center;
                     background-color: #fff;
@@ -113,6 +114,8 @@
                     font-weight: 500;
                     font-size: 14px;
                     margin-bottom: 10px;
+                    margin-left:20px;
+
                 }
 
                 button:hover {
