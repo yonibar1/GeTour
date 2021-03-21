@@ -59,13 +59,13 @@
           <el-button round>See All</el-button>
         </router-link>
       </div>
-    <div class="preview-container">
-      <ul v-if="tours" class="tours">
-        <li :key="tour._id" v-for="tour in tours.slice(0, 4)">
-          <tour-preview :tour="tour" />
-        </li>
-      </ul>
-    </div>
+      <div class="preview-container">
+        <ul v-if="tours" class="tours">
+          <li :key="tour._id" v-for="tour in tours.slice(0, 4)">
+            <tour-preview :tour="tour" />
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- GUIDES -->
@@ -126,11 +126,12 @@ export default {
   methods: {
     async loadTours() {
       const tours = await this.$store.dispatch({ type: "query" });
+      console.log(tours);
       this.tours = tours;
     },
   },
   created() {
-    this.loadTours();
+    // this.loadTours();
   },
   components: {
     tourFilter,

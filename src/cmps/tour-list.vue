@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="tour-list">
-      <ul>
+      <ul v-if="tours">
         <li v-for="tour in tours" :key="tour._id">
           <tour-preview :tour="tour"></tour-preview>
         </li>
@@ -22,7 +22,9 @@ export default {
     return {};
   },
   methods: {},
-  created() {},
+  created() {
+    console.log(this.tours);
+  },
   components: {
     tourPreview,
   },

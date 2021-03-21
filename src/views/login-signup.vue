@@ -85,7 +85,6 @@ export default {
       this.isLogin = !this.isLogin;
     },
     signup() {
-      console.log("x");
       console.log(this.signupData);
       // this.$store
       //   .dispatch({ type: "saveUser", user: this.loggedinUser })
@@ -94,7 +93,6 @@ export default {
       //   });
     },
     login() {
-      console.log("x");
       console.log(this.loginData);
       // this.$store
       //   .dispatch({ type: "saveUser", user: this.loggedinUser })

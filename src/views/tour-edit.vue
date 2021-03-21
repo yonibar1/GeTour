@@ -12,6 +12,15 @@
           />
         </el-form-item>
         <el-form-item>
+          <label for="country">Country</label>
+          <el-input
+            id="country"
+            v-model="tourToEdit.country"
+            placeholder="Country"
+            type="text"
+          />
+        </el-form-item>
+        <el-form-item>
           <label for="price">Price</label>
           <el-input-number
             id="price"
@@ -148,7 +157,6 @@ export default {
     },
     setCheckPoints(cp) {
       this.tourToEdit.locs = cp;
-      console.log(this.tourToEdit);
     },
   },
   components: {

@@ -93,6 +93,7 @@ export const tourStore = {
             try {
                 const tours = await tourService.query(state.state.filterBy);
                 state.commit({ type: 'query', tours });
+                console.log(tours, 'Tours in store');
                 return tours;
             } catch (err) {
                 console.log('Cannot get Tours', err);
@@ -140,7 +141,6 @@ export const tourStore = {
                 const tour = await tourService.getById(id);
                 const reviews = tour.reviews;
                 commit({ type: 'loadReviews', reviews });
-                console.log('reviews:', reviews)
             } catch (err) {
                 console.log(err);
             }

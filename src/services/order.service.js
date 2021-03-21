@@ -18,7 +18,6 @@ function query(filterBy = {}) {
     var orders = JSON.parse(localStorage.getItem(ORDER_KEY));
     var ordersCopy = JSON.parse(JSON.stringify(orders));
     if (filterBy.byPriceRange) {
-        console.log('inside Price If');
         ordersCopy = ordersCopy.filter((order) => {
             return (
                 order.price > filterBy.byPriceRange.min &&
@@ -51,6 +50,16 @@ function save(order) {
         // return httpService.put(ORDER_URL + order._id, order);
         return storageService.put(ORDER_KEY, order);
     } else {
+        // Gonna Change Soon
+        order.createdAt = Date.now()
+        order.status = 'pending'
+        order.byUser = {
+            _id: 'mongodbID',
+            fullname: 'muki puki',
+            imgUrl: 'someurl.jpg',
+        }
+        // Gonna Change Soon
+
         // return httpService.post(ORDER_URL, order);
         return storageService.post(ORDER_KEY, order);
     }
@@ -60,23 +69,23 @@ function getEmptyOrder() {
 
 }
 
-const orders = [
-    {
-        _id: utilService.makeId(),
-        createdAt: Date.now(),
-        guestsCount: 2,
-        totalPrice: 300, //should be the number of participants * tour price//
-        status: 'pending',
-        buyer:
-        {
-            _id: 'mongodbID',
-            fullname: 'muki puki',
-            imgUrl: 'someurl.jpg',
-        },
-        tour: {
-            _id: 09320320,
-            title: 'tourtitle',
-            imgUrl: './img.jpg'
-        }
-    },
-]
+// const orders = [
+//     {
+//         _id: utilService.makeId(),
+//         createdAt: Date.now(),
+//         guestsCount: 2,
+//         totalPrice: 300, //should be the number of participants * tour price//
+//         status: 'pending',
+//         byUser:
+//         {
+//             _id: 'mongodbID',
+//             fullname: 'muki puki',
+//             imgUrl: 'someurl.jpg',
+//         },
+//         tour: {
+//             _id: 09320320,
+//             title: 'tourtitle',
+//             imgUrl: './img.jpg'
+//         }
+//     },
+// ]
