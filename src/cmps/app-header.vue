@@ -19,20 +19,12 @@
       |
       <router-link to="/login-signup"
         ><button :class="{ scrollClass: isScrolling }">
-          Sign Up
-        </button></router-link
-      >
-      |
-      <router-link to="/login-signup"
-        ><button :class="{ scrollClass: isScrolling }">
-          Login
+          Login / Signup
         </button></router-link
       >
     </nav>
   </section>
 </template>
-
-   
 <script>
 export default {
   data() {
@@ -63,8 +55,8 @@ export default {
           this.isStaticPos = true;
           this.isScrolling = true;
         }
-      }
-    }
+      },
+    },
   },
 };
 </script>

@@ -80,17 +80,14 @@
         }
 
         .add-review-container {
-            // margin-inline-start: rem(100px);
-            width: 30%;
+            margin-top: 90px;
+            // margin-inline-start: rem(2px);
+            width: 100%;
 
             form {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
 
                 textarea {
-                    // height: 100%;
+
                     width: 350px;
                     resize: none;
                     font-family: OpenSans, serif;
@@ -101,8 +98,18 @@
 
                 }
 
+                .demonstration {
+                    font-family: OpenSans, sans-serif;
+                    font-weight: bold;
+                }
+
+                .el-rate {
+                    margin-bottom: 5px;
+                }
+
+
                 button {
-                    width: 112px;
+                    width: 152px;
                     height: 40px;
                     align-self: center;
                     background-color: #fff;
