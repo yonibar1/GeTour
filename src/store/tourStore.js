@@ -8,10 +8,10 @@ export const tourStore = {
         tourToEdit: null,
         reviews: [],
         filterBy: {
-            byDestination: "",
-            byDate: "",
+            byDestination: '',
+            byDate: '',
             byPriceRange: { min: 0, max: 10000 },
-        }
+        },
     },
     getters: {
         tours(state) {
@@ -38,8 +38,8 @@ export const tourStore = {
             state.tour = tour;
         },
         setFilterBy(state, { filter }) {
+            console.log('filter:', filter);
             state.filterBy = filter;
-
         },
         loadReviews(state, { reviews }) {
             state.reviews = reviews;
@@ -84,7 +84,7 @@ export const tourStore = {
         //     state.commit({ type: 'updateTour', tourAfterSave });
         // },
         async setFilter(state, { filter }) {
-            console.log('setFilter in store:', filter)
+            console.log('setFilter in store:', filter);
             try {
                 state.commit({ type: 'setFilterBy', filter });
             } catch (err) {
@@ -92,7 +92,6 @@ export const tourStore = {
             }
         },
         async query(state) {
-            console.log('state.filterBy in Query-store', state);
             try {
                 const tours = await tourService.query(state.state.filterBy);
                 state.commit({ type: 'query', tours });
@@ -143,6 +142,7 @@ export const tourStore = {
                 const tour = await tourService.getById(id);
                 const reviews = tour.reviews;
                 commit({ type: 'loadReviews', reviews });
+                console.log('reviews:', reviews)
             } catch (err) {
                 console.log(err);
             }
@@ -154,7 +154,6 @@ export const tourStore = {
                 const tourById = await tourService.getById(tourId);
                 tourById.reviews.push(review);
                 const tour = await tourService.save(tourById);
-                console.log(tour, 'Tour After Save');
                 commit({ type: 'setTour', tour });
             } catch (err) {
                 console.log('Cannot add review', err);
