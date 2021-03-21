@@ -1,9 +1,10 @@
 <template>
   <section class="tour-preview">
-    <router-link :to="'/tour-details/' + tour._id">
-      <div class="preview-img-container">
-        <img src="../assets/img/hero.jpg" alt="" />
-      </div>
+      <router-link :to="'/tour-details/' + tour._id">
+    <div class="preview-img-container">
+        <img :src="require(`../assets/demo-tours/${tour.imgUrl}`)" alt="" />
+    </div>
+
       <div class="tour-description-container">
         <div class="mini-user-container">
           <div class="mini-user-img">
@@ -38,7 +39,11 @@ export default {
       rate: 0,
     };
   },
-  methods: {},
+  methods: {
+    imgUrl() {
+      return `../assets/demo-tours/${this.tour.imgUrl}.jpg`;
+    },
+  },
   created() {
     this.rate = this.tour.rate;
   },

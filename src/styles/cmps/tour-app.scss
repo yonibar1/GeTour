@@ -15,14 +15,12 @@
 
     .categories-container,
     .guides-container {
-        margin: 100px 0;
+        margin: 35px 0;
         padding: $main-padding;
-
         button {
             color: $main-clr;
             position: absolute;
             right: 10px;
-
             &:hover {
                 background-color: $main-clr;
                 opacity: 0.4;
@@ -57,7 +55,7 @@
 
     .guides-container .categories,
     .categories-container .categories {
-        margin-top: 50px;
+        margin-top: 60px;
     }
 
     .categories {

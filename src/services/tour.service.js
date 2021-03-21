@@ -71,9 +71,10 @@ function save(tour) {
 //     return savedUser;
 // }
 
-function getEmptyTour(title, price, country) {
+function getEmptyTour(title, price, country, imgUrl) {
     return {
         title,
+        imgUrl,
         country,
         price,
         startedAt: Date.now(),
@@ -118,26 +119,26 @@ function _createTours() {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     if (!tours || !tours.length) {
         tours = [
-            _createTour('Parisian Nights', 300, 'France'),
-            _createTour('Lovely Amsterdam', 500, 'Netherlands'),
-            _createTour('Barcelona For Couples', 700, 'Spain'),
-            _createTour("New York Street's", 350, 'USA'),
-            _createTour('Merom Golan Valleys', 20, 'Israel'),
-            _createTour('Budapest Eye', 240, 'Hungary'),
-            _createTour('Koh Samui Beaches', 700, 'Thailand'),
-            _createTour('Rio Carnivals', 150, 'Brazil'),
-            _createTour('The Taste Of Rome', 700, 'Italy'),
-            _createTour('Prague Views', 300, 'Czech Republic'),
-            _createTour('The Western Wall', 80, 'Israel'),
-            _createTour('Through The Jungle', 1000, 'Thailand'),
+            _createTour('Parisian Nights', 300, 'France', 'paris.jpg'),
+            _createTour('Lovely Amsterdam', 500, 'Netherlands', 'amsterdam.jpg'),
+            _createTour('Barcelona For Couples', 700, 'Spain', 'barcelona.jpg'),
+            _createTour("New York Street's", 350, 'USA', 'new-york.jpg'),
+            _createTour('Merom Golan Valleys', 20, 'Israel', 'marom-golan.jpg'),
+            _createTour('Budapest Eye', 240, 'Hungary', 'budapest.jpg'),
+            _createTour('Koh Samui Beaches', 700, 'Thailand', 'koh-samui.jpg'),
+            _createTour('Rio Carnivals', 150, 'Brazil', 'rio-carnival.jpg'),
+            _createTour('The Taste Of Rome', 700, 'Italy', 'rome.jpg'),
+            _createTour('Prague Views', 300, 'Czech Republic', 'prague.jpg'),
+            _createTour('The Western Wall', 80, 'Israel', 'western-wall.jpg'),
+            _createTour('Through Chang Mai Mountains', 1000, 'Thailand', 'chaing-mai.jpg'),
         ];
         localStorage.setItem(TOURS_KEY, JSON.stringify(tours));
     }
     return tours;
 }
 
-function _createTour(title, price, country) {
-    const tour = getEmptyTour(title, price, country);
+function _createTour(title, price, country, imgUrl) {
+    const tour = getEmptyTour(title, price, country, imgUrl);
     tour._id = utilService.makeId();
     return tour;
 }
