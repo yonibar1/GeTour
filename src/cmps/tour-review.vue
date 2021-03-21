@@ -12,13 +12,8 @@
                 </el-input>
                 <div class="block">
                     <span class="demonstration">Rate Your Tour</span>
-                    <el-rate v-model="reviewToEdit.rate"></el-rate>
+                    <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
                 </div>
-
-                <!-- <el-input-number
-                    type="number"
-                    v-model="reviewToEdit.rate"
-                ></el-input-number> -->
                 <button>Add Review</button>
             </form>
         </div>
@@ -39,7 +34,15 @@
                     </div>
                     <div class="ranks-txt">
                         <h3>❞{{ review.txt }}❞</h3>
-                        <p>{{ review.rate }}<i class="el-icon-star-on"></i></p>
+                        <el-rate
+                            v-model="review.rate"
+                            disabled
+                            show-score
+                            text-color="#ff9900"
+                           
+                        >
+                        </el-rate>
+                          
                     </div>
                 </div>
             </li>

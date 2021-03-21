@@ -1,8 +1,23 @@
 <template>
+    <!-- <i class="fas fa-child"></i> -->
+    <!-- <i class="fas fa-city"></i> -->
+    <!-- <i class="fas fa-tree"></i> -->
+    <!-- <i class="fas fa-utensils"></i> -->
     <section v-if="tour" class="tour-details">
         <div class="details-container-primary">
-            <h2>{{ tour.title }}</h2>
-            <h5>{{ tour.country }}</h5>
+            <h2>
+                {{ tour.title }}
+
+                <el-rate
+                    v-model="tour.rate"
+                    disabled
+                    show-score
+                    text-color="#ff9900"
+                >
+                </el-rate>
+            </h2>
+            <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
+
             <div class="images-container">
                 <div class="first-img">
                     <img src="../assets/img/amsterdam/amsterdam5.jpg" alt="" />
@@ -24,11 +39,14 @@
         <div class="order-details-container">
             <div class="details-container-secondry">
                 <h3>{{ tour.startedAt | moment }}</h3>
-                <h3>Tour Duration: {{ tour.daysCount }} Days</h3>
                 <h3>
                     {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
                 </h3>
-                <h4>{{ tour.tags }}</h4>
+                <!-- <i
+                    v-for="(tag, idx) in tour.tags"
+                    :key="idx"
+                    :class="getTags"
+                ></i> -->
                 <!-- <h3>{{ tour.locs.name }}</h3> -->
                 <p>{{ tour.description }}</p>
             </div>
@@ -37,19 +55,8 @@
                     <el-form-item label="Price:">
                         {{ tour.price }}</el-form-item
                     >
-                    <el-form-item label="How Many Travellers :">
-                        <el-input-number type="number"></el-input-number>
-                    </el-form-item>
-                    <el-form-item label="Any Speacial Requests:">
-                        <el-input
-                            type="textarea"
-                            maxlength="100"
-                            show-word-limit
-                            :autosize="{ minRows: 2, maxRows: 4 }"
-                            placeholder="Any Speacial Requests..."
-                        >
-                        </el-input>
-                    </el-form-item>
+                    <el-form-item label="How Many Travellers :"> </el-form-item>
+                    <el-input-number type="number"></el-input-number>
                     <el-form-item label="To Pay:">{{
                         tour.price
                     }}</el-form-item>
@@ -68,7 +75,9 @@
                 width="30%"
                 :before-close="handleClose"
             >
-                <h3>{{ tour.title }}</h3>
+                <h3>
+                    {{ tour.title }}
+                </h3>
                 <h5>{{ tour.country }}</h5>
                 <h4>{{ tour.startedAt | moment }}</h4>
                 <p>
@@ -106,6 +115,16 @@ export default {
         tour() {
             return this.$store.getters.tour;
         },
+        // getTags() {
+        //     const tags = this.tour.tags;
+        //     tags.forEach((tag) => {
+        //         if (tag === 'Water Trail') {
+        //             return 'fas fa-water';
+        //         } else if (tag === 'For Children') {
+        //             return 'fas fa-child';
+        //         }
+        //     });
+        // },
         // users() {
         //     return this.$store.getters.users;
         // },
