@@ -10,7 +10,7 @@ export const tourStore = {
         filterBy: {
             byDestination: '',
             byDate: '',
-            byPriceRange: { min: 0, max: 10000 },
+            byPriceRange: { min: 0, max: 1000 },
         },
     },
     getters: {

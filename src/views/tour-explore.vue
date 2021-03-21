@@ -4,9 +4,11 @@
     <tour-list v-if="tours" :tours="tours"></tour-list>
   </section>
 </template>
+
 <script>
 import tourList from "../cmps/tour-list";
 import tourFilter from "../cmps/tour-filter";
+
 export default {
   data() {
     return {
@@ -20,7 +22,6 @@ export default {
     },
     async filterChanged() {
       await this.loadTours();
-      console.log(this.tours, "TOURS AT EXPLORE");
     },
   },
   created() {

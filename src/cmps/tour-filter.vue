@@ -19,11 +19,11 @@
         default-value="2010-10-01"
       >
       </el-date-picker>
-      <div @click="toggleRangeBox()">{{ priceToShow }}</div>
-      <div v-if="isOpen" class="range-box">
-        <div class="rane-box-header">
+      <div class="price-input" @click="toggleRangeBox()">{{ priceToShow }}</div>
+      <div v-if="isOpen" class="range-box-modal">
+        <div class="range-box-modal-header">
           <h4>Pick Your Price</h4>
-          <el-slider v-model="filterBy.byPriceRange" range :max="10000">
+          <el-slider v-model="filterBy.byPriceRange" range :max="1000">
           </el-slider>
         </div>
         <div class="price-box-container">
@@ -61,7 +61,7 @@ export default {
       filterBy: {
         byDestination: "",
         byDate: "",
-        byPriceRange: [0, 10000],
+        byPriceRange: [0, 1000],
       },
     };
   },

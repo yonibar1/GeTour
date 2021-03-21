@@ -1,78 +1,68 @@
-.tour-explore{
-
-    .range-box {
-        position: relative;
-        top: 74px;
-        right: 5px;
-        width: 300px;
-        height: 150px;
-        color: $main-clr;
-        background: #fff;
-        align-items: center;
+.tour-explore {
+    .tour-filter {
+        position: static;
+        background-color: $main-clr;
+        height: 70px;
+        padding: $main-padding;
+        width: 100%;
+        border-radius: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0;
+        display: flex;
         justify-content: center;
-        border-radius: 10px;
-        padding: 20px;
-        .price-box-container {
+        align-items: center;
+        text-align: center;
+        form {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            .min-box,
-            .max-box {
-                font-size: 13px;
-                border-radius: 12px;
-                border: solid 1px $main-clr;
-                padding: 5px;
-                width: 80px;
-                margin: 0 12px;
-                text-align: left;
-                span {
-                    font-size: 18px;
-                }
-            }
-        }
-        .el-slider {
-            width: 100%;
-            .el-slider__runway .el-slider__bar {
-                background-color: $main-clr;
-            }
-            .el-slider__button {
-                border: 2px solid $main-clr;
+            width: 50rem;
+            justify-content: space-between;
+            .price-input {
+                display: flex;
+                background-color: white;
+                width: 100px;
+                color: $muted;
+                align-items: center;
+                justify-content: center;
             }
         }
     }
-    
+}
 
-            .tour-filter {
-                
-                position: static;
-                background-color: $main-clr;
-                height: 60px;
-                max-width: 50rem;
-                border-radius: 30px;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                form {
-                    display: flex;
-                    width: 100%;
-                    justify-content: space-between;
-                    padding: 20px;
-                    input,
-                    .el-date-editor {
-                        border-radius: 50px;
-                        border: none;
-                    }
-                    .el-button {
-                        color: white;
-                        background-color: $main-clr;
-                    }
-                    .destination-input {
-                        width: 200px;
-                    }
-                }
+.range-box-modal {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    color: $main-clr;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    .price-box-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .min-box,
+        .max-box {
+            font-size: 13px;
+            border-radius: 12px;
+            border: solid 1px $main-clr;
+            padding: 5px;
+            width: 80px;
+            margin: 0 12px;
+            text-align: left;
+            span {
+                font-size: 18px;
             }
+        }
+    }
+    .el-slider {
+        width: 100%;
+        .el-slider__runway .el-slider__bar {
+            background-color: $main-clr;
+        }
+        .el-slider__button {
+            border: 2px solid $main-clr;
+        }
+    }
 }

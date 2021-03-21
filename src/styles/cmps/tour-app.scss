@@ -18,16 +18,12 @@
 
     .categories-container,
     .guides-container {
-        // border-top: solid 1px $muted;
-        // border-bottom: solid 1px $muted;
-        margin: 100px 0;
+        margin: 35px 0;
         padding: $main-padding;
-
         button {
             color: $main-clr;
             position: absolute;
             right: 10px;
-
             &:hover {
                 background-color: $main-clr;
                 opacity: 0.4;
@@ -41,8 +37,9 @@
         margin: 0 auto;
     }
 
-    .guides-container .categories, .categories-container  .categories {
-        margin-top: 50px;
+    .guides-container .categories,
+    .categories-container .categories {
+        margin-top: 60px;
     }
 
     .categories {

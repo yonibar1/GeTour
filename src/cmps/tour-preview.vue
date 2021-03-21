@@ -2,7 +2,7 @@
   <section class="tour-preview">
     <div class="preview-img-container">
       <router-link :to="'/tour-details/' + tour._id">
-        <img src="../assets/img/hero.jpg" alt="" />
+        <img :src="require(`../assets/demo-tours/${tour.imgUrl}`)" alt="" />
       </router-link>
     </div>
     <div class="tour-description-container">
@@ -38,7 +38,11 @@ export default {
       rate: 0,
     };
   },
-  methods: {},
+  methods: {
+    imgUrl() {
+      return `../assets/demo-tours/${this.tour.imgUrl}.jpg`;
+    },
+  },
   created() {
     this.rate = this.tour.rate;
   },
