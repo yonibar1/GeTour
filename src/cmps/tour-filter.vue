@@ -80,6 +80,7 @@ export default {
       this.priceToShow = `$${min} - $${max}`;
     },
     async setFilter() {
+      console.log(this.filterBy);
       this.filterBy.byPriceRange = {
         min: this.filterBy.byPriceRange[0],
         max: this.filterBy.byPriceRange[1],
