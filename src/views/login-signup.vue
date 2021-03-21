@@ -1,7 +1,7 @@
 <template>
   <section class="login-signup">
     <img class="logo" src="../assets/logo-signs-green.svg" alt="" />
-    <form v-if="isLogin">
+    <form @submit.prevent="login" v-if="isLogin">
       <img class="auth-logo" src="../assets/Login.svg" alt="" />
       <label>
         <input
@@ -19,10 +19,10 @@
           placeholder="Password"
         />
       </label>
-      <el-button round plain type="success" @click="login">Login</el-button>
+      <el-button round plain type="success">Login</el-button>
       <a class="set-form-link" @click="setForm">Dont Have an account yet?</a>
     </form>
-    <form v-else>
+    <form @submit.prevent="signup" v-else>
       <img class="auth-logo" src="../assets/Signup.svg" alt="" />
       <label class="profile-picture-upload">
         <i class="fas fa-cloud-upload-alt">
@@ -85,6 +85,7 @@ export default {
       this.isLogin = !this.isLogin;
     },
     signup() {
+      console.log("x");
       console.log(this.signupData);
       // this.$store
       //   .dispatch({ type: "saveUser", user: this.loggedinUser })
@@ -93,6 +94,7 @@ export default {
       //   });
     },
     login() {
+      console.log("x");
       console.log(this.loginData);
       // this.$store
       //   .dispatch({ type: "saveUser", user: this.loggedinUser })
