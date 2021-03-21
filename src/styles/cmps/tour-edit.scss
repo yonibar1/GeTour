@@ -8,43 +8,6 @@
     width: 100%;
     color: $black;
 
-<<<<<<< HEAD
-        }
-        .input-number{
-            width: 200px;
-        }
-        .file-input{
-            display: none;
-        }
-        &>*{
-            margin-bottom:20px;
-        }
-        i.fas{
-            font-size: 40px;
-            color: $main-clr;
-            cursor: pointer;
-        }
-        input {
-            width: 100%;
-            // margin-bottom: 5px;
-            // padding-left: 30px;
-        }
-        textarea{
-            resize: none;
-        }
-        button {
-            padding:15px;
-            background-color: $main-clr;
-            border-radius: 5px;
-            outline: none;
-            border: none;
-            color: snow;
-            transition: .3s;
-            &:hover{
-                background-color: snow;
-                color: $main-clr;
-                box-shadow: 0 0 1px 1px $main-clr;
-=======
     .img-container {
        
         .form-edit {
@@ -113,7 +76,6 @@
                         background-color: snow;
                         color: $main-clr;
                         box-shadow: 0 0 1px 1px $main-clr;
->>>>>>> b14cf78fdd140675c37a1420a602d261724c6174
 
 
                         // background-color: $main-clr;
