@@ -1,6 +1,7 @@
 .tour-edit {
     background-color: #fff;
-    // background-image: url('@/assets/img/signup-img.jpg');
+    background-image: url('../assets/img/signup-img.jpg');
+    // background-image: url('~@/assets/img/signup-img.jpg');
     // background-image: url(@/assets/img/signup-img.jpg);
     // background-image: url(../../assets/img/signup-img.jpg);
     // background-image: url('../../assets/img/signup-img.jpg');
@@ -11,17 +12,19 @@
     // border:1px solid $main-clr;
     width: 100%;
     color:$black;
+    // height: 1000px;
+    background-size: cover;
     // height: 30rem;
     border-radius: 10px;
-    .edit-background-image-container{
-        z-index:1;
-        position: relative;
-    }
+    // .edit-background-image-container{
+    //     z-index:1;
+    //     position: relative;
+    // }
     form {
         background-color: #fffafadb;
-        position: absolute;
-        top: 100px;
-        left: 100px;
+        // position: absolute;
+        margin-top: 100px;
+        margin-left: 100px;
         width: 40rem;
         display: flex;
         flex-direction: column;

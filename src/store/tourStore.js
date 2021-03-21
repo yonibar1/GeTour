@@ -38,7 +38,6 @@ export const tourStore = {
             state.tour = tour;
         },
         setFilterBy(state, { filter }) {
-            console.log('filter:', filter);
             state.filterBy = filter;
         },
         loadReviews(state, { reviews }) {
@@ -84,7 +83,6 @@ export const tourStore = {
         //     state.commit({ type: 'updateTour', tourAfterSave });
         // },
         async setFilter(state, { filter }) {
-            console.log('setFilter in store:', filter);
             try {
                 state.commit({ type: 'setFilterBy', filter });
             } catch (err) {
@@ -93,8 +91,11 @@ export const tourStore = {
         },
         async query(state) {
             try {
+                console.log(state.state.filterBy, ' Filter By At Query');
                 const tours = await tourService.query(state.state.filterBy);
+                console.log(tours, 'Tour Before Commit');
                 state.commit({ type: 'query', tours });
+                console.log(tours, 'Tour After Commit');
                 return tours;
             } catch (err) {
                 console.log('Cannot get Tours', err);

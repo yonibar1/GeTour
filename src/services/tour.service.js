@@ -21,6 +21,7 @@ function query(filterBy = {}) {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     var toursCopy = JSON.parse(JSON.stringify(tours));
     if (filterBy.byPriceRange) {
+        console.log('inside Price If');
         toursCopy = toursCopy.filter((tour) => {
             return (
                 tour.price > filterBy.byPriceRange.min &&
@@ -28,7 +29,6 @@ function query(filterBy = {}) {
             );
         });
     }
-
     if (filterBy.byDestination) {
         toursCopy = toursCopy.filter((tour) => {
             return tour.country
@@ -81,7 +81,7 @@ function getEmptyTour(title, price, country) {
         members: utilService.getRandomInt(1, 20),
         daysCount: utilService.getRandomInt(1, 5),
         difficulty: utilService.getRandomInt(1, 5),
-        rate: utilService.getRandomInt(1, 5) ,
+        rate: utilService.getRandomInt(1, 5),
         msgs: [],
         locs: [],
         imgs: [

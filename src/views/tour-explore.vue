@@ -1,31 +1,34 @@
 <template>
-    <section class="tour-explore">
-        <tour-filter />
-        <tour-list v-if="tours" :tours="tours"></tour-list>
-    </section>
+  <section class="tour-explore">
+    <tour-filter @setFilter="filterChanged" />
+    <tour-list v-if="tours" :tours="tours"></tour-list>
+  </section>
 </template>
-
 <script>
-import tourList from '../cmps/tour-list';
-import tourFilter from '../cmps/tour-filter';
+import tourList from "../cmps/tour-list";
+import tourFilter from "../cmps/tour-filter";
 export default {
-    data() {
-        return {
-            tours: [],
-        };
+  data() {
+    return {
+      tours: [],
+    };
+  },
+  methods: {
+    async loadTours() {
+      const tours = await this.$store.dispatch({ type: "query" });
+      this.tours = tours;
     },
-    methods: {
-        async loadTours() {
-            const tours = await this.$store.dispatch({ type: 'query' });
-            this.tours = tours;
-        },
+    async filterChanged() {
+      await this.loadTours();
+      console.log(this.tours, "TOURS AT EXPLORE");
     },
-    created() {
-        this.loadTours();
-    },
-    components: {
-        tourList,
-        tourFilter,
-    },
+  },
+  created() {
+    this.loadTours();
+  },
+  components: {
+    tourList,
+    tourFilter,
+  },
 };
 </script>
