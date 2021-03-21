@@ -15,9 +15,6 @@
         margin: 0;
         ul {
             grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-            li {
-                // width: 20rem;
-            }
         }
     }
 
