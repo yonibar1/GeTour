@@ -10,10 +10,15 @@
                     placeholder="We Need Your Opinion"
                 >
                 </el-input>
-                <el-input-number
+                <div class="block">
+                    <span class="demonstration">Rate Your Tour</span>
+                    <el-rate v-model="reviewToEdit.rate"></el-rate>
+                </div>
+
+                <!-- <el-input-number
                     type="number"
                     v-model="reviewToEdit.rate"
-                ></el-input-number>
+                ></el-input-number> -->
                 <button>Add Review</button>
             </form>
         </div>
@@ -52,6 +57,7 @@ export default {
     },
     data() {
         return {
+            colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
             reviewToEdit: {
                 txt: '',
                 createdAt: Date.now(),

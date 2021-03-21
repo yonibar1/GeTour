@@ -5,16 +5,19 @@
             <h5>{{tour.country}}</h5>
             <div class="images-container">
                 <div class="first-img">
-                    <img src="../assets/img/hero3.jpg" alt="" />
+                    <img src="../assets/img/amsterdam/amsterdam5.jpg" alt="" />
                 </div>
                 <div class="img-2">
-                    <img src="../assets/img/hero2.jpg" alt="" />
+                    <img src="../assets/img/amsterdam/amsterdam1.jpg" alt="" />
                 </div>
                 <div class="img3">
-                    <img src="../assets/img/hero3.jpg" alt="" />
+                    <img src="../assets/img/amsterdam/amsterdam3.jpg" alt="" />
                 </div>
                 <div class="img4">
-                    <img src="../assets/img/hero.jpg" alt="" />
+                    <img src="../assets/img/amsterdam/amsterdam4.jpg" alt="" />
+                </div>
+                  <div class="img5">
+                    <img src="../assets/img/amsterdam/amsterdam2.jpg" alt="" />
                 </div>
             </div>
         </div>
