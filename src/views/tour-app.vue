@@ -126,12 +126,15 @@ export default {
   methods: {
     async loadTours() {
       const tours = await this.$store.dispatch({ type: "query" });
-      console.log(tours);
-      this.tours = tours;
+      console.log(tours, "In App");
+      // @@@@@@@@@@@@@@@@@ BUG?? @@@@@@@@@@@@@@@@@@@@@
+      // this.tours = tours;
+      this.tours = tours[0];
+      // @@@@@@@@@@@@@@@@@ BUG?? @@@@@@@@@@@@@@@@@@@@@
     },
   },
   created() {
-    // this.loadTours();
+    this.loadTours();
   },
   components: {
     tourFilter,
