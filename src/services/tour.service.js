@@ -119,18 +119,19 @@ function _createTours() {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     if (!tours || !tours.length) {
         tours = [
-            _createTour('Parisian Nights', 300, 'France', 'paris.jpg'),
-            _createTour('Lovely Amsterdam', 500, 'Netherlands', 'amsterdam.jpg'),
+            _createTour('Through Chang Mai Mountains', 1000, 'Thailand', 'chaing-mai.jpg'),
+            _createTour('Walk through the streets of Amsterdam', 500, 'Netherlands', 'amsterdam.jpg'),
             _createTour('Barcelona For Couples', 700, 'Spain', 'barcelona.jpg'),
             _createTour("New York Street's", 350, 'USA', 'new-york.jpg'),
             _createTour('Merom Golan Valleys', 20, 'Israel', 'marom-golan.jpg'),
             _createTour('Budapest Eye', 240, 'Hungary', 'budapest.jpg'),
+            _createTour('Parisian Nights', 300, 'France', 'paris.jpg'),
             _createTour('Koh Samui Beaches', 700, 'Thailand', 'koh-samui.jpg'),
+            _createTour('Lovely Amsterdam', 500, 'Netherlands', 'amsterdam.jpg'),
             _createTour('Rio Carnivals', 150, 'Brazil', 'rio-carnival.jpg'),
             _createTour('The Taste Of Rome', 700, 'Italy', 'rome.jpg'),
             _createTour('Prague Views', 300, 'Czech Republic', 'prague.jpg'),
             _createTour('The Western Wall', 80, 'Israel', 'western-wall.jpg'),
-            _createTour('Through Chang Mai Mountains', 1000, 'Thailand', 'chaing-mai.jpg'),
         ];
         localStorage.setItem(TOURS_KEY, JSON.stringify(tours));
     }

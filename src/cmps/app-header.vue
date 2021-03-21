@@ -11,6 +11,11 @@
       </router-link>
     </div>
     <nav>
+      <router-link to="/explore">
+        <button :class="{ scrollClass: isScrolling }">
+          Explore
+        </button></router-link>
+      |
       <router-link to="/edit">
         <button :class="{ scrollClass: isScrolling }">
           Become a guide

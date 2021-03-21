@@ -1,118 +1,140 @@
 <template>
-    <section class="tour-app">
-        <div class="hero-container">
-            <img src="../assets/img/hero.jpg" alt="" />
-            <tour-filter />
-        </div>
-        <div class="categories-container">
-            <div class="categories-explore">
-                <h1>Top Places</h1>
-                <router-link to="/explore">
-                    <el-button round>See All</el-button>
-                </router-link>
+  <section class="tour-app">
+    <div class="hero-container">
+      <img src="../assets/img/hero.jpg" alt="" />
+      <tour-filter />
+    </div>
+
+    <!-- COUNTRIES -->
+
+    <div class="countries-container">
+      <div class="countries-title">
+        <h1>Top Rated Destinations</h1>
+        <router-link to="/explore">
+          <el-button round>See All</el-button>
+        </router-link>
+      </div>
+      <ul class="countries">
+        <li>
+          <router-link to="/explore">
+            <div class="category-card">
+              <img src="../assets/demo-tours/rome.jpg" alt="" />
             </div>
-            <ul class="categories">
-                <li>
-                    <router-link to="/explore">
-                        <div class="category-card">
-                            <img src="../assets/categories/europe.jpg" alt="" />
-                        </div>
-                        Best tours in Europe
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/explore">
-                        <div class="category-card">
-                            <img src="../assets/categories/asia.jpg" alt="" />
-                        </div>
-                        Best tours in Asia
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/explore">
-                        <div class="category-card">
-                            <img
-                                src="../assets/categories/australia.jpg"
-                                alt=""
-                            />
-                        </div>
-                        Best tours in Australia
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/explore">
-                        <div class="category-card">
-                            <img src="../assets/categories/usa.jpg" alt="" />
-                        </div>
-                        Best tours in USA
-                    </router-link>
-                </li>
-            </ul>
-        </div>
-        <div class="guides-container">
-            <div class="categories-explore">
-            <h1>Top guides of the week</h1>
-            <router-link to="/explore">
-                <el-button round>See All</el-button>
-            </router-link>
+            Italy
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/explore">
+            <div class="category-card">
+              <img src="../assets/demo-tours/western-wall.jpg" alt="" />
             </div>
-            <ul class="categories">
-                <li>
-                    <router-link to="/explore">
-                        <div class="avatar-card">
-                            <img
-                                src="../assets/demo-guides/guide1.jpg"
-                                alt=""
-                            />
-                        </div>
-                        Alison Bergers
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/explore">
-                        <div class="avatar-card">
-                            <img
-                                src="../assets/demo-guides/guide2.jpg"
-                                alt=""
-                            />
-                        </div>
-                        Bobo Lato
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/explore">
-                        <div class="avatar-card">
-                            <img
-                                src="../assets/demo-guides/guide3.jpg"
-                                alt=""
-                            />
-                        </div>
-                        Bamia Nice
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/explore">
-                        <div class="avatar-card">
-                            <img
-                                src="../assets/demo-guides/guide4.jpg"
-                                alt=""
-                            />
-                        </div>
-                        Shimi Lo
-                    </router-link>
-                </li>
-            </ul>
-        </div>
-    </section>
+            Israel
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/explore">
+            <div class="category-card">
+              <img src="../assets/demo-tours/barcelona.jpg" alt="" />
+            </div>
+            Barcelona
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/explore">
+            <div class="category-card">
+              <img src="../assets/demo-tours/amsterdam2.jpg" alt="" />
+            </div>
+            Netherlands
+          </router-link>
+        </li>
+      </ul>
+    </div>
+
+    <!-- TOURS -->
+
+    <div class="tours-container">
+      <div class="tours-title">
+        <h1>Our Tours</h1>
+        <router-link to="/explore">
+          <el-button round>See All</el-button>
+        </router-link>
+      </div>
+    <div class="preview-container">
+      <ul v-if="tours" class="tours">
+        <li :key="tour._id" v-for="tour in tours.slice(0, 4)">
+          <tour-preview :tour="tour" />
+        </li>
+      </ul>
+    </div>
+    </div>
+
+    <!-- GUIDES -->
+
+    <div class="guides-container">
+      <div class="guides-title">
+        <h1>Top rated guides</h1>
+      </div>
+      <ul class="guides">
+        <li>
+          <router-link to="/explore">
+            <div class="avatar-card">
+              <img src="../assets/demo-guides/guide1.jpg" alt="" />
+            </div>
+            Luke Tucker
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/explore">
+            <div class="avatar-card">
+              <img src="../assets/demo-guides/guide2.jpg" alt="" />
+            </div>
+            William Watson
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/explore">
+            <div class="avatar-card">
+              <img src="../assets/demo-guides/guide3.jpg" alt="" />
+            </div>
+            Amy Underwood
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/explore">
+            <div class="avatar-card">
+              <img src="../assets/demo-guides/guide4.jpg" alt="" />
+            </div>
+            Simon Chapman
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script>
-import tourFilter from '@/cmps/tour-filter.vue';
+import tourFilter from "@/cmps/tour-filter.vue";
+import tourPreview from "@/cmps/tour-preview.vue";
 
 export default {
-    name: 'tour-app',
-    components: {
-        tourFilter,
+  name: "tour-app",
+  data() {
+    return {
+      tours: [],
+    };
+  },
+  methods: {
+    async loadTours() {
+      const tours = await this.$store.dispatch({ type: "query" });
+      this.tours = tours;
     },
+  },
+  created() {
+    this.loadTours();
+  },
+  components: {
+    tourFilter,
+    tourPreview,
+  },
 };
 </script>

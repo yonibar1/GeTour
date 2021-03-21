@@ -1,6 +1,4 @@
 .tour-app {
-
-
     .hero-container {
         height: 580px;
 
@@ -13,9 +11,26 @@
         }
     }
 
-    .categories-container,
-    .guides-container {
-        margin: 160px 0;
+    .preview-container {
+        margin: 0;
+        ul {
+            grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+            li {
+                // width: 20rem;
+            }
+        }
+    }
+
+    .countries-container,
+    .guides-container,
+    .tours-container {
+        margin-bottom: 70px;
+    }
+
+
+    .countries-container,
+    .guides-container,
+    .tours-container {
         padding: $main-padding;
         button {
             color: $main-clr;
@@ -29,41 +44,45 @@
         }
     }
 
-    .categories-explore {
+    .countries-title,
+    .guides-title,
+    .tours-title {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        margin-top: -85px;
-
+        margin: 20px 0;
         .el-button {
             margin-inline-end: 100px;
-            margin-top:10px;
+            margin-top: 10px;
         }
 
         h1 {
             font-size: 30px;
             color: $main-clr;
-
         }
-
     }
 
-    .guides-container .categories {
-        max-width: 60rem;
-        margin: 0 auto;
+
+    .tours-title {
+        font-size: 30px;
+        color: $main-clr;
     }
 
-    .guides-container .categories,
-    .categories-container .categories {
-        margin-top: 60px;
+    .guides-container .guides {
+        max-width: 35rem;
+        li {
+            margin-left: 5px;
+        }
     }
 
-    .categories {
+    .countries,
+    .guides {
         display: grid;
         grid-template-columns: repeat(4, minmax(100px, 1fr));
         grid-gap: 6px;
 
         li {
+            text-align: center;
             a:hover {
                 color: $main-clr;
             }
