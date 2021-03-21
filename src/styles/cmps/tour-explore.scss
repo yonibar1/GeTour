@@ -1,7 +1,6 @@
 .tour-explore {
     .tour-filter {
         position: static;
-        background-color: $main-clr;
         height: 70px;
         padding: $main-padding;
         width: 100%;
@@ -24,6 +23,10 @@
                 color: $muted;
                 align-items: center;
                 justify-content: center;
+                border: 1px solid #dcdfe5;
+                cursor: pointer;
+                border-radius: 4px;
+                color: $muted;
             }
         }
     }

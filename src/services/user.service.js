@@ -1,3 +1,11 @@
+// const gUsers = [
+//     {
+//         username: 'BarneyS',
+//         fullname: 'Barney Stinson',
+//         password: 'legendary1'
+//     }
+// ]
+
 // // the order object
 // // order = {
 // //     _id: 'mongodbID',
