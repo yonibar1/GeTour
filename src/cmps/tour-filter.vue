@@ -23,7 +23,7 @@
       <div v-if="isOpen" class="range-box-modal">
         <div class="range-box-modal-header">
           <h4>Pick Your Price</h4>
-          <el-slider v-model="filterBy.byPriceRange" range :max="1000">
+          <el-slider v-model="filterBy.byPriceRange" range :max="2000">
           </el-slider>
         </div>
         <div class="price-box-container">
@@ -61,10 +61,11 @@ export default {
       filterBy: {
         byDestination: "",
         byDate: "",
-        byPriceRange: [0, 1000],
+        byPriceRange: [0, 2000],
       },
     };
   },
+  computed: {},
   methods: {
     toggleRangeBox() {
       if (this.isOpen === true) {

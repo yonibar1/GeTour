@@ -12,6 +12,7 @@
           <p>Guide Name</p>
         </div>
         <h3>{{ tour.title }}</h3>
+        <p>{{ tour.country }}</p>
         <p>{{ tour.byUser.fullname }}</p>
         <p></p>
         <p>{{ tour.daysCount }} Days</p>
@@ -19,7 +20,10 @@
         <!-- <router-link :to="'/edit/' + tour._id">Edit</router-link> -->
         <div class="price-rate-container">
           <p>{{ tour.price }} $</p>
-          <p><i class="el-icon-star-on"></i>{{ tour.rate }}</p>
+          <p>
+            <i class="el-icon-star-on"></i>{{ tour.rate }}
+            <span class="reviews-length"> ({{ tour.reviews.length }})</span>
+          </p>
         </div>
       </div>
     </router-link>

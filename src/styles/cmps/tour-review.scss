@@ -11,23 +11,28 @@
     }
 
     .tour-review {
+        margin:0;
         height: 50%;
         width: 70%;
 
 
         ul {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+
 
             li {
-                width: rem(200px);
+                // width: 25%;
+                flex: 1 0 33%;
+                margin: 5px;
+
+
 
 
                 .review {
-                    box-shadow: 1.5px 1.5px 1.5px rgb(56, 56, 56);
+                    background-color: rgba(221, 208, 208, 0.075);
+                    width:250px;
                     height: 150px;
-                    background-color: rgba(221, 220, 220, 0.459);
                     margin-bottom: rem(10px);
                     padding: rem(10px);
                     border-radius: 14px;
@@ -38,7 +43,9 @@
 
                     .ranks-txt {
                         display: flex;
-                        justify-content: space-between;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        // justify-content:space-between
 
                         h3 {
                             font-size: 14px;
