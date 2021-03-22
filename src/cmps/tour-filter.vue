@@ -80,8 +80,11 @@ export default {
       const max = this.filterBy.byPriceRange[1];
       this.priceToShow = `$${min} - $${max}`;
     },
-    async setFilter() {
+    async setFilter(country) {
       let copyFilterBy = JSON.parse(JSON.stringify(this.filterBy));
+      if(country) {
+        copyFilterBy.byDestination = country;
+      }
       copyFilterBy.byPriceRange = {
         min: this.filterBy.byPriceRange[0],
         max: this.filterBy.byPriceRange[1],
@@ -93,5 +96,11 @@ export default {
       this.$emit("setFilter");
     },
   },
+  created() {
+  if(this.$route.params.country) {
+    this.setFilter(this.$route.params.country)
+  }
+  }
+  
 };
 </script>

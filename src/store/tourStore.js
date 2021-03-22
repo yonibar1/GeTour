@@ -90,7 +90,6 @@ export const tourStore = {
             }
         },
         async query(context) {
-            console.log('context:', context)
             try {
                 const tours = await tourService.query(context.state.filterBy);
                 context.commit({ type: 'query', tours });
