@@ -1,8 +1,8 @@
 <template>
   <section class="tour-app">
     <div class="hero-container">
-      <img src="../assets/img/hero.jpg" alt="" />
       <tour-filter />
+      <h1>Travel Anywhere With Anyone.</h1>
     </div>
 
     <!-- COUNTRIES -->
@@ -16,7 +16,7 @@
       </div>
       <ul class="countries">
         <li>
-          <router-link to="/explore">
+          <router-link to="/explore/Italy">
             <div class="category-card">
               <img src="../assets/demo-tours/rome.jpg" alt="" />
             </div>
@@ -24,7 +24,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/explore">
+          <router-link to="/explore/Israel">
             <div class="category-card">
               <img src="../assets/demo-tours/western-wall.jpg" alt="" />
             </div>
@@ -32,15 +32,15 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/explore">
+          <router-link to="/explore/Spain">
             <div class="category-card">
               <img src="../assets/demo-tours/barcelona.jpg" alt="" />
             </div>
-            Barcelona
+            Spain
           </router-link>
         </li>
         <li>
-          <router-link to="/explore">
+          <router-link to="/explore/Netherlands">
             <div class="category-card">
               <img src="../assets/demo-tours/amsterdam2.jpg" alt="" />
             </div>
@@ -50,18 +50,18 @@
       </ul>
     </div>
 
-
     <!-- Become a guide -->
-    
+
     <div class="become-guide-container">
-      <img src="@/assets/demo-guides/guide5.jpg" alt="">
+      <img src="@/assets/demo-guides/guide5.jpg" alt="" />
       <div class="title">
-        <h1>A journey of a thousand miles <br>
-         begins with a single step</h1>
+        <h1>
+          A journey of a thousand miles <br />
+          begins with a single step
+        </h1>
+        <el-button class="become-btn" square>Become a guide</el-button>
       </div>
     </div>
-
-
 
     <!-- TOURS -->
 
@@ -134,13 +134,14 @@ export default {
   data() {
     return {
       tours: [],
+      country: null,
     };
   },
   methods: {
     async loadTours() {
       const tours = await this.$store.dispatch({ type: "query" });
       this.tours = tours;
-    },
+    }
   },
   created() {
     this.loadTours();

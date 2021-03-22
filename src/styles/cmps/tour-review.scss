@@ -1,8 +1,8 @@
 .review-list {
     display: flex;
     flex-direction: column;
-    margin-top: rem(10px);
-    margin-inline-start: rem(100px);
+    margin-top: rem(75px);
+    margin-inline-start: rem(85px);
     margin-inline-end: rem(100px);
 
     h2 {
@@ -30,7 +30,9 @@
 
 
                 .review {
-                    background-color: rgba(221, 208, 208, 0.075);
+                    // background-color: rgba(221, 208, 208, 0.075);
+                    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+                    border: 1px solid lightgray;
                     width: 250px;
                     height: 150px;
                     margin-bottom: rem(10px);
@@ -61,6 +63,11 @@
                             display: flex;
                             justify-content: center;
                             margin-left: rem(-100px);
+
+                            span {
+                                font-size: rem(14px);
+                                color: $muted;
+                            }
                         }
 
                     }
@@ -100,6 +107,7 @@
             width: 100%;
 
             form {
+                margin-left: rem(10px);
 
                 textarea {
 

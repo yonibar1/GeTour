@@ -14,6 +14,7 @@
           <span class="demonstration">Rate Your Tour</span>
           <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
         </div>
+        <button>Add Review</button>
           </form>
         </div>
         <ul v-if="reviews">

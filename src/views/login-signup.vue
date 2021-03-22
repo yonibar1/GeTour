@@ -20,7 +20,7 @@
         />
       </label>
       <el-button round plain type="success">Login</el-button>
-      <a class="set-form-link" @click="setForm">Dont Have an account yet?</a>
+      <a class="set-form-link" @click="setForm">Dont You Have an account yet?</a>
     </form>
     <form @submit.prevent="signup" v-else>
       <img class="auth-logo" src="../assets/Signup.svg" alt="" />

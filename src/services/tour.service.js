@@ -34,7 +34,6 @@ function query(filterBy = {}) {
                 .includes(filterBy.byDestination.toLowerCase());
         });
     }
-    console.log(toursCopy, 'Before return at service');
     return toursCopy;
 }
 
@@ -71,7 +70,7 @@ function save(tour) {
 // }
 
 function getEmptyTour(title, price, country, imgUrl) {
-    return {
+    const tour = {
         title,
         imgUrl,
         country,
@@ -81,7 +80,7 @@ function getEmptyTour(title, price, country, imgUrl) {
         members: utilService.getRandomInt(1, 20),
         daysCount: utilService.getRandomInt(1, 5),
         difficulty: utilService.getRandomInt(1, 5),
-        rate: utilService.getRandomInt(1, 5),
+        // rate: utilService.getRandomInt(1, 5),
         msgs: [],
         locs: [],
         imgs: [
@@ -99,6 +98,14 @@ function getEmptyTour(title, price, country, imgUrl) {
             _createReview('ahla bahla'),
         ],
     };
+    let sum = 0
+    tour.reviews.forEach(r=>{
+        sum += r.rate
+    })
+    tour.rate= sum/tour.reviews.length
+    console.log('  tour.rate:',   tour.rate)
+    
+    return tour
 }
 
 function getEmptyReview(txt, rate = 3) {
@@ -118,15 +125,30 @@ function _createTours() {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     if (!tours || !tours.length) {
         tours = [
-            _createTour('Through Chang Mai Mountains', 1000, 'Thailand', 'chaing-mai.jpg'),
-            _createTour('Walk through the streets of Amsterdam', 500, 'Netherlands', 'amsterdam.jpg'),
+            _createTour(
+                'Through Chang Mai Mountains',
+                1000,
+                'Thailand',
+                'chaing-mai.jpg'
+            ),
+            _createTour(
+                'Walk through the streets of Amsterdam',
+                500,
+                'Netherlands',
+                'amsterdam.jpg'
+            ),
             _createTour('Barcelona For Couples', 700, 'Spain', 'barcelona.jpg'),
             _createTour("New York Street's", 350, 'USA', 'new-york.jpg'),
             _createTour('Merom Golan Valleys', 20, 'Israel', 'marom-golan.jpg'),
             _createTour('Budapest Eye', 240, 'Hungary', 'budapest.jpg'),
             _createTour('Parisian Nights', 300, 'France', 'paris.jpg'),
             _createTour('Koh Samui Beaches', 700, 'Thailand', 'koh-samui.jpg'),
-            _createTour('Lovely Amsterdam', 500, 'Netherlands', 'amsterdam.jpg'),
+            _createTour(
+                'Lovely Amsterdam',
+                500,
+                'Netherlands',
+                'amsterdam.jpg'
+            ),
             _createTour('Rio Carnivals', 150, 'Brazil', 'rio-carnival.jpg'),
             _createTour('The Taste Of Rome', 700, 'Italy', 'rome.jpg'),
             _createTour('Prague Views', 300, 'Czech Republic', 'prague.jpg'),

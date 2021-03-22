@@ -1,6 +1,7 @@
 <template>
   <section class="tour-explore">
     <tour-filter @setFilter="filterChanged" />
+    <!-- <button>See All</button> -->
     <tour-list v-if="tours" :tours="tours"></tour-list>
   </section>
 </template>
