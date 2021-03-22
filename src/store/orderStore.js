@@ -38,7 +38,7 @@ export const orderStore = {
         },
     },
     actions: {
-        async query(state) {
+        async loadOrders(state) {
             try {
                 const orders = await orderService.query();
                 state.commit({ type: 'query', orders });
