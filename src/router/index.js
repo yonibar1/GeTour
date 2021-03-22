@@ -21,6 +21,11 @@ const routes = [
         component: tourExplore,
     },
     {
+        path: '/explore/:country',
+        name: 'tour-explore',
+        component: tourExplore,
+    },
+    {
         path: '/login-signup',
         name: 'login-signup',
         component: loginSignup,

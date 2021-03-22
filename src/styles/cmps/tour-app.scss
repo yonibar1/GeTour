@@ -1,15 +1,19 @@
 .tour-app {
     .hero-container {
+        background-image: url("../assets/img/hero.jpg");
+        background-size: cover;
         height: 580px;
-
-        img {
-            object-fit: cover;
-            background-attachment: fixed;
-            height: 100%;
-            margin: 0;
-            padding: 0;
+        h1 {
+            text-align: center;
+            user-select: none;
+            line-height: 580px;
+            font-size: 40px;
+            color: white;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
     }
+
+    
 
     .preview-container {
         margin: 0;
@@ -20,8 +24,9 @@
 
     .countries-container,
     .guides-container,
-    .tours-container {
-        margin-bottom: 70px;
+    .tours-container,
+    .become-guide-container{
+        margin-top: 80px;
     }
 
     .countries-container,
@@ -36,7 +41,7 @@
             &:hover {
                 background-color: $main-clr;
                 opacity: 0.4;
-                color: white;
+                color: #ffffff;
             }
         }
     }
@@ -55,7 +60,7 @@
 
         h1 {
             font-size: 35px;
-            color: $main-clr;
+            color: #426361;
         }
     }
 
@@ -77,15 +82,29 @@
             padding: $main-padding;
             position: absolute;
             z-index: 1;
-            right: 100px;
-            top: 10rem;
+            right: 25px;
+            top: 8.5rem;
             h1 {
                 color: white;
                 font-weight: bold;
-                font-size: 2rem;
+                font-size: 2.3rem;
+            }
+            .el-button {
+                border: none;
+                left: 100px;
+                top: 10rem;
+                padding: 20px 30px;
+                font-size: 1rem;
+                color: rgb(43, 43, 43);
+            }
+            .el-button:hover {
+                opacity: 1;
+                background-color: rgba(88, 88, 88, 0.425);
+                color: white;
             }
         }
         img {
+            border-radius: 7px;
             height: 100%;
             object-fit: cover;
         }
@@ -99,6 +118,7 @@
         grid-gap: 15px;
 
         li {
+            color: #426361;
             text-align: center;
             a:hover {
                 color: $main-clr;

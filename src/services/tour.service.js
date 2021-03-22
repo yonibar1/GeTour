@@ -34,7 +34,6 @@ function query(filterBy = {}) {
                 .includes(filterBy.byDestination.toLowerCase());
         });
     }
-    console.log(toursCopy, 'Before return at service');
     return toursCopy;
 }
 

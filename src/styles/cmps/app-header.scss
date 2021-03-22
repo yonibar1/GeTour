@@ -5,13 +5,12 @@
     left: 0;
     z-index: 10000;
     transition: all 0.2s ease-in-out;
-    height: 80px;
+    height: 70px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: $main-padding;
-    // margin-bottom:10px;
     .logo-container {
         width: 150px;
     }
@@ -19,15 +18,24 @@
         color: white;
         font-size: 20px;
         button {
+            background-color: transparent !important ;
+            display: inline-block;
             background-color: transparent;
-            border-radius: 30px;
             font-size: 18px;
             color: white;
             padding: 10px;
             transition: 0.2s;
-            &:hover {
-                color: white;
-                background-color: #32a79b65;
+            outline: none;
+            span::after {
+                content: "";
+                width: 0px;
+                height: 1px;
+                display: block;
+                background: white;
+                transition: 300ms;
+            }
+            span:hover::after {
+                width: 100%;
             }
         }
         a {
@@ -39,6 +47,21 @@
 .scrollClass {
     background-color: white !important;
     color: $main-clr !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    button {
+        box-shadow: none;
+        span::after {
+            content: "";
+            width: 0px;
+            height: 1px;
+            background: $main-clr !important;
+            display: block;
+            transition: 300ms;
+        }
+        span:hover::after {
+            width: 100%;
+        }
+    }
 }
 
 .staticPos {
