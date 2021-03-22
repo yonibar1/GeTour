@@ -85,7 +85,7 @@ export default {
     },
     async setFilter(country) {
       let copyFilterBy = JSON.parse(JSON.stringify(this.filterBy));
-      if(country) {
+      if (country) {
         copyFilterBy.byDestination = country;
       }
       copyFilterBy.byPriceRange = {
@@ -100,10 +100,9 @@ export default {
     },
   },
   created() {
-  if(this.$route.params.country) {
-    this.setFilter(this.$route.params.country)
-  }
-  }
-  
+    if (this.$route.params.country) {
+      this.setFilter(this.$route.params.country);
+    }
+  },
 };
 </script>
