@@ -24,10 +24,10 @@
         margin-bottom: 70px;
     }
 
-
     .countries-container,
     .guides-container,
-    .tours-container {
+    .tours-container,
+    .become-guide-container {
         padding: $main-padding;
         button {
             color: $main-clr;
@@ -54,11 +54,10 @@
         }
 
         h1 {
-            font-size: 30px;
+            font-size: 35px;
             color: $main-clr;
         }
     }
-
 
     .tours-title {
         font-size: 30px;
@@ -72,11 +71,32 @@
         }
     }
 
+    .become-guide-container {
+        position: relative;
+        .title {
+            padding: $main-padding;
+            position: absolute;
+            z-index: 1;
+            right: 100px;
+            top: 10rem;
+            h1 {
+                color: white;
+                font-weight: bold;
+                font-size: 2rem;
+            }
+        }
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+        height: 30rem;
+    }
+
     .countries,
     .guides {
         display: grid;
         grid-template-columns: repeat(4, minmax(100px, 1fr));
-        grid-gap: 6px;
+        grid-gap: 15px;
 
         li {
             text-align: center;

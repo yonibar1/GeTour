@@ -119,7 +119,7 @@ export default {
     return {
       tourToEdit: null,
       options: [
-        { label: "Water Trail", value: "water trail" },
+        { label: "Water Trail", value: "fas fa-water" },
         { label: "For Children", value: "for children" },
         { label: "Urbanic", value: "urbanic" },
         { label: "Nature", value: "nature" },

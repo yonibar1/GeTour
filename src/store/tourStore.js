@@ -82,17 +82,18 @@ export const tourStore = {
         //     const tourAfterSave = await tourService.save(tour);
         //     state.commit({ type: 'updateTour', tourAfterSave });
         // },
-        async setFilter(state, { filter }) {
+        async setFilter({commit}, { filter }) {
             try {
-                state.commit({ type: 'setFilterBy', filter });
+                commit({ type: 'setFilterBy', filter });
             } catch (err) {
                 console.log('Cannot set filter', err);
             }
         },
-        async query(state) {
+        async query(context) {
+            console.log('context:', context)
             try {
-                const tours = await tourService.query(state.state.filterBy);
-                state.commit({ type: 'query', tours });
+                const tours = await tourService.query(context.state.filterBy);
+                context.commit({ type: 'query', tours });
                 return tours;
             } catch (err) {
                 console.log('Cannot get Tours', err);

@@ -49,8 +49,17 @@
         </li>
       </ul>
     </div>
-        <!-- Become a guide -->
 
+
+    <!-- Become a guide -->
+    
+    <div class="become-guide-container">
+      <img src="@/assets/demo-guides/guide5.jpg" alt="">
+      <div class="title">
+        <h1>A journey of a thousand miles <br>
+         begins with a single step</h1>
+      </div>
+    </div>
 
 
 
