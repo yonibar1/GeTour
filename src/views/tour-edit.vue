@@ -88,17 +88,16 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <label for="uploadImages" class="upload-images">
-            Upload Images
-            <i class="fas fa-cloud-upload-alt">
-              <input
+          <!-- <label for="uploadImages" class="upload-images">
+            Upload Images -->
+          <!-- <input
                 id="uploadImages"
                 class="file-input"
                 multiple
                 type="file"
-              />
-            </i>
-          </label>
+              /> -->
+          <upload-image />
+          <!-- </label> -->
         </el-form-item>
         <label for="tourMap"> Enter Tour Checkpoints </label>
         <tour-map id="tourMap" @setCheckPoints="setCheckPoints" />
@@ -113,6 +112,7 @@
 
 <script>
 import tourMap from "../cmps/tour-map";
+import uploadImage from "../cmps/upload-image";
 export default {
   name: "tourEdit",
   data() {
@@ -161,6 +161,7 @@ export default {
   },
   components: {
     tourMap,
+    uploadImage,
   },
 };
 </script>

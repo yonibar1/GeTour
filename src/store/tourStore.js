@@ -1,5 +1,6 @@
 import { tourService } from '../services/tour.service';
 import { utilService } from '../services/util.service';
+import { uploadImg } from "../services/img-upload.service";
 export const tourStore = {
     state: {
         // chatHistory: [],
@@ -82,7 +83,7 @@ export const tourStore = {
         //     const tourAfterSave = await tourService.save(tour);
         //     state.commit({ type: 'updateTour', tourAfterSave });
         // },
-        async setFilter({commit}, { filter }) {
+        async setFilter({ commit }, { filter }) {
             try {
                 commit({ type: 'setFilterBy', filter });
             } catch (err) {

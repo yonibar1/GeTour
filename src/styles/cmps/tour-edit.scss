@@ -7,6 +7,18 @@
     width: 100%;
     padding: 20px;
     color: $black;
+    .imgs-container{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        >*{
+            margin-inline-start: 10px;
+        }
+        .uploaded-img{
+            width: 40px;
+        }
+    }
         .form-edit {
             
             form {

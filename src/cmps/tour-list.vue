@@ -18,10 +18,6 @@ export default {
       type: Array,
     },
   },
-  data() {
-    return {};
-  },
-  methods: {},
   components: {
     tourPreview,
   },
