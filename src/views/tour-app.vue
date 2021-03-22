@@ -130,11 +130,7 @@ export default {
   methods: {
     async loadTours() {
       const tours = await this.$store.dispatch({ type: "query" });
-      console.log(tours, "In App");
-      // @@@@@@@@@@@@@@@@@ BUG?? @@@@@@@@@@@@@@@@@@@@@
-      // this.tours = tours;
-      this.tours = tours[0];
-      // @@@@@@@@@@@@@@@@@ BUG?? @@@@@@@@@@@@@@@@@@@@@
+      this.tours = tours;
     },
   },
   created() {
