@@ -81,14 +81,11 @@ export default {
       this.priceToShow = `$${min} - $${max}`;
     },
     async setFilter() {
-      // console.log(this.filterBy.byPriceRange, "FILTERRR");
       let copyFilterBy = JSON.parse(JSON.stringify(this.filterBy));
       copyFilterBy.byPriceRange = {
         min: this.filterBy.byPriceRange[0],
         max: this.filterBy.byPriceRange[1],
       };
-      console.log(copyFilterBy, "copyFilterBy");
-      // this.filterBy.console.log(this.filterBy.byPriceRange, "AFTER");
       await this.$store.dispatch({
         type: "setFilter",
         filter: copyFilterBy,

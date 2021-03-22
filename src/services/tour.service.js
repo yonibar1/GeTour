@@ -20,7 +20,6 @@ function query(filterBy = {}) {
     var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
     var toursCopy = JSON.parse(JSON.stringify(tours));
     if (filterBy.byPriceRange) {
-        console.log('inside Price If');
         toursCopy = toursCopy.filter((tour) => {
             return (
                 tour.price > filterBy.byPriceRange.min &&
@@ -35,6 +34,7 @@ function query(filterBy = {}) {
                 .includes(filterBy.byDestination.toLowerCase());
         });
     }
+    console.log(toursCopy, 'Before return at service');
     return toursCopy;
 }
 

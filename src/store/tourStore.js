@@ -140,7 +140,6 @@ export const tourStore = {
                 const tour = await tourService.getById(id);
                 const reviews = tour.reviews;
                 commit({ type: 'loadReviews', reviews });
-                console.log('reviews:', reviews)
             } catch (err) {
                 console.log(err);
             }
