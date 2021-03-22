@@ -62,7 +62,7 @@
     .range-box-modal {
         position: absolute;
         width: 300px;
-        height: 180px;
+        height: 200px;
         z-index: 1;
         border: 1px solid $main-clr;
         color: $main-clr;
@@ -71,7 +71,9 @@
         justify-content: center;
         border-radius: 10px;
         padding: 20px;
-
+        .price-ok-btn{
+            margin-top: 10px;
+        }
         .price-box-container {
             display: flex;
             align-items: center;
