@@ -1,10 +1,10 @@
 // import axios from 'axios';
 import { storageService } from './async-storage.service.js';
 // import { httpService } from './http.service.js';
-import { utilService } from './util.service.js';
+// import { utilService } from './util.service.js';
 
 const ORDER_KEY = 'orders';
-const ORDER_URL = 'api/order';
+// const ORDER_URL = 'api/order';
 export const orderService = {
     query,
     getById,

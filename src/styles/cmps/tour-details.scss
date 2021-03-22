@@ -30,6 +30,13 @@
             color: $muted;
             font-weight: bold;
         }
+        h2{
+            .reviews-length{
+                color: $muted;
+                font-size:rem(14px);
+                margin-left: 4px;
+            }
+        }
     }
 
 

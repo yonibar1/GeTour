@@ -14,38 +14,40 @@
           <span class="demonstration">Rate Your Tour</span>
           <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
         </div>
-        <button>Add Review</button>
-      </form>
-    </div>
-    <ul v-if="reviews">
-      <li v-for="review in reviews" :key="review.id">
-        <div class="review">
-          <div class="mini-user">
-            <div class="mini-user-img">
-              <img src="../assets/img/avatar.jpg" alt="" />
-            </div>
-            <div class="mini-user-details">
-              <router-link :to="`user/${review.byUser._id}`">
-                {{ review.byUser.fullname }}
-              </router-link>
-              <h6>{{ review.createdAt | moment }}</h6>
-              <!-- <h6>{{ review.createdAt }}</h6> -->
-            </div>
-          </div>
-          <div class="ranks-txt">
-            <h3>❞{{ review.txt }}❞</h3>
-            <el-rate
-              v-model="review.rate"
-              disabled
-              show-score
-              text-color="#ff9900"
-            >
-            </el-rate>
-          </div>
+          </form>
         </div>
-      </li>
-    </ul>
-  </section>
+        <ul v-if="reviews">
+            <li v-for="review in reviews" :key="review.id">
+                <div class="review">
+                    <div class="mini-user">
+                        <div class="mini-user-img">
+                            <img src="../assets/img/avatar.jpg" alt="" />
+                        </div>
+                        <div class="mini-user-details">
+                            <router-link :to="`user/${review.byUser._id}`">
+                                {{ review.byUser.fullname }}
+                            </router-link>
+                            <h6>{{ review.createdAt | moment }}</h6>
+                            <!-- <h6>{{ review.createdAt }}</h6> -->
+                        </div>
+                    </div>
+                    <div class="ranks-txt">
+                        <h3>❞{{ review.txt }}❞</h3>
+                        <div class="review-rate">
+                            <el-rate
+                                v-model="review.rate"
+                                disabled
+                                text-color="#ff9900"
+                            >
+                            </el-rate>
+                            <span>({{ tour.reviews.length }})</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+       
+    </section>
 </template>
 
 <script>
