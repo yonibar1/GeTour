@@ -52,6 +52,7 @@ function save(order) {
     } else {
         // Gonna Change Soon
         order.createdAt = Date.now()
+        order.requests = ''
         order.status = 'pending'
         order.byUser = {
             _id: 'mongodbID',
