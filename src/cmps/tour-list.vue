@@ -22,9 +22,6 @@ export default {
     return {};
   },
   methods: {},
-  created() {
-    console.log(this.tours);
-  },
   components: {
     tourPreview,
   },

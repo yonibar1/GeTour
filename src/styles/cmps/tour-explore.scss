@@ -18,15 +18,13 @@
             justify-content: space-between;
             .price-input {
                 display: flex;
-                background-color: white;
                 width: 100px;
-                color: $muted;
                 align-items: center;
                 justify-content: center;
                 border: 1px solid #dcdfe5;
                 cursor: pointer;
                 border-radius: 4px;
-                color: $muted;
+                color: #c0c4cb;
             }
         }
     }
