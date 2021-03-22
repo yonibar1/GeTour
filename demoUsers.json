@@ -1,0 +1,93 @@
+[
+    {
+        "fullname": "Gail Gowans",
+        "username": "gail1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Leonardo Linebarger",
+        "username": "Leonardo1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Audry Hillier",
+        "username": "Audry1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Chan Hazley",
+        "username": "Chan1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Darcy Fiore",
+        "username": "Darcy1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Justin Bearden",
+        "username": "Justin1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Shizuko Bogardus",
+        "username": "Shizuko1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Jason Gomez",
+        "username": "Jason1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Victoria Alsop",
+        "username": "Victoria1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Hugo Moynihan",
+        "username": "Hugo1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Denny Mcmillin",
+        "username": "Denny1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Howard Schmieder",
+        "username": "Howard1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Maxie Conover",
+        "username": "Maxie1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Margalit Findley",
+        "username": "Margalit1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Ginny Maitland",
+        "username": "Ginny1",
+        "password": "secret",
+        "imgUrl": "someurl.jpg"
+    }
+
+]
