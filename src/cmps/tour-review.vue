@@ -34,15 +34,15 @@
                     </div>
                     <div class="ranks-txt">
                         <h3>❞{{ review.txt }}❞</h3>
-                        <el-rate
-                            v-model="review.rate"
-                            disabled
-                            show-score
-                            text-color="#ff9900"
-                           
-                        >
-                        </el-rate>
-                          
+                        <div class="review-rate">
+                            <el-rate
+                                v-model="review.rate"
+                                disabled
+                                text-color="#ff9900"
+                            >
+                            </el-rate>
+                            <span>({{ tour.reviews.length }})</span>
+                        </div>
                     </div>
                 </div>
             </li>

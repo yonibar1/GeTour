@@ -9,12 +9,13 @@
                 {{ tour.title }}
 
                 <el-rate
+                    show-score
                     v-model="tour.rate"
                     disabled
-                    show-score
                     text-color="#ff9900"
                 >
                 </el-rate>
+                <span class="reviews-length">({{ tour.reviews.length }})</span>
             </h2>
             <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
 
