@@ -1,7 +1,15 @@
 <template>
   <section class="tour-review">
     <div class="add-review-container">
+      <h2>Add Your Review</h2>
       <form @submit.prevent="addReview()">
+        <div class="block">
+          <div class="rate-block">
+            <span class="demonstration">Rate Your Tour</span>
+            <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
+          </div>
+          <button>Add Review</button>
+        </div>
         <el-input
           type="textarea"
           maxlength="100"
@@ -10,11 +18,6 @@
           placeholder="We Need Your Opinion"
         >
         </el-input>
-        <div class="block">
-          <span class="demonstration">Rate Your Tour</span>
-          <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
-        </div>
-        <button>Add Review</button>
       </form>
     </div>
     <ul v-if="reviews">
@@ -25,7 +28,7 @@
               <img src="../assets/img/avatar.jpg" alt="" />
             </div>
             <div class="mini-user-details">
-              <router-link :to="`user/${review.byUser._id}`">
+              <router-link :to="`/user-profile/${review.byUser._id}`">
                 {{ review.byUser.fullname }}
               </router-link>
               <h6>{{ review.createdAt | moment }}</h6>
@@ -92,9 +95,6 @@ export default {
         },
       };
     },
-    async loadReviews(id) {
-      await this.$store.dispatch({ type: "loadReviews", id });
-    },
   },
   created() {
     this.loadReviews(this.tour._id);
@@ -107,4 +107,3 @@ export default {
 };
 </script>
 
-<style></style>
