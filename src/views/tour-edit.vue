@@ -32,6 +32,16 @@
           />
         </el-form-item>
         <el-form-item>
+          <label for="members">Members</label>
+          <el-input-number
+            id="members"
+            class="input-number"
+            v-model.number="tourToEdit.members"
+            placeholder="Members"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item>
           <label for="capacity">Capacity</label>
           <el-input-number
             id="capacity"
@@ -130,10 +140,10 @@ export default {
       tourToEdit: null,
       options: [
         { label: "Water Trail", value: "fas fa-water" },
-        { label: "For Children", value: "for children" },
-        { label: "Urbanic", value: "urbanic" },
-        { label: "Nature", value: "nature" },
-        { label: "Food", value: "food" },
+        { label: "For Children", value: "fas fa-child" },
+        { label: "Urbanic", value: "fas fa-city" },
+        { label: "Nature", value: "fas fa-tree" },
+        { label: "Food", value: "fas fa-utensils" },
       ],
     };
   },

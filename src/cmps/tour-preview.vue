@@ -7,9 +7,9 @@
       <div class="tour-description-container">
         <div class="mini-user-container">
           <div class="mini-user-img">
-            <img src="../assets/img/avatar.jpg" alt="" />
+            <img :src="`${tour.byUser.imgUrl}`" alt="" />
           </div>
-          <p>Guide Name</p>
+          <p>{{ tour.byUser.fullname }}</p>
         </div>
         <h3>{{ tour.title }}</h3>
         <p>{{ tour.country }}</p>
