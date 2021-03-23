@@ -46,9 +46,7 @@ export default {
 </script>
 
 <style>
-input {
-  display: none;
-}
+
 
 .loading {
   height: 200px;

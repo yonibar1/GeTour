@@ -102,17 +102,27 @@
         }
 
         .add-review-container {
-            margin-top: 90px;
+            margin-top: 0px;
             // margin-inline-start: rem(2px);
             width: 100%;
+
+            h2 {
+                color: black;
+                margin-left: 10px;
+                text-decoration: underline;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            }
 
             form {
                 margin-left: rem(10px);
 
                 textarea {
+                    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+                    width: 550px;
+                    max-height: 150px;
 
-                    width: 350px;
-                    resize: none;
+                    // resize: none;
                     font-family: OpenSans, serif;
                     color: black;
                     margin-bottom: 5px;
@@ -121,35 +131,40 @@
 
                 }
 
-                .demonstration {
-                    font-family: OpenSans, sans-serif;
-                    font-weight: bold;
+                .block {
+                    display:flex;
+                    justify-content: space-between;
+                    .demonstration {
+                        font-family: OpenSans, sans-serif;
+                        font-weight: bold;
+                    }
+
+                    .el-rate {
+                        margin-bottom: 10px;
+                    }
+
+
+                    button {
+                        width: 152px;
+                        height: 40px;
+                        // align-self: center;
+                        background-color: #fff;
+                        color: #606266;
+                        border: 1px solid #DCDFE6;
+                        border-radius: 4px;
+                        transition: .1s;
+                        font-weight: 500;
+                        font-size: 14px;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        margin-right:258px;
+                    }
+
+                    button:hover {
+                        background-color: rgba(185, 247, 255, 0.4);
+                        color: rgb(103, 103, 255);
+                    }
                 }
-
-                .el-rate {
-                    margin-bottom: 5px;
-                }
-
-
-                button {
-                    width: 152px;
-                    height: 40px;
-                    align-self: center;
-                    background-color: #fff;
-                    color: #606266;
-                    border: 1px solid #DCDFE6;
-                    border-radius: 4px;
-                    transition: .1s;
-                    font-weight: 500;
-                    font-size: 14px;
-                    margin-bottom: 10px;
-                }
-
-                button:hover {
-                    background-color: rgba(185, 247, 255, 0.4);
-                    color: rgb(103, 103, 255);
-                }
-
             }
         }
 

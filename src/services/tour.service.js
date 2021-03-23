@@ -1,11 +1,11 @@
 // import axios from 'axios';
-import { storageService } from './async-storage.service.js';
-// import { httpService } from './http.service.js';
+// import { storageService } from './async-storage.service.js';
+import { httpService } from './http.service.js';
 import { utilService } from './util.service.js';
 
 // const KEY = 'toursDB';
 const TOURS_KEY = 'tours';
-// const TOURS_URL = 'tours/';
+const TOURS_URL = 'tour/';
 export const tourService = {
     query,
     getById,
@@ -13,11 +13,21 @@ export const tourService = {
     save,
     getEmptyTour,
     // saveUser,
-    // queryAllByType,
+    queryAllByType,
 };
 _createTours();
-function query(filterBy = {}) {
-    var tours = JSON.parse(localStorage.getItem(TOURS_KEY));
+
+// function query(filterBy, pageIdx) {
+//     const params = {
+//         filterBy,
+//         pageIdx,
+//     };
+//     return httpService.get(TOURS_URL, params);
+// }
+
+async function query(filterBy = {}) {
+    var tours =  await httpService.get(TOURS_URL);
+    console.log('tours:', tours);
     var toursCopy = JSON.parse(JSON.stringify(tours));
     if (filterBy.byPriceRange) {
         toursCopy = toursCopy.filter((tour) => {
@@ -37,29 +47,29 @@ function query(filterBy = {}) {
     return toursCopy;
 }
 
-// function queryAllByType(type) {
-//     if (!type) {
-//         return httpService.get(TOUR_URL);
-//     }
-// }
+function queryAllByType(type) {
+    if (!type) {
+        return httpService.get(TOURS_URL);
+    }
+}
 
 function getById(id) {
-    // return httpService.get(TOUR_URL + id);
-    return storageService.get(TOURS_KEY, id);
+    return httpService.get(TOURS_URL + id);
+    // return storageService.get(TOURS_KEY, id);
 }
 
 function remove(_id) {
-    // return httpService.delete(TOUR_URL + _id);
-    return storageService.remove(TOURS_KEY, _id);
+    return httpService.delete(TOURS_URL + _id);
+    // return storageService.remove(TOURS_KEY, _id);
 }
 
 function save(tour) {
     if (tour._id) {
-        // return httpService.put(TOUR_URL + tour._id, tour);
-        return storageService.put(TOURS_KEY, tour);
+        return httpService.put(TOURS_URL + tour._id, tour);
+        // return storageService.put(TOURS_KEY, tour);
     } else {
-        // return httpService.post(TOUR_URL, tour);
-        return storageService.post(TOURS_KEY, tour);
+        return httpService.post(TOURS_URL, tour);
+        // return storageService.post(TOURS_KEY, tour);
     }
 }
 
@@ -98,14 +108,14 @@ function getEmptyTour(title, price, country, imgUrl) {
             _createReview('ahla bahla'),
         ],
     };
-    let sum = 0
-    tour.reviews.forEach(r=>{
-        sum += r.rate
-    })
-    tour.rate= sum/tour.reviews.length
-    console.log('  tour.rate:',   tour.rate)
-    
-    return tour
+    let sum = 0;
+    tour.reviews.forEach((r) => {
+        sum += r.rate;
+    });
+    tour.rate = sum / tour.reviews.length;
+    // console.log('  tour.rate:',   tour.rate)
+
+    return tour;
 }
 
 function getEmptyReview(txt, rate = 3) {

@@ -52,7 +52,7 @@ const routes = [
         component: tourDetails,
     },
     {
-        path: '/user-profile',
+        path: '/user-profile/:userId',
         name: 'tour-profile',
         component: userProfile,
     },
