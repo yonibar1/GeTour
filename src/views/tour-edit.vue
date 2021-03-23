@@ -1,6 +1,7 @@
 <template>
   <section class="tour-edit">
     <div class="form-edit">
+      <h3>Plan Your Special Tour</h3>
       <el-form v-if="tourToEdit" action="">
         <el-form-item>
           <label for="title">Title</label>
@@ -96,7 +97,16 @@
                 multiple
                 type="file"
               /> -->
-          <upload-image />
+          <upload-image @save="saveImg" />
+          <div class="imgs-container">
+            {{ tourToEdit.imgs.length }} / 5
+            <img
+              class="uploaded-img"
+              v-for="(url, idx) in tourToEdit.imgs"
+              :key="idx"
+              :src="url"
+            />
+          </div>
           <!-- </label> -->
         </el-form-item>
         <label for="tourMap"> Enter Tour Checkpoints </label>
@@ -133,6 +143,10 @@ export default {
     this.loadTour(id);
   },
   methods: {
+    saveImg(url) {
+      this.tourToEdit.imgs.push(url);
+      console.log(this.tourToEdit.imgs, "this.tourToEdit.imgs");
+    },
     async saveTour() {
       try {
         await this.$store.dispatch({
@@ -151,6 +165,7 @@ export default {
           id,
         });
         this.tourToEdit = tour;
+        console.log("this.tourToEdit", this.tourToEdit);
       } catch (err) {
         console.log("Cannot load Tour", err);
       }

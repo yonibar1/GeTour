@@ -72,7 +72,6 @@ function save(tour) {
 function getEmptyTour(title, price, country, imgUrl) {
     const tour = {
         title,
-        imgUrl,
         country,
         price,
         startedAt: Date.now(),
@@ -84,6 +83,7 @@ function getEmptyTour(title, price, country, imgUrl) {
         msgs: [],
         locs: [],
         imgs: [
+            { imgUrl }
             // { url: '../assets/img/hero.jpg' },
             // { url: '../assets/img/hero2.jpg' },
             // { url: '../assets/img/hero.jpg' },
@@ -99,12 +99,12 @@ function getEmptyTour(title, price, country, imgUrl) {
         ],
     };
     let sum = 0
-    tour.reviews.forEach(r=>{
+    tour.reviews.forEach(r => {
         sum += r.rate
     })
-    tour.rate= sum/tour.reviews.length
-    console.log('  tour.rate:',   tour.rate)
-    
+    tour.rate = sum / tour.reviews.length
+    console.log('  tour ', tour)
+
     return tour
 }
 
@@ -116,7 +116,7 @@ function getEmptyReview(txt, rate = 3) {
         byUser: {
             fullname: 'Josh Wellington',
             _id: utilService.makeId(),
-            avatar: 'avatar.jpg',
+            imgUrl: 'avatar.jpg',
         },
     };
 }

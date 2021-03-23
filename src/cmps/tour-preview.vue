@@ -2,7 +2,7 @@
   <section class="tour-preview">
     <router-link :to="'/tour-details/' + tour._id">
       <div class="preview-img-container">
-        <img :src="require(`../assets/demo-tours/${tour.imgUrl}`)" alt="" />
+        <img :src="require(`../assets/demo-tours/${tour.imgs[0]}`)" alt="" />
       </div>
       <div class="tour-description-container">
         <div class="mini-user-container">
