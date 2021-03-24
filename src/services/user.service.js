@@ -11,17 +11,24 @@ export const userService = {
     logout,
     signup,
     getById,
+    getLoggedUser
 };
 
 // For Authentication...
 
-function login(user) {
-    // console.log('user:', user)
-    // sessionStorage.setItem('login', user.username);
-    // return storageService.post(AUTH_KEY + 'login', user);
-    // return sessionStorage.getItem(AUTH_KEY + 'login', JSON.stringify(user));
-    return httpService.post(AUTH_URL + 'login', user);
+async function login(user) {
+    const userFromBack = await httpService.post(AUTH_URL + 'login', user);
+    console.log(userFromBack, 'User From Back');
+    sessionStorage.setItem('login', JSON.stringify(userFromBack));
+    return userFromBack
 }
+
+async function getLoggedUser() {
+    const user = JSON.parse(sessionStorage.getItem('login'));
+    console.log(user, 'User');
+    return user
+}
+
 function logout() {
     sessionStorage.clear();
     // return sessionStorage.getItem(AUTH_KEY + 'logout');

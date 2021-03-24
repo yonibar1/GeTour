@@ -1,5 +1,4 @@
 import { userService } from '../services/user.service';
-// import { uploadImg } from "../services/img-upload.service";
 export const userStore = {
     state: {
         users: [],
@@ -23,6 +22,9 @@ export const userStore = {
         setUser(state, { user }) {
             state.user = user;
         },
+        logout(state) {
+            state.user = null
+        },
         updateUser(state, { userAfterSave }) {
             const idx = state.users.findIndex((t) => {
                 return t._id === userAfterSave._id;
@@ -33,7 +35,7 @@ export const userStore = {
             state.users.push(signedUser);
         },
         login(state, { loggedUser }) {
-            console.log('loggedUser:', loggedUser);
+            state.user = loggedUser
         },
         remove(state, { id }) {
             const idx = state.users.findIndex((u) => {
@@ -52,6 +54,10 @@ export const userStore = {
         //         console.log('Cannot get Users', err);
         //     }
         // },
+        async logout({ commit }) {
+            await userService.logout()
+            commit({ type: 'logout' })
+        },
         async login({ commit }, { user }) {
             const loggedUser = await userService.login(user);
             commit({ type: 'login', loggedUser });
@@ -61,6 +67,10 @@ export const userStore = {
             const signedUser = await userService.signup(userData);
             commit({ type: 'signup', signedUser });
             return signedUser;
+        },
+        async getLoggedUser({ commit }) {
+            const loggedUser = await userService.getLoggedUser()
+            commit({ type: 'login', loggedUser });
         },
         // async saveUser({ commit }, { user }) {
         //     const type = user._id ? 'login' : 'signup';

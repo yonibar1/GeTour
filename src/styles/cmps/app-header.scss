@@ -11,6 +11,18 @@
     align-items: center;
     justify-content: space-between;
     padding: $main-padding;
+    .user-avatar{
+        display: inline-block;
+        img{
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            align-self: center;
+
+    }
+}
     .logo-container {
         width: 150px;
     }

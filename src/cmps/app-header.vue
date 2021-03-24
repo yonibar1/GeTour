@@ -13,26 +13,27 @@
     <nav>
       <router-link to="/explore">
         <button :class="{ scrollClass: isScrolling }">
-          <span>
-          Explore
-          </span>
-        </button></router-link>
+          <span> Explore </span>
+        </button></router-link
+      >
       |
       <router-link to="/edit">
         <button :class="{ scrollClass: isScrolling }">
-          <span>
-          Become a guide
-          </span>
+          <span> Become a guide </span>
         </button></router-link
       >
       |
-      <router-link to="/login-signup"
+      <router-link v-if="!user" to="/login-signup"
         ><button :class="{ scrollClass: isScrolling }">
-          <span>
-          Login / Signup
-          </span>
+          <span> Login / Signup </span>
         </button></router-link
       >
+      <div v-else class="user-avatar">
+        <img @click="isOpen = !isOpen" :src="user.imgUrl" />
+      </div>
+      <div v-if="isOpen" class="user-options-container">
+        <el-button type="danger" @click="logout">Logout</el-button>
+      </div>
     </nav>
   </section>
 </template>
@@ -42,7 +43,13 @@ export default {
     return {
       isScrolling: false,
       isStaticPos: false,
+      isOpen: false,
     };
+  },
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    },
   },
   methods: {
     onScroll() {
@@ -50,6 +57,21 @@ export default {
         this.isScrolling = true;
       } else {
         this.isScrolling = false;
+      }
+    },
+    async logout() {
+      try {
+        await this.$store.dispatch({ type: "logout" });
+        this.isOpen = false;
+      } catch (err) {
+        console.log("Cannot logout", err);
+      }
+    },
+    async getLoggedUser() {
+      try {
+        await this.$store.dispatch({ type: "getLoggedUser" });
+      } catch (err) {
+        console.log("Cannot Get Logged User", err);
       }
     },
   },
@@ -68,6 +90,9 @@ export default {
         }
       },
     },
+  },
+  created() {
+    this.getLoggedUser();
   },
 };
 </script>
