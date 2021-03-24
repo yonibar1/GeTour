@@ -6,7 +6,6 @@ export const tourStore = {
         tours: [],
         tour: null,
         // tourToEdit: null,
-        reviews: [],
         filterBy: {
             byDestination: '',
             byDate: '',
@@ -23,9 +22,6 @@ export const tourStore = {
         // tourToEdit(state) {
         //     return state.tourToEdit;
         // },
-        reviews(state) {
-            return state.reviews;
-        },
         filterBy(state) {
             return state.filterBy;
         },
@@ -39,9 +35,6 @@ export const tourStore = {
         },
         setFilterBy(state, { filter }) {
             state.filterBy = filter;
-        },
-        loadReviews(state, { reviews }) {
-            state.reviews = reviews;
         },
         // setTourToEdit(state, { tour }) {
         //     state.tourToEdit = tour;
@@ -133,15 +126,6 @@ export const tourStore = {
                 return tour;
             } catch (err) {
                 console.log('Cannot get Tours', err);
-            }
-        },
-        async loadReviews({ commit }, { id }) {
-            try {
-                const tour = await tourService.getById(id);
-                const reviews = tour.reviews;
-                commit({ type: 'loadReviews', reviews });
-            } catch (err) {
-                console.log(err);
             }
         },
         async addReview({ commit }, { review, tourId }) {
