@@ -22,19 +22,19 @@
 
       <div class="images-container">
         <div class="first-img">
-          <img src="../assets/img/amsterdam/amsterdam5.jpg" alt="" />
+          <img :src="tour.imgs[0]" alt="" />
         </div>
         <div class="img-2">
-          <img src="../assets/img/amsterdam/amsterdam1.jpg" alt="" />
+          <img :src="tour.imgs[1]" alt="" />
         </div>
         <div class="img3">
-          <img src="../assets/img/amsterdam/amsterdam3.jpg" alt="" />
+          <img :src="tour.imgs[2]" alt="" />
         </div>
         <div class="img4">
-          <img src="../assets/img/amsterdam/amsterdam4.jpg" alt="" />
+          <img :src="tour.imgs[3]" alt="" />
         </div>
         <div class="img5">
-          <img src="../assets/img/amsterdam/amsterdam2.jpg" alt="" />
+          <img :src="tour.imgs[4]" alt="" />
         </div>
       </div>
     </div>
@@ -171,7 +171,6 @@ export default {
           id,
         });
         this.reviews = this.tour.reviews;
-        // this.$store.dispatch({ type: 'loadUsers' });
       } catch {
         console.log("Cant Show Tour Details");
       }
