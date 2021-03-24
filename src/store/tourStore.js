@@ -10,7 +10,7 @@ export const tourStore = {
         filterBy: {
             byDestination: '',
             byDate: '',
-            byPriceRange: { min: 0, max: 1000 },
+            byPriceRange: { min: 0, max: 2000 },
         },
     },
     getters: {
@@ -92,6 +92,7 @@ export const tourStore = {
         async query(context) {
             try {
                 const tours = await tourService.query(context.state.filterBy);
+                console.log(tours, 'Tours At Store (QUERY)');
                 context.commit({ type: 'query', tours });
                 return tours;
             } catch (err) {
@@ -117,6 +118,7 @@ export const tourStore = {
             }
         },
         async saveTour({ commit }, { tour }) {
+
             const type = tour._id ? 'updateTour' : 'addTour';
             const tourAfterSave = await tourService.save(tour);
             commit({ type, tourAfterSave });
@@ -126,7 +128,6 @@ export const tourStore = {
             await tourService.remove(id);
             commit({ type: 'remove', id });
         },
-
         async loadTour({ commit }, { id }) {
             try {
                 const tour = await tourService.getById(id);

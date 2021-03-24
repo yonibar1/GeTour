@@ -27,16 +27,13 @@ export const tourService = {
 
 async function query(filterBy = {}) {
     var tours = await httpService.get(TOURS_URL);
-    console.log('tours:', tours);
     var toursCopy = JSON.parse(JSON.stringify(tours));
-    if (filterBy.byPriceRange) {
-        toursCopy = toursCopy.filter((tour) => {
-            return (
-                tour.price > filterBy.byPriceRange.min &&
-                tour.price < filterBy.byPriceRange.max
-            );
-        });
-    }
+    toursCopy = toursCopy.filter((tour) => {
+        return (
+            tour.price > filterBy.byPriceRange.min &&
+            tour.price < filterBy.byPriceRange.max
+        );
+    });
     if (filterBy.byDestination) {
         toursCopy = toursCopy.filter((tour) => {
             return tour.country
@@ -54,7 +51,6 @@ function queryAllByType(type) {
 }
 
 function getById(id) {
-    console.log(id, 'Id at service');
     return httpService.get(TOURS_URL + id);
     // return storageService.get(TOURS_KEY, id);
 }

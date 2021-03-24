@@ -1,6 +1,6 @@
 <template>
   <section class="tour-filter">
-    <form action="">
+    <form>
       <div class="con">
         <el-input
           class="destination-input"
@@ -12,11 +12,9 @@
       </div>
       <el-date-picker
         v-model="filterBy.byDate"
-        type="daterange"
-        align="right"
-        start-placeholder="Start Date"
-        end-placeholder="End Date"
-        default-value="2010-10-01"
+        type="date"
+        placeholder="Pick a day"
+        value-format="timestamp"
       >
       </el-date-picker>
       <div class="price-input" @click="toggleRangeBox()">{{ priceToShow }}</div>
@@ -71,19 +69,16 @@ export default {
   computed: {},
   methods: {
     toggleRangeBox() {
-      if (this.isOpen === true) {
-        this.isOpen = false;
-        this.setPrice();
-      } else {
-        this.isOpen = true;
-      }
+      if (this.isOpen) this.setPrice();
+      this.isOpen = !this.isOpen;
     },
     setPrice() {
-      const min = this.filterBy.byPriceRange[0];
-      const max = this.filterBy.byPriceRange[1];
+      const [min, max] = this.filterBy.byPriceRange;
+      // const max = this.filterBy.byPriceRange[1];
       this.priceToShow = `$${min} - $${max}`;
     },
     async setFilter(country) {
+      console.log(this.filterBy, "this.filterBy");
       let copyFilterBy = JSON.parse(JSON.stringify(this.filterBy));
       if (country) {
         copyFilterBy.byDestination = country;

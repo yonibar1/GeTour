@@ -19,6 +19,7 @@ export default {
   methods: {
     async loadTours() {
       const tours = await this.$store.dispatch({ type: "query" });
+      console.log(tours, "Tours");
       this.tours = tours;
     },
     async filterChanged() {

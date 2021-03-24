@@ -50,6 +50,17 @@
             type="number"
           />
         </el-form-item>
+
+        <el-form-item>
+          <el-date-picker
+            v-model="tourToEdit.startedAt"
+            type="date"
+            placeholder="Pick a day"
+            value-format="timestamp"
+          >
+          </el-date-picker>
+        </el-form-item>
+
         <el-form-item>
           <label for="daysCount">Days Count</label>
           <el-input-number
@@ -99,14 +110,6 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <!-- <label for="uploadImages" class="upload-images">
-            Upload Images -->
-          <!-- <input
-                id="uploadImages"
-                class="file-input"
-                multiple
-                type="file"
-              /> -->
           <upload-image @save="saveImg" />
           <div class="imgs-container">
             {{ tourToEdit.imgs.length }} / 5
@@ -117,7 +120,6 @@
               :src="url"
             />
           </div>
-          <!-- </label> -->
         </el-form-item>
         <label for="tourMap"> Enter Tour Checkpoints </label>
         <tour-map id="tourMap" @setCheckPoints="setCheckPoints" />
@@ -155,7 +157,6 @@ export default {
   methods: {
     saveImg(url) {
       this.tourToEdit.imgs.push(url);
-      console.log(this.tourToEdit.imgs, "this.tourToEdit.imgs");
     },
     async saveTour() {
       try {
