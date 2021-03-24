@@ -90,7 +90,6 @@ function getEmptyTour() {
         members: 0,
         daysCount: 0,
         difficulty: 0,
-        msgs: [],
         locs: [],
         imgs: [
         ],
@@ -115,7 +114,6 @@ function getEmptyTour() {
 //         daysCount: utilService.getRandomInt(1, 5),
 //         difficulty: utilService.getRandomInt(1, 5),
 //         // rate: utilService.getRandomInt(1, 5),
-//         msgs: [],
 //         locs: [],
 //         imgs: [
 //             { imgUrl }

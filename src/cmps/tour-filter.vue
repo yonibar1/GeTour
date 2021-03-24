@@ -77,8 +77,7 @@ export default {
       // const max = this.filterBy.byPriceRange[1];
       this.priceToShow = `$${min} - $${max}`;
     },
-    async setFilter(country) {
-      console.log(this.filterBy, "this.filterBy");
+    setFilter(country) {
       let copyFilterBy = JSON.parse(JSON.stringify(this.filterBy));
       if (country) {
         copyFilterBy.byDestination = country;
@@ -87,8 +86,8 @@ export default {
         min: this.filterBy.byPriceRange[0],
         max: this.filterBy.byPriceRange[1],
       };
-      await this.$store.dispatch({
-        type: "setFilter",
+      this.$store.commit({
+        type: "setFilterBy",
         filter: copyFilterBy,
       });
       this.$emit("setFilter");

@@ -13,6 +13,7 @@
 <script>
 import { uploadImg } from "@/services/img-upload.service.js";
 export default {
+  name: "UploadImg",
   data() {
     return {
       isLoading: false,

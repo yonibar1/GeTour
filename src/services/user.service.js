@@ -16,8 +16,8 @@ export const userService = {
 // For Authentication...
 
 function login(user) {
-    console.log('user:', user)
-    sessionStorage.setItem('login', user.username);
+    // console.log('user:', user)
+    // sessionStorage.setItem('login', user.username);
     // return storageService.post(AUTH_KEY + 'login', user);
     // return sessionStorage.getItem(AUTH_KEY + 'login', JSON.stringify(user));
     return httpService.post(AUTH_URL + 'login', user);
@@ -30,7 +30,6 @@ function logout() {
 }
 
 function signup(signupDetails) {
-    console.log('signupDetails:', signupDetails)
     sessionStorage.setItem('signup', JSON.stringify(signupDetails));
     // return sessionStorage.getItem(AUTH_KEY + 'signup', signupDetails);
     return httpService.post(AUTH_URL + 'signup', signupDetails);

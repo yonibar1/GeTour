@@ -31,7 +31,7 @@
             type="number"
           />
         </el-form-item>
-        <el-form-item>
+        <!-- <el-form-item>
           <label for="members">Members</label>
           <el-input-number
             id="members"
@@ -40,7 +40,7 @@
             placeholder="Members"
             type="number"
           />
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item>
           <label for="capacity">Capacity</label>
           <el-input-number
@@ -87,11 +87,16 @@
             multiple
             placeholder="Select"
           >
+            <!--    options: [
+        {
+          label: "Water Trail",
+          value: { txt: "Water Trail", class: "fas fa-water" },
+        }, -->
             <el-option
-              v-for="item in options"
-              :key="item.value"
+              v-for="(item, idx) in options"
+              :key="idx"
               :label="item.label"
-              :value="item.value"
+              :value="item.value.class"
             >
             </el-option>
           </el-select>
@@ -141,11 +146,26 @@ export default {
     return {
       tourToEdit: null,
       options: [
-        { label: "Water Trail", value: "fas fa-water" },
-        { label: "For Children", value: "fas fa-child" },
-        { label: "Urbanic", value: "fas fa-city" },
-        { label: "Nature", value: "fas fa-tree" },
-        { label: "Food", value: "fas fa-utensils" },
+        {
+          label: "Water Trail",
+          value: { txt: "Water Trail", class: "fas fa-water" },
+        },
+        {
+          label: "For Children",
+          value: { txt: "For Children", class: "fas fa-child" },
+        },
+        {
+          label: "Urbanic",
+          value: { txt: "Urbanic Tour", class: "fas fa-city" },
+        },
+        {
+          label: "Nature",
+          value: { txt: "Nature Tour", value: "fas fa-tree" },
+        },
+        {
+          label: "Food",
+          value: { txt: "Food Included", value: "fas fa-utensils" },
+        },
       ],
     };
   },

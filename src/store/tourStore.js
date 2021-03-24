@@ -31,7 +31,7 @@ export const tourStore = {
         },
     },
     mutations: {
-        query(state, { tours }) {
+        setTours(state, { tours }) {
             state.tours = tours;
         },
         setTour(state, { tour }) {
@@ -82,18 +82,10 @@ export const tourStore = {
         //     const tourAfterSave = await tourService.save(tour);
         //     state.commit({ type: 'updateTour', tourAfterSave });
         // },
-        async setFilter({ commit }, { filter }) {
-            try {
-                commit({ type: 'setFilterBy', filter });
-            } catch (err) {
-                console.log('Cannot set filter', err);
-            }
-        },
         async query(context) {
             try {
                 const tours = await tourService.query(context.state.filterBy);
-                console.log(tours, 'Tours At Store (QUERY)');
-                context.commit({ type: 'query', tours });
+                context.commit({ type: 'setTours', tours });
                 return tours;
             } catch (err) {
                 console.log('Cannot get Tours', err);
@@ -103,7 +95,6 @@ export const tourStore = {
             try {
                 if (!id) {
                     const tour = tourService.getEmptyTour();
-                    console.log(tour, 'Tour to edit');
                     // commit({ type: 'setTourToEdit', tour });
                     const tourCopy = JSON.parse(JSON.stringify(tour));
                     return tourCopy;
@@ -118,15 +109,22 @@ export const tourStore = {
             }
         },
         async saveTour({ commit }, { tour }) {
-
-            const type = tour._id ? 'updateTour' : 'addTour';
-            const tourAfterSave = await tourService.save(tour);
-            commit({ type, tourAfterSave });
-            return tourAfterSave;
+            try {
+                const type = tour._id ? 'updateTour' : 'addTour';
+                const tourAfterSave = await tourService.save(tour);
+                commit({ type, tourAfterSave });
+                return tourAfterSave;
+            } catch (err) {
+                console.log('cannot save tour', err);
+            }
         },
         async removeTour({ commit }, { id }) {
-            await tourService.remove(id);
-            commit({ type: 'remove', id });
+            try {
+                await tourService.remove(id);
+                commit({ type: 'remove', id });
+            } catch (err) {
+                console.log('cannot remove tour', err);
+            }
         },
         async loadTour({ commit }, { id }) {
             try {
