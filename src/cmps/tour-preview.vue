@@ -9,12 +9,12 @@
           <div class="mini-user-img">
             <img :src="`${tour.byUser.imgUrl}`" alt="" />
           </div>
-          <p>{{ tour.byUser.fullname }}</p>
+          <router-link :to="'/user-profile/' + tour.byUser._id">
+            <p class="mini-user-fullname">{{ tour.byUser.fullname }}</p>
+          </router-link>
         </div>
         <h3>{{ tour.title }}</h3>
         <p>{{ tour.country }}</p>
-        <p>{{ tour.byUser.fullname }}</p>
-        <p></p>
         <p>{{ tour.daysCount }} Days</p>
         <p>{{ tour.members }}/{{ tour.capacity }} Joined</p>
         <!-- <router-link :to="'/edit/' + tour._id">Edit</router-link> -->
@@ -42,11 +42,7 @@ export default {
       rate: 0,
     };
   },
-  // methods: {
-  //   imgUrl() {
-  //     return `../assets/demo-tours/${this.tour.imgUrl}.jpg`;
-  //   },
-  // },
+  methods: {},
   created() {
     this.rate = this.tour.rate;
   },

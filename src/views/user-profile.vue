@@ -22,7 +22,6 @@ export default {
     name: 'user-profile',
     data() {
         return {
-            user: null,
             // user: {
             //     fullname: 'Shoshana Bar',
             //     imgUrl:
