@@ -1,9 +1,8 @@
-// import { httpService } from './http.service.js';
+import { httpService } from './http.service.js';
 // import { utilService } from './util.service.js';
 // import { storageService } from './async-storage.service.js';
-
-// const KEY = 'toysDB';
-// const USER_URL = 'user/';
+;
+const USER_URL = 'user/';
 // const AUTH_URL = 'auth/';
 const AUTH_KEY = 'user';
 
@@ -38,7 +37,7 @@ function signup(signupDetails) {
 }
 
 function getById(id) {
-    // return httpService.get(TOUR_URL + id);
-    return sessionStorage.getItem(AUTH_KEY + id);
+    return httpService.get(USER_URL + id);
+    // return sessionStorage.getItem(AUTH_KEY + id);
     // return storageService.get(AUTH_KEY, id);
 }
