@@ -98,7 +98,7 @@ export const tourStore = {
                 console.log('Cannot get Tours', err);
             }
         },
-        async getTourToEdit({ id }) {
+        async getTourToEdit(context, { id }) {
             try {
                 if (!id) {
                     const tour = tourService.getEmptyTour();
