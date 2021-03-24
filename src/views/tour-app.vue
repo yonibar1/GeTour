@@ -1,8 +1,10 @@
 <template>
   <section class="tour-app">
     <div class="hero-container">
+      <div class="gradient">
       <tour-filter />
       <h1>Travel Anywhere With Anyone.</h1>
+      </div>
     </div>
 
     <!-- COUNTRIES -->
@@ -83,7 +85,7 @@
 
     <!-- GUIDES -->
 
-    <div class="guides-container">
+    <!-- <div class="guides-container">
       <div class="guides-title">
         <h1>Top rated guides</h1>
       </div>
@@ -121,7 +123,7 @@
           </router-link>
         </li>
       </ul>
-    </div>
+    </div> -->
   </section>
 </template>
 

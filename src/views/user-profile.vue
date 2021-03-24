@@ -11,8 +11,8 @@
         <h2>{{ user.fullname }}</h2>
       </div>
       <div class="main">
-        <h2>My Tours</h2>
-      </div>
+        <h2>My Tours</h2>   
+        </div>
     </div>
   </section>
 </template>

@@ -14,8 +14,7 @@
         margin: 0;
         height: 50%;
         width: 70%;
-
-
+        
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -55,7 +54,7 @@
                         }
 
                         i {
-                            color: rgb(214, 214, 54);
+                            color: #42ABA7;
                             text-shadow: 0 1px 0 rgb(22, 21, 21);
                         }
 
@@ -102,7 +101,7 @@
         }
 
         .add-review-container {
-            margin-top: 0px;
+            margin-top: 70px;
             // margin-inline-start: rem(2px);
             width: 100%;
 
