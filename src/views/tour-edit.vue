@@ -1,6 +1,7 @@
 <template>
   <section class="tour-edit">
     <div class="form-edit">
+      <h3>Plan Your Special Tour</h3>
       <el-form v-if="tourToEdit" action="">
         <el-form-item>
           <label for="title">Title</label>
@@ -27,6 +28,16 @@
             class="input-number"
             v-model.number="tourToEdit.price"
             placeholder="Price"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item>
+          <label for="members">Members</label>
+          <el-input-number
+            id="members"
+            class="input-number"
+            v-model.number="tourToEdit.members"
+            placeholder="Members"
             type="number"
           />
         </el-form-item>
@@ -96,7 +107,16 @@
                 multiple
                 type="file"
               /> -->
-          <upload-image />
+          <upload-image @save="saveImg" />
+          <div class="imgs-container">
+            {{ tourToEdit.imgs.length }} / 5
+            <img
+              class="uploaded-img"
+              v-for="(url, idx) in tourToEdit.imgs"
+              :key="idx"
+              :src="url"
+            />
+          </div>
           <!-- </label> -->
         </el-form-item>
         <label for="tourMap"> Enter Tour Checkpoints </label>
@@ -120,10 +140,10 @@ export default {
       tourToEdit: null,
       options: [
         { label: "Water Trail", value: "fas fa-water" },
-        { label: "For Children", value: "for children" },
-        { label: "Urbanic", value: "urbanic" },
-        { label: "Nature", value: "nature" },
-        { label: "Food", value: "food" },
+        { label: "For Children", value: "fas fa-child" },
+        { label: "Urbanic", value: "fas fa-city" },
+        { label: "Nature", value: "fas fa-tree" },
+        { label: "Food", value: "fas fa-utensils" },
       ],
     };
   },
@@ -133,6 +153,10 @@ export default {
     this.loadTour(id);
   },
   methods: {
+    saveImg(url) {
+      this.tourToEdit.imgs.push(url);
+      console.log(this.tourToEdit.imgs, "this.tourToEdit.imgs");
+    },
     async saveTour() {
       try {
         await this.$store.dispatch({
@@ -151,6 +175,7 @@ export default {
           id,
         });
         this.tourToEdit = tour;
+        console.log("this.tourToEdit", this.tourToEdit);
       } catch (err) {
         console.log("Cannot load Tour", err);
       }

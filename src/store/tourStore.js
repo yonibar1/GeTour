@@ -103,6 +103,7 @@ export const tourStore = {
             try {
                 if (!id) {
                     const tour = tourService.getEmptyTour();
+                    console.log(tour, 'Tour to edit');
                     commit({ type: 'setTourToEdit', tour });
                     const tourCopy = JSON.parse(JSON.stringify(tour));
                     return tourCopy;

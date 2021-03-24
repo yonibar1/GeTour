@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const uploadImg = async (ev) => {
-    console.log(ev, 'EV AT SERVICE');
     // Defining our variables
     const UPLOAD_PRESET = 'GeTour' // Insert yours
     const CLOUD_NAME = 'yonibar' // Insert yours
