@@ -1,8 +1,4 @@
 <template>
-  <!-- <i class="fas fa-child"></i> -->
-  <!-- <i class="fas fa-city"></i> -->
-  <!-- <i class="fas fa-tree"></i> -->
-  <!-- <i class="fas fa-utensils"></i> -->
   <section v-if="tour" class="tour-details">
     <div class="details-container-primary">
       <h2>
@@ -19,7 +15,6 @@
         <span class="reviews-length">({{ tour.reviews.length }})</span>
       </h2>
       <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
-
       <div class="images-container">
         <div class="first-img">
           <img :src="tour.imgs[0]" alt="" />
@@ -49,6 +44,7 @@
                 ></i> -->
         <!-- <h3>{{ tour.locs.name }}</h3> -->
         <p>{{ tour.description }}</p>
+        {{tour.tags}}
       </div>
       <div class="tour-order">
         <el-form>
