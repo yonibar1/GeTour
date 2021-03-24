@@ -2,7 +2,9 @@
     .hero-container {
         background-image: url("../assets/img/hero.jpg");
         background-size: cover;
+        background-attachment: fixed;
         height: 580px;
+        
         h1 {
             text-align: center;
             user-select: none;

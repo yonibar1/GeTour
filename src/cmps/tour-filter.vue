@@ -1,7 +1,6 @@
 <template>
   <section class="tour-filter">
     <form>
-      <div class="con">
         <el-input
           class="destination-input"
           placeholder="Destination"
@@ -9,7 +8,6 @@
           clearable
         >
         </el-input>
-      </div>
       <el-date-picker
         v-model="filterBy.byDate"
         type="date"
@@ -66,7 +64,6 @@ export default {
       },
     };
   },
-  computed: {},
   methods: {
     toggleRangeBox() {
       if (this.isOpen) this.setPrice();
@@ -74,7 +71,6 @@ export default {
     },
     setPrice() {
       const [min, max] = this.filterBy.byPriceRange;
-      // const max = this.filterBy.byPriceRange[1];
       this.priceToShow = `$${min} - $${max}`;
     },
     async setFilter(country) {
