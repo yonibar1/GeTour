@@ -52,23 +52,6 @@ export const userStore = {
         //         console.log('Cannot get Users', err);
         //     }
         // },
-        async getUserToEdit({ commit }, { id }) {
-            try {
-                if (!id) {
-                    const user = userService.getEmptyUser();
-                    commit({ type: 'setUserToEdit', user });
-                    const userCopy = JSON.parse(JSON.stringify(user));
-                    return userCopy;
-                } else {
-                    const user = await userService.getById(id);
-                    const userCopy = JSON.parse(JSON.stringify(user));
-                    commit({ type: 'setUserToEdit', user });
-                    return userCopy;
-                }
-            } catch (err) {
-                console.log('Cannot get user', err);
-            }
-        },
         async login({ commit }, { user }) {
             const loggedUser = await userService.login(user);
             commit({ type: 'login', loggedUser });
@@ -91,7 +74,6 @@ export const userStore = {
         // },
         async loadUser({ commit }, { id }) {
             try {
-                console.log('id:', id);
                 const user = await userService.getById(id);
                 console.log('user:', user)
                 commit({ type: 'setUser', user });

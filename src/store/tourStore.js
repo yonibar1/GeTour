@@ -1,12 +1,11 @@
 import { tourService } from '../services/tour.service';
 import { utilService } from '../services/util.service';
-import { uploadImg } from "../services/img-upload.service";
 export const tourStore = {
     state: {
         // chatHistory: [],
         tours: [],
         tour: null,
-        tourToEdit: null,
+        // tourToEdit: null,
         reviews: [],
         filterBy: {
             byDestination: '',
@@ -21,9 +20,9 @@ export const tourStore = {
         tour(state) {
             return state.tour;
         },
-        tourToEdit(state) {
-            return state.tourToEdit;
-        },
+        // tourToEdit(state) {
+        //     return state.tourToEdit;
+        // },
         reviews(state) {
             return state.reviews;
         },
@@ -44,9 +43,9 @@ export const tourStore = {
         loadReviews(state, { reviews }) {
             state.reviews = reviews;
         },
-        setTourToEdit(state, { tour }) {
-            state.tourToEdit = tour;
-        },
+        // setTourToEdit(state, { tour }) {
+        //     state.tourToEdit = tour;
+        // },
         updateTour(state, { tourAfterSave }) {
             const idx = state.tours.findIndex((t) => {
                 return t._id === tourAfterSave._id;
@@ -99,18 +98,18 @@ export const tourStore = {
                 console.log('Cannot get Tours', err);
             }
         },
-        async getTourToEdit({ commit }, { id }) {
+        async getTourToEdit({ id }) {
             try {
                 if (!id) {
                     const tour = tourService.getEmptyTour();
                     console.log(tour, 'Tour to edit');
-                    commit({ type: 'setTourToEdit', tour });
+                    // commit({ type: 'setTourToEdit', tour });
                     const tourCopy = JSON.parse(JSON.stringify(tour));
                     return tourCopy;
                 } else {
                     const tour = await tourService.getById(id);
                     const tourCopy = JSON.parse(JSON.stringify(tour));
-                    commit({ type: 'setTourToEdit', tour });
+                    // commit({ type: 'setTourToEdit', tour });
                     return tourCopy;
                 }
             } catch (err) {
@@ -159,5 +158,4 @@ export const tourStore = {
             }
         },
     },
-    modules: {},
 };
