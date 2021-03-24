@@ -3,7 +3,6 @@
         <div class="details-container-primary">
             <h2>
                 {{ tour.title }}
-
                 <el-rate
                     show-score
                     allow-half

@@ -75,7 +75,6 @@ export const userStore = {
         async loadUser({ commit }, { id }) {
             try {
                 const user = await userService.getById(id);
-                console.log('user:', user)
                 commit({ type: 'setUser', user });
                 return user;
             } catch (err) {

@@ -2,10 +2,8 @@ import { tourService } from '../services/tour.service';
 import { utilService } from '../services/util.service';
 export const tourStore = {
     state: {
-        // chatHistory: [],
         tours: [],
         tour: null,
-        // tourToEdit: null,
         reviews: [],
         filterBy: {
             byDestination: '',
@@ -133,6 +131,15 @@ export const tourStore = {
                 return tour;
             } catch (err) {
                 console.log('Cannot get Tours', err);
+            }
+        },
+        async loadToursByUser({ userId }) {
+            try {
+                const tours = await tourService.loadToursByUser(userId);
+                console.log('tours:', tours)
+                return tours;
+            } catch (err) {
+                console.log('Cannot get Tours By User', err);
             }
         },
         async loadReviews({ commit }, { id }) {

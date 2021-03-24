@@ -1,6 +1,6 @@
 <template>
   <section class="tour-preview">
-    <router-link :to="'/tour-details/' + tour._id">
+    <router-link :to="'/details/' + tour._id">
       <div class="preview-img-container">
         <img :src="`${tour.imgs[0]}`" alt="" />
       </div>

@@ -1,10 +1,8 @@
 // import axios from 'axios';
 // import { storageService } from './async-storage.service.js';
 import { httpService } from './http.service.js';
-import { utilService } from './util.service.js';
 
 // const KEY = 'toursDB';
-const TOURS_KEY = 'tours';
 const TOURS_URL = 'tour/';
 export const tourService = {
     query,
@@ -12,18 +10,10 @@ export const tourService = {
     remove,
     save,
     getEmptyTour,
-    // saveUser,
     queryAllByType,
+    loadToursByUser
 };
-// _createTours();
 
-// function query(filterBy, pageIdx) {
-//     const params = {
-//         filterBy,
-//         pageIdx,
-//     };
-//     return httpService.get(TOURS_URL, params);
-// }
 
 async function query(filterBy = {}) {
     var tours = await httpService.get(TOURS_URL);
@@ -32,53 +22,50 @@ async function query(filterBy = {}) {
         return (
             tour.price > filterBy.byPriceRange.min &&
             tour.price < filterBy.byPriceRange.max
-        );
-    });
-    if (filterBy.byDestination) {
-        toursCopy = toursCopy.filter((tour) => {
-            return tour.country
+            );
+        });
+        if (filterBy.byDestination) {
+            toursCopy = toursCopy.filter((tour) => {
+                return tour.country
                 .toLowerCase()
                 .includes(filterBy.byDestination.toLowerCase());
-        });
+            });
+        }
+        return toursCopy;
     }
-    return toursCopy;
-}
-
-function queryAllByType(type) {
-    if (!type) {
-        return httpService.get(TOURS_URL);
+    
+    function queryAllByType(type) {
+        if (!type) {
+            return httpService.get(TOURS_URL);
+        }
     }
-}
-
-function getById(id) {
-    return httpService.get(TOURS_URL + id);
-    // return storageService.get(TOURS_KEY, id);
+    
+    async function loadToursByUser(userId) {
+        const tours = await httpService.get(TOURS_URL);
+        const toursByUser = tours.filter((tour) => {
+            console.log('tour.byUser === userId:', tour.byUser === userId)
+            return tour.byUser === userId
+        })
+        console.log('Front - tour.service -  tours:', toursByUser)
+    }
+    
+    function getById(id) {
+        return httpService.get(TOURS_URL + id);
 }
 
 function remove(_id) {
     return httpService.delete(TOURS_URL + _id);
-    // return storageService.remove(TOURS_KEY, _id);
 }
 
 function save(tour) {
     if (tour._id) {
         return httpService.put(TOURS_URL + tour._id, tour);
 
-        // return storageService.put(TOURS_KEY, tour);
     } else {
         return httpService.post(TOURS_URL, tour);
 
-        // return storageService.post(TOURS_KEY, tour);
     }
 }
-
-// function saveUser(user) {
-//     const savedUser = user._id ? _update(user) : _add(user);
-//     storageService.store('USER', user);
-//     return savedUser;
-// }
-
-// @@@@@@@@@@@@@@@@ NEW GET EMPTY TOUR @@@@@@@@@@@
 function getEmptyTour() {
     return {
         title: '',

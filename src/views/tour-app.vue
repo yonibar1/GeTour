@@ -61,7 +61,9 @@
           A journey of a thousand miles <br />
           begins with a single step
         </h1>
+        <router-link to="/edit">
         <el-button class="become-btn" square>Become a guide</el-button>
+        </router-link>
       </div>
     </div>
 
