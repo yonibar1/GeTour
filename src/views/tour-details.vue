@@ -3,7 +3,6 @@
         <div class="details-container-primary">
             <h2>
                 {{ tour.title }}
-
                 <el-rate
                     show-score
                     allow-half
@@ -46,7 +45,7 @@
                         :key="idx"
                     >
                         <i :class="tag.class"> </i>
-                         <h4>{{ tag.txt }}</h4>
+                        <h4>{{ tag.txt }}</h4>
                     </div>
                 </div>
 
@@ -83,7 +82,7 @@
             </div>
         </div>
         <div class="review-list">
-            <tour-review :tour="tour" :reviews="reviews" />
+            <tour-review :tour="tour" />
         </div>
         <!-- <chat :tourId="tour._id" /> -->
         <div class="order-modal">

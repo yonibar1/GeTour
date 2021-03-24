@@ -47,7 +47,7 @@ const routes = [
         component: about,
     },
     {
-        path: '/tour-details/:tourId',
+        path: '/details/:tourId',
         name: 'tour-details',
         component: tourDetails,
     },

@@ -10,19 +10,30 @@
         <h1>Your Profile</h1>
         <h2>{{ user.fullname }}</h2>
       </div>
-      <div class="main">
-        <h2>My Tours</h2>   
-        </div>
+      <div class="user-created-tours">
+        <h2>My Created Tours</h2>
+        <ul v-if="toursByUser">
+        <li v-for="tour in toursByUser" :key="tour._id">
+          <tour-preview :tour="tour"></tour-preview>
+        </li>
+      </ul>
+      </div>
+      <div class="user-created-tours">
+        <h2>My Tours</h2>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import tourPreview from '../cmps/tour-preview.vue';
 export default {
+  components: { tourPreview },
   name: "user-profile",
   data() {
     return {
       user: null,
+      toursByUser: []
     };
   },
   methods: {
@@ -34,9 +45,21 @@ export default {
           id,
         });
         this.user = user;
-        // this.reviews = this.tour.reviews;
       } catch {
         console.log("Cant Show Tour Details");
+      }
+    },
+    async loadToursByUser() {
+      try {
+        const userId = this.user._id
+        const tours = await this.$store.dispatch({
+          type: "loadToursByUser",
+          userId
+        })
+          console.log('tours USER-PROFILE:', tours)
+        this.toursByUser = tours
+      } catch {
+        console.log("Cant Show Tours By User");
       }
     },
   },
@@ -48,7 +71,7 @@ export default {
   },
   created() {
     this.user = this.loadUser();
-    console.log("user:", this.user);
+    this.toursByUser = this.loadToursByUser();
   },
   watch: {
     "$route.params.userId"() {
