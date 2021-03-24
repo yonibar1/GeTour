@@ -38,13 +38,21 @@ export const orderStore = {
         },
     },
     actions: {
-        async loadOrders(state) {
+        // async loadOrders(state) {
+        //     try {
+        //         const orders = await orderService.query();
+        //         state.commit({ type: 'query', orders });
+        //         return orders;
+        //     } catch (err) {
+        //         console.log('Cannot get Orders', err);
+        //     }
+        // },
+        async loadOrdersByUser(context, {userId}) {
             try {
-                const orders = await orderService.query();
-                state.commit({ type: 'query', orders });
-                return orders;
-            } catch (err) {
-                console.log('Cannot get Orders', err);
+                const orders = await orderService.getOrdersByUser(userId)
+                return orders
+            }catch(err) {
+                console.log('Cannot get orders', err);
             }
         },
         async saveOrder({ commit }, { order }) {

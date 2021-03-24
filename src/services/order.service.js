@@ -1,19 +1,32 @@
 // import axios from 'axios';
 import { storageService } from './async-storage.service.js';
-// import { httpService } from './http.service.js';
+import { httpService } from './http.service.js';
 // import { utilService } from './util.service.js';
 
 const ORDER_KEY = 'orders';
-// const ORDER_URL = 'api/order';
+const ORDER_URL = 'order/';
 export const orderService = {
     query,
     getById,
     remove,
     save,
     getEmptyOrder,
+    getOrdersByUser
     // saveUser,
     // queryAllByType,
 };
+
+async function getOrdersByUser(userId) {
+    console.log('userId:', userId)
+    const orders = await httpService.get(ORDER_URL);
+    console.log('orders:', orders)
+    const ordersByUser = orders.filter((order) => {
+        return order.buyer._id === userId
+    })
+    return ordersByUser
+}
+
+
 function query(filterBy = {}) {
     var orders = JSON.parse(localStorage.getItem(ORDER_KEY));
     var ordersCopy = JSON.parse(JSON.stringify(orders));

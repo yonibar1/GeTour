@@ -25,7 +25,6 @@ async function login(user) {
 
 async function getLoggedUser() {
     const user = JSON.parse(sessionStorage.getItem('login'));
-    console.log(user, 'User');
     return user
 }
 

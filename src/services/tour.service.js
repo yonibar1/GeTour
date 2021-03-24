@@ -22,35 +22,34 @@ async function query(filterBy = {}) {
         return (
             tour.price > filterBy.byPriceRange.min &&
             tour.price < filterBy.byPriceRange.max
-            );
-        });
-        if (filterBy.byDestination) {
-            toursCopy = toursCopy.filter((tour) => {
-                return tour.country
+        );
+    });
+    if (filterBy.byDestination) {
+        toursCopy = toursCopy.filter((tour) => {
+            return tour.country
                 .toLowerCase()
                 .includes(filterBy.byDestination.toLowerCase());
-            });
-        }
-        return toursCopy;
+        });
     }
-    
-    function queryAllByType(type) {
-        if (!type) {
-            return httpService.get(TOURS_URL);
-        }
+    return toursCopy;
+}
+
+function queryAllByType(type) {
+    if (!type) {
+        return httpService.get(TOURS_URL);
     }
-    
-    async function loadToursByUser(userId) {
-        const tours = await httpService.get(TOURS_URL);
-        const toursByUser = tours.filter((tour) => {
-            console.log('tour.byUser === userId:', tour.byUser === userId)
-            return tour.byUser === userId
-        })
-        console.log('Front - tour.service -  tours:', toursByUser)
-    }
-    
-    function getById(id) {
-        return httpService.get(TOURS_URL + id);
+}
+
+async function loadToursByUser(userId) {
+    const tours = await httpService.get(TOURS_URL);
+    const toursByUser = tours.filter((tour) => {
+        return tour.byUser._id === userId
+    })
+    return toursByUser
+}
+
+function getById(id) {
+    return httpService.get(TOURS_URL + id);
 }
 
 function remove(_id) {
