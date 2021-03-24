@@ -58,7 +58,7 @@
         grid-area: first-img;
 
         img {
-            height: 92%;
+            height: 90%;
             object-fit: cover;
             border-top-left-radius: 12px;
             border-bottom-left-radius: 12px;
@@ -87,12 +87,15 @@
 
     .img4 {
         grid-area: img4;
+        img {
+            height:79.8%;
+        }
     }
 
     .img5 {
         grid-area: img5;
-
         img {
+            height: 79.8%;
             border-bottom-right-radius: 10px;
         }
     }

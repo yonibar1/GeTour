@@ -3,8 +3,8 @@ import { httpService } from './http.service.js';
 // import { storageService } from './async-storage.service.js';
 
 const USER_URL = 'user/';
-// const AUTH_URL = 'auth/';
-const AUTH_KEY = 'user';
+const AUTH_URL = 'auth/';
+// const AUTH_KEY = 'user';
 
 export const userService = {
     login,
@@ -16,23 +16,24 @@ export const userService = {
 // For Authentication...
 
 function login(user) {
+    console.log('user:', user)
     sessionStorage.setItem('login', user.username);
     // return storageService.post(AUTH_KEY + 'login', user);
-    return sessionStorage.getItem(AUTH_KEY + 'login', JSON.stringify(user));
-    // return httpService.post(AUTH_URL + 'login', user);
+    // return sessionStorage.getItem(AUTH_KEY + 'login', JSON.stringify(user));
+    return httpService.post(AUTH_URL + 'login', user);
 }
 function logout() {
     sessionStorage.clear();
-    return sessionStorage.getItem(AUTH_KEY + 'logout');
+    // return sessionStorage.getItem(AUTH_KEY + 'logout');
     // return storageService.post(AUTH_KEY + 'logout');
-    // return httpService.post(AUTH_URL + 'logout');
+    return httpService.post(AUTH_URL + 'logout');
 }
 
 function signup(signupDetails) {
-    console.log('signupDetails:', signupDetails);
+    console.log('signupDetails:', signupDetails)
     sessionStorage.setItem('signup', JSON.stringify(signupDetails));
-    return sessionStorage.getItem(AUTH_KEY + 'signup', signupDetails);
-    // return httpService.post(AUTH_URL + 'signup', signupDetails);
+    // return sessionStorage.getItem(AUTH_KEY + 'signup', signupDetails);
+    return httpService.post(AUTH_URL + 'signup', signupDetails);
     // return storageService.post(AUTH_KEY + 'signup', signupDetails);
 }
 
