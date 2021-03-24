@@ -15,7 +15,7 @@
         .el-rate {
             display: inline;
             text-shadow: 0.5px 0.5px 0.5px black;
-            color: rgb(214, 214, 54);
+            color: #42ABA7;
         }
 
         h2,
@@ -54,6 +54,10 @@
             "first-img first-img  img4 img5";
     }
 
+    img {
+        object-fit: cover;
+    }
+
     .first-img {
         grid-area: first-img;
 
@@ -87,13 +91,15 @@
 
     .img4 {
         grid-area: img4;
+
         img {
-            height:79.8%;
+            height: 79.8%;
         }
     }
 
     .img5 {
         grid-area: img5;
+
         img {
             height: 79.8%;
             border-bottom-right-radius: 10px;
@@ -109,7 +115,6 @@
         height: 500px;
 
         .details-container-secondry {
-
             border-radius: 14px;
             height: 85%;
             width: 57%;
@@ -117,6 +122,36 @@
             flex-direction: column;
             line-height: 40px;
 
+            .tour-members {
+                color: $muted;
+                font-size: 1rem;
+            }
+
+            .icons-container {
+                display: flex;
+
+                :not(:first-child) {
+                    margin-left: 12px;
+                }
+
+                .display-icons {
+                    display: flex;
+                    align-items: center;
+
+                    h4 {
+                        color: $muted;
+                        font-size: 0.8rem;
+                    }
+
+                    i {
+                        color: #42ABA7;
+                    }
+
+                }
+
+
+
+            }
         }
 
         .tour-order {
@@ -129,6 +164,7 @@
             border-radius: 14px;
             height: 55%;
             padding: 24px;
+            position: sticky;
 
             *> {
                 margin-bottom: 20px;
@@ -145,7 +181,7 @@
 
                     i {
                         font-size: rem(16px);
-                        color: rgb(214, 214, 54);
+                        color: #42ABA7;
                         text-shadow: 0 1px 0 rgb(22, 21, 21);
                     }
 
