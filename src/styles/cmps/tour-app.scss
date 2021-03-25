@@ -1,14 +1,17 @@
 .tour-app {
     .hero-container {
-        background-image: url("../assets/img/hero.jpg");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(to bottom, #ffffff00, #00000046), url("../assets/img/hero.jpg");
         background-size: cover;
         background-attachment: fixed;
         height: 580px;
-        
         h1 {
-            text-align: center;
             user-select: none;
-            line-height: 580px;
+            width: 50rem;
+            text-align: center;
             font-size: 40px;
             color: white;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -31,8 +34,7 @@
 
     .countries-container,
     .guides-container,
-    .tours-container,
-    .become-guide-container {
+    .tours-container {
         padding: $main-padding;
         button {
             color: $main-clr;
@@ -45,7 +47,7 @@
             }
         }
     }
-    
+
     .countries-title,
     .guides-title,
     .tours-title {
@@ -60,7 +62,7 @@
 
         h1 {
             font-size: 35px;
-            color: $main-clr-dark
+            color: $main-clr-dark;
         }
     }
 
@@ -73,22 +75,24 @@
         max-width: 35rem;
         li {
             margin-left: 5px;
+            
         }
     }
 
     .become-guide-container {
-        position: relative;
-        // padding: 0;
+        background-image: url("../assets/demo-guides/guide5.jpg");
+        background-size: cover;
+        height: 30rem;
+        padding: 0;
         .title {
             padding: $main-padding;
-            position: absolute;
-            z-index: 1;
-            right: 25px;
-            top: 8.5rem;
+            padding-top: 13rem;
+            text-align: right;
             h1 {
                 color: white;
                 font-weight: bold;
                 font-size: 2.3rem;
+                margin-bottom: 20px;
             }
             .el-button {
                 border: none;
@@ -96,22 +100,17 @@
                 top: 10rem;
                 padding: 20px 30px;
                 font-size: 1rem;
-                color: #2b2b2b;
+                background-color: $main-clr;
+                color: white;
+                transition: 0.2s;
+                border-radius: 5px;
             }
             .el-button:hover {
-                opacity: 1;
-                background-color: rgba(88, 88, 88, 0.425);
-                color: white;
+                border-radius: 0px;
+                background-color: $main-clr-dark;
             }
         }
-        img {
-            border-radius: 7px;
-            height: 100%;
-            object-fit: cover;
-        }
-        height: 30rem;
     }
-
     .countries,
     .guides {
         display: grid;
@@ -120,7 +119,6 @@
 
         li {
             color: $main-clr-dark;
-            text-align: center;
             a {
                 color: $main-clr-dark;
                 &:hover {

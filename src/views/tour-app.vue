@@ -1,10 +1,8 @@
 <template>
   <section class="tour-app">
     <div class="hero-container">
-      <div class="gradient">
       <tour-filter />
       <h1>Travel Anywhere With Anyone.</h1>
-      </div>
     </div>
 
     <!-- COUNTRIES -->
@@ -55,7 +53,6 @@
     <!-- Become a guide -->
 
     <div class="become-guide-container">
-      <img src="@/assets/demo-guides/guide5.jpg" alt="" />
       <div class="title">
         <h1>
           A journey of a thousand miles <br />

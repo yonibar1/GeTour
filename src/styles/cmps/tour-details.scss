@@ -2,8 +2,6 @@
     margin: 0 auto;
     display: grid;
     padding: $main-padding;
-
-
     .details-container-primary {
         display: flex;
         flex-direction: column;
@@ -29,8 +27,6 @@
         }
     }
 
-
-
     .images-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -50,7 +46,6 @@
 
         img {
             height: 90%;
-            object-fit: cover;
             border-top-left-radius: 12px;
             border-bottom-left-radius: 12px;
         }
@@ -155,8 +150,9 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                margin-top: -20px;
-
+                .el-input-number__decrease, .el-input-number__increase {
+                    border-radius: 50%;
+                }
                 h2 {
 
                     i {

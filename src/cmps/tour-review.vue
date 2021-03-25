@@ -69,22 +69,19 @@ export default {
     data() {
         return {
             colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-            reviewToEdit: {                                          
+            reviewToEdit: {
                 txt: '',
                 createdAt: Date.now(),
                 rate: null,
-                byUser: {
-                    fullname: 'muki tuki',
-                    imgUrl: 'someImg.jpg',
-                    _id: 'u201',
-                },
+                
             },
         };
     },
-    computed: {
-    },
+    computed: {},
     methods: {
         async addReview() {
+            const { _id, fullname, imgUrl } = this.$store.getters.loggedInUser;
+            this.reviewToEdit.byUser = { _id, fullname, imgUrl };
             await this.$store.dispatch({
                 type: 'addReview',
                 review: this.reviewToEdit,
@@ -94,16 +91,12 @@ export default {
                 txt: '',
                 createdAt: Date.now(),
                 rate: null,
-                byUser: {
-                    fullname: 'muki tuki',
-                    imgUrl: 'someImg.jpg',
-                    _id: 'u201',
-                },
+                // byUser: {},
             };
         },
     },
     created() {
-      //  console.log('reviews',this.tour.reviews)
+        console.log('reviews', this.tour.reviews);
     },
     filters: {
         moment: function(date) {
