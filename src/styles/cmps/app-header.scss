@@ -11,6 +11,10 @@
     align-items: center;
     justify-content: space-between;
     padding: $main-padding;
+<<<<<<< HEAD
+=======
+
+>>>>>>> db5a199f69688ee0f2848428098ea29fe56e3e00
     img.user-avatar {
         display: inline-block;
         height: 40px;
@@ -20,6 +24,10 @@
         object-fit: cover;
         align-self: center;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> db5a199f69688ee0f2848428098ea29fe56e3e00
     .user-options-container {
         position: fixed;
         z-index: 5;
@@ -30,6 +38,7 @@
         border-radius: 2rem;
         top: 70px;
         right: 100px;
+<<<<<<< HEAD
         a {
             text-decoration: underline;
         }
@@ -37,22 +46,40 @@
             text-decoration: none;
         }
         & > * {
+=======
+
+        a {
+            text-decoration: underline;
+        }
+
+        button a {
+            text-decoration: none;
+        }
+
+        &>* {
+>>>>>>> db5a199f69688ee0f2848428098ea29fe56e3e00
             font-weight: bold;
             padding: 10px;
             color: white;
             margin-bottom: 7px;
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> db5a199f69688ee0f2848428098ea29fe56e3e00
     .logo-container {
         width: 150px;
     }
+
     nav {
         color: white;
         font-size: 20px;
         display: flex;
         align-items: center;
+
         button {
-            background-color: transparent !important ;
+            background-color: transparent !important;
             display: inline-block;
             background-color: transparent;
             font-size: 18px;
@@ -60,9 +87,13 @@
             padding: 10px;
             transition: 0.2s;
             outline: none;
+<<<<<<< HEAD
             span {
                 text-transform: uppercase;
             }
+=======
+
+>>>>>>> db5a199f69688ee0f2848428098ea29fe56e3e00
             span::after {
                 content: "";
                 width: 0px;
@@ -71,10 +102,12 @@
                 background: white;
                 transition: 300ms;
             }
+
             span:hover::after {
                 width: 100%;
             }
         }
+
         a {
             color: white;
         }
@@ -85,8 +118,11 @@
     background-color: white !important;
     color: $main-clr !important;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
     button {
+
         box-shadow: none;
+
         span::after {
             content: "";
             width: 0px;
@@ -95,6 +131,7 @@
             display: block;
             transition: 300ms;
         }
+
         span:hover::after {
             width: 100%;
         }

@@ -52,9 +52,6 @@ export const tourStore = {
             });
             state.tours.splice(idx, 1);
         },
-        addReview(state, { review }) {
-            state.reviews.push(review);
-        },
         // setChatHistory(state, { chat }) {
         //     console.log('chat:', chat)
         //     state.chatHistory = chat;
@@ -126,7 +123,7 @@ export const tourStore = {
                 console.log('Cannot get Tours', err);
             }
         },
-        async loadToursByUser(context, {userId}) {
+        async loadToursByUser(context, { userId }) {
             try {
                 const tours = await tourService.loadToursByUser(userId);
                 return tours;
@@ -137,10 +134,11 @@ export const tourStore = {
         async addReview({ commit }, { review, tourId }) {
             try {
                 review.id = utilService.makeId();
-                commit({ type: 'addReview', review });
                 const tourById = await tourService.getById(tourId);
                 tourById.reviews.push(review);
+                console.log('tourById:', tourById)
                 const tour = await tourService.save(tourById);
+                console.log('tour:', tour)
                 commit({ type: 'setTour', tour });
             } catch (err) {
                 console.log('Cannot add review', err);

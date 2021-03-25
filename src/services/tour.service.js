@@ -1,5 +1,4 @@
 // import axios from 'axios';
-// import { storageService } from './async-storage.service.js';
 import { httpService } from './http.service.js';
 
 // const KEY = 'toursDB';
@@ -59,7 +58,6 @@ function remove(_id) {
 function save(tour) {
     if (tour._id) {
         return httpService.put(TOURS_URL + tour._id, tour);
-
     } else {
         return httpService.post(TOURS_URL, tour);
 

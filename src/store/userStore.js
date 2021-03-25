@@ -3,7 +3,7 @@ export const userStore = {
     state: {
         users: [],
         user: null,
-        loggedInUser: null
+        loggedInUser: userService.getLoggedUser(),
     },
     getters: {
         users(state) {
