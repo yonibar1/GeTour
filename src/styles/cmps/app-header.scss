@@ -19,7 +19,10 @@
         border-radius: 50%;
         cursor: pointer;
         object-fit: cover;
-        align-self: center;
+        transition: 0.2s;
+    }
+    img.user-avatar:hover {
+        box-shadow: 0 0 0 1pt white;
     }
     .user-options-container {
         position: absolute;
@@ -31,18 +34,17 @@
         border-radius: 2rem;
         top: 70px;
         right: 100px;
-
+        
         a {
             text-decoration: underline;
         }
-
+        
         button a {
             text-decoration: none;
         }
-
-        &>* {
+        
+        & > * {
             font-weight: bold;
-            padding: 10px;
             color: white;
             margin-bottom: 7px;
         }
@@ -56,12 +58,14 @@
         font-size: 20px;
         display: flex;
         align-items: center;
-
+        &>* {
+            margin-right: 10px;
+        }
         button {
             background-color: transparent !important;
             display: inline-block;
             background-color: transparent;
-            font-size: 18px;
+            font-size: 16px;
             color: white;
             padding: 10px;
             transition: 0.2s;
@@ -95,7 +99,6 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
     button {
-
         box-shadow: none;
 
         span::after {
@@ -110,6 +113,9 @@
         span:hover::after {
             width: 100%;
         }
+    }
+    img.user-avatar:hover {
+        box-shadow: 0 0 0 1pt $main-clr;
     }
 }
 

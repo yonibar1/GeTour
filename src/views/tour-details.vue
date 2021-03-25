@@ -51,10 +51,10 @@
       <div class="tour-order">
         <div class="form-order-main-details">
           <h4>Price: ${{ tour.price }}</h4>
-          <h2>
-            <i class="el-icon-star-on">{{ tour.rate }}</i>
-            <span class="reviews-length">({{ tour.reviews.length }})</span>
-          </h2>
+          <div class="review">
+          <i class="el-icon-star-on">{{ tour.rate }}</i>
+          <span class="reviews-length">({{ tour.reviews.length }})</span>
+          </div>
         </div>
         <el-input-number
           v-model="order.guestsCount"

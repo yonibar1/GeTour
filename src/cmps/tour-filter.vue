@@ -2,7 +2,7 @@
   <section class="tour-filter">
     <form>
         <el-input
-          class="destination-input"
+          class="dest-input"
           placeholder="Destination"
           v-model="filterBy.byDestination"
           clearable
@@ -34,10 +34,10 @@
             <br />
             <span> $ {{ filterBy.byPriceRange[1] }} </span>
           </div>
-        </div>
         <el-button class="price-ok-btn" @click="toggleRangeBox()"
           >Save</el-button
         >
+        </div>
       </div>
       <router-link to="/explore">
         <el-button

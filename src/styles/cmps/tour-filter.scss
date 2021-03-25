@@ -6,8 +6,8 @@
             align-items: center;
             text-align: center;
             background-color: white;
-            height: 65px;
-            width: 50rem;
+            height: 70px;
+            width: 60rem;
             max-width: 50rem;
             border-radius: 30px;
             margin-bottom: 5rem;
@@ -19,7 +19,6 @@
                 align-items: center;
                 color: #b4cfc7;
                 border-radius: 5px;
-                cursor: pointer;
 
                 input,
                 .el-date-editor {
@@ -31,7 +30,7 @@
                     color: white;
                     background-color: $main-clr;
                 }
-                .destination-input {
+                .dest-input {
                     width: 200px;
                 }
             }
@@ -47,8 +46,8 @@
 
 .hero-container .tour-filter {
     .range-box-modal {
-        top: 65px;
-        right: 75px;
+        top: 0px;
+        right: 0px;
     }
 }
 
@@ -56,6 +55,8 @@
 .tour-explore .tour-filter {
     .range-box-modal {
         position: absolute;
+        margin-top: 16rem;
+        margin-right: 14rem;
         width: 350px;
         height: 200px;
         z-index: 1;
@@ -64,7 +65,7 @@
         background: #fff;
         align-items: center;
         justify-content: center;
-        border-radius: 10px;
+        border-radius: 5px;
         padding: 20px;
         .price-ok-btn {
             margin-top: 10px;

@@ -65,10 +65,7 @@
 </template>
 
 <script>
-import tourPreview from "../cmps/tour-preview.vue";
-import orderPreview from "../cmps/order-preview.vue";
 export default {
-  components: { tourPreview, orderPreview },
   name: "user-profile",
   data() {
     return {

@@ -1,6 +1,5 @@
 import { httpService } from './http.service.js';
 
-const ORDER_KEY = 'orders';
 const ORDER_URL = 'order/';
 export const orderService = {
     query,
@@ -19,7 +18,7 @@ async function getOrdersByGuide(guideId) {
     return ordersByGuide
 }
 
-function query(toursIds) {
+function query() {
     return httpService.get(ORDER_URL);
 }
 
