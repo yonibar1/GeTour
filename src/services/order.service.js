@@ -59,23 +59,22 @@ function remove(_id) {
 }
 
 function save(order) {
-    if (order._id) {
-        // return httpService.put(ORDER_URL + order._id, order);
-        return storageService.put(ORDER_KEY, order);
-    } else {
-        // Gonna Change Soon
-        order.createdAt = Date.now()
-        order.requests = ''
-        order.status = 'pending'
-        order.byUser = {
-            _id: 'mongodbID',
-            fullname: 'muki puki',
-            imgUrl: 'someurl.jpg',
+    try {
+        if (order._id) {
+            // return httpService.put(ORDER_URL + order._id, order);
+            return storageService.put(ORDER_KEY, order);
+        } else {
+            order.createdAt = Date.now()
+            order.status = 'pending'
+            if (sessionStorage.getItem('login')) {
+                let { _id, fullname, imgUrl } = JSON.parse(sessionStorage.getItem('login'))
+                order.byUser = { _id, fullname, imgUrl }
+            }
+            return httpService.post(ORDER_URL, order);
+            // return storageService.post(ORDER_KEY, order);
         }
-        // Gonna Change Soon
-
-        // return httpService.post(ORDER_URL, order);
-        return storageService.post(ORDER_KEY, order);
+    } catch (err) {
+        console.log('Cannot save order', err);
     }
 }
 

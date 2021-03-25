@@ -3,6 +3,7 @@ export const userStore = {
     state: {
         users: [],
         user: null,
+        loggedInUser: null
     },
     getters: {
         users(state) {
@@ -11,6 +12,9 @@ export const userStore = {
         user(state) {
             return state.user;
         },
+        loggedInUser(state) {
+            return state.loggedInUser
+        }
         // userToEdit(state) {
         //     return state.userToEdit;
         // },
@@ -23,7 +27,7 @@ export const userStore = {
             state.user = user;
         },
         logout(state) {
-            state.user = null
+            state.loggedInUser = null
         },
         updateUser(state, { userAfterSave }) {
             const idx = state.users.findIndex((t) => {
@@ -35,7 +39,7 @@ export const userStore = {
             state.users.push(signedUser);
         },
         login(state, { loggedUser }) {
-            state.user = loggedUser
+            state.loggedInUser = loggedUser
         },
         remove(state, { id }) {
             const idx = state.users.findIndex((u) => {

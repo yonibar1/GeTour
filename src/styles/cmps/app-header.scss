@@ -11,16 +11,36 @@
     align-items: center;
     justify-content: space-between;
     padding: $main-padding;
-    .user-avatar{
-        display: inline-block;
-        img{
-            cursor: pointer;
-            width: 40px;
+        img.user-avatar{
+            display: inline-block;
             height: 40px;
-            object-fit: cover;
+            width: 40px;
             border-radius: 50%;
+            cursor: pointer;
+            object-fit: cover;
             align-self: center;
-
+}
+.user-options-container{
+    position: fixed;
+    z-index:5;
+    display:flex;
+    flex-direction: column;
+    padding:40px;
+    background-color:rgb(67 171 167 / 70%);
+    border-radius: 2rem;
+    top: 70px;
+    right:100px;
+    a{
+        text-decoration: underline;
+    }
+    button a{
+        text-decoration: none;
+    }
+    &>*{
+        font-weight: bold;
+        padding:10px;
+        color: white;
+        margin-bottom:7px;
     }
 }
     .logo-container {
@@ -29,6 +49,8 @@
     nav {
         color: white;
         font-size: 20px;
+        display: flex;
+        align-items: center;
         button {
             background-color: transparent !important ;
             display: inline-block;

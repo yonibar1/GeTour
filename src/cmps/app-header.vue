@@ -28,13 +28,18 @@
           <span> Login / Signup </span>
         </button></router-link
       >
-      <div v-else class="user-avatar">
-        <img @click="isOpen = !isOpen" :src="user.imgUrl" />
-      </div>
-      <div v-if="isOpen" class="user-options-container">
-        <el-button type="danger" @click="logout">Logout</el-button>
-      </div>
+      <img
+        v-else
+        class="user-avatar"
+        @click="isOpen = !isOpen"
+        :src="user.imgUrl"
+      />
     </nav>
+    <div v-if="isOpen" class="user-options-container">
+      <p>Welcome {{ user.fullname }}</p>
+      <router-link :to="'user-profile/' + user._id">My Profile</router-link>
+      <el-button plain type="danger" @click="logout">Logout</el-button>
+    </div>
   </section>
 </template>
 <script>
@@ -48,7 +53,7 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters.user;
+      return this.$store.getters.loggedInUser;
     },
   },
   methods: {
