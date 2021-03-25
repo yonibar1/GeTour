@@ -1,7 +1,4 @@
-// import axios from 'axios';
-import { storageService } from './async-storage.service.js';
 import { httpService } from './http.service.js';
-// import { utilService } from './util.service.js';
 
 const ORDER_KEY = 'orders';
 const ORDER_URL = 'order/';
@@ -10,22 +7,16 @@ export const orderService = {
     getById,
     remove,
     save,
-    getEmptyOrder,
     getOrdersByUser
-    // saveUser,
-    // queryAllByType,
 };
 
 async function getOrdersByUser(userId) {
-    console.log('userId:', userId)
     const orders = await httpService.get(ORDER_URL);
-    console.log('orders:', orders)
     const ordersByUser = orders.filter((order) => {
         return order.buyer._id === userId
     })
     return ordersByUser
 }
-
 
 function query(filterBy = {}) {
     var orders = JSON.parse(localStorage.getItem(ORDER_KEY));
@@ -49,56 +40,27 @@ function query(filterBy = {}) {
 }
 
 function getById(id) {
-    // return httpService.get(ORDER_URL + id);
-    return storageService.get(ORDER_KEY, id);
+    return httpService.get(ORDER_URL + id);
 }
 
 function remove(_id) {
-    // return httpService.delete(ORDER_URL + _id);
-    return storageService.remove(ORDER_KEY, _id);
+    return httpService.delete(ORDER_URL + _id);
 }
 
 function save(order) {
     try {
         if (order._id) {
-            // return httpService.put(ORDER_URL + order._id, order);
-            return storageService.put(ORDER_KEY, order);
+            return httpService.put(ORDER_URL, order)
         } else {
             order.createdAt = Date.now()
             order.status = 'pending'
             if (sessionStorage.getItem('login')) {
                 let { _id, fullname, imgUrl } = JSON.parse(sessionStorage.getItem('login'))
-                order.byUser = { _id, fullname, imgUrl }
+                order.buyer = { _id, fullname, imgUrl }
             }
             return httpService.post(ORDER_URL, order);
-            // return storageService.post(ORDER_KEY, order);
         }
     } catch (err) {
         console.log('Cannot save order', err);
     }
 }
-
-function getEmptyOrder() {
-
-}
-
-// const orders = [
-//     {
-//         _id: utilService.makeId(),
-//         createdAt: Date.now(),
-//         guestsCount: 2,
-//         totalPrice: 300, //should be the number of participants * tour price//
-//         status: 'pending',
-//         byUser:
-//         {
-//             _id: 'mongodbID',
-//             fullname: 'muki puki',
-//             imgUrl: 'someurl.jpg',
-//         },
-//         tour: {
-//             _id: 09320320,
-//             title: 'tourtitle',
-//             imgUrl: './img.jpg'
-//         }
-//     },
-// ]
