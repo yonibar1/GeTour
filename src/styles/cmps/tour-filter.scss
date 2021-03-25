@@ -1,21 +1,16 @@
 .tour-app {
     .hero-container {
-        position: relative;
         .tour-filter {
-            position: absolute;
-            background-color: white;
-            height: 65px;
-            max-width: 50rem;
-            border-radius: 30px;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
-            top: 8rem;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+            background-color: white;
+            height: 65px;
+            width: 50rem;
+            max-width: 50rem;
+            border-radius: 30px;
+            margin-bottom: 5rem;
             form {
                 display: flex;
                 width: 100%;
@@ -71,7 +66,7 @@
         justify-content: center;
         border-radius: 10px;
         padding: 20px;
-        .price-ok-btn{
+        .price-ok-btn {
             margin-top: 10px;
         }
         .price-box-container {

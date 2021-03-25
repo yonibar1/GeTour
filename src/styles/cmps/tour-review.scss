@@ -1,10 +1,6 @@
 .review-list {
     display: flex;
     flex-direction: column;
-    margin-top: rem(75px);
-    margin-inline-start: rem(85px);
-    margin-inline-end: rem(100px);
-
     h2 {
         text-decoration: underline;
         text-shadow: 1px 1px 1px rgb(255, 213, 150);
@@ -12,8 +8,6 @@
 
     .tour-review {
         margin: 0;
-        height: 50%;
-        width: 70%;
         
         ul {
             display: flex;
@@ -21,7 +15,6 @@
 
 
             li {
-                // width: 25%;
                 flex: 1 0 33%;
                 margin: 5px;
 
@@ -29,7 +22,6 @@
 
 
                 .review {
-                    // background-color: rgba(221, 208, 208, 0.075);
                     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
                     border: 1px solid lightgray;
                     width: 250px;
@@ -45,9 +37,6 @@
                     .ranks-txt {
                         display: flex;
                         flex-direction: column;
-                        // align-items: flex-end;
-                        // justify-content:space-between
-
                         h3 {
                             font-size: 14px;
                             text-transform: capitalize;
@@ -62,36 +51,28 @@
                             display: flex;
                             justify-content: center;
                             margin-left: rem(-100px);
-
                             span {
                                 font-size: rem(14px);
                                 color: $muted;
                             }
                         }
-
                     }
 
                     .mini-user {
                         display: flex;
-
-
                         .mini-user-img {
                             width: 40px;
                             height: 40px;
                             margin: 5px 5px 5px 0;
                             @include aspect-ratio(100, 100);
-
                             img {
                                 border-radius: 50%;
-
                             }
                         }
 
                         .mini-user-details {
                             display: flex;
                             flex-direction: column;
-
-
                         }
 
                     }
@@ -101,30 +82,20 @@
         }
 
         .add-review-container {
-            margin-top: 70px;
-            // margin-inline-start: rem(2px);
-            width: 100%;
 
             h2 {
                 color: black;
-                margin-left: 10px;
                 text-decoration: underline;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
             }
 
             form {
-                margin-left: rem(10px);
 
                 textarea {
                     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-                    width: 550px;
                     max-height: 150px;
-
-                    // resize: none;
                     font-family: OpenSans, serif;
                     color: black;
-                    margin-bottom: 5px;
                     border: 1px solid rgb(56, 56, 56);
                     border-radius: 14px;
 
@@ -146,7 +117,6 @@
                     button {
                         width: 152px;
                         height: 40px;
-                        // align-self: center;
                         background-color: #fff;
                         color: #606266;
                         border: 1px solid #DCDFE6;
@@ -154,22 +124,17 @@
                         transition: .1s;
                         font-weight: 500;
                         font-size: 14px;
-                        margin-top: 10px;
-                        margin-bottom: 10px;
-                        margin-right:258px;
                     }
 
                     button:hover {
-                        background-color: rgba(185, 247, 255, 0.4);
-                        color: rgb(103, 103, 255);
+                        background-color: #b9f7ff66;
+                        color: #6767ff;
                     }
                 }
             }
         }
 
         h2 {
-            margin-top: rem(10px);
-            margin-bottom: rem(10px);
             text-transform: capitalize;
             font-family: OpenSans, serif;
             text-decoration: underline;

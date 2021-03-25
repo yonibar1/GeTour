@@ -15,11 +15,12 @@
         </div>
         <h3>{{ tour.title }}</h3>
         <p>{{ tour.country }}</p>
-        <p>{{ tour.daysCount }} Days</p>
-        <p>{{ tour.members }}/{{ tour.capacity }} Joined</p>
-        <!-- <router-link :to="'/edit/' + tour._id">Edit</router-link> -->
+        <div class="little-container">
+          <p>{{ tour.daysCount }} Days</p>
+          <p>{{ tour.members }}/{{ tour.capacity }} Joined</p>
+        </div>
         <div class="price-rate-container">
-          <p>${{ tour.price }}</p>
+          <h3 class="price">${{ tour.price }}</h3>
           <p>
             <i class="el-icon-star-on"></i>{{ tour.rate }}
             <span class="reviews-length"> ({{ tour.reviews.length }})</span>

@@ -49,7 +49,6 @@
         <p>{{ tour.description }}</p>
       </div>
       <div class="tour-order">
-        <el-form>
           <div class="form-order-main-details">
             <h4>Price: {{ tour.price }}</h4>
             <h2>
@@ -71,8 +70,7 @@
           >
           </el-input>
           <h4>Total Price: {{ totalPriceToShow }}</h4>
-          <el-button @click="orderAtrip">Order Tour</el-button>
-        </el-form>
+          <el-button @click="toggleModal">Order Tour</el-button>
       </div>
     </div>
     <div class="review-list">
@@ -190,7 +188,7 @@ export default {
     handleChange(value) {
       console.log(value);
     },
-    async orderAtrip() {
+    async toggleModal() {
       this.dialogVisible = true;
     },
   },
