@@ -1,5 +1,8 @@
 .tour-explore {
     .tour-filter {
+        input{
+            border-right:none;
+        }
         margin-top: 30px;
         position: static;
         height: 70px;

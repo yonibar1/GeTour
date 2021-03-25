@@ -1,4 +1,5 @@
 .tour-preview {
+    max-width:300px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -17,12 +18,13 @@
         }
     }
     .preview-img-container {
-        width: 100%;
-        @include aspect-ratio(100, 80);
+        overflow: hidden;
+        display: flex;
         img {
+            height: 14rem;
+            object-fit: cover;
             transition: transform 0.5s;
             border-radius: 5px;
-            height: 17rem;
         }
     }
     .reviews-length {
@@ -55,9 +57,11 @@
         }
     }
     .tour-description-container {
+        line-height: 1.2;
         .little-container {
             display: flex;
             justify-content: space-between;
+            margin-top:10px;
         }
     }
     h3 {

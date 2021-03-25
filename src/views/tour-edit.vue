@@ -96,7 +96,7 @@
               v-for="(item, idx) in options"
               :key="idx"
               :label="item.label"
-              :value="item.value.class"
+              :value="item.value"
             >
             </el-option>
           </el-select>

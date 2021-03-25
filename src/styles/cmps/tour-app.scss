@@ -116,7 +116,6 @@
         display: grid;
         grid-template-columns: repeat(4, minmax(100px, 1fr));
         grid-gap: 15px;
-
         li {
             color: $main-clr-dark;
             a {

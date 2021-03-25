@@ -7,36 +7,20 @@ export const orderService = {
     getById,
     remove,
     save,
-    getOrdersByUser
+    getOrdersByGuide
 };
 
-async function getOrdersByUser(userId) {
+async function getOrdersByGuide(guideId) {
     const orders = await httpService.get(ORDER_URL);
-    const ordersByUser = orders.filter((order) => {
-        return order.buyer._id === userId
+    console.log(orders, 'Orders');
+    const ordersByGuide = orders.filter(order => {
+        return order.tour._guideId === guideId
     })
-    return ordersByUser
+    return ordersByGuide
 }
 
-function query(filterBy = {}) {
-    var orders = JSON.parse(localStorage.getItem(ORDER_KEY));
-    var ordersCopy = JSON.parse(JSON.stringify(orders));
-    if (filterBy.byPriceRange) {
-        ordersCopy = ordersCopy.filter((order) => {
-            return (
-                order.price > filterBy.byPriceRange.min &&
-                order.price < filterBy.byPriceRange.max
-            );
-        });
-    }
-    if (filterBy.byDestination) {
-        ordersCopy = ordersCopy.filter((order) => {
-            return order.country
-                .toLowerCase()
-                .includes(filterBy.byDestination.toLowerCase());
-        });
-    }
-    return ordersCopy;
+function query(toursIds) {
+    return httpService.get(ORDER_URL);
 }
 
 function getById(id) {

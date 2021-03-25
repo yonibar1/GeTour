@@ -1,34 +1,43 @@
 <template>
   <section class="user-profile">
     <div class="left-container">
-      <div class="avatar">
-        <img :src="user.imgUrl" alt="" />
+      <div v-if="user" class="avatar">
+        <img :src="user.imgUrl" />
       </div>
     </div>
     <div class="right-container">
-      <div class="user-title">
-        <h2>{{ user.fullname }}</h2>
+      <h3>Requests</h3>
+      <div v-if="orders" class="requests-container">
+        <div v-for="order in orders" :key="order._id" class="request-card">
+          Tour Name: {{ order.tour.title }}
+          <div class="buyer">
+            <div class="buyer-details">
+              <img :src="order.buyer.imgUrl" />
+              <h4>{{ order.buyer.fullname }}</h4>
+            </div>
+            <p>${{ order.totalPrice }}</p>
+          </div>
+          <p></p>
+          <p v-if="order.requests">
+            Special Requests :
+            {{ order.requests }}
+          </p>
+          <p v-else>No Special Requests.</p>
+          <p>Guests: {{ order.guestsCount }}</p>
+          <div class="btn-container">
+            <el-button>Confirm</el-button>
+            <el-button>Decline</el-button>
+          </div>
+        </div>
       </div>
-      <div class="user-created-tours">
-        <h2>Tours</h2>
-        <ul v-if="toursByUser">
-          <li v-for="tour in toursByUser" :key="tour._id">
-            <tour-preview :tour="tour"></tour-preview>
-          </li>
-        </ul>
-      </div>
-      <div
-        v-if="loggedInUser && loggedInUser._id === user._id"
-        class="user-orders"
-      >
-        <h2>My Orders</h2>
-        <ul class="orders-container" v-if="ordersByUser">
-          <li v-for="order in ordersByUser" :key="order._id">
-            <order-preview :order="order" />
-          </li>
-        </ul>
-        <h2 v-else>You have no orders</h2>
-      </div>
+      <!-- <h2>Tours</h2> -->
+      <!-- <div class="user-created-tours">
+          <ul v-if="toursByUser">
+            <li v-for="tour in toursByUser" :key="tour._id">
+              <tour-preview :tour="tour"></tour-preview>
+            </li>
+          </ul>
+        </div> -->
     </div>
   </section>
 </template>
@@ -43,7 +52,7 @@ export default {
     return {
       user: null,
       toursByUser: [],
-      ordersByUser: [],
+      orders: [],
     };
   },
   computed: {
@@ -52,6 +61,16 @@ export default {
     },
   },
   methods: {
+    async loadOrdersOfTour(tours) {
+      const toursIds = tours.map((tour) => {
+        return tour._id;
+      });
+      const res = await this.$store.dispatch({
+        type: "loadOrdersByTour",
+        toursIds,
+      });
+      console.log(res, "Res At CMP");
+    },
     async loadUser() {
       try {
         const id = await this.$route.params.userId;
@@ -60,8 +79,8 @@ export default {
           id,
         });
         this.user = user;
-        this.toursByUser = this.loadToursByUser(this.user._id);
-        this.ordersByUser = this.loadOrdersByUser(this.user._id);
+        await this.loadToursByUser(this.user._id);
+        await this.loadOrdersByGuide(this.user._id);
       } catch {
         console.log("Cant Show USER");
       }
@@ -77,14 +96,13 @@ export default {
         console.log("Cant Show Tours By User");
       }
     },
-    async loadOrdersByUser(userId) {
+    async loadOrdersByGuide(guideId) {
       try {
         const orders = await this.$store.dispatch({
-          type: "loadOrdersByUser",
-          userId,
+          type: "loadOrdersByGuide",
+          guideId,
         });
-        console.log(orders, "Orders at CMP");
-        this.ordersByUser = orders;
+        this.orders = orders;
       } catch {
         console.log("Cant show orders by user");
       }

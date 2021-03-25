@@ -147,3 +147,34 @@
 
 "SUNGLASSES - Howard Schmieder"
 "https://res.cloudinary.com/yonibar/image/upload/v1616520954/brooke-cagle-wKOKidNT14w-unsplash_sgnpoo.jpg"
+
+
+
+
+
+<!-- <div
+          v-if="loggedInUser && loggedInUser._id === user._id"
+          class="user-orders"
+        >
+          <h2>My Orders</h2>
+          <ul class="orders-container" v-if="ordersByUser">
+            <li v-for="order in ordersByUser":key="order._id">
+              <order-preview :order="order" />
+            </li>
+          </ul>
+          <h2 v-else>You have no orders</h2>
+        </div> -->
+        <!-- @@@@@@@@ -->
+        <!-- <div
+          v-if="loggedInUser && loggedInUser._id === user._id"
+          class="user-orders"
+        >
+          <h2>Tour Orders</h2>
+          <ul class="orders-container" v-if="ordersByUser">
+            <li v-for="order in ordersByUser":key="order._id">
+              <order-preview :order="order" />
+            </li>
+          </ul>
+          <h2 v-else>You have no orders</h2>
+        </div> -->
+        <!-- @@@@@@@ -->
