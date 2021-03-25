@@ -1,8 +1,6 @@
 import { orderService } from '../services/order.service';
-// import { utilService } from '../services/util.service';
 export const orderStore = {
     state: {
-        // chatHistory: [],
         orders: [],
         order: null,
     },
@@ -38,20 +36,12 @@ export const orderStore = {
         },
     },
     actions: {
-        // async loadOrders(state) {
-        //     try {
-        //         const orders = await orderService.query();
-        //         state.commit({ type: 'query', orders });
-        //         return orders;
-        //     } catch (err) {
-        //         console.log('Cannot get Orders', err);
-        //     }
-        // },
-        async loadOrdersByUser(context, {userId}) {
+        async loadOrdersByUser(context, { userId }) {
             try {
                 const orders = await orderService.getOrdersByUser(userId)
+                console.log(orders, 'Orders at store after service');
                 return orders
-            }catch(err) {
+            } catch (err) {
                 console.log('Cannot get orders', err);
             }
         },

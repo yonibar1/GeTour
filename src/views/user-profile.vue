@@ -22,7 +22,7 @@
         <h2>My Orders</h2>
         <ul v-if="ordersByUser">
           <li v-for="order in ordersByUser" :key="order._id">
-            <h3>1. {{order.tour.title}}</h3>
+            <h3>1. {{ order.tour.title }}</h3>
           </li>
         </ul>
         <h2 v-else>You have no orders</h2>
@@ -73,9 +73,10 @@ export default {
       try {
         const orders = await this.$store.dispatch({
           type: "loadOrdersByUser",
-          userId
+          userId,
         });
-        this.ordersByUser = orders
+        console.log(orders, "Orders at CMP");
+        this.ordersByUser = orders;
       } catch {
         console.log("Cant show orders by user");
       }
