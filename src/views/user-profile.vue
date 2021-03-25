@@ -7,22 +7,24 @@
     </div>
     <div class="right-container">
       <div class="user-title">
-        <h1>Your Profile</h1>
         <h2>{{ user.fullname }}</h2>
       </div>
       <div class="user-created-tours">
-        <h2>My Created Tours</h2>
+        <h2>Tours</h2>
         <ul v-if="toursByUser">
           <li v-for="tour in toursByUser" :key="tour._id">
             <tour-preview :tour="tour"></tour-preview>
           </li>
         </ul>
       </div>
-      <div class="user-orders">
+      <div
+        v-if="loggedInUser && loggedInUser._id === user._id"
+        class="user-orders"
+      >
         <h2>My Orders</h2>
-        <ul v-if="ordersByUser">
+        <ul class="orders-container" v-if="ordersByUser">
           <li v-for="order in ordersByUser" :key="order._id">
-            <h3>1. {{ order.tour.title }}</h3>
+            <order-preview :order="order" />
           </li>
         </ul>
         <h2 v-else>You have no orders</h2>
@@ -33,8 +35,9 @@
 
 <script>
 import tourPreview from "../cmps/tour-preview.vue";
+import orderPreview from "../cmps/order-preview.vue";
 export default {
-  components: { tourPreview },
+  components: { tourPreview, orderPreview },
   name: "user-profile",
   data() {
     return {
@@ -42,6 +45,11 @@ export default {
       toursByUser: [],
       ordersByUser: [],
     };
+  },
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedInUser;
+    },
   },
   methods: {
     async loadUser() {

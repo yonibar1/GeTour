@@ -126,7 +126,7 @@ export const tourStore = {
                 console.log('Cannot get Tours', err);
             }
         },
-        async loadToursByUser(context, {userId}) {
+        async loadToursByUser(context, { userId }) {
             try {
                 const tours = await tourService.loadToursByUser(userId);
                 return tours;
