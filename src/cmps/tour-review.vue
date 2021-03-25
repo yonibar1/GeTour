@@ -85,7 +85,7 @@ export default {
     },
   },
   created() {
-    console.log("reviews", this.tour.reviews);
+    
   },
   filters: {
     moment: function (date) {

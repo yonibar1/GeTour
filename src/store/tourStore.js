@@ -97,9 +97,11 @@ export const tourStore = {
             }
         },
         async saveTour({ commit }, { tour }) {
+            console.log('tour:', tour)
             try {
                 const type = tour._id ? 'updateTour' : 'addTour';
                 const tourAfterSave = await tourService.save(tour);
+                console.log('tourAfterSave:', tourAfterSave)
                 commit({ type, tourAfterSave });
                 return tourAfterSave;
             } catch (err) {
