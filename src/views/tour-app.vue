@@ -68,7 +68,7 @@
 
     <div class="tours-container">
       <div class="tours-title">
-        <h1>Our Tours</h1>
+        <h1>Top Rated Tours</h1>
         <router-link to="/explore">
           <el-button round>See All</el-button>
         </router-link>

@@ -16,13 +16,13 @@
           <span> Explore </span>
         </button></router-link
       >
-      |
+      
       <router-link to="/edit">
         <button :class="{ scrollClass: isScrolling }">
           <span> Become a guide </span>
         </button></router-link
       >
-      |
+      
       <router-link v-if="!user" to="/login-signup"
         ><button :class="{ scrollClass: isScrolling }">
           <span> Login / Signup </span>

@@ -49,28 +49,28 @@
         <p>{{ tour.description }}</p>
       </div>
       <div class="tour-order">
-          <div class="form-order-main-details">
-            <h4>Price: {{ tour.price }}</h4>
-            <h2>
-              <i class="el-icon-star-on">{{ tour.rate }}</i>
-              <span class="reviews-length">({{ tour.reviews.length }})</span>
-            </h2>
+        <div class="form-order-main-details">
+          <h4>Price: {{ tour.price }}</h4>
+          <div class="review">
+          <i class="el-icon-star-on">{{ tour.rate }}</i>
+          <span class="reviews-length">({{ tour.reviews.length }})</span>
           </div>
-          <el-input-number
-            v-model="order.guestsCount"
-            @change="handleChange"
-            :min="1"
-            :max="10"
-          ></el-input-number>
-          <el-input
-            type="textarea"
-            :rows="2"
-            placeholder="Any Speaicel Requests?"
-            v-model="order.requests"
-          >
-          </el-input>
-          <h4>Total Price: {{ totalPriceToShow }}</h4>
-          <el-button @click="toggleModal">Order Tour</el-button>
+        </div>
+        <el-input-number
+          v-model="order.guestsCount"
+          @change="handleChange"
+          :min="1"
+          :max="10"
+        ></el-input-number>
+        <el-input
+          type="textarea"
+          :rows="2"
+          placeholder="Any Speaicel Requests?"
+          v-model="order.requests"
+        >
+        </el-input>
+        <h4>Total Price: {{ totalPriceToShow }}</h4>
+        <el-button @click="toggleModal">Order Tour</el-button>
       </div>
     </div>
     <div class="review-list">

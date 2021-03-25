@@ -1,7 +1,7 @@
 .tour-details {
-    margin: 0 auto;
     display: grid;
     padding: $main-padding;
+    margin-top: 3rem;
     .details-container-primary {
         display: flex;
         flex-direction: column;
@@ -11,7 +11,7 @@
         .el-rate {
             display: inline;
             text-shadow: 0.5px 0.5px 0.5px black;
-            color: #42ABA7;
+            color: #42aba7;
         }
 
         h5 {
@@ -34,7 +34,7 @@
         gap: 5px 5px;
         grid-template-areas:
             "first-img first-img img-2 img3"
-            "first-img first-img  img4 img5"
+            "first-img first-img  img4 img5";
     }
 
     img {
@@ -49,7 +49,6 @@
             border-top-left-radius: 12px;
             border-bottom-left-radius: 12px;
         }
-
     }
 
     .img-2 {
@@ -58,7 +57,6 @@
         img {
             height: 100%;
         }
-
     }
 
     .img3 {
@@ -68,7 +66,6 @@
             height: 100%;
             border-top-right-radius: 12px;
         }
-
     }
 
     .img4 {
@@ -91,12 +88,10 @@
     .order-details-container {
         display: flex;
         justify-content: space-between;
-        height: 500px;
-
+        margin-bottom: 30px;
         .details-container-secondry {
             border-radius: 14px;
             height: 85%;
-            width: 57%;
             display: flex;
             flex-direction: column;
             line-height: 40px;
@@ -123,13 +118,9 @@
                     }
 
                     i {
-                        color: #42ABA7;
+                        color: #42aba7;
                     }
-
                 }
-
-
-
             }
         }
 
@@ -141,32 +132,28 @@
             box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
             border: 1px solid lightgray;
             border-radius: 14px;
-            height: 55%;
+            height: 20rem;
             padding: 24px;
             position: sticky;
-
 
             .form-order-main-details {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                .el-input-number__decrease, .el-input-number__increase {
-                    border-radius: 50%;
+                width: 100%;
+                .el-icon-star-on {
+                    font-size: 1rem;
+                    color: #42aba7;
+                    font-weight: bold;
                 }
-                h2 {
-
-                    i {
-                        font-size: rem(16px);
-                        color: #42ABA7;
-                        text-shadow: 0 1px 0 rgb(22, 21, 21);
-                    }
-
-                    .reviews-length {
-                        font-size: rem(14px);
-                        color: $muted;
-                    }
+                .reviews-length {
+                    font-size: rem(14px);
+                    color: $muted;
                 }
-
+            }
+            .el-input-number__decrease,
+            .el-input-number__increase {
+                border-radius: 50%;
             }
 
             form {
