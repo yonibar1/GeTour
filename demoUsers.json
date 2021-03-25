@@ -88,6 +88,41 @@
         "username": "Ginny1",
         "password": "secret",
         "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Brooke English",
+        "username": "Brooke16",
+        "password": "123456",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Krystal Saunders",
+        "username": "Krystal22",
+        "password": "123456",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Jonah Dean",
+        "username": "Jonah101",
+        "password": "1234",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Andre Perez",
+        "username": "Andre26",
+        "password": "123456",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Esteban Garner",
+        "username": "Esteban16",
+        "password": "1236",
+        "imgUrl": "someurl.jpg"
+    },
+    {
+        "fullname": "Rene Irwin",
+        "username": "Rene16",
+        "password": "456123",
+        "imgUrl": "someurl.jpg"
     }
-
 ]

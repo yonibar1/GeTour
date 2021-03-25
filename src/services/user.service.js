@@ -11,7 +11,7 @@ export const userService = {
     logout,
     signup,
     getById,
-    getLoggedUser
+    getLoggedUser,
 };
 
 // For Authentication...
@@ -20,12 +20,12 @@ async function login(user) {
     const userFromBack = await httpService.post(AUTH_URL + 'login', user);
     console.log(userFromBack, 'User From Back');
     sessionStorage.setItem('login', JSON.stringify(userFromBack));
-    return userFromBack
+    return userFromBack;
 }
 
 async function getLoggedUser() {
     const user = JSON.parse(sessionStorage.getItem('login'));
-    return user
+    return user;
 }
 
 function logout() {
@@ -36,6 +36,7 @@ function logout() {
 }
 
 function signup(signupDetails) {
+    signupDetails.createdAt = Date.now();
     sessionStorage.setItem('signup', JSON.stringify(signupDetails));
     // return sessionStorage.getItem(AUTH_KEY + 'signup', signupDetails);
     return httpService.post(AUTH_URL + 'signup', signupDetails);
