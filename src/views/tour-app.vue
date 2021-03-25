@@ -59,7 +59,7 @@
           begins with a single step
         </h1>
         <router-link to="/edit">
-        <el-button class="become-btn" square>Become a guide</el-button>
+          <el-button class="become-btn" square>Become a guide</el-button>
         </router-link>
       </div>
     </div>
@@ -142,7 +142,7 @@ export default {
     async loadTours() {
       const tours = await this.$store.dispatch({ type: "query" });
       this.tours = tours;
-    }
+    },
   },
   created() {
     this.loadTours();

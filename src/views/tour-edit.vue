@@ -96,7 +96,7 @@
               v-for="(item, idx) in options"
               :key="idx"
               :label="item.label"
-              :value="item.value.class"
+              :value="item.value"
             >
             </el-option>
           </el-select>
@@ -149,6 +149,14 @@ export default {
         {
           label: "Water Trail",
           value: { txt: "Water Trail", class: "fas fa-water" },
+        },
+        {
+          label: "Hiking Tour",
+          value: { txt: "Hiking Tour", class: "fas fa-hiking" },
+        },
+        {
+          label: "Camping Tour",
+          value: { txt: "Camping", class: "fas fa-campground" },
         },
         {
           label: "For Children",

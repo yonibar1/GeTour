@@ -50,7 +50,7 @@
       </div>
       <div class="tour-order">
         <div class="form-order-main-details">
-          <h4>Price: {{ tour.price }}</h4>
+          <h4>Price: ${{ tour.price }}</h4>
           <div class="review">
           <i class="el-icon-star-on">{{ tour.rate }}</i>
           <span class="reviews-length">({{ tour.reviews.length }})</span>
@@ -69,8 +69,8 @@
           v-model="order.requests"
         >
         </el-input>
-        <h4>Total Price: {{ totalPriceToShow }}</h4>
-        <el-button @click="toggleModal">Order Tour</el-button>
+        <h4>Total Price: ${{ totalPriceToShow }}</h4>
+        <el-button type="success" @click="toggleModal">Order Tour</el-button>
       </div>
     </div>
     <div class="review-list">
@@ -94,7 +94,7 @@
           you know as soon as possible
         </p>
         <hr />
-        <h3>Your Special Requests: {{ order.request }}</h3>
+        <h3>Your Special Requests: {{ order.requests }}</h3>
         <h3>Total Price: ${{ totalPriceToShow }}</h3>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">Cancel</el-button>
@@ -130,10 +130,6 @@ export default {
       return this.$store.getters.tour;
     },
     totalPriceToShow() {
-      console.log(
-        "this.tour.price * this.order.guestsCount:",
-        this.tour.price * this.order.guestsCount
-      );
       return this.tour.price * this.order.guestsCount;
     },
     // users() {
@@ -176,6 +172,7 @@ export default {
         _id: tour._id,
         title: tour.title,
         imgs: tour.imgs,
+        _guideId: tour.byUser._id,
       };
       this.$store.dispatch({
         type: "saveOrder",

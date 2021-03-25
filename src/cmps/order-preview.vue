@@ -1,6 +1,8 @@
 <template>
   <section class="order-preview">
-    {{ order.buyer.fullname }}
+    <h3>Tour: {{ order.tour.title }}</h3>
+    <p>Status: {{ order.status }}</p>
+    <p>Request: {{ order.requests }}</p>
   </section>
 </template>
 

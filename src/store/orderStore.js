@@ -36,13 +36,22 @@ export const orderStore = {
         },
     },
     actions: {
-        async loadOrdersByUser(context, { userId }) {
+        async loadOrdersByGuide(context, { guideId }) {
             try {
-                const orders = await orderService.getOrdersByUser(userId)
+                const orders = await orderService.getOrdersByGuide(guideId)
                 console.log(orders, 'Orders at store after service');
                 return orders
             } catch (err) {
                 console.log('Cannot get orders', err);
+            }
+        },
+        async loadOrdersByTour(context, { toursIds }) {
+            try {
+                const orders = await orderService.query(toursIds)
+                console.log(orders);
+
+            } catch (err) {
+                console.log(err, 'FAILED');
             }
         },
         async saveOrder({ commit }, { order }) {

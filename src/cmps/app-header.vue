@@ -16,13 +16,13 @@
           <span> Explore </span>
         </button></router-link
       >
-      
+
       <router-link to="/edit">
         <button :class="{ scrollClass: isScrolling }">
           <span> Become a guide </span>
         </button></router-link
       >
-      
+
       <router-link v-if="!user" to="/login-signup"
         ><button :class="{ scrollClass: isScrolling }">
           <span> Login / Signup </span>
@@ -37,7 +37,7 @@
     </nav>
     <div v-if="isOpen" class="user-options-container">
       <p>Welcome {{ user.fullname }}</p>
-      <router-link :to="'user-profile/' + user._id">My Profile</router-link>
+      <router-link :to="'/user-profile/' + user._id">My Profile</router-link>
       <el-button plain type="danger" @click="logout">Logout</el-button>
     </div>
   </section>
