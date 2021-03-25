@@ -1,8 +1,7 @@
 .tour-details {
     margin: 0 auto;
-    height: 100%;
     display: grid;
-
+    padding: $main-padding;
 
 
     .details-container-primary {
@@ -17,14 +16,6 @@
             color: #42ABA7;
         }
 
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            margin-inline-start: 110px;
-        }
-
         h5 {
             color: $muted;
             font-weight: bold;
@@ -34,7 +25,6 @@
             .reviews-length {
                 color: $muted;
                 font-size: rem(14px);
-                margin-left: 4px;
             }
         }
     }
@@ -42,15 +32,13 @@
 
 
     .images-container {
-        margin: 0 auto;
-        width: 85%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: 5px 5px;
         grid-template-areas:
             "first-img first-img img-2 img3"
-            "first-img first-img  img4 img5";
+            "first-img first-img  img4 img5"
     }
 
     img {
@@ -108,9 +96,6 @@
     .order-details-container {
         display: flex;
         justify-content: space-between;
-        margin: -230px auto;
-        margin-inline-end: rem(100px);
-        margin-inline-start: rem(100px);
         height: 500px;
 
         .details-container-secondry {
@@ -165,10 +150,6 @@
             padding: 24px;
             position: sticky;
 
-            *> {
-                margin-bottom: 20px;
-            }
-
 
             .form-order-main-details {
                 display: flex;
@@ -198,9 +179,6 @@
                 flex-direction: column;
                 justify-content: space-around;
 
-                margin-left: 10px;
-                margin-right: 10px;
-
                 form:not(:first-child) {
                     align-items: center;
                 }
@@ -212,11 +190,6 @@
                     text-align: center;
                 }
             }
-
-            // input {
-            //     width: 209px;
-            //     margin-left:20px;
-            // }
 
             textarea {
                 height: 80px;
