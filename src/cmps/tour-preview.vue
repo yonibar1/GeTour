@@ -17,7 +17,10 @@
         <p>{{ tour.country }}</p>
         <div class="little-container">
           <p>{{ tour.daysCount }} Days</p>
-          <p>{{ tour.members }}/{{ tour.capacity }} Joined</p>
+          <p v-if="tour.members < tour.capacity">
+            {{ tour.members }}/{{ tour.capacity }} Joined
+          </p>
+          <p v-else>Fully Bookeded</p>
         </div>
         <div class="price-rate-container">
           <h3 class="price">${{ tour.price }}</h3>

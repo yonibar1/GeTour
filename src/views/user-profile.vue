@@ -3,17 +3,23 @@
     <div class="left-container">
       <div v-if="user" class="avatar">
         <img :src="user.imgUrl" />
+        <span>{{ user.fullname }}</span>
       </div>
-    </div>
-    <div class="right-container">
-      <h3>Requests</h3>
+      <h3>Booking's</h3>
       <div v-if="orders" class="requests-container">
         <div v-for="order in orders" :key="order._id" class="request-card">
-          Tour Name: {{ order.tour.title }}
+          <div class="tour-mini-avatar">
+            <!-- <img v-if="order.tour.imgs" :src="order.tour.imgs[0]" alt="" /> -->
+            <p>{{ order.tour.title }}</p>
+          </div>
           <div class="buyer">
             <div class="buyer-details">
               <img :src="order.buyer.imgUrl" />
-              <h4>{{ order.buyer.fullname }}</h4>
+              <router-link
+                class="link"
+                :to="'/user-profile/' + order.buyer._id"
+                >{{ order.buyer.fullname }}</router-link
+              >
             </div>
             <p>${{ order.totalPrice }}</p>
           </div>
@@ -30,14 +36,30 @@
           </div>
         </div>
       </div>
-      <!-- <h2>Tours</h2> -->
-      <!-- <div class="user-created-tours">
-          <ul v-if="toursByUser">
-            <li v-for="tour in toursByUser" :key="tour._id">
-              <tour-preview :tour="tour"></tour-preview>
-            </li>
-          </ul>
-        </div> -->
+    </div>
+    <div class="right-container">
+      <h2>My Tours</h2>
+      <div class="user-created-tours">
+        <div v-for="tour in toursByUser" :key="tour._id">
+          <tour-preview :tour="tour"></tour-preview>
+          <div class="tour-btn-container">
+            <el-button
+              @click="onEditTour(tour._id)"
+              circle
+              class="el-icon-edit"
+              type="info"
+              plain
+            ></el-button>
+            <el-button
+              @click="removeTour(tour._id)"
+              circle
+              class="el-icon-delete"
+              plain
+              type="danger"
+            ></el-button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -58,6 +80,13 @@ export default {
     },
   },
   methods: {
+    async removeTour(id) {
+      await this.$store.dispatch({ type: "removeTour", id });
+      await this.loadToursByUser(this.user._id);
+    },
+    async onEditTour(id) {
+      this.$router.push(`/edit/${id}`);
+    },
     async loadOrdersOfTour(tours) {
       const toursIds = tours.map((tour) => {
         return tour._id;
