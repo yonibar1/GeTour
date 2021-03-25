@@ -17,7 +17,7 @@
                 justify-content: space-between;
                 padding: 20px;
                 align-items: center;
-                color: #b4cfc7;
+                color: #758b85;
                 border-radius: 5px;
 
                 input,
@@ -25,6 +25,10 @@
                     border-radius: 50px;
                     border: none;
                     color: $main-clr;
+                    ::placeholder {
+                        color: #758b85;
+                        opacity: 1;
+                    }
                 }
                 .el-button {
                     color: white;
@@ -32,6 +36,10 @@
                 }
                 .dest-input {
                     width: 200px;
+                    ::placeholder {
+                        color: #758b85;
+                        opacity: 1;
+                    }
                 }
             }
         }

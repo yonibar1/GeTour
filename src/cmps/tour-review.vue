@@ -1,15 +1,8 @@
 <template>
   <section class="tour-review">
     <div class="add-review-container">
-      <h2>Add Your Review</h2>
+      <h2>Reviews</h2>
       <form @submit.prevent="addReview()">
-        <div class="block">
-          <div class="rate-block">
-            <span class="demonstration">Rate Your Tour</span>
-            <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
-          </div>
-          <button>Add Review</button>
-        </div>
         <el-input
           type="textarea"
           maxlength="100"
@@ -18,6 +11,13 @@
           placeholder="We Need Your Opinion"
         >
         </el-input>
+        <div class="block">
+          <div class="rate-block">
+            <span class="demonstration">Rate Your Tour</span>
+            <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
+          </div>
+          <button>Add Review</button>
+        </div>
       </form>
     </div>
     <ul v-if="tour.reviews">
@@ -38,7 +38,7 @@
           <div class="ranks-txt">
             <h3>❞{{ review.txt }}❞</h3>
             <div class="review-rate">
-              <el-rate v-model="review.rate" disabled text-color="#ff9900">
+              <el-rate v-model="review.rate" disabled text-color="$main-clr">
               </el-rate>
             </div>
           </div>

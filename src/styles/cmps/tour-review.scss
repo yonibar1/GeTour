@@ -7,7 +7,7 @@
 
     .tour-review {
         margin: 0;
-        
+
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -15,11 +15,7 @@
             li {
                 margin-right: 10px;
 
-
-
-
                 .review {
-                    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
                     border: 1px solid lightgray;
                     width: 400px;
                     height: 150px;
@@ -30,7 +26,6 @@
                     flex-direction: column;
                     justify-content: space-between;
 
-
                     .ranks-txt {
                         display: flex;
                         flex-direction: column;
@@ -40,7 +35,7 @@
                         }
 
                         i {
-                            color: #42ABA7;
+                            color: #42aba7;
                             text-shadow: 0 1px 0 rgb(22, 21, 21);
                         }
 
@@ -71,36 +66,32 @@
                             display: flex;
                             flex-direction: column;
                         }
-
                     }
-
                 }
             }
         }
 
         .add-review-container {
-
             h2 {
                 color: black;
-                text-decoration: underline;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                text-transform: capitalize;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, serif;
             }
 
             form {
-
                 textarea {
-                    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
                     max-height: 150px;
                     font-family: OpenSans, serif;
                     color: black;
                     border: 1px solid rgb(56, 56, 56);
-                    border-radius: 14px;
-
+                    border-radius: 5px;
+                    width: 30rem;
+                    margin-bottom: 10px;
                 }
 
                 .block {
-                    display:flex;
-                    justify-content: space-between;
+                    display: flex;
+                    margin-bottom: 10px;
                     .demonstration {
                         font-family: OpenSans, sans-serif;
                         font-weight: bold;
@@ -108,17 +99,17 @@
 
                     .el-rate {
                         margin-bottom: 10px;
+                        color:green
                     }
-
 
                     button {
                         width: 152px;
                         height: 40px;
                         background-color: #fff;
                         color: #606266;
-                        border: 1px solid #DCDFE6;
+                        border: 1px solid #dcdfe6;
                         border-radius: 4px;
-                        transition: .1s;
+                        transition: 0.1s;
                         font-weight: 500;
                         font-size: 14px;
                     }
@@ -129,12 +120,6 @@
                     }
                 }
             }
-        }
-
-        h2 {
-            text-transform: capitalize;
-            font-family: OpenSans, serif;
-            text-decoration: underline;
         }
     }
 }

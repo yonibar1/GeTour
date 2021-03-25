@@ -1,34 +1,65 @@
 .tour-details {
     display: grid;
     padding: $main-padding;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    h2 {
+        color: #2b2b2b;
+        font-weight: 600;
+        font-size: 30px;
+    }
+    .reviews-length {
+        font-size: rem(14px);
+    }
     .details-container-primary {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         line-height: 40px;
-
-        .el-rate {
-            display: inline;
-            text-shadow: 0.5px 0.5px 0.5px black;
-            color: #42aba7;
-        }
-
-        h5 {
-            color: $muted;
-            font-weight: bold;
-        }
-
-        h2 {
-            .reviews-length {
+        .header-container {
+            display: flex;
+            align-items: center;
+            p {
                 color: $muted;
-                font-size: rem(14px);
+            }
+            h5 {
+                color: $muted;
+                margin-left: 10px;
+                font-size: 16px;
+                text-decoration: underline;
+                font-weight: 500;
+            }
+            .reviews {
+                display: flex;
+                align-items: center;
+                height: 30px;
+                margin-right: 10px;
+
+                span {
+                    font-size: 15px;
+                    color: $muted;
+                }
+                .el-rate {
+                    display: inline;
+                    color: #3a7271;
+                    .el-rate__text {
+                        font-weight: bold;
+                        font-size: 16px;
+                        margin-right: 2px;
+                    }
+                    .el-rate__item {
+                        width: 20px;
+                        .el-icon-star-on {
+                            color: $main-clr !important;
+                        }
+                    }
+                }
             }
         }
     }
 
     .images-container {
         display: grid;
+        margin-bottom: 2rem;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 5px 5px;
@@ -39,13 +70,13 @@
 
     img {
         object-fit: cover;
+        height: 100%;
     }
 
     .first-img {
         grid-area: first-img;
 
         img {
-            height: 90%;
             border-top-left-radius: 12px;
             border-bottom-left-radius: 12px;
         }
@@ -67,20 +98,20 @@
             border-top-right-radius: 12px;
         }
     }
-
+    
     .img4 {
         grid-area: img4;
-
+        
         img {
-            height: 79.8%;
+            height: 100%;
         }
     }
-
+    
     .img5 {
         grid-area: img5;
-
+        
         img {
-            height: 79.8%;
+            height: 100%;
             border-bottom-right-radius: 10px;
         }
     }
@@ -90,12 +121,24 @@
         justify-content: space-between;
         margin-bottom: 30px;
         .details-container-secondry {
+            max-width: 60rem;
             border-radius: 14px;
-            height: 85%;
             display: flex;
             flex-direction: column;
             line-height: 40px;
-
+            margin-right: 40px;
+            .guide-container {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 10px;
+                border-bottom: 1px solid $muted;
+                margin-bottom: 10px;
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+            }
             .tour-members {
                 color: $muted;
                 font-size: 1rem;
@@ -125,6 +168,7 @@
         }
 
         .tour-order {
+            position: sticky;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -132,9 +176,9 @@
             box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
             border: 1px solid lightgray;
             border-radius: 14px;
+            min-width: 20rem;
             height: 20rem;
             padding: 24px;
-            position: sticky;
 
             .form-order-main-details {
                 display: flex;
@@ -149,6 +193,12 @@
                 .reviews-length {
                     font-size: rem(14px);
                     color: $muted;
+                }
+            }
+            .el-input-number {
+                width: 7rem;
+                .el-input__inner{
+                    border: none;
                 }
             }
             .el-input-number__decrease,
@@ -170,7 +220,6 @@
                     width: 70%;
                     align-self: center;
                     margin-top: 20px;
-                    text-align: center;
                 }
             }
 
@@ -178,6 +227,14 @@
                 height: 80px;
                 resize: none;
                 margin-top: 10px;
+            }
+            .btn-order {
+                background-color: $main-clr;
+                color: white;
+                width: 17rem;
+                &:hover {
+                    background-color: #52cfcb;
+                }
             }
         }
     }

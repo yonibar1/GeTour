@@ -3,17 +3,22 @@
     <div class="details-container-primary">
       <h2>
         {{ tour.title }}
-        <el-rate
-          show-score
-          allow-half
-          v-model="tour.rate"
-          disabled
-          text-color="#ff9900"
-        >
-        </el-rate>
-        <span class="reviews-length">({{ tour.reviews.length }})</span>
       </h2>
-      <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
+      <div class="header-container">
+        <div class="reviews">
+          <el-rate
+            show-score
+            allow-half
+            v-model="tour.rate"
+            disabled
+            text-color="#2b2b2b"
+          >
+          </el-rate>
+          <span>({{ tour.reviews.length }})</span>
+        </div>
+        <p>•</p>
+        <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
+      </div>
       <div class="images-container">
         <div class="first-img">
           <img :src="tour.imgs[0]" alt="" />
@@ -34,6 +39,12 @@
     </div>
     <div class="order-details-container">
       <div class="details-container-secondry">
+        <div class="guide-container">
+          <h2>
+            {{ tour.byUser.fullname }}
+          </h2>
+          <img :src="tour.byUser.imgUrl" alt="">
+        </div>
         <h3>{{ tour.startedAt | moment }}</h3>
         <h3 class="tour-members">
           {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
@@ -45,15 +56,14 @@
           </div>
         </div>
 
-        <!-- <h3>{{ tour.locs.name }}</h3> -->
         <p>{{ tour.description }}</p>
       </div>
       <div class="tour-order">
         <div class="form-order-main-details">
           <h4>Price: ${{ tour.price }}</h4>
           <div class="review">
-          <i class="el-icon-star-on">{{ tour.rate }}</i>
-          <span class="reviews-length">({{ tour.reviews.length }})</span>
+            <i class="el-icon-star-on">{{ tour.rate }}</i>
+            <span class="reviews-length">({{ tour.reviews.length }})</span>
           </div>
         </div>
         <el-input-number
@@ -70,7 +80,7 @@
         >
         </el-input>
         <h4>Total Price: ${{ totalPriceToShow }}</h4>
-        <el-button type="success" @click="toggleModal">Order Tour</el-button>
+        <el-button class="btn-order" @click="toggleModal">Order Tour</el-button>
       </div>
     </div>
     <div class="review-list">
