@@ -151,6 +151,14 @@ export default {
           value: { txt: "Water Trail", class: "fas fa-water" },
         },
         {
+          label: "Hiking Tour",
+          value: { txt: "Hiking Tour", class: "fas fa-hiking" },
+        },
+        {
+          label: "Camping Tour",
+          value: { txt: "Camping", class: "fas fa-campground" },
+        },
+        {
           label: "For Children",
           value: { txt: "For Children", class: "fas fa-child" },
         },
