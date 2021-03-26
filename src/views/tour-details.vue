@@ -9,7 +9,7 @@
           <el-rate
             show-score
             allow-half
-            v-model="totalRateToShow"
+            v-model.number="totalRateToShow"
             disabled
             text-color="$main-clr"
           >
@@ -86,10 +86,13 @@
         >
         </el-input>
         <h4>Total Price: ${{ totalPriceToShow }}</h4>
-        <el-button class="btn-order" type="success" @click="toggleModal">
-          Order Tour
-        </el-button>
+        <el-button class="btn-order" type="success" @click="toggleModal"
+          >Order Tour</el-button
+        >
       </div>
+    </div>
+    <div class="chat-container">
+      <chat :tourId="tour._id" />
     </div>
     <div class="review-list">
       <tour-review :tour="tour" />
@@ -129,7 +132,7 @@
 <script>
 import tourReview from "../cmps/tour-review";
 import moment from "moment";
-// import chat from '@/cmps/chat.vue';
+import chat from "@/cmps/chat.vue";
 export default {
   data() {
     return {
@@ -159,7 +162,7 @@ export default {
         return (sum += rate);
       }, 0);
       const rate = sum / this.reviews.length;
-      var rateToShow = rate.toFixed(1);
+      var rateToShow = rate;
       return rateToShow;
     },
   },
@@ -172,7 +175,6 @@ export default {
     setLimitCount() {
       const diff = this.tour.capacity - this.tour.members;
       this.limitCount = diff;
-      console.log(this.limitCount);
     },
     async loadTour() {
       try {
@@ -230,7 +232,7 @@ export default {
   },
   components: {
     tourReview,
-    // chat,
+    chat,
   },
 };
 </script>
