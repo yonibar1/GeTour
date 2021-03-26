@@ -2,7 +2,7 @@
   <section class="tour-app">
     <div class="hero-container">
       <tour-filter />
-      <h1>Travel Anywhere With Anyone.</h1>
+      <h1>Travel Anywhere Together.</h1>
     </div>
 
     <!-- COUNTRIES -->
