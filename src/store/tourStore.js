@@ -52,24 +52,23 @@ export const tourStore = {
             });
             state.tours.splice(idx, 1);
         },
-        // setChatHistory(state, { chat }) {
-        //     console.log('chat:', chat)
-        //     state.chatHistory = chat;
-        // },
+        setChatHistory(state, { chat }) {
+            state.chatHistory = chat;
+            
+        },
     },
     actions: {
-        // async loadChat(state, payload) {
-        //     // console.log('payload:', payload)
-        //     // const tour = await tourService.getById(tourId);
-        //     state.commit({ type: 'setChatHistory', chat: tour.chatHistory });
-        // },
-        // async saveMsg(state, { data }) {
-        //     // console.log('data:', data)
-        //     const tour = await tourService.getById(data.tourId);
-        //     tour.chatHistory = data.msgs;
-        //     const tourAfterSave = await tourService.save(tour);
-        //     state.commit({ type: 'updateTour', tourAfterSave });
-        // },
+        async loadChat(state, { tourId }) {
+            const tour = await tourService.getById(tourId);
+            state.commit({ type: 'setChatHistory', chat: tour.chatHistory });
+        },
+        async saveMsg(state, { data }) {
+            console.log('payload:', data);
+            const tour = await tourService.getById(data.tourId);
+            tour.chatHistory = data.msgs;
+            const tourAfterSave = await tourService.save(tour);
+            state.commit({ type: 'updateTour', tourAfterSave });
+        },
         async query(context) {
             try {
                 const tours = await tourService.query(context.state.filterBy);
@@ -97,11 +96,11 @@ export const tourStore = {
             }
         },
         async saveTour({ commit }, { tour }) {
-            console.log('tour:', tour)
+            console.log('tour:', tour);
             try {
                 const type = tour._id ? 'updateTour' : 'addTour';
                 const tourAfterSave = await tourService.save(tour);
-                console.log('tourAfterSave:', tourAfterSave)
+                console.log('tourAfterSave:', tourAfterSave);
                 commit({ type, tourAfterSave });
                 return tourAfterSave;
             } catch (err) {
@@ -138,9 +137,9 @@ export const tourStore = {
                 review.id = utilService.makeId();
                 const tourById = await tourService.getById(tourId);
                 tourById.reviews.push(review);
-                console.log('tourById:', tourById)
+                console.log('tourById:', tourById);
                 const tour = await tourService.save(tourById);
-                console.log('tour:', tour)
+                console.log('tour:', tour);
                 commit({ type: 'setTour', tour });
             } catch (err) {
                 console.log('Cannot add review', err);

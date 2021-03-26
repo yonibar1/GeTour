@@ -1,234 +1,245 @@
 <template>
-  <section v-if="tour" class="tour-details">
-    <!-- PRIMARY -->
+    <section v-if="tour" class="tour-details">
+        <!-- PRIMARY -->
 
-    <div class="details-container-primary">
-      <h2>{{ tour.title }}</h2>
-      <div class="header-container">
-        <div class="reviews">
-          <el-rate
-            show-score
-            allow-half
-            v-model="totalRateToShow"
-            disabled
-            text-color="$main-clr"
-          >
-          </el-rate>
-          <span>({{ tour.reviews.length }})</span>
+        <div class="details-container-primary">
+            <h2>{{ tour.title }}</h2>
+            <div class="header-container">
+                <div class="reviews">
+                    <el-rate
+                        show-score
+                        allow-half
+                        v-model.number="totalRateToShow"
+                        disabled
+                        text-color="$main-clr"
+                    >
+                    </el-rate>
+                    <span>({{ tour.reviews.length }})</span>
+                </div>
+                <p>•</p>
+                <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
+            </div>
+            <div class="images-container">
+                <div class="first-img">
+                    <img :src="tour.imgs[0]" alt="" />
+                </div>
+                <div class="img-2">
+                    <img :src="tour.imgs[1]" alt="" />
+                </div>
+                <div class="img3">
+                    <img :src="tour.imgs[2]" alt="" />
+                </div>
+                <div class="img4">
+                    <img :src="tour.imgs[3]" alt="" />
+                </div>
+                <div class="img5">
+                    <img :src="tour.imgs[4]" alt="" />
+                </div>
+            </div>
         </div>
-        <p>•</p>
-        <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
-      </div>
-      <div class="images-container">
-        <div class="first-img">
-          <img :src="tour.imgs[0]" alt="" />
-        </div>
-        <div class="img-2">
-          <img :src="tour.imgs[1]" alt="" />
-        </div>
-        <div class="img3">
-          <img :src="tour.imgs[2]" alt="" />
-        </div>
-        <div class="img4">
-          <img :src="tour.imgs[3]" alt="" />
-        </div>
-        <div class="img5">
-          <img :src="tour.imgs[4]" alt="" />
-        </div>
-      </div>
-    </div>
 
-    <div class="order-details-container">
-      <!-- SECONDARY -->
+        <div class="order-details-container">
+            <!-- SECONDARY -->
 
-      <div class="details-container-secondry">
-        <div class="guide-container">
-          <h2>
-            {{ tour.byUser.fullname }}
-          </h2>
-          <img :src="tour.byUser.imgUrl" alt="" />
+            <div class="details-container-secondry">
+                <div class="guide-container">
+                    <h2>
+                        {{ tour.byUser.fullname }}
+                    </h2>
+                    <img :src="tour.byUser.imgUrl" alt="" />
+                </div>
+                <h3>{{ tour.startedAt | moment }}</h3>
+                <h2 v-if="tour.members === tour.capacity">Fully Booked</h2>
+                <h3 v-else class="tour-members">
+                    {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
+                </h3>
+                <div class="icons-container">
+                    <div
+                        class="display-icons"
+                        v-for="(tag, idx) in tour.tags"
+                        :key="idx"
+                    >
+                        <i :class="tag.class"> </i>
+                        <h4>{{ tag.txt }}</h4>
+                    </div>
+                </div>
+                <p>{{ tour.description }}</p>
+            </div>
+
+            <!-- ORDER BOX -->
+
+            <div class="tour-order">
+                <div class="form-order-main-details">
+                    <h4>Price: ${{ tour.price }}</h4>
+                    <div class="review">
+                        <i class="el-icon-star-on">{{ tour.rate }}</i>
+                        <span class="reviews-length"
+                            >({{ tour.reviews.length }})</span
+                        >
+                    </div>
+                </div>
+                <el-input-number
+                    v-model="order.guestsCount"
+                    @change="handleChange"
+                    :min="1"
+                    :max="limitCount"
+                ></el-input-number>
+                <el-input
+                    type="textarea"
+                    :rows="2"
+                    placeholder="Any Speaicel Requests?"
+                    v-model="order.requests"
+                >
+                </el-input>
+                <h4>Total Price: ${{ totalPriceToShow }}</h4>
+                <el-button class="btn-order" type="success" @click="toggleModal"
+                    >Order Tour</el-button
+                >
+            </div>
         </div>
-        <h3>{{ tour.startedAt | moment }}</h3>
-        <h2 v-if="tour.members === tour.capacity">Fully Booked</h2>
-        <h3 v-else class="tour-members">
-          {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
-        </h3>
-        <div class="icons-container">
-          <div class="display-icons" v-for="(tag, idx) in tour.tags" :key="idx">
-            <i :class="tag.class"> </i>
-            <h4>{{ tag.txt }}</h4>
-          </div>
+          <div class="chat-container">
+            <chat :tourId="tour._id" />
         </div>
-        <p>{{ tour.description }}</p>
-      </div>
-
-      <!-- ORDER BOX -->
-
-      <div class="tour-order">
-        <div class="form-order-main-details">
-          <h4>Price: ${{ tour.price }}</h4>
-          <div class="review">
-            <i class="el-icon-star-on">{{ tour.rate }}</i>
-            <span class="reviews-length">({{ tour.reviews.length }})</span>
-          </div>
+        <div class="review-list">
+            <tour-review :tour="tour" />
         </div>
-        <el-input-number
-          v-model="order.guestsCount"
-          @change="handleChange"
-          :min="1"
-          :max="limitCount"
-        ></el-input-number>
-        <el-input
-          type="textarea"
-          :rows="2"
-          placeholder="Any Speaicel Requests?"
-          v-model="order.requests"
-        >
-        </el-input>
-        <h4>Total Price: ${{ totalPriceToShow }}</h4>
-        <el-button class="btn-order" type="success" @click="toggleModal">Order Tour</el-button>
-      </div>
-    </div>
-    <div class="review-list">
-      <tour-review :tour="tour" />
-    </div>
 
-    <!-- ORDER MODAL -->
-    <div class="order-modal">
-      <el-dialog
-        title="Your Order"
-        :visible.sync="dialogVisible"
-        width="30%"
-        :before-close="handleClose"
-      >
-        <h3>
-          {{ tour.title }}
-        </h3>
-        <h5>{{ tour.country }}</h5>
-        <h4>{{ tour.startedAt | moment }}</h4>
-        <p>
-          Your Order Has been sent to the tour guide for approval we will let
-          you know as soon as possible
-        </p>
-        <hr />
-        <h3>Your Special Requests: {{ order.requests }}</h3>
-        <h3>Total Price: ${{ totalPriceToShow }}</h3>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">Cancel</el-button>
-          <el-button type="primary" @click="handleConfirm(tour)"
-            >Confirm</el-button
-          >
-        </span>
-      </el-dialog>
-    </div>
-  </section>
+        <!-- ORDER MODAL -->
+        <div class="order-modal">
+            <el-dialog
+                title="Your Order"
+                :visible.sync="dialogVisible"
+                width="30%"
+                :before-close="handleClose"
+            >
+                <h3>
+                    {{ tour.title }}
+                </h3>
+                <h5>{{ tour.country }}</h5>
+                <h4>{{ tour.startedAt | moment }}</h4>
+                <p>
+                    Your Order Has been sent to the tour guide for approval we
+                    will let you know as soon as possible
+                </p>
+                <hr />
+                <h3>Your Special Requests: {{ order.requests }}</h3>
+                <h3>Total Price: ${{ totalPriceToShow }}</h3>
+                <span slot="footer" class="dialog-footer">
+                    <el-button @click="dialogVisible = false">Cancel</el-button>
+                    <el-button type="primary" @click="handleConfirm(tour)"
+                        >Confirm</el-button
+                    >
+                </span>
+            </el-dialog>
+        </div>
+    </section>
 </template>
 
 <script>
-import tourReview from "../cmps/tour-review";
-import moment from "moment";
-// import chat from '@/cmps/chat.vue';
+import tourReview from '../cmps/tour-review';
+import moment from 'moment';
+import chat from '@/cmps/chat.vue';
 export default {
-  data() {
-    return {
-      reviews: [],
-      dialogVisible: false,
-      order: {
-        guestsCount: 1,
-        requests: "",
-      },
-      limitCount: 0,
-    };
-  },
-  async created() {
-    await this.loadTour();
-    this.setLimitCount();
-  },
-  computed: {
-    tour() {
-      return this.$store.getters.tour;
+    data() {
+        return {
+            reviews: [],
+            dialogVisible: false,
+            order: {
+                guestsCount: 1,
+                requests: '',
+            },
+            limitCount: 0,
+        };
     },
-    totalPriceToShow() {
-      return this.tour.price * this.order.guestsCount;
+    async created() {
+        await this.loadTour();
+        this.setLimitCount();
     },
-    totalRateToShow() {
-      var stars = this.reviews;
-      var sum = stars.reduce(function (sum, { rate }) {
-        return (sum += rate);
-      }, 0);
-      const rate = sum / this.reviews.length;
-      var rateToShow = rate.toFixed(1);
-      return rateToShow;
+    computed: {
+        tour() {
+            return this.$store.getters.tour;
+        },
+        totalPriceToShow() {
+            return this.tour.price * this.order.guestsCount;
+        },
+        totalRateToShow() {
+            var stars = this.reviews;
+            var sum = stars.reduce(function(sum, { rate }) {
+                return (sum += rate);
+            }, 0);
+            const rate = sum / this.reviews.length;
+            var rateToShow = rate
+            return rateToShow;
+        },
     },
-  },
-  filters: {
-    moment: function (date) {
-      return moment(date).format("dddd , DD/MM/YYYY");
+    filters: {
+        moment: function(date) {
+            return moment(date).format('dddd , DD/MM/YYYY');
+        },
     },
-  },
-  methods: {
-    setLimitCount() {
-      const diff = this.tour.capacity - this.tour.members;
-      this.limitCount = diff;
-      console.log(this.limitCount);
+    methods: {
+        setLimitCount() {
+            const diff = this.tour.capacity - this.tour.members;
+            this.limitCount = diff;
+            
+        },
+        async loadTour() {
+            try {
+                const id = this.$route.params.tourId;
+                await this.$store.dispatch({
+                    type: 'loadTour',
+                    id,
+                });
+                this.reviews = this.tour.reviews;
+            } catch {
+                console.log('Cant Show Tour Details');
+            }
+        },
+        async handleClose(done) {
+            try {
+                this.$confirm('Are you sure to close this dialog?');
+                await done();
+            } catch {
+                console.log('Cant Show Tour Details');
+            }
+        },
+        async handleConfirm(tour) {
+            this.dialogVisible = false;
+            this.order.totalPrice = tour.price * this.order.guestsCount;
+            this.tour.members += this.order.guestsCount;
+            this.order.tour = {
+                _id: tour._id,
+                title: tour.title,
+                imgs: tour.imgs,
+                _guideId: tour.byUser._id,
+            };
+            this.$store.dispatch({
+                type: 'saveTour',
+                tour,
+            });
+            this.$store.dispatch({
+                type: 'saveOrder',
+                tour,
+                order: this.order,
+            });
+            this.order.guestsCount = 1;
+            this.order.requests = '';
+        },
+        handleChange(value) {
+            console.log(value);
+        },
+        async toggleModal() {
+            this.dialogVisible = true;
+        },
     },
-    async loadTour() {
-      try {
-        const id = this.$route.params.tourId;
-        await this.$store.dispatch({
-          type: "loadTour",
-          id,
-        });
-        this.reviews = this.tour.reviews;
-      } catch {
-        console.log("Cant Show Tour Details");
-      }
+    watch: {
+        '$route.params.tourId'() {
+            this.loadTour();
+        },
     },
-    async handleClose(done) {
-      try {
-        this.$confirm("Are you sure to close this dialog?");
-        await done();
-      } catch {
-        console.log("Cant Show Tour Details");
-      }
+    components: {
+        tourReview,
+        chat,
     },
-    async handleConfirm(tour) {
-      this.dialogVisible = false;
-      this.order.totalPrice = tour.price * this.order.guestsCount;
-      this.tour.members += this.order.guestsCount;
-      this.order.tour = {
-        _id: tour._id,
-        title: tour.title,
-        imgs: tour.imgs,
-        _guideId: tour.byUser._id,
-      };
-      this.$store.dispatch({
-        type: "saveTour",
-        tour,
-      });
-      this.$store.dispatch({
-        type: "saveOrder",
-        tour,
-        order: this.order,
-      });
-      this.order.guestsCount = 1;
-      this.order.requests = "";
-    },
-    handleChange(value) {
-      console.log(value);
-    },
-    async toggleModal() {
-      this.dialogVisible = true;
-    },
-  },
-  watch: {
-    "$route.params.tourId"() {
-      this.loadTour();
-    },
-  },
-  components: {
-    tourReview,
-    // chat,
-  },
 };
 </script>

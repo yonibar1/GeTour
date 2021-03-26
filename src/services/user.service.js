@@ -17,8 +17,7 @@ export const userService = {
 // For Authentication...
 
 async function login(user) {
-    const userFromBack = await httpService.post(AUTH_URL + 'login', user);
-    console.log(userFromBack, 'User From Back');
+    const userFromBack = await httpService.post(AUTH_URL + 'login', user)
     sessionStorage.setItem('login', JSON.stringify(userFromBack));
     return userFromBack;
 }
