@@ -13,11 +13,11 @@
     .details-container-primary {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         line-height: 40px;
         .header-container {
             display: flex;
             align-items: center;
+            margin-bottom: 10px;
             p {
                 color: $muted;
             }
@@ -169,6 +169,7 @@
 
         .tour-order {
             position: sticky;
+            top: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;

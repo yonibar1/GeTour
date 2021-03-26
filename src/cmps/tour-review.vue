@@ -13,7 +13,7 @@
         </el-input>
         <div class="block">
           <div class="rate-block">
-            <span class="demonstration">Rate Your Tour</span>
+            <span class="demonstration">Rate this tour:</span>
             <el-rate allow-half v-model="reviewToEdit.rate"></el-rate>
           </div>
           <button>Add Review</button>
@@ -32,11 +32,10 @@
                 {{ review.byUser.fullname }}
               </router-link>
               <h6>{{ review.createdAt | moment }}</h6>
-              <!-- <h6>{{ review.createdAt }}</h6> -->
             </div>
           </div>
           <div class="ranks-txt">
-            <h3>❞{{ review.txt }}❞</h3>
+            <p>❞{{ review.txt }}❞</p>
             <div class="review-rate">
               <el-rate v-model="review.rate" disabled text-color="$main-clr">
               </el-rate>
@@ -84,9 +83,7 @@ export default {
       };
     },
   },
-  created() {
-    console.log("reviews", this.tour.reviews);
-  },
+  created() {},
   filters: {
     moment: function (date) {
       return moment(date).fromNow();
