@@ -1,13 +1,14 @@
 .review-list {
     display: flex;
     flex-direction: column;
+    margin-bottom: 40px;
     h2 {
         color: rgb(41, 41, 41);
     }
 
     .tour-review {
         margin: 0;
-        
+
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -15,39 +16,38 @@
             li {
                 margin-right: 10px;
 
-
-
-
                 .review {
-                    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-                    border: 1px solid lightgray;
                     width: 400px;
-                    height: 150px;
+                    height: 8rem;
                     margin-bottom: rem(10px);
                     padding: rem(10px);
+                    margin-right: 25px;
                     border-radius: 14px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
 
-
                     .ranks-txt {
                         display: flex;
                         flex-direction: column;
-                        h3 {
-                            font-size: 14px;
+                        p {
+                            font-size: 17px;
                             text-transform: capitalize;
-                        }
+                            margin-bottom: 10px;
 
-                        i {
-                            color: #42ABA7;
-                            text-shadow: 0 1px 0 rgb(22, 21, 21);
                         }
+                        .el-rate {
 
+                            .el-icon-star-on::before {
+                                color: $main-clr;
+                            }
+                            .el-icon-star-off::before {
+                                color: $main-clr;
+                            }
+                        }
                         .review-rate {
                             display: flex;
-                            justify-content: center;
-                            margin-left: rem(-100px);
+                            align-items: center;
                             span {
                                 font-size: rem(14px);
                                 color: $muted;
@@ -57,11 +57,11 @@
 
                     .mini-user {
                         display: flex;
+                        margin-bottom: 10px;
                         .mini-user-img {
-                            width: 40px;
-                            height: 40px;
+                            width: 50px;
+                            height: 50px;
                             margin: 5px 5px 5px 0;
-                            @include aspect-ratio(100, 100);
                             img {
                                 border-radius: 50%;
                             }
@@ -70,55 +70,70 @@
                         .mini-user-details {
                             display: flex;
                             flex-direction: column;
+                            font-size: 18px;
+                            margin-left: 7px;
+
+                            a {
+                                color: $main-clr-dark;
+                                font-weight: bold;
+                            }
                         }
-
                     }
-
                 }
             }
         }
 
         .add-review-container {
-
+            width: 30rem;
             h2 {
                 color: black;
-                text-decoration: underline;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                text-transform: capitalize;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, serif;
             }
 
             form {
-
                 textarea {
-                    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
                     max-height: 150px;
                     font-family: OpenSans, serif;
                     color: black;
                     border: 1px solid rgb(56, 56, 56);
-                    border-radius: 14px;
-
+                    border-radius: 5px;
+                    width: 30rem;
+                    margin-bottom: 10px;
                 }
 
                 .block {
-                    display:flex;
+                    display: flex;
+                    margin-bottom: 10px;
                     justify-content: space-between;
+                    .rate-block {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
                     .demonstration {
                         font-family: OpenSans, sans-serif;
                         font-weight: bold;
+                        margin-right: 10px;
                     }
 
                     .el-rate {
-                        margin-bottom: 10px;
+                        .el-icon-star-on::before {
+                            color: $main-clr;
+                        }
+                        .el-icon-star-off::before {
+                            color: $main-clr;
+                        }
                     }
-
-
                     button {
                         width: 152px;
                         height: 40px;
                         background-color: #fff;
                         color: #606266;
-                        border: 1px solid #DCDFE6;
+                        border: 1px solid #dcdfe6;
                         border-radius: 4px;
-                        transition: .1s;
+                        transition: 0.1s;
                         font-weight: 500;
                         font-size: 14px;
                     }
@@ -129,12 +144,6 @@
                     }
                 }
             }
-        }
-
-        h2 {
-            text-transform: capitalize;
-            font-family: OpenSans, serif;
-            text-decoration: underline;
         }
     }
 }

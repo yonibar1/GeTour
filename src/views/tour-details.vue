@@ -1,19 +1,24 @@
 <template>
   <section v-if="tour" class="tour-details">
+    <!-- PRIMARY -->
+
     <div class="details-container-primary">
-      <h2>
-        {{ tour.title }}
-        <el-rate
-          show-score
-          allow-half
-          v-model="tour.rate"
-          disabled
-          text-color="#ff9900"
-        >
-        </el-rate>
-        <span class="reviews-length">({{ tour.reviews.length }})</span>
-      </h2>
-      <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
+      <h2>{{ tour.title }}</h2>
+      <div class="header-container">
+        <div class="reviews">
+          <el-rate
+            show-score
+            allow-half
+            v-model="totalRateToShow"
+            disabled
+            text-color="$main-clr"
+          >
+          </el-rate>
+          <span>({{ tour.reviews.length }})</span>
+        </div>
+        <p>•</p>
+        <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
+      </div>
       <div class="images-container">
         <div class="first-img">
           <img :src="tour.imgs[0]" alt="" />
@@ -32,10 +37,20 @@
         </div>
       </div>
     </div>
+
     <div class="order-details-container">
+      <!-- SECONDARY -->
+
       <div class="details-container-secondry">
+        <div class="guide-container">
+          <h2>
+            {{ tour.byUser.fullname }}
+          </h2>
+          <img :src="tour.byUser.imgUrl" alt="" />
+        </div>
         <h3>{{ tour.startedAt | moment }}</h3>
-        <h3 class="tour-members">
+        <h2 v-if="tour.members === tour.capacity">Fully Booked</h2>
+        <h3 v-else class="tour-members">
           {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
         </h3>
         <div class="icons-container">
@@ -44,23 +59,24 @@
             <h4>{{ tag.txt }}</h4>
           </div>
         </div>
-
-        <!-- <h3>{{ tour.locs.name }}</h3> -->
         <p>{{ tour.description }}</p>
       </div>
+
+      <!-- ORDER BOX -->
+
       <div class="tour-order">
         <div class="form-order-main-details">
           <h4>Price: ${{ tour.price }}</h4>
           <div class="review">
-          <i class="el-icon-star-on">{{ tour.rate }}</i>
-          <span class="reviews-length">({{ tour.reviews.length }})</span>
+            <i class="el-icon-star-on">{{ tour.rate }}</i>
+            <span class="reviews-length">({{ tour.reviews.length }})</span>
           </div>
         </div>
         <el-input-number
           v-model="order.guestsCount"
           @change="handleChange"
           :min="1"
-          :max="10"
+          :max="limitCount"
         ></el-input-number>
         <el-input
           type="textarea"
@@ -70,13 +86,14 @@
         >
         </el-input>
         <h4>Total Price: ${{ totalPriceToShow }}</h4>
-        <el-button type="success" @click="toggleModal">Order Tour</el-button>
+        <el-button class="btn-order" type="success" @click="toggleModal">Order Tour</el-button>
       </div>
     </div>
     <div class="review-list">
       <tour-review :tour="tour" />
     </div>
-    <!-- <chat :tourId="tour._id" /> -->
+
+    <!-- ORDER MODAL -->
     <div class="order-modal">
       <el-dialog
         title="Your Order"
@@ -120,10 +137,12 @@ export default {
         guestsCount: 1,
         requests: "",
       },
+      limitCount: 0,
     };
   },
-  created() {
-    this.loadTour();
+  async created() {
+    await this.loadTour();
+    this.setLimitCount();
   },
   computed: {
     tour() {
@@ -132,12 +151,15 @@ export default {
     totalPriceToShow() {
       return this.tour.price * this.order.guestsCount;
     },
-    // users() {
-    //     return this.$store.getters.users;
-    // },
-    // loggedInUser() {
-    //     return this.$store.getters.loggedinUser;
-    // },
+    totalRateToShow() {
+      var stars = this.reviews;
+      var sum = stars.reduce(function (sum, { rate }) {
+        return (sum += rate);
+      }, 0);
+      const rate = sum / this.reviews.length;
+      var rateToShow = rate.toFixed(1);
+      return rateToShow;
+    },
   },
   filters: {
     moment: function (date) {
@@ -145,6 +167,11 @@ export default {
     },
   },
   methods: {
+    setLimitCount() {
+      const diff = this.tour.capacity - this.tour.members;
+      this.limitCount = diff;
+      console.log(this.limitCount);
+    },
     async loadTour() {
       try {
         const id = this.$route.params.tourId;
@@ -168,12 +195,17 @@ export default {
     async handleConfirm(tour) {
       this.dialogVisible = false;
       this.order.totalPrice = tour.price * this.order.guestsCount;
+      this.tour.members += this.order.guestsCount;
       this.order.tour = {
         _id: tour._id,
         title: tour.title,
         imgs: tour.imgs,
         _guideId: tour.byUser._id,
       };
+      this.$store.dispatch({
+        type: "saveTour",
+        tour,
+      });
       this.$store.dispatch({
         type: "saveOrder",
         tour,
