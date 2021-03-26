@@ -86,7 +86,9 @@
         >
         </el-input>
         <h4>Total Price: ${{ totalPriceToShow }}</h4>
-        <el-button class="btn-order" type="success" @click="toggleModal">Order Tour</el-button>
+        <el-button class="btn-order" type="success" @click="toggleModal">
+          Order Tour
+        </el-button>
       </div>
     </div>
     <div class="review-list">

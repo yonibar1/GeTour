@@ -38,6 +38,15 @@
       </div>
     </div>
     <div class="right-container">
+      <h2>Statistics</h2>
+      <div class="chart-container">
+        <chart
+          v-if="toursByUser.length && orders.length"
+          :tours="toursByUser"
+          :orders="orders"
+          class="chart"
+        />
+      </div>
       <h2>Tours</h2>
       <div class="user-created-tours">
         <div v-for="tour in toursByUser" :key="tour._id">
@@ -65,6 +74,7 @@
 </template>
 
 <script>
+import chart from "../cmps/chart";
 import tourPreview from "../cmps/tour-preview";
 export default {
   name: "user-profile",
@@ -96,7 +106,6 @@ export default {
         type: "loadOrdersByTour",
         toursIds,
       });
-      console.log(res, "Res At CMP");
     },
     async loadUser() {
       try {
@@ -145,6 +154,7 @@ export default {
   },
   components: {
     tourPreview,
+    chart,
   },
 };
 </script>

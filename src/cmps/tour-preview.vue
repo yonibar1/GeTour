@@ -2,7 +2,8 @@
   <section class="tour-preview">
     <router-link :to="'/details/' + tour._id">
       <div class="preview-img-container">
-        <img :src="`${tour.imgs[0]}`" alt="" />
+        <img v-if="tour.imgs.length" :src="`${tour.imgs[0]}`" alt="" />
+        <img v-else src="../assets/img/default-thumbnail.jpeg" alt="" />
       </div>
       <div class="tour-description-container">
         <div class="mini-user-container">
@@ -25,7 +26,7 @@
         <div class="price-rate-container">
           <h3 class="price">${{ tour.price }}</h3>
           <p>
-            <i class="el-icon-star-on"></i>{{ tour.rate }}
+            <i class="el-icon-star-on"></i>{{ rateToShow }}
             <span class="reviews-length"> ({{ tour.reviews.length }})</span>
           </p>
         </div>
@@ -45,6 +46,16 @@ export default {
     return {
       rate: 0,
     };
+  },
+  computed: {
+    rateToShow() {
+      var sum = this.tour.reviews.reduce(function (sum, { rate }) {
+        return (sum += rate);
+      }, 0);
+      const rate = sum / this.tour.reviews.length;
+      var rateToShow = rate.toFixed(1);
+      return rateToShow;
+    },
   },
   methods: {},
   created() {

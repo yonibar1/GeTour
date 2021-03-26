@@ -4,6 +4,10 @@
     }
     .right-container{
         padding:30px 0;
+        .chart{
+        // grid-column: -2/-1;
+        width: 300px;
+        }
         .user-created-tours{
             display: grid;
             grid-template-columns: 1fr 1fr ;
@@ -16,9 +20,10 @@
     }
     display: grid;
     grid-gap:40px;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1.3fr 2fr ;
     .requests-container{
         .request-card{
+            color:$black;
             &>*{
                 margin-bottom:10px;
             }
@@ -28,6 +33,9 @@
                 justify-content: center;
                 padding-bottom: 15px;
                 border-bottom: 1px solid #dedede;
+                p{
+                    color:$main-clr;
+                }
             }
             display: flex;
             flex-direction: column;
@@ -51,6 +59,7 @@
                 align-items: center;
                 .link{
                     text-decoration: underline;
+                    color:$black;
                 }
 
                 }

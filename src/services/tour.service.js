@@ -25,9 +25,8 @@ async function query(filterBy = {}) {
     });
     if (filterBy.byDestination) {
         toursCopy = toursCopy.filter((tour) => {
-            return tour.country
-                .toLowerCase()
-                .includes(filterBy.byDestination.toLowerCase());
+            return tour.country.toLowerCase().includes(filterBy.byDestination.toLowerCase())
+                || tour.title.toLowerCase().includes(filterBy.byDestination.toLowerCase());
         });
     }
     return toursCopy;
