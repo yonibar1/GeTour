@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="right-container">
-      <h2>My Tours</h2>
+      <h2>Tours</h2>
       <div class="user-created-tours">
         <div v-for="tour in toursByUser" :key="tour._id">
           <tour-preview :tour="tour"></tour-preview>
@@ -65,6 +65,7 @@
 </template>
 
 <script>
+import tourPreview from "../cmps/tour-preview";
 export default {
   name: "user-profile",
   data() {
@@ -141,6 +142,9 @@ export default {
     "$route.params.userId"() {
       this.loadUser();
     },
+  },
+  components: {
+    tourPreview,
   },
 };
 </script>

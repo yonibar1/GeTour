@@ -9,7 +9,7 @@
           <div class="mini-user-img">
             <img :src="`${tour.byUser.imgUrl}`" alt="" />
           </div>
-          <router-link :to="'/user-profile/' + tour.byUser._id">
+          <router-link class="link" :to="'/user-profile/' + tour.byUser._id">
             <p class="mini-user-fullname">{{ tour.byUser.fullname }}</p>
           </router-link>
         </div>
@@ -20,7 +20,7 @@
           <p v-if="tour.members < tour.capacity">
             {{ tour.members }}/{{ tour.capacity }} Joined
           </p>
-          <p v-else>Fully Bookeded</p>
+          <p v-else>Fully Booked</p>
         </div>
         <div class="price-rate-container">
           <h3 class="price">${{ tour.price }}</h3>
