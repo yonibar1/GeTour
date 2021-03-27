@@ -1,5 +1,5 @@
 <script>
-import { Bar } from "vue-chartjs";
+import { Doughnut } from "vue-chartjs";
 
 export default {
   props: {
@@ -10,15 +10,16 @@ export default {
       type: Array,
     },
   },
-  extends: Bar,
+  extends: Doughnut,
   created() {},
   computed: {},
   data() {
-    return { tourTitles: [], tourPrices: [] };
+    return {
+      tourTitles: [],
+      tourProfits: [],
+    };
   },
   mounted() {
-    console.log(this.tours, "This TOURS FROM PROPS");
-    console.log(this.orders, "This ORDERS FROM PROPS");
     this.tours.forEach((tour) => {
       this.tourTitles.push(tour.title);
       let sum = 0;
@@ -27,22 +28,18 @@ export default {
           sum += order.totalPrice;
         }
       });
-      console.log(sum);
-      this.tourPrices.push(sum);
-      console.log(this.tourPrices, "tour PRICES");
-      console.log(this.tourTitles, "tour TITLES");
+      this.tourProfits.push(sum);
     });
     this.renderChart({
       labels: this.tourTitles,
       datasets: [
         {
           label: "Price",
-          backgroundColor: "#43aba7",
-          data: this.tourPrices,
+          backgroundColor: ["#42ABA7", "#f12392", "#f27212"],
+          data: this.tourProfits,
         },
       ],
     });
   },
 };
 </script>
-

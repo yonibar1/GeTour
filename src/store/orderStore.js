@@ -56,6 +56,7 @@ export const orderStore = {
         },
         async saveOrder({ commit }, { order }) {
             const type = order._id ? 'updateOrder' : 'addOrder';
+            console.log(type, 'Type');
             const orderAfterSave = await orderService.save(order);
             commit({ type, orderAfterSave });
             return orderAfterSave;

@@ -54,7 +54,7 @@ export const tourStore = {
         },
         setChatHistory(state, { chat }) {
             state.chatHistory = chat;
-            
+
         },
     },
     actions: {
@@ -63,7 +63,6 @@ export const tourStore = {
             state.commit({ type: 'setChatHistory', chat: tour.chatHistory });
         },
         async saveMsg(state, { data }) {
-            console.log('payload:', data);
             const tour = await tourService.getById(data.tourId);
             tour.chatHistory = data.msgs;
             const tourAfterSave = await tourService.save(tour);
