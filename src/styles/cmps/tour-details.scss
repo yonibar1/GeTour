@@ -48,9 +48,6 @@
                     }
                     .el-rate__item {
                         width: 20px;
-                        .el-icon-star-on {
-                            color: $main-clr !important;
-                        }
                     }
                 }
             }
@@ -132,7 +129,7 @@
                 align-items: center;
                 justify-content: space-between;
                 padding-bottom: 10px;
-                border-bottom: 1px solid $muted;
+                border-bottom: 1px solid #e7e7e7;
                 margin-bottom: 10px;
                 img {
                     width: 50px;
@@ -147,6 +144,7 @@
 
             .icons-container {
                 display: flex;
+                margin: 20px 0;
 
                 :not(:first-child) {
                     margin-left: 12px;
@@ -166,6 +164,11 @@
                     }
                 }
             }
+            .tour-desc {
+                border-bottom: 1px solid #e7e7e7;
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
         }
 
         .tour-order {
@@ -178,7 +181,7 @@
             box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
             border: 1px solid lightgray;
             border-radius: 14px;
-            min-width: 20rem;
+            min-width: 22rem;
             height: 20rem;
             padding: 24px;
 
@@ -187,6 +190,14 @@
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
+                .rate {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        color: $main-clr-dark;
+                        font-weight: bold;
+                        span{
+                            font-weight: lighter;
+                        }
+                }
                 .el-icon-star-on {
                     font-size: 1rem;
                     color: #42aba7;

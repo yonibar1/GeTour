@@ -11,6 +11,7 @@
             allow-half
             :value="totalRateToShow"
             disabled
+            :colors="colors"
             text-color="$main-clr"
           >
           </el-rate>
@@ -59,8 +60,8 @@
             <h4>{{ tag.txt }}</h4>
           </div>
         </div>
-        <p>{{ tour.description }}</p>
-        <hr>
+        <p class="tour-desc">{{ tour.description }}</p>
+        <hr />
         <div class="review-list">
           <tour-review :tour="tour" />
         </div>
@@ -71,9 +72,9 @@
       <div class="tour-order">
         <div class="form-order-main-details">
           <h4>Price: ${{ tour.price }}</h4>
-          <div class="review">
-            <i class="el-icon-star-on">{{ tour.rate }}</i>
-            <span class="reviews-length">({{ tour.reviews.length }})</span>
+          <div class="rate">
+            <i class="el-icon-star-on"></i> {{ totalRateToShow }}
+            <span class="reviews-length">({{ tour.reviews.length }} Reviews)</span>
           </div>
         </div>
         <el-input-number
@@ -139,16 +140,25 @@
         </span>
       </el-dialog>
     </div>
+
+
+    <!-- MAP -->
+    <div class="map-container">
+      <tour-map :cors="tour.cors"/>
+
+    </div>
   </section>
 </template>
 
 <script>
 import tourReview from "../cmps/tour-review";
 import moment from "moment";
+import TourMap from '../cmps/tour-map.vue';
 // import chat from "@/cmps/chat.vue";
 export default {
   data() {
     return {
+      colors: ["#42ABA7", "#42ABA7", "#42ABA7"],
       reviews: [],
       dialogVisible: false,
       order: {
@@ -170,18 +180,18 @@ export default {
       return this.tour.price * this.order.guestsCount;
     },
     totalRateToShow() {
-      if(this.reviews.length) {
-      var stars = this.reviews;
-      var sum = stars.reduce(function (sum, { rate }) {
-        return (sum += rate);
-      }, 0);
-      const rate = sum / this.reviews.length;
-      var rateToShow = rate;
-      return rateToShow;
+      if (this.reviews.length) {
+        var stars = this.reviews;
+        var sum = stars.reduce(function (sum, { rate }) {
+          return (sum += rate);
+        }, 0);
+        const rate = sum / this.reviews.length; 
+        var rateToShow = Math.round((rate + Number.EPSILON) * 100) / 100;
+        return rateToShow;
       } else {
-        return 0
+        return 0;
       }
-    }
+    },
   },
   filters: {
     moment: function (date) {
@@ -249,6 +259,7 @@ export default {
   },
   components: {
     tourReview,
+    TourMap
     // chat,
   },
 };

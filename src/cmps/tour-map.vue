@@ -24,6 +24,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      checkPoints: []
+    }
+  },
   methods: {
     addCheckPoint(ev) {
       const pos = {
@@ -40,11 +45,6 @@ export default {
       this.checkPoints = [];
       this.$emit("setCheckPoints", this.checkPoints);
     },
-  },
-  data() {
-    return {
-      checkPoints: [],
-    };
-  },
+  }
 };
 </script>

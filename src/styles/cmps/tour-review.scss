@@ -12,7 +12,7 @@
         ul {
             display: flex;
             flex-wrap: wrap;
-
+            margin-bottom: 30px;
             li {
                 margin-right: 10px;
 
@@ -33,16 +33,9 @@
                             font-size: 17px;
                             text-transform: capitalize;
                             margin-bottom: 10px;
-
-                        }
-                        .el-rate {
-
-                            .el-icon-star-on::before {
-                                color: $main-clr;
-                            }
-                            .el-icon-star-off::before {
-                                color: $main-clr;
-                            }
+                            line-height: 25px;
+                            color: $muted;
+                            word-break: break-word;
                         }
                         .review-rate {
                             display: flex;
@@ -76,6 +69,9 @@
                                 color: $main-clr-dark;
                                 font-weight: bold;
                             }
+                            h6 {
+                                margin-top: -15px
+                            }
                         }
                     }
                 }
@@ -95,7 +91,7 @@
                     max-height: 150px;
                     font-family: OpenSans, serif;
                     color: black;
-                    border: 1px solid rgb(56, 56, 56);
+                    border: 1px solid #d3d3d3;
                     border-radius: 5px;
                     width: 30rem;
                     margin-bottom: 10px;
@@ -109,12 +105,9 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-
-                    }
-                    .demonstration {
-                        font-family: OpenSans, sans-serif;
-                        font-weight: bold;
-                        margin-right: 10px;
+                        .rate-txt {
+                            margin-right: 10px;
+                        }
                     }
 
                     .el-rate {
@@ -138,8 +131,8 @@
                     }
 
                     button:hover {
-                        background-color: #b9f7ff66;
-                        color: #6767ff;
+                        background-color: #3b4d502f;
+                        color: white;
                     }
                 }
             }

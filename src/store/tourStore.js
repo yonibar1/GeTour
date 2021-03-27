@@ -136,9 +136,7 @@ export const tourStore = {
                 review.id = utilService.makeId();
                 const tourById = await tourService.getById(tourId);
                 tourById.reviews.push(review);
-                console.log('tourById:', tourById);
                 const tour = await tourService.save(tourById);
-                console.log('tour:', tour);
                 commit({ type: 'setTour', tour });
             } catch (err) {
                 console.log('Cannot add review', err);
