@@ -1,7 +1,6 @@
 <template>
     <section class="tour-review">
         <div class="add-review-container">
-            <h2>Reviews</h2>
             <form @submit.prevent="addReview()">
                 <el-input
                     type="textarea"
@@ -77,6 +76,7 @@ export default {
     computed: {},
     methods: {
         async addReview() {
+            // console.log(this.getters.loggedInUser);
             const { _id, fullname, imgUrl } = this.$store.getters.loggedInUser;
             this.reviewToEdit.byUser = { _id, fullname, imgUrl };
             console.log(' this.reviewToEdit:', this.reviewToEdit);

@@ -9,7 +9,7 @@
           <el-rate
             show-score
             allow-half
-            v-model.number="totalRateToShow"
+            :value="totalRateToShow"
             disabled
             text-color="$main-clr"
           >
@@ -60,6 +60,10 @@
           </div>
         </div>
         <p>{{ tour.description }}</p>
+        <hr>
+        <div class="review-list">
+          <tour-review :tour="tour" />
+        </div>
       </div>
 
       <!-- ORDER BOX -->
@@ -86,17 +90,26 @@
         >
         </el-input>
         <h4>Total Price: ${{ totalPriceToShow }}</h4>
-        <el-button class="btn-order" type="success" @click="toggleModal"
+        <el-button class="btn-order" type="" @click="toggleModal"
           >Order Tour</el-button
         >
       </div>
     </div>
-    <div class="chat-container">
+
+    <!-- PENDING-BOX -->
+
+    <!-- <div class="pending-box">
+      <el-button class="btn-cancel" type="" @click="toggleModal">
+        Cancel Order 
+        </el-button>
+    </div> -->
+
+    <!-- <div class="chat-container">
       <chat :tourId="tour._id" />
-    </div>
-    <div class="review-list">
+    </div> -->
+    <!-- <div class="review-list">
       <tour-review :tour="tour" />
-    </div>
+    </div> -->
 
     <!-- ORDER MODAL -->
     <div class="order-modal">
@@ -132,7 +145,7 @@
 <script>
 import tourReview from "../cmps/tour-review";
 import moment from "moment";
-import chat from "@/cmps/chat.vue";
+// import chat from "@/cmps/chat.vue";
 export default {
   data() {
     return {
@@ -157,6 +170,7 @@ export default {
       return this.tour.price * this.order.guestsCount;
     },
     totalRateToShow() {
+      if(this.reviews.length) {
       var stars = this.reviews;
       var sum = stars.reduce(function (sum, { rate }) {
         return (sum += rate);
@@ -164,7 +178,10 @@ export default {
       const rate = sum / this.reviews.length;
       var rateToShow = rate;
       return rateToShow;
-    },
+      } else {
+        return 0
+      }
+    }
   },
   filters: {
     moment: function (date) {
@@ -232,7 +249,7 @@ export default {
   },
   components: {
     tourReview,
-    chat,
+    // chat,
   },
 };
 </script>
