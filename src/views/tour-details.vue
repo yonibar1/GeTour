@@ -60,7 +60,7 @@
           </div>
         </div>
         <p>{{ tour.description }}</p>
-        <hr>
+        <hr />
         <div class="review-list">
           <tour-review :tour="tour" />
         </div>
@@ -145,6 +145,7 @@
 <script>
 import tourReview from "../cmps/tour-review";
 import moment from "moment";
+import { socketService } from "../services/socket.service";
 // import chat from "@/cmps/chat.vue";
 export default {
   data() {
@@ -161,6 +162,11 @@ export default {
   async created() {
     await this.loadTour();
     this.setLimitCount();
+    // socketService.setup();
+    // socketService.emit("order topic", this.tour._id);
+    // socketService.on("addOrder", (data) => {
+    //   console.log(data);
+    // });
   },
   computed: {
     tour() {
@@ -170,18 +176,21 @@ export default {
       return this.tour.price * this.order.guestsCount;
     },
     totalRateToShow() {
-      if(this.reviews.length) {
-      var stars = this.reviews;
-      var sum = stars.reduce(function (sum, { rate }) {
-        return (sum += rate);
-      }, 0);
-      const rate = sum / this.reviews.length;
-      var rateToShow = rate;
-      return rateToShow;
+      if (this.reviews.length) {
+        var stars = this.reviews;
+        var sum = stars.reduce(function (sum, { rate }) {
+          return (sum += rate);
+        }, 0);
+        const rate = sum / this.reviews.length;
+        var rateToShow = rate;
+        return rateToShow;
       } else {
-        return 0
+        return 0;
       }
-    }
+    },
+    loggedInUser() {
+      return this.$store.getters.loggedInUser;
+    },
   },
   filters: {
     moment: function (date) {
@@ -214,6 +223,10 @@ export default {
       }
     },
     async handleConfirm(tour) {
+      if (!this.loggedInUser) {
+        this.$router.push("/login-signup");
+        return;
+      }
       this.dialogVisible = false;
       this.order.totalPrice = tour.price * this.order.guestsCount;
       this.tour.members += this.order.guestsCount;
@@ -232,6 +245,7 @@ export default {
         tour,
         order: this.order,
       });
+      // socketService.emit("orderSent", this.order);
       this.order.guestsCount = 1;
       this.order.requests = "";
     },
@@ -253,3 +267,22 @@ export default {
   },
 };
 </script>
+
+
+
+//   created() {
+//     socketService.setup();
+//     socketService.emit("chat set-topic", this.toyId);
+//     socketService.on("chat addMsg", this.addMsg);
+//     socketService.on("someoneIsTyping", (fullname) => {
+//       this.typingUser = fullname;
+//       this.setUserIsTyping();
+//       this.unsetUserIsTyping();
+//     });
+//   },
+
+  // STORE
+  // async loadChat(state, { toyId }) {
+  //           const toy = await toyService.getById(toyId)
+  //           state.commit({ type: 'setChatHistory', chat: toy.chatHistory })
+  //       },
