@@ -5,34 +5,48 @@
         <img :src="user.imgUrl" />
         <span>{{ user.fullname }}</span>
       </div>
-      <h3>Booking's</h3>
+      <h3>Pending / Accepted</h3>
+      <p class="sub-header">
+        {{ orders.length }} New items • {{ responeRate }}% Respone rate
+      </p>
       <div v-if="orders" class="requests-container">
         <div v-for="order in orders" :key="order._id" class="request-card">
-          <div class="tour-mini-avatar">
-            <!-- <img v-if="order.tour.imgs" :src="order.tour.imgs[0]" alt="" /> -->
-            <p>{{ order.tour.title }}</p>
-          </div>
-          <div class="buyer">
-            <div class="buyer-details">
-              <img :src="order.buyer.imgUrl" />
-              <router-link
-                class="link"
-                :to="'/user-profile/' + order.buyer._id"
-                >{{ order.buyer.fullname }}</router-link
+          <div class="order-details-container">
+            <img :src="order.buyer.imgUrl" />
+            <div class="details">
+              <router-link class="link" :to="'/user-profile/' + order.buyer._id"
+                >By: {{ order.buyer.fullname }}</router-link
               >
+              <p>Status:{{ order.status }}</p>
+              <div class="mini-details">
+                <span v-if="order.guestsCount > 1"
+                  >{{ order.guestsCount }} guests •
+                </span>
+                <span v-else>{{ order.guestsCount }} guest • </span>
+                <span>{{ order.totalPrice }}$ •</span>
+                <p>{{ order.tour.title }}</p>
+              </div>
             </div>
-            <p>${{ order.totalPrice }}</p>
           </div>
-          <p></p>
-          <p v-if="order.requests">
-            Special Requests :
-            {{ order.requests }}
-          </p>
-          <p v-else>No Special Requests.</p>
-          <p>Guests: {{ order.guestsCount }}</p>
-          <div class="btn-container">
-            <el-button>Confirm</el-button>
-            <el-button>Decline</el-button>
+          <div v-if="order.status === 'pending'" class="btn-container">
+            <el-button
+              @click="updateOrderStatus(order, true)"
+              class="btn-confirm"
+              plain
+              >Confirm</el-button
+            >
+            <el-button
+              @click="updateOrderStatus(order, false)"
+              class="btn-decline"
+              plain
+              >Decline</el-button
+            >
+          </div>
+          <div v-if="order.status === 'confirmed'" class="confirmed">
+            Confirmed
+          </div>
+          <div v-if="order.status === 'declined'" class="declined">
+            Declined
           </div>
         </div>
       </div>
@@ -89,23 +103,50 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedInUser;
     },
+    responeRate() {
+      if (this.orders.length) {
+        let count = 0;
+        this.orders.forEach((order) => {
+          if (order.status !== "pending") count++;
+        });
+        return Math.ceil((count / this.orders.length) * 100);
+      } else return 0;
+    },
   },
   methods: {
+    async updateOrderStatus(order, dif) {
+      try {
+        if (dif) order.status = "confirmed";
+        else order.status = "declined";
+        await this.$store.dispatch({ type: "saveOrder", order });
+        this.loadOrdersByGuide(this.loggedInUser._id);
+      } catch (err) {
+        console.log("Cannot update order", err);
+      }
+    },
     async removeTour(id) {
-      await this.$store.dispatch({ type: "removeTour", id });
-      await this.loadToursByUser(this.user._id);
+      try {
+        await this.$store.dispatch({ type: "removeTour", id });
+        await this.loadToursByUser(this.user._id);
+      } catch (err) {
+        console.log("Cannot remove tour", err);
+      }
     },
     async onEditTour(id) {
       this.$router.push(`/edit/${id}`);
     },
     async loadOrdersOfTour(tours) {
-      const toursIds = tours.map((tour) => {
-        return tour._id;
-      });
-      const res = await this.$store.dispatch({
-        type: "loadOrdersByTour",
-        toursIds,
-      });
+      try {
+        const toursIds = tours.map((tour) => {
+          return tour._id;
+        });
+        const res = await this.$store.dispatch({
+          type: "loadOrdersByTour",
+          toursIds,
+        });
+      } catch (err) {
+        console.log("Cannot load orders", err);
+      }
     },
     async loadUser() {
       try {

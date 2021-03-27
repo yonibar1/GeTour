@@ -1,72 +1,118 @@
 .user-profile{
+    .tour-preview{
+        max-width: unset;
+    }
     .left-container{
         padding:30px 0;
+        .confirmed{
+            color:$main-clr;
+        }
+        .declined{
+            color:red;
+        }
+        .requests-container{
+            .request-card{
+                border:1px solid rgb(170, 170, 170);
+                border-radius:10px;
+                padding:20px;
+                margin-bottom:15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                button{
+                    padding:5px;
+                    border:none;
+                    &.btn-decline{
+                        background-color: #fd5656;
+                        color: white;
+                        :hover{
+                            opacity: 80%;
+                        }
+                    }
+                    &.btn-confirm{
+                        background-color: $main-clr;
+                        color: white;
+                        :hover{
+                            opacity: 80%;
+                        }
+                    }
+                }
+                img{
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                                margin-right:10px;
+                }
+                .order-details-container{
+                    display: flex;
+                    align-items: center;
+                    color:$black;
+                    .details{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .link{
+                        color:$main-clr;
+                        text-decoration: underline;
+                    }
+                    p{
+                        margin-bottom: 5px;
+                    }
+                    span{
+                        text-transform: capitalize;
+                    }
+                }
+                .mini-details{
+                    color:$muted;
+                    line-height: 1;
+                    font-size: 12px;
+                    display: flex;
+                    >*:not(:first-child){
+                        margin-inline-start: 5px;
+                    }
+                }
+                .btn-container{
+                    display: flex;
+                    align-items: flex-start;
+                    height: 50%;
+                }
+            }
+        }
     }
     .right-container{
+        h2{
+            text-align: center;
+        }
         padding:30px 0;
-        .chart{
-        // grid-column: -2/-1;
-        width: 300px;
+        .chart-container{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 100px;
+            .chart{
+                width: 50%;
+                // grid-column: -2/-1;
+            }
         }
         .user-created-tours{
             display: grid;
             grid-template-columns: 1fr 1fr ;
-            grid-auto-rows: 300px;
             grid-gap: 20px;
         }
         h2{
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            font-size: 35px;
         }
     }
     display: grid;
     grid-gap:40px;
     grid-template-columns: 1.3fr 2fr ;
-    .requests-container{
-        .request-card{
-            color:$black;
-            &>*{
-                margin-bottom:10px;
-            }
-            .tour-mini-avatar{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding-bottom: 15px;
-                border-bottom: 1px solid #dedede;
-                p{
-                    color:$main-clr;
-                }
-            }
-            display: flex;
-            flex-direction: column;
-            margin-top:15px;
-            padding:15px 15px;
-            border-radius: 10px;
-            border:1px solid #dedede;
-            img{
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-right:8px;
-            }
-            .buyer{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                .buyer-details{
-                    display: flex;
-                align-items: center;
-                .link{
-                    text-decoration: underline;
-                    color:$black;
-                }
-
-                }
-            }
-        }
+    p.sub-header{
+        color: $muted;
+        margin-bottom: 5px;
     }
     .avatar{
+        margin-bottom:50px;
         display: flex;
         align-items: center;
         span{
@@ -78,6 +124,11 @@
             border-radius: 50%;
             object-fit: cover;
         }
+    }
+    h3{
+        margin-bottom: 10px;
+        font-size: 25px;
+        color:$black;
     }
     padding:$main-padding;
     .tour-preview.preview-img-container {

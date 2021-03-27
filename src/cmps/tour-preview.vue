@@ -49,12 +49,16 @@ export default {
   },
   computed: {
     rateToShow() {
-      var sum = this.tour.reviews.reduce(function (sum, { rate }) {
-        return (sum += rate);
-      }, 0);
-      const rate = sum / this.tour.reviews.length;
-      var rateToShow = rate.toFixed(1);
-      return rateToShow;
+      if (this.tour.reviews.length) {
+        var sum = this.tour.reviews.reduce(function (sum, { rate }) {
+          return (sum += rate);
+        }, 0);
+        const rate = sum / this.tour.reviews.length;
+        var rateToShow = rate.toFixed(1);
+        return rateToShow;
+      } else {
+        return 0;
+      }
     },
   },
   methods: {},
