@@ -9,7 +9,7 @@
       <p class="sub-header">
         {{ orders.length }} New items • {{ responeRate }}% Respone rate
       </p>
-      <div v-if="orders" class="requests-container">
+      <div v-if="orders.length" class="requests-container">
         <div v-for="order in orders" :key="order._id" class="request-card">
           <div class="order-details-container">
             <img :src="order.buyer.imgUrl" />
@@ -90,6 +90,7 @@
 <script>
 import chart from "../cmps/chart";
 import tourPreview from "../cmps/tour-preview";
+import { socketService } from "../services/socket.service";
 export default {
   name: "user-profile",
   data() {
@@ -140,7 +141,7 @@ export default {
         const toursIds = tours.map((tour) => {
           return tour._id;
         });
-        const res = await this.$store.dispatch({
+        await this.$store.dispatch({
           type: "loadOrdersByTour",
           toursIds,
         });
@@ -156,6 +157,7 @@ export default {
           id,
         });
         this.user = user;
+        console.log(user, "USER");
         await this.loadToursByUser(this.user._id);
         await this.loadOrdersByGuide(this.user._id);
       } catch {
@@ -187,6 +189,10 @@ export default {
   },
   created() {
     this.user = this.loadUser();
+    socketService.setup();
+    socketService.on("addOrder", (order) => {
+      alert(order);
+    });
   },
   watch: {
     "$route.params.userId"() {

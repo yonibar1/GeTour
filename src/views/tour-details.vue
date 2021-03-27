@@ -154,6 +154,7 @@
 import tourReview from "../cmps/tour-review";
 import moment from "moment";
 import TourMap from '../cmps/tour-map.vue';
+// import { socketService } from "../services/socket.service";
 // import chat from "@/cmps/chat.vue";
 export default {
   data() {
@@ -171,6 +172,11 @@ export default {
   async created() {
     await this.loadTour();
     this.setLimitCount();
+    // socketService.setup();
+    // socketService.emit("order topic", this.tour._id);
+    // socketService.on("addOrder", (data) => {
+    //   console.log(data);
+    // });
   },
   computed: {
     tour() {
@@ -191,6 +197,9 @@ export default {
       } else {
         return 0;
       }
+    },
+    loggedInUser() {
+      return this.$store.getters.loggedInUser;
     },
   },
   filters: {
@@ -224,6 +233,10 @@ export default {
       }
     },
     async handleConfirm(tour) {
+      if (!this.loggedInUser) {
+        this.$router.push("/login-signup");
+        return;
+      }
       this.dialogVisible = false;
       this.order.totalPrice = tour.price * this.order.guestsCount;
       this.tour.members += this.order.guestsCount;
@@ -242,6 +255,7 @@ export default {
         tour,
         order: this.order,
       });
+      // socketService.emit("orderSent", this.order);
       this.order.guestsCount = 1;
       this.order.requests = "";
     },
