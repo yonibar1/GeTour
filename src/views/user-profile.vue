@@ -191,7 +191,7 @@ export default {
     this.user = this.loadUser();
     socketService.setup();
     socketService.on("addOrder", (order) => {
-      alert(order);
+      console.log(order);
     });
   },
   watch: {

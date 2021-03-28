@@ -5,16 +5,17 @@ export const SOCKET_EVENT_USER_UPDATED = 'user-updated';
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
 
 const baseUrl = process.env.NODE_ENV === 'production' ? '' : '//localhost:3030';
-export const socketService = createSocketService()
+export const socketService = createSocketService();
 // export const socketService = createDummySocketService();
 
 window.socketService = socketService;
 
 function createSocketService() {
-    var socket;
+    var socket = null;
     const socketService = {
         // socket is lazily created
         setup() {
+            if (socket) return;
             socket = io(baseUrl);
         },
         on(eventName, cb) {
