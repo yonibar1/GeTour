@@ -10,7 +10,7 @@
         <img v-else src="@/assets/logo1.svg" alt="" />
       </router-link>
     </div>
-    <nav>
+    <nav ref="nav">
       <router-link to="/explore">
         <button :class="{ scrollClass: isScrolling }">
           <span> Explore </span>
@@ -34,12 +34,14 @@
         @click="isOpen = !isOpen"
         :src="user.imgUrl"
       />
+      <button class="btn-menu-close" @click="toggleMenu()">➾</button>
     </nav>
     <div v-if="isOpen" class="user-options-container">
       <p>Welcome {{ user.fullname }}</p>
       <router-link :to="'/user-profile/' + user._id">My Profile</router-link>
       <el-button plain type="danger" @click="logout">Logout</el-button>
     </div>
+    <button class="btn-menu" @click="toggleMenu()">☰</button>
   </section>
 </template>
 <script>
@@ -78,6 +80,9 @@ export default {
       } catch (err) {
         console.log("Cannot Get Logged User", err);
       }
+    },
+    toggleMenu() {
+      this.$refs.nav.classList.toggle("menu-open");
     },
   },
   watch: {

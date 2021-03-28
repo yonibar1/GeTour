@@ -23,7 +23,7 @@
         margin: 0;
         padding: 0;
         ul {
-            grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+            grid-template-columns: repeat(3, minmax(255px, 1fr));
         }
     }
 
@@ -137,11 +137,6 @@
         }
     }
 }
-@include for-mobile-layout {
-    .countries {
-        grid-template-columns: repeat(2, minmax(100px, 1fr));
-    }
-}
 
 @media (max-width: 1030px) {
     .app-header,
@@ -152,21 +147,17 @@
         padding-right: 2rem;
         padding-left: 2rem;
     }
-    .app-header {
-        .logo-container {
-            width: 100px;
-            margin-left: 10px;
+
+    .tour-app {
+        .preview-container {
+            ul {
+                grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+            }
         }
     }
 }
 
 @media (max-width: 880px) {
-
-    .app-header {
-        nav {
-            display: none;
-        }
-    }
     .tour-app {
         .hero-container {
             background-size: cover;
@@ -236,12 +227,44 @@
             }
         }
     }
-
 }
 
-
 @media (max-width: 740px) {
-    .app-header,
+    .app-header {
+        nav {
+            position: fixed;
+            right: 0;
+            top: 0;
+            justify-content: flex-end;
+            flex-direction: column-reverse;
+            height: 100vh;
+            background-color: white;
+            width: 200px;
+            transform: translateX(100%);
+            box-shadow: none;
+            transition: transform 0.8s, box-shadow 0.8s;
+            button {
+                color: $main-clr;
+            }
+        }
+        nav.menu-open {
+            transform: translateX(0);
+            box-shadow: 0px 0px 0px 2px $main-clr-dark;
+        }
+        .btn-menu,
+        .btn-menu-close {
+            display: block;
+        }
+        .logo-container {
+            width: 100px;
+            margin-left: 10px;
+        }
+    }
+    .app-header{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .tour-app .countries-container,
     .tour-app .tours-container,
     .tour-app .become-guide-container .title {

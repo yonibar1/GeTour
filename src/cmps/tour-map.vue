@@ -26,9 +26,9 @@
       <GmapMap
         ref="mapRef"
         :center="{ lat: locs[0].lat, lng: locs[0].lng }"
-        :zoom="9"
+        :zoom="10"
         map-type-id="terrain"
-        style="width: 100%; height: 200px"
+        style="width: 100%; height: 400px"
         @click="addCheckPoint"
       >
         <GmapMarker
