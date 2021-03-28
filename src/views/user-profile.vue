@@ -48,6 +48,8 @@
           <div v-if="order.status === 'declined'" class="declined">
             Declined
           </div>
+          <el-badge v-if="order.status === 'pending'" :value="'!'" class="item">
+          </el-badge>
         </div>
       </div>
     </div>
@@ -157,9 +159,9 @@ export default {
           id,
         });
         this.user = user;
-        console.log(user, "USER");
         await this.loadToursByUser(this.user._id);
         await this.loadOrdersByGuide(this.user._id);
+        return user;
       } catch {
         console.log("Cant Show USER");
       }
@@ -187,12 +189,20 @@ export default {
       }
     },
   },
-  created() {
-    this.user = this.loadUser();
+  async created() {
+    this.user = await this.loadUser();
     socketService.setup();
+    socketService.emit("order topic", this.user._id);
     socketService.on("addOrder", (order) => {
-      console.log(order);
+      this.orders.push(order);
+      // console.log("Im at user-profile");
+      // console.log(order);
+      // this.loadOrdersByGuide(this.user._id);
     });
+  },
+  destroyed() {
+    socketService.off("order topic");
+    socketService.off("addOrder");
   },
   watch: {
     "$route.params.userId"() {

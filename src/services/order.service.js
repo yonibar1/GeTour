@@ -11,7 +11,6 @@ export const orderService = {
 
 async function getOrdersByGuide(guideId) {
     const orders = await httpService.get(ORDER_URL);
-    console.log(orders, 'Orders');
     const ordersByGuide = orders.filter(order => {
         return order.tour._guideId === guideId
     })
@@ -37,6 +36,7 @@ function save(order) {
         } else {
             order.createdAt = Date.now()
             order.status = 'pending'
+            console.log(sessionStorage.getItem('login'));
             if (sessionStorage.getItem('login')) {
                 let { _id, fullname, imgUrl } = JSON.parse(sessionStorage.getItem('login'))
                 order.buyer = { _id, fullname, imgUrl }

@@ -11,14 +11,30 @@
             color:#fd5656;
         }
         .requests-container{
+            display: flex;
+            flex-direction: column-reverse;
             .request-card{
-                border:1px solid rgb(170, 170, 170);
-                border-radius:10px;
-                padding:20px;
-                margin-bottom:15px;
+                position: relative;
+                .el-badge{
+                    position: absolute;
+                    top: -6px;
+                    right:-6px;
+                    sup{
+                        width: 20px;
+                        height: 20px;
+                        background-color: $main-clr;
+                    }
+                }
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                border:1px solid rgb(170, 170, 170);
+                padding:20px;
+                border-radius:10px;
+                margin-bottom:15px;
+                // display: flex;
+                // justify-content: space-between;
+                // align-items: center;
                 button{
                     padding:5px;
                     border:none;

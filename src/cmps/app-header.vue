@@ -43,6 +43,7 @@
   </section>
 </template>
 <script>
+import { socketService } from "../services/socket.service";
 export default {
   data() {
     return {
@@ -98,6 +99,18 @@ export default {
   },
   created() {
     this.getLoggedUser();
+    socketService.setup();
+    socketService.emit("user msg", "msgs");
+    socketService.on("show msg", ({ title, message }) => {
+      this.$notify({
+        title,
+        message,
+        position: "bottom-right",
+      });
+    });
+  },
+  destroyed() {
+    socketService.off("user msg", "msgs");
   },
 };
 </script>

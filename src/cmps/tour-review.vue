@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import { socketService } from "../services/socket.service";
 import moment from "moment";
 export default {
   props: {
@@ -78,6 +79,7 @@ export default {
         review: this.reviewToEdit,
         tourId: this.tour._id,
       });
+      socketService.emit("review addReview", this.reviewToEdit);
       this.reviewToEdit.txt = "";
       this.reviewToEdit.rate = null;
       this.reviewToEdit.createdAt = Date.now();
@@ -87,6 +89,9 @@ export default {
     moment: function (date) {
       return moment(date).fromNow();
     },
+  },
+  created() {
+    socketService.setup();
   },
 };
 </script>

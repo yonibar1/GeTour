@@ -39,7 +39,6 @@ export const orderStore = {
         async loadOrdersByGuide(context, { guideId }) {
             try {
                 const orders = await orderService.getOrdersByGuide(guideId)
-                console.log(orders, 'Orders at store after service');
                 return orders
             } catch (err) {
                 console.log('Cannot get orders', err);
@@ -56,8 +55,8 @@ export const orderStore = {
         },
         async saveOrder({ commit }, { order }) {
             const type = order._id ? 'updateOrder' : 'addOrder';
-            console.log(type, 'Type');
             const orderAfterSave = await orderService.save(order);
+            console.log(orderAfterSave,'Order');
             commit({ type, orderAfterSave });
             return orderAfterSave;
         },
