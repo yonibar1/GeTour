@@ -144,9 +144,7 @@
     </div>
 
     <!-- MAP -->
-    <div class="map-container">
-      <tour-map :locs="tour.locs" />
-    </div>
+    <tour-map :locs="tour.locs" />
   </section>
 </template>
 

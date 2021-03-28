@@ -1,5 +1,6 @@
 <template>
     <section class="tour-app">
+
         <div class="hero-container">
             <tour-filter />
             <h1>Travel Anywhere Together.</h1>
@@ -86,7 +87,7 @@
             </div>
             <div class="preview-container">
                 <ul v-if="tours" class="tours">
-                    <li :key="tour._id" v-for="tour in tours.slice(0, 9)">
+                    <li :key="tour._id" v-for="tour in tours.slice(0, 6)">
                         <tour-preview :tour="tour" />
                     </li>
                 </ul>

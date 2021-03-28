@@ -27,7 +27,7 @@
           <h3 class="price">${{ tour.price }}</h3>
           <p>
             <i class="el-icon-star-on"></i>{{ rateToShow }}
-            <span class="reviews-length"> （{{ tour.reviews.length }}）</span>
+            <span class="reviews-length">({{ tour.reviews.length }})</span>
           </p>
         </div>
       </div>
