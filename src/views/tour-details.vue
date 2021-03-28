@@ -74,7 +74,9 @@
           <h4>Price: ${{ tour.price }}</h4>
           <div class="rate">
             <i class="el-icon-star-on"></i> {{ totalRateToShow }}
-            <span class="reviews-length">({{ tour.reviews.length }} Reviews)</span>
+            <span class="reviews-length"
+              >({{ tour.reviews.length }} Reviews)</span
+            >
           </div>
         </div>
         <el-input-number
@@ -141,11 +143,9 @@
       </el-dialog>
     </div>
 
-
     <!-- MAP -->
     <div class="map-container">
-      <tour-map :cors="tour.cors"/>
-
+      <tour-map :cors="tour.cors" />
     </div>
   </section>
 </template>
@@ -153,7 +153,7 @@
 <script>
 import tourReview from "../cmps/tour-review";
 import moment from "moment";
-import TourMap from '../cmps/tour-map.vue';
+import TourMap from "../cmps/tour-map.vue";
 // import { socketService } from "../services/socket.service";
 // import chat from "@/cmps/chat.vue";
 export default {
@@ -172,11 +172,13 @@ export default {
   async created() {
     await this.loadTour();
     this.setLimitCount();
-    // socketService.setup();
-    // socketService.emit("order topic", this.tour._id);
-    // socketService.on("addOrder", (data) => {
-    //   console.log(data);
-    // });
+    // BASIC TEST FOR SOCKET
+    socketService.setup();
+    socketService.emit("order topic", this.tour._id);
+    socketService.on("addOrder", (data) => {
+      console.log(data);
+    });
+    //
   },
   computed: {
     tour() {
@@ -191,7 +193,7 @@ export default {
         var sum = stars.reduce(function (sum, { rate }) {
           return (sum += rate);
         }, 0);
-        const rate = sum / this.reviews.length; 
+        const rate = sum / this.reviews.length;
         var rateToShow = Math.round((rate + Number.EPSILON) * 100) / 100;
         return rateToShow;
       } else {
@@ -273,7 +275,7 @@ export default {
   },
   components: {
     tourReview,
-    TourMap
+    TourMap,
     // chat,
   },
 };
