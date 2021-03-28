@@ -150,6 +150,7 @@
 
     <!-- MAP -->
       <tour-map :locs="tour.locs"/>
+      </div>
     </section>
 </template>
 
