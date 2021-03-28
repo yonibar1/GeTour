@@ -34,6 +34,13 @@ export const tourStore = {
         setFilterBy(state, { filter }) {
             state.filterBy = filter;
         },
+        resetFilter(state) {
+            state.filterBy = {
+                byDestination: '',
+                byDate: '',
+                byPriceRange: { min: 0, max: 2000 },
+            }
+        },
         // setTourToEdit(state, { tour }) {
         //     state.tourToEdit = tour;
         // },

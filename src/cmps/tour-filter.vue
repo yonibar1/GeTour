@@ -1,14 +1,15 @@
 <template>
   <section class="tour-filter">
     <form>
-        <el-input
-          class="dest-input"
-          placeholder="Destination"
-          v-model="filterBy.byDestination"
-          clearable
-        >
-        </el-input>
+      <el-input
+        class="dest-input"
+        placeholder="Destination"
+        v-model="filterBy.byDestination"
+        clearable
+      >
+      </el-input>
       <el-date-picker
+      class="date-input"
         v-model="filterBy.byDate"
         type="date"
         placeholder="Pick a day"
@@ -34,9 +35,9 @@
             <br />
             <span> $ {{ filterBy.byPriceRange[1] }} </span>
           </div>
-        <el-button class="price-ok-btn" @click="toggleRangeBox()"
-          >Save</el-button
-        >
+          <el-button class="price-ok-btn" @click="toggleRangeBox()"
+            >Save</el-button
+          >
         </div>
       </div>
       <router-link to="/explore">
@@ -94,5 +95,7 @@ export default {
       this.setFilter(this.$route.params.country);
     }
   },
-};
+  destroyed() {
+    this.$store.commit({type: 'resetFilter'})
+}}
 </script>

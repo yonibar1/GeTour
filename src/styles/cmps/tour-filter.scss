@@ -6,19 +6,21 @@
             align-items: center;
             text-align: center;
             background-color: white;
-            height: 70px;
-            width: 60rem;
-            max-width: 50rem;
+            height: 65px;
+            width: 100%;
+            max-width: 60rem;
             border-radius: 50px;
-            margin-bottom: 5rem;
+            margin-bottom: 10rem;
             form {
                 display: flex;
                 width: 100%;
-                justify-content: space-between;
                 padding: 20px;
                 align-items: center;
                 color: #758b85;
                 border-radius: 5px;
+                .dest-input, .date-input, .price-input {
+                    width: 100%;
+                }
 
                 input,
                 .el-date-editor {
@@ -35,7 +37,7 @@
                     background-color: $main-clr;
                 }
                 .dest-input {
-                    width: 200px;
+                    
                     ::placeholder {
                         color: #758b85;
                         opacity: 1;
@@ -59,7 +61,6 @@
     }
 }
 
-.hero-container .tour-filter,
 .tour-explore .tour-filter {
     .range-box-modal {
         position: absolute;

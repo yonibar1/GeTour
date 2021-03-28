@@ -1,19 +1,19 @@
 <template>
   <section class="tour-preview">
     <router-link :to="'/details/' + tour._id">
+      <div class="mini-user-container">
+        <div class="mini-user-img">
+          <img :src="`${tour.byUser.imgUrl}`" alt="" />
+        </div>
+        <router-link class="link" :to="'/user-profile/' + tour.byUser._id">
+          <p class="mini-user-fullname">{{ tour.byUser.fullname }}</p>
+        </router-link>
+      </div>
       <div class="preview-img-container">
         <img v-if="tour.imgs.length" :src="`${tour.imgs[0]}`" alt="" />
         <img v-else src="../assets/img/default-thumbnail.jpeg" alt="" />
       </div>
       <div class="tour-description-container">
-        <div class="mini-user-container">
-          <div class="mini-user-img">
-            <img :src="`${tour.byUser.imgUrl}`" alt="" />
-          </div>
-          <router-link class="link" :to="'/user-profile/' + tour.byUser._id">
-            <p class="mini-user-fullname">{{ tour.byUser.fullname }}</p>
-          </router-link>
-        </div>
         <h3>{{ tour.title }}</h3>
         <p>{{ tour.country }}</p>
         <div class="little-container">
@@ -27,7 +27,7 @@
           <h3 class="price">${{ tour.price }}</h3>
           <p>
             <i class="el-icon-star-on"></i>{{ rateToShow }}
-            <span class="reviews-length"> ({{ tour.reviews.length }})</span>
+            <span class="reviews-length"> （{{ tour.reviews.length }}）</span>
           </p>
         </div>
       </div>

@@ -21,20 +21,18 @@
 
     .preview-container {
         margin: 0;
+        padding: 0;
         ul {
             grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
         }
     }
 
     .countries-container,
-    .guides-container,
     .tours-container,
     .become-guide-container {
         margin-top: 80px;
     }
-
     .countries-container,
-    .guides-container,
     .tours-container {
         padding: $main-padding;
         button {
@@ -50,8 +48,9 @@
     }
 
     .countries-title,
-    .guides-title,
     .tours-title {
+        font-size: 30px;
+        color: $main-clr;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -66,17 +65,10 @@
             color: $main-clr-dark;
         }
     }
-
-    .tours-title {
-        font-size: 30px;
-        color: $main-clr;
-    }
-
     .guides-container .guides {
         max-width: 35rem;
         li {
             margin-left: 5px;
-            
         }
     }
 
@@ -112,10 +104,9 @@
             }
         }
     }
-    .countries,
-    .guides {
+    .countries {
         display: grid;
-        grid-template-columns: repeat(4, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         grid-gap: 15px;
         li {
             color: #0b3331;
@@ -146,9 +137,116 @@
         }
     }
 }
-
 @include for-mobile-layout {
     .countries {
         grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 1030px) {
+    .app-header,
+    .tour-app .countries-container,
+    .tour-app .tours-container,
+    .tour-app .become-guide-container .title {
+        // background-color: yellow;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    .app-header {
+        .logo-container {
+            width: 100px;
+            margin-left: 10px;
+        }
+    }
+}
+
+@media (max-width: 880px) {
+
+    .app-header {
+        nav {
+            display: none;
+        }
+    }
+    .tour-app {
+        .hero-container {
+            background-size: cover;
+            background-attachment: unset;
+            background-position-x: center;
+            height: 25rem;
+            h1 {
+                display: none;
+                text-align: start;
+                margin-left: 10px;
+                font-size: 20px;
+                width: 100%;
+            }
+            .tour-filter {
+                height: 55px;
+                margin-bottom: 12rem;
+                form {
+                    .date-input,
+                    .price-input {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .tours-container {
+            .tours-title {
+                align-items: center;
+                h1 {
+                    font-size: 20px;
+                }
+                button,
+                .el-button {
+                    position: static;
+                    margin: 0;
+                }
+            }
+        }
+        .countries-container {
+            .countries-title {
+                align-items: center;
+                h1 {
+                    font-size: 20px;
+                }
+            }
+            .countries {
+                grid-template-columns: repeat(2, minmax(131px, 1fr));
+                li {
+                    font-size: 16px;
+                }
+            }
+            button,
+            .el-button {
+                position: static;
+                margin: 0;
+            }
+        }
+        .become-guide-container {
+            height: 15rem;
+            .title {
+                padding: 70px;
+                h1 {
+                    font-size: 20px;
+                }
+                .el-button {
+                    padding: 10px 20px;
+                }
+            }
+        }
+    }
+
+}
+
+
+@media (max-width: 740px) {
+    .app-header,
+    .tour-app .countries-container,
+    .tour-app .tours-container,
+    .tour-app .become-guide-container .title {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 0;
     }
 }

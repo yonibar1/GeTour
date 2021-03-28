@@ -1,6 +1,7 @@
 <template>
   <section class="app-footer">
-    <p>© 2021 Getour, Inc</p>
+    <img src="../assets/logo-g.svg" alt="">
+    <p>© 2021 Getour, Inc.</p>
   </section>
 </template>
 

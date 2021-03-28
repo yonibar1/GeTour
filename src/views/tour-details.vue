@@ -144,7 +144,7 @@
 
     <!-- MAP -->
     <div class="map-container">
-      <tour-map :cors="tour.cors"/>
+      <tour-map :locs="tour.locs"/>
 
     </div>
   </section>

@@ -1,5 +1,5 @@
 .tour-preview {
-    max-width:300px;
+    position: relative;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -20,6 +20,7 @@
     .preview-img-container {
         overflow: hidden;
         display: flex;
+        margin-bottom: 10px;
         img {
             height: 14rem;
             object-fit: cover;
@@ -33,26 +34,35 @@
     }
     .el-icon-star-on {
         color: $main-clr;
+        margin: 0;
     }
     .mini-user-container {
         align-items: center;
         display: flex;
+        padding-left: 10px;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background: #ffffff85;
         .mini-user-img {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             margin: 5px 5px 5px 0;
-            @include aspect-ratio(100, 100);
             img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                box-shadow: 0 0 0 1pt white;
                 border-radius: 50%;
             }
         }
         .mini-user-fullname {
             color: $main-clr-dark;
-            transition: 0.2s;
+            transition: text-decoration 0.2s;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             &:hover {
                 text-decoration: underline;
-                color: $main-clr-dark;
             }
         }
     }
@@ -61,7 +71,8 @@
         .little-container {
             display: flex;
             justify-content: space-between;
-            margin-top:10px;
+            margin-top:5px;
+            margin-bottom: 5px;
         }
     }
     h3 {
@@ -78,8 +89,18 @@
     .price-rate-container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        p {
+            color: $main-clr;
+            font-weight: bold;
+            word-spacing: -10px;
+        }
         .price {
             color: $main-clr-dark;
+        }
+        span {
+            font-weight: lighter;
+            color: $muted;
         }
     }
 }
