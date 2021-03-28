@@ -151,6 +151,7 @@
     <!-- MAP -->
     <div class="map-container">
       <tour-map :locs="tour.locs"/>
+      </div>
     </section>
 </template>
 
