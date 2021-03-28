@@ -52,7 +52,7 @@ export default {
             this.$store.commit({ type: 'addMsg', msg });
         },
         userType() {
-            socketService.emit('userIsTyping', this.loggedUser.fullname);
+            // socketService.emit('userIsTyping', this.loggedUser.fullname);
         },
         unsetUserIsTyping() {
             this.userIsTyping = false;
@@ -71,15 +71,15 @@ export default {
     },
     created() {
         this.loadChat();
-        this.setUserIsTyping = socketService.debounce(this.setUserIsTyping);
-        socketService.setup();
-        socketService.emit('chat set-topic', this.tourId);
-        socketService.on('chat addMsg', this.addMsg);
-        socketService.on('someoneIsTyping', (fullname) => {
-            this.typingUser = fullname;
-            this.setUserIsTyping();
-            this.unsetUserIsTyping();
-        });
+        // this.setUserIsTyping = socketService.debounce(this.setUserIsTyping);
+        // socketService.setup();
+        // socketService.emit('chat set-topic', this.tourId);
+        // socketService.on('chat addMsg', this.addMsg);
+        // socketService.on('someoneIsTyping', (fullname) => {
+        //     this.typingUser = fullname;
+        //     this.setUserIsTyping();
+        //     this.unsetUserIsTyping();
+        // });
     },
     destroyed() {
         this.$store.dispatch({
