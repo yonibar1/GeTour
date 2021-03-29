@@ -73,6 +73,7 @@ export default {
       try {
         await this.$store.dispatch({ type: "logout" });
         this.isOpen = false;
+        this.$router.push("/");
       } catch (err) {
         console.log("Cannot logout", err);
       }
@@ -109,6 +110,7 @@ export default {
     socketService.setup();
     socketService.emit("user msg", "msgs");
     socketService.on("show msg", ({ title, message }) => {
+      console.log("In show msg");
       this.$notify({
         title,
         message,

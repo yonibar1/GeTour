@@ -29,12 +29,18 @@
                     >{{ order.guestsCount }} guests •
                   </span>
                   <span v-else>{{ order.guestsCount }} guest • </span>
-                  <span>{{ order.totalPrice }}$ •</span>
+                  <span>${{ order.totalPrice }} •</span>
                   <p>{{ order.tour.title }}</p>
                 </div>
               </div>
             </div>
-            <div v-if="order.status === 'pending'" class="btn-container">
+            <div
+              v-if="
+                order.status === 'pending' &&
+                order.tour._guideId === loggedInUser._id
+              "
+              class="btn-container"
+            >
               <el-button
                 @click="updateOrderStatus(order, true)"
                 class="btn-confirm"
@@ -78,7 +84,10 @@
       <div class="user-created-tours">
         <div v-for="tour in toursByUser" :key="tour._id">
           <tour-preview :tour="tour"></tour-preview>
-          <div class="tour-btn-container">
+          <div
+            v-if="tour.byUser._id === loggedInUser._id"
+            class="tour-btn-container"
+          >
             <el-button
               @click="onEditTour(tour._id)"
               circle
@@ -209,8 +218,8 @@ export default {
     socketService.emit("order topic", this.user._id);
     socketService.on("addOrder", (order) => {
       this.orders.push(order);
-      this.loadUser();
-
+      console.log(this.orders, "Orders");
+      this.user = this.loadUser();
       // this.loadOrdersByGuide(this.user._id);
     });
   },
