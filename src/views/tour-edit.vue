@@ -81,7 +81,7 @@
               v-for="option in options"
               :key="option.id"
               :label="option.label"
-              :value="option.value"
+              :class="option.class"
             >
             </el-option>
           </el-select>
@@ -159,12 +159,12 @@ export default {
         },
         {
           label: "Nature",
-          value: { txt: "Nature Tour", value: "fas fa-tree" },
+          value: { txt: "Nature Tour", class: "fas fa-tree" },
           id: "t106",
         },
         {
           label: "Food",
-          value: { txt: "Food Included", value: "fas fa-utensils" },
+          value: { txt: "Food Included", class: "fas fa-utensils" },
           id: "t107",
         },
       ],

@@ -5,9 +5,15 @@
         margin: 0;
         line-height: 40px;
         font-size: 40px;
-        color: $main-clr-dark;
+        height: 50px;
+        text-align: left;
+        padding-left: 10px;
+        margin-bottom: 20px;
         &:hover {
-            font-weight: bold;
+            background-color: #dbf3f1 !important;
+        }
+        img {
+            width: 35px;
         }
     }
     .btn-menu {
@@ -47,11 +53,14 @@
         z-index: 5;
         display: flex;
         flex-direction: column;
-        padding: 40px;
-        background-color: rgb(67 171 167 / 70%);
-        border-radius: 2rem;
+        padding: 20px;
+        background-color: rgb(67 171 167 / 80%);
+        border-radius: 1rem;
         top: 70px;
+        justify-content: space-between;
+        width: 220px;
         right: 100px;
+        height: 13rem;
 
         a {
             text-decoration: underline;
@@ -82,7 +91,6 @@
         button {
             background-color: transparent !important;
             display: inline-block;
-            background-color: transparent;
             font-size: 16px;
             color: white;
             padding: 10px;
@@ -119,7 +127,7 @@
 
     button {
         box-shadow: none;
-
+        color: $main-clr !important;
         span::after {
             content: "";
             width: 0px;
