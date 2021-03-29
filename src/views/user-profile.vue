@@ -1,7 +1,7 @@
 <template>
   <section class="user-profile">
     <div class="left-container">
-      <div v-if="user" class="avatar">
+      <div class="avatar">
         <img :src="user.imgUrl" />
         <span>{{ user.fullname }}</span>
       </div>
@@ -9,7 +9,10 @@
       <p class="sub-header">
         {{ orders.length }} New items • {{ responeRate }}% Respone rate
       </p>
-      <div v-if="orders.length" class="requests-container">
+      <div
+        v-if="user._id === loggedInUser._id && orders.length && orders"
+        class="requests-container"
+      >
         <div v-for="order in orders" :key="order._id" class="request-card">
           <div class="order-details-container">
             <img :src="order.buyer.imgUrl" />
@@ -27,35 +30,12 @@
                 <p>{{ order.tour.title }}</p>
               </div>
             </div>
-          </div>
-          <div v-if="order.status === 'pending'" class="btn-container">
-            <el-button
-              @click="updateOrderStatus(order, true)"
-              class="btn-confirm"
-              plain
-              >Confirm</el-button
-            >
-            <el-button
-              @click="updateOrderStatus(order, false)"
-              class="btn-decline"
-              plain
-              >Decline</el-button
-            >
-          </div>
-          <div v-if="order.status === 'confirmed'" class="confirmed">
-            Confirmed
-          </div>
-          <div v-if="order.status === 'declined'" class="declined">
-            Declined
-          </div>
-          <el-badge v-if="order.status === 'pending'" :value="'!'" class="item">
-          </el-badge>
         </div>
       </div>
     </div>
     <div class="right-container">
       <h2>Statistics</h2>
-      <div class="chart-container">
+      <div v-if="user._id === loggedInUser._id" class="chart-container">
         <chart
           v-if="toursByUser.length && orders.length"
           :tours="toursByUser"
@@ -67,7 +47,7 @@
       <div class="user-created-tours">
         <div v-for="tour in toursByUser" :key="tour._id">
           <tour-preview :tour="tour"></tour-preview>
-          <div class="tour-btn-container">
+          <div v-if="user._id === loggedInUser._id" class="tour-btn-container">
             <el-button
               @click="onEditTour(tour._id)"
               circle
@@ -84,9 +64,7 @@
             ></el-button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </template>
 
 <script>
@@ -119,8 +97,11 @@ export default {
   methods: {
     async updateOrderStatus(order, dif) {
       try {
-        if (dif) order.status = "confirmed";
-        else order.status = "declined";
+        if (dif) {
+          order.status = "confirmed";
+        } else {
+          order.status = "declined";
+        }
         await this.$store.dispatch({ type: "saveOrder", order });
         this.loadOrdersByGuide(this.loggedInUser._id);
       } catch (err) {
@@ -195,8 +176,8 @@ export default {
     socketService.emit("order topic", this.user._id);
     socketService.on("addOrder", (order) => {
       this.orders.push(order);
-      // console.log("Im at user-profile");
-      // console.log(order);
+      this.loadUser();
+
       // this.loadOrdersByGuide(this.user._id);
     });
   },
