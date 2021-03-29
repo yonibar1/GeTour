@@ -32,6 +32,7 @@
             </div>
         </div>
       </div>
+      </div>
     </div>
     <div class="right-container">
       <h2>Statistics</h2>
@@ -42,6 +43,7 @@
           :orders="orders"
           class="chart"
         />
+      </div>
       </div>
       <h2>Tours</h2>
       <div class="user-created-tours">
@@ -63,6 +65,7 @@
               type="danger"
             ></el-button>
           </div>
+        </div>
         </div>
     </section>
 </template>
