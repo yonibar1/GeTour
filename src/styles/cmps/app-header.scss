@@ -1,4 +1,16 @@
 .app-header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transition: all 0.2s ease-in-out;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $main-padding;
     .btn-menu-close {
         display: none;
         padding: 0;
@@ -23,18 +35,6 @@
         font-weight: bold;
         font-size: 23px;
     }
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: all 0.2s ease-in-out;
-    height: 70px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: $main-padding;
     img.user-avatar {
         display: inline-block;
         position: relative;
