@@ -34,7 +34,7 @@
         @click="isOpen = !isOpen"
         :src="user.imgUrl"
       />
-      <button class="btn-menu-close" @click="toggleMenu()">➾</button>
+      <button class="btn-menu-close" @click="toggleMenu()"><img src="@/assets/arrow-right-g.svg" alt=""></button>
     </nav>
     <div v-if="isOpen" class="user-options-container">
       <p>Welcome {{ user.fullname }}</p>

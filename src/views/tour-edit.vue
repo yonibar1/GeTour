@@ -81,7 +81,7 @@
               v-for="option in options"
               :key="option.id"
               :label="option.label"
-              :value="option.value"
+              :class="option.class"
             >
             </el-option>
           </el-select>

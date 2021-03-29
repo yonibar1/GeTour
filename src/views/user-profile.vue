@@ -63,26 +63,26 @@
           class="chart"
         />
       </div>
-      <h2>Tours</h2>
-      <div class="user-created-tours">
-        <div v-for="tour in toursByUser" :key="tour._id">
-          <tour-preview :tour="tour"></tour-preview>
-          <div class="tour-btn-container">
-            <el-button
-              @click="onEditTour(tour._id)"
-              circle
-              class="el-icon-edit"
-              type="info"
-              plain
-            ></el-button>
-            <el-button
-              @click="removeTour(tour._id)"
-              circle
-              class="el-icon-delete"
-              plain
-              type="danger"
-            ></el-button>
-          </div>
+    </div>
+    <h2>Tours</h2>
+    <div class="user-created-tours">
+      <div v-for="tour in toursByUser" :key="tour._id">
+        <tour-preview :tour="tour"></tour-preview>
+        <div class="tour-btn-container">
+          <el-button
+            @click="onEditTour(tour._id)"
+            circle
+            class="el-icon-edit"
+            type="info"
+            plain
+          ></el-button>
+          <el-button
+            @click="removeTour(tour._id)"
+            circle
+            class="el-icon-delete"
+            plain
+            type="danger"
+          ></el-button>
         </div>
       </div>
     </div>
