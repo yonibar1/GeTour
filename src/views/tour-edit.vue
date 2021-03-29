@@ -144,27 +144,27 @@ export default {
         },
         {
           label: "Camping Tour",
-          value: { txt: "Camping", class: "fas fa-campground" },
+          value: { txt: "Camping",  class: "fas fa-campground" },
           id: "t103",
         },
         {
           label: "For Children",
-          value: { txt: "For Children", class: "fas fa-child" },
+          value: { txt: "For Children",  class: "fas fa-child" },
           id: "t104",
         },
         {
           label: "Urbanic",
-          value: { txt: "Urbanic Tour", class: "fas fa-city" },
+          value: { txt: "Urbanic Tour",  class: "fas fa-city" },
           id: "t105",
         },
         {
           label: "Nature",
-          value: { txt: "Nature Tour", value: "fas fa-tree" },
+          value: { txt: "Nature Tour",  class: "fas fa-tree" },
           id: "t106",
         },
         {
           label: "Food",
-          value: { txt: "Food Included", value: "fas fa-utensils" },
+          value: { txt: "Food Included",  class: "fas fa-utensils" },
           id: "t107",
         },
       ],
