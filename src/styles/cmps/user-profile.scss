@@ -10,9 +10,18 @@
         .declined{
             color:#fd5656;
         }
+        .request{
+            color: $muted;
+            font-size:14px;
+        }
+        .sticky{
+            position: sticky;
+            top:10px;
+        }
         .requests-container{
             display: flex;
             flex-direction: column-reverse;
+            position: sticky;
             .request-card{
                 position: relative;
                 .el-badge{
@@ -112,7 +121,7 @@
         }
         .user-created-tours{
             display: grid;
-            grid-template-columns: 1fr 1fr ;
+            grid-template-columns: 1fr ;
             grid-gap: 20px;
         }
         h2{
@@ -122,7 +131,7 @@
     }
     display: grid;
     grid-gap:40px;
-    grid-template-columns: 1fr 0.8fr ;
+    grid-template-columns: 1fr 0.7fr ;
     p.sub-header{
         color: $muted;
         margin-bottom: 5px;

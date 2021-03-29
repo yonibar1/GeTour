@@ -17,7 +17,8 @@
         <h3>{{ tour.title }}</h3>
         <p>{{ tour.country }}</p>
         <div class="little-container">
-          <p>{{ tour.daysCount }} Days</p>
+          <!-- <p>{{ tour.daysCount }} Days</p> -->
+          <p>{{ tour.startedAt | moment }}</p>
           <p v-if="tour.members < tour.capacity">
             {{ tour.members }}/{{ tour.capacity }} Joined
           </p>
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import moment from "moment";
 export default {
   props: {
     tour: {
@@ -59,6 +61,11 @@ export default {
       } else {
         return 0;
       }
+    },
+  },
+  filters: {
+    moment: function (date) {
+      return moment(date).format(" DD/MM/YYYY");
     },
   },
   methods: {},

@@ -5,51 +5,62 @@
         <img :src="user.imgUrl" />
         <span>{{ user.fullname }}</span>
       </div>
-      <h3>Pending / Accepted</h3>
-      <p class="sub-header">
-        {{ orders.length }} New items • {{ responeRate }}% Respone rate
-      </p>
-      <div v-if="orders.length" class="requests-container">
-        <div v-for="order in orders" :key="order._id" class="request-card">
-          <div class="order-details-container">
-            <img :src="order.buyer.imgUrl" />
-            <div class="details">
-              <router-link class="link" :to="'/user-profile/' + order.buyer._id"
-                >By: {{ order.buyer.fullname }}</router-link
-              >
-              <p>Status:{{ order.status }}</p>
-              <div class="mini-details">
-                <span v-if="order.guestsCount > 1"
-                  >{{ order.guestsCount }} guests •
-                </span>
-                <span v-else>{{ order.guestsCount }} guest • </span>
-                <span>{{ order.totalPrice }}$ •</span>
-                <p>{{ order.tour.title }}</p>
+      <div class="sticky">
+        <h3>Pending / Accepted</h3>
+        <p class="sub-header">
+          {{ orders.length }} New items • {{ responeRate }}% Respone rate
+        </p>
+        <div v-if="orders.length" class="requests-container">
+          <div v-for="order in orders" :key="order._id" class="request-card">
+            <div class="order-details-container">
+              <img :src="order.buyer.imgUrl" />
+              <div class="details">
+                <router-link
+                  class="link"
+                  :to="'/user-profile/' + order.buyer._id"
+                  >By: {{ order.buyer.fullname }}</router-link
+                >
+                <p>Status:{{ order.status }}</p>
+                <p class="request" v-if="order.requests">
+                  Request: {{ order.requests }}
+                </p>
+                <div class="mini-details">
+                  <span v-if="order.guestsCount > 1"
+                    >{{ order.guestsCount }} guests •
+                  </span>
+                  <span v-else>{{ order.guestsCount }} guest • </span>
+                  <span>{{ order.totalPrice }}$ •</span>
+                  <p>{{ order.tour.title }}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div v-if="order.status === 'pending'" class="btn-container">
-            <el-button
-              @click="updateOrderStatus(order, true)"
-              class="btn-confirm"
-              plain
-              >Confirm</el-button
+            <div v-if="order.status === 'pending'" class="btn-container">
+              <el-button
+                @click="updateOrderStatus(order, true)"
+                class="btn-confirm"
+                plain
+                >Confirm</el-button
+              >
+              <el-button
+                @click="updateOrderStatus(order, false)"
+                class="btn-decline"
+                plain
+                >Decline</el-button
+              >
+            </div>
+            <div v-if="order.status === 'confirmed'" class="confirmed">
+              Confirmed
+            </div>
+            <div v-if="order.status === 'declined'" class="declined">
+              Declined
+            </div>
+            <el-badge
+              v-if="order.status === 'pending'"
+              :value="'!'"
+              class="item"
             >
-            <el-button
-              @click="updateOrderStatus(order, false)"
-              class="btn-decline"
-              plain
-              >Decline</el-button
-            >
+            </el-badge>
           </div>
-          <div v-if="order.status === 'confirmed'" class="confirmed">
-            Confirmed
-          </div>
-          <div v-if="order.status === 'declined'" class="declined">
-            Declined
-          </div>
-          <el-badge v-if="order.status === 'pending'" :value="'!'" class="item">
-          </el-badge>
         </div>
       </div>
     </div>
@@ -63,26 +74,26 @@
           class="chart"
         />
       </div>
-    </div>
-    <h2>Tours</h2>
-    <div class="user-created-tours">
-      <div v-for="tour in toursByUser" :key="tour._id">
-        <tour-preview :tour="tour"></tour-preview>
-        <div class="tour-btn-container">
-          <el-button
-            @click="onEditTour(tour._id)"
-            circle
-            class="el-icon-edit"
-            type="info"
-            plain
-          ></el-button>
-          <el-button
-            @click="removeTour(tour._id)"
-            circle
-            class="el-icon-delete"
-            plain
-            type="danger"
-          ></el-button>
+      <h2>Tours</h2>
+      <div class="user-created-tours">
+        <div v-for="tour in toursByUser" :key="tour._id">
+          <tour-preview :tour="tour"></tour-preview>
+          <div class="tour-btn-container">
+            <el-button
+              @click="onEditTour(tour._id)"
+              circle
+              class="el-icon-edit"
+              type="info"
+              plain
+            ></el-button>
+            <el-button
+              @click="removeTour(tour._id)"
+              circle
+              class="el-icon-delete"
+              plain
+              type="danger"
+            ></el-button>
+          </div>
         </div>
       </div>
     </div>

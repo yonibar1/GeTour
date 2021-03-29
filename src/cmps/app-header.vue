@@ -34,7 +34,9 @@
         @click="isOpen = !isOpen"
         :src="user.imgUrl"
       />
-      <button class="btn-menu-close" @click="toggleMenu()"><img src="@/assets/arrow-right-g.svg" alt=""></button>
+      <button class="btn-menu-close" @click="toggleMenu()">
+        <img src="@/assets/arrow-right-g.svg" alt="" />
+      </button>
     </nav>
     <div v-if="isOpen" class="user-options-container">
       <p>Welcome {{ user.fullname }}</p>
@@ -110,7 +112,9 @@ export default {
       this.$notify({
         title,
         message,
-        position: "bottom-right",
+        duration: 8000,
+        type: "warning",
+        position: "top-right",
       });
     });
   },
