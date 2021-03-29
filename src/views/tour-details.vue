@@ -50,7 +50,14 @@
                     <img :src="tour.byUser.imgUrl" alt="" />
                 </div>
                 <h3>{{ tour.startedAt | moment }}</h3>
-                <h2 v-if="tour.members === tour.capacity">Fully Booked</h2>
+                <h2
+                    v-if="
+                        tour.members === tour.capacity ||
+                            tour.members > tour.capacity
+                    "
+                >
+                    Fully Booked
+                </h2>
                 <h3 v-else class="tour-members">
                     {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
                 </h3>
@@ -272,6 +279,7 @@ export default {
             console.log(value);
         },
         async toggleModal() {
+            if (this.tour.members >= this.tour.capacity) return;
             this.dialogVisible = true;
         },
     },
