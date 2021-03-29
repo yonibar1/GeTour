@@ -32,6 +32,7 @@
             </div>
         </div>
       </div>
+      </div>
     </div>
     <div class="right-container">
       <h2>Statistics</h2>
@@ -63,6 +64,8 @@
               type="danger"
             ></el-button>
           </div>
+        </div>
+        </div>
         </div>
     </section>
 </template>
