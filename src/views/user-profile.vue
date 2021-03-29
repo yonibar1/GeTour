@@ -1,7 +1,7 @@
 <template>
   <section class="user-profile">
     <div class="left-container">
-      <div class="avatar">
+      <div v-if="user" class="avatar">
         <img :src="user.imgUrl" />
         <span>{{ user.fullname }}</span>
       </div>
@@ -9,10 +9,7 @@
       <p class="sub-header">
         {{ orders.length }} New items • {{ responeRate }}% Respone rate
       </p>
-      <div
-        v-if="user._id === loggedInUser._id && orders.length && orders"
-        class="requests-container"
-      >
+      <div v-if="orders.length" class="requests-container">
         <div v-for="order in orders" :key="order._id" class="request-card">
           <div class="order-details-container">
             <img :src="order.buyer.imgUrl" />
@@ -30,12 +27,35 @@
                 <p>{{ order.tour.title }}</p>
               </div>
             </div>
+          </div>
+          <div v-if="order.status === 'pending'" class="btn-container">
+            <el-button
+              @click="updateOrderStatus(order, true)"
+              class="btn-confirm"
+              plain
+              >Confirm</el-button
+            >
+            <el-button
+              @click="updateOrderStatus(order, false)"
+              class="btn-decline"
+              plain
+              >Decline</el-button
+            >
+          </div>
+          <div v-if="order.status === 'confirmed'" class="confirmed">
+            Confirmed
+          </div>
+          <div v-if="order.status === 'declined'" class="declined">
+            Declined
+          </div>
+          <el-badge v-if="order.status === 'pending'" :value="'!'" class="item">
+          </el-badge>
         </div>
       </div>
     </div>
     <div class="right-container">
       <h2>Statistics</h2>
-      <div v-if="user._id === loggedInUser._id" class="chart-container">
+      <div class="chart-container">
         <chart
           v-if="toursByUser.length && orders.length"
           :tours="toursByUser"
@@ -47,7 +67,7 @@
       <div class="user-created-tours">
         <div v-for="tour in toursByUser" :key="tour._id">
           <tour-preview :tour="tour"></tour-preview>
-          <div v-if="user._id === loggedInUser._id" class="tour-btn-container">
+          <div class="tour-btn-container">
             <el-button
               @click="onEditTour(tour._id)"
               circle
@@ -64,7 +84,9 @@
             ></el-button>
           </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
