@@ -50,7 +50,11 @@
           <img :src="tour.byUser.imgUrl" alt="" />
         </div>
         <h3>{{ tour.startedAt | moment }}</h3>
-        <h2 v-if="tour.members === tour.capacity">Fully Booked</h2>
+        <h2
+          v-if="tour.members === tour.capacity || tour.members > tour.capacity"
+        >
+          Fully Booked
+        </h2>
         <h3 v-else class="tour-members">
           {{ tour.members }}/{{ tour.capacity }} Travellers In Tour
         </h3>
@@ -98,23 +102,6 @@
         >
       </div>
     </div>
-
-    <!-- PENDING-BOX -->
-
-    <!-- <div class="pending-box">
-      <el-button class="btn-cancel" type="" @click="toggleModal">
-        Cancel Order 
-        </el-button>
-    </div> -->
-
-    <!-- <div class="chat-container">
-      <chat :tourId="tour._id" />
-    </div> -->
-    <!-- <div class="review-list">
-      <tour-review :tour="tour" />
-    </div> -->
-
-    <!-- ORDER MODAL -->
     <div class="order-modal">
       <el-dialog
         title="Your Order"
@@ -267,6 +254,7 @@ export default {
       console.log(value);
     },
     async toggleModal() {
+      if (this.tour.members >= this.tour.capacity) return;
       this.dialogVisible = true;
     },
   },
