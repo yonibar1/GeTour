@@ -9,8 +9,8 @@
         margin: 0;
 
         ul {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(131px, 1fr));
             margin-bottom: 30px;
             li {
                 margin-right: 10px;

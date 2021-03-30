@@ -2,10 +2,13 @@
   <section class="tour-app">
     <div class="hero-container">
       <tour-filter />
-      <h1>
-        Best Guides. <br />
-        Best Tours.
-      </h1>
+      <h2>
+        Best Tours<span>.</span>
+        <br />
+        Best Guides<span>.</span>
+        <br />
+        Best Locations<span>.</span>
+      </h2>
     </div>
 
     <!-- COUNTRIES -->
