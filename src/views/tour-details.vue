@@ -260,9 +260,6 @@ export default {
   },
   destroyed() {
     socketService.off("orderSent", this.order);
-    // socketService.off('order topic');
-    // socketService.off('add msg', msg);
-    // socketService.terminate();
   },
   watch: {
     "$route.params.tourId"() {

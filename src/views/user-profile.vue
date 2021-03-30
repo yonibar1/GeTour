@@ -232,7 +232,6 @@ export default {
       this.orders.push(order);
       console.log(this.orders, "Orders");
       this.user = this.loadUser();
-      // this.loadOrdersByGuide(this.user._id);
     });
   },
   destroyed() {

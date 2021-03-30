@@ -5,7 +5,6 @@
     h2 {
         color: rgb(41, 41, 41);
     }
-
     .tour-review {
         margin: 0;
 
@@ -48,7 +47,6 @@
                             }
                         }
                     }
-
                     .mini-user {
                         display: flex;
                         margin-bottom: 10px;
@@ -60,7 +58,6 @@
                                 border-radius: 50%;
                             }
                         }
-
                         .mini-user-details {
                             display: flex;
                             flex-direction: column;
@@ -79,7 +76,6 @@
                 }
             }
         }
-
         .add-review-container {
             width: 30rem;
             h2 {
@@ -87,7 +83,6 @@
                 text-transform: capitalize;
                 font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, serif;
             }
-
             form {
                 textarea {
                     max-height: 150px;
@@ -98,7 +93,6 @@
                     width: 30rem;
                     margin-bottom: 10px;
                 }
-
                 .block {
                     display: flex;
                     margin-bottom: 10px;
@@ -111,7 +105,6 @@
                             margin-right: 10px;
                         }
                     }
-
                     .el-rate {
                         .el-icon-star-on::before {
                             color: $main-clr;

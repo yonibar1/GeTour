@@ -29,7 +29,6 @@
             }
         }
     }
-
     .preview-container {
         margin: 0;
         padding: 0;
@@ -37,7 +36,6 @@
             grid-template-columns: repeat(3, minmax(255px, 1fr));
         }
     }
-
     .countries-container,
     .tours-container,
     .become-guide-container {
@@ -82,7 +80,6 @@
             margin-left: 5px;
         }
     }
-
     .become-guide-container {
         background-image: url("../assets/demo-guides/guide5.jpg");
         background-size: cover;
@@ -155,7 +152,6 @@
     .tour-app .countries-container,
     .tour-app .tours-container,
     .tour-app .become-guide-container .title {
-        // background-color: yellow;
         padding-right: 2rem;
         padding-left: 2rem;
     }

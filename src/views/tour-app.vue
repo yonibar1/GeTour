@@ -87,48 +87,6 @@
         </ul>
       </div>
     </div>
-
-    <!-- GUIDES -->
-
-    <!-- <div class="guides-container">
-      <div class="guides-title">
-        <h1>Top rated guides</h1>
-      </div>
-      <ul class="guides">
-        <li>
-          <router-link to="/explore">
-            <div class="avatar-card">
-              <img src="../assets/demo-guides/guide1.jpg" alt="" />
-            </div>
-            Luke Tucker
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/explore">
-            <div class="avatar-card">
-              <img src="../assets/demo-guides/guide2.jpg" alt="" />
-            </div>
-            William Watson
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/explore">
-            <div class="avatar-card">
-              <img src="../assets/demo-guides/guide3.jpg" alt="" />
-            </div>
-            Amy Underwood
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/explore">
-            <div class="avatar-card">
-              <img src="../assets/demo-guides/guide4.jpg" alt="" />
-            </div>
-            Simon Chapman
-          </router-link>
-        </li>
-      </ul>
-    </div> -->
   </section>
 </template>
 

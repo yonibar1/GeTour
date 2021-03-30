@@ -9,7 +9,7 @@
       >
       </el-input>
       <el-date-picker
-      class="date-input"
+        class="date-input"
         v-model="filterBy.byDate"
         type="date"
         placeholder="Pick a day"
@@ -51,7 +51,6 @@
     </form>
   </section>
 </template>
-
 <script>
 export default {
   data() {
@@ -96,6 +95,7 @@ export default {
     }
   },
   destroyed() {
-    this.$store.commit({type: 'resetFilter'})
-}}
+    this.$store.commit({ type: "resetFilter" });
+  },
+};
 </script>

@@ -41,9 +41,6 @@
                 padding:20px;
                 border-radius:10px;
                 margin-bottom:15px;
-                // display: flex;
-                // justify-content: space-between;
-                // align-items: center;
                 button{
                     padding:5px;
                     border:none;
@@ -173,57 +170,3 @@
         }
     }
 }
-
-
-
-
-
-
-
-
-// .user-profile {
-    // display: flex;
-    // height: 700px;
-    // margin: 40px 0 40px 0;
-    // padding: $main-padding;
-    // .left-container {
-    //     // box-shadow: #63636333 0px 2px 8px 0px;
-    //     // height: 400px;
-    //     padding: 20px;
-    //     border-radius: 5px;
-    //     .orders-container{
-    //         display: flex;
-    //         flex-direction: column;
-    //         justify-content: space-evenly;
-    //         .order-preview{
-    //             border:1px solid $main-clr;
-    //             padding:20px;
-    //         }
-    //         &>*:not(:first-child){
-    //         margin-block-start: 30px;
-    //         }
-    //     }
-    //     .avatar {
-    //         height: 10rem;
-    //         width: 10rem;
-
-    //         img {
-    //             border-radius: 50%;
-    //             object-fit: cover;
-    //             height: 100%;
-    //         }
-    //     }
-    // }
-    // .right-container {
-    //     // .user-created-tours{
-    //     //     height: 400px;
-    //     // }
-    //     .user-title {
-    //         margin-bottom: 30px;
-    //     }
-    //     margin-left: 80px;
-    //     h1 {
-    //         font-size: 40px;
-    //     }
-    // }
-// }
