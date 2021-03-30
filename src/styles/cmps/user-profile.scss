@@ -1,4 +1,7 @@
 .user-profile{
+    display: grid;
+    grid-gap:40px;
+    grid-template-columns: 1fr 0.7fr ;
     .tour-preview{
         max-width: unset;
     }
@@ -116,7 +119,6 @@
             .chart{
                 width: 50%;
                 margin-bottom: 10px;
-                // grid-column: -2/-1;
             }
             .chart-details{
                 p{
@@ -137,9 +139,6 @@
             font-size: 35px;
         }
     }
-    display: grid;
-    grid-gap:40px;
-    grid-template-columns: 1fr 0.7fr ;
     p.sub-header{
         color: $muted;
         margin-bottom: 5px;
@@ -167,6 +166,29 @@
     .tour-preview.preview-img-container {
         img{
             object-fit: cover;
+        }
+    }
+}
+@media (max-width: 740px) {
+    .user-profile{
+        padding:0;
+        grid-gap:20px;
+        grid-template-columns: 1fr ;
+        .left-container{
+            padding:10px;
+            .requests-container{
+                .request-card{
+                    padding:10px;
+                    font-size:10px;
+
+                }
+            }
+        }
+        .right-container{
+            padding:10px;
+            .chart-container{
+                margin-bottom:40px;
+            }
         }
     }
 }

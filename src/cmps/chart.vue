@@ -35,7 +35,14 @@ export default {
       datasets: [
         {
           label: "Price",
-          backgroundColor: ["#42ABA7", "#f12392", "#f27212"],
+          backgroundColor: [
+            "#42ABA7",
+            "#00A9F3",
+            "#00717E",
+            "#D4FADD",
+            "#0075BA",
+            "#9EB0A2",
+          ],
           data: this.tourProfits,
         },
       ],
