@@ -246,7 +246,9 @@ export default {
         title: `Order Added by - ${this.loggedInUser.fullname}`,
         message: `${this.loggedInUser.fullname} Would Like To Join Your Tour In ${this.tour.title}`,
       };
-      socketService.emit("add msg", msg);
+       socketService.emit("private msg", this.tour.byUser._id);
+       socketService.emit("add private msg",msg);
+      // socketService.emit("add msg", msg);
       this.order.guestsCount = 1;
       this.order.requests = "";
     },

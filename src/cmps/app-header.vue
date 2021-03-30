@@ -116,6 +116,17 @@ export default {
         position: "top-right",
       });
     });
+    
+    socketService.emit("private msg", this.user._id);
+    socketService.on("show private msg", ({ title, message }) => {
+      this.$notify({
+        title,
+        message,
+        duration: 6000,
+        type: "warning",
+        position: "top-right",
+      });
+    });
   },
   destroyed() {
     socketService.off("user msg", "msgs");
