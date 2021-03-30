@@ -73,6 +73,11 @@
     <div class="right-container">
       <h2>Statistics</h2>
       <div class="chart-container">
+        <div class="chart-details">
+          <p>
+            Total Profits: <span>${{ totalProfits }}</span>
+          </p>
+        </div>
         <chart
           v-if="toursByUser.length && orders.length"
           :tours="toursByUser"
@@ -125,6 +130,13 @@ export default {
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedInUser;
+    },
+    totalProfits() {
+      let sum = 0;
+      this.orders.forEach((order) => {
+        sum += order.totalPrice;
+      });
+      return sum;
     },
     responeRate() {
       if (this.orders.length) {

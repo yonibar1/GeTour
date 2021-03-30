@@ -7,6 +7,26 @@
         font-weight: 600;
         font-size: 30px;
     }
+    .el-dialog{
+        .order-default-msg{
+            word-break: break-word;
+        }
+        .order-date{
+            margin-bottom:10px;
+        }
+        button.el-button--primary{
+            background-color: $main-clr;
+            border-color: $main-clr;
+        }
+        button.el-button--default{
+            background-color: white;
+            border-color: $main-clr;
+            color: $main-clr;
+        }
+        .title{
+            color:$main-clr;
+        }
+    }
     .reviews-length {
         font-size: rem(14px);
     }

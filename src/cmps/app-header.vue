@@ -114,7 +114,7 @@ export default {
       this.$notify({
         title,
         message,
-        duration: 8000,
+        duration: 6000,
         type: "warning",
         position: "top-right",
       });

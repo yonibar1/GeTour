@@ -113,10 +113,21 @@
         .chart-container{
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-direction: column;
             margin-bottom: 100px;
             .chart{
                 width: 50%;
+                margin-bottom: 10px;
                 // grid-column: -2/-1;
+            }
+            .chart-details{
+                p{
+                    color:$muted;
+                    span{
+                        color:$main-clr;
+                    }
+                }
             }
         }
         .user-created-tours{

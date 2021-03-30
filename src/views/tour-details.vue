@@ -109,17 +109,17 @@
         width="30%"
         :before-close="handleClose"
       >
-        <h3>
+        <h3 class="title">
           {{ tour.title }}
         </h3>
-        <h5>{{ tour.country }}</h5>
-        <h4>{{ tour.startedAt | moment }}</h4>
-        <p>
+        <h4>{{ tour.country }}</h4>
+        <h4 class="order-date">{{ tour.startedAt | moment }}</h4>
+        <p v-if="order.requests">Your Special Requests: {{ order.requests }}</p>
+        <h3 class="order-default-msg">
           Your Order Has been sent to the tour guide for approval we will let
           you know as soon as possible
-        </p>
+        </h3>
         <hr />
-        <h3>Your Special Requests: {{ order.requests }}</h3>
         <h3>Total Price: ${{ totalPriceToShow }}</h3>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">Cancel</el-button>

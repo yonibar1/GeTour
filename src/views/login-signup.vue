@@ -50,7 +50,7 @@
           show-password
         />
       </label>
-      <button plain round type="success">Sign Up</button>
+      <button>Sign Up</button>
       <a class="set-form-link" @click="setForm">Already Have an account?</a>
     </form>
   </section>
