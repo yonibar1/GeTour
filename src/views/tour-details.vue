@@ -251,9 +251,6 @@ export default {
       this.order.guestsCount = 1;
       this.order.requests = "";
     },
-    handleChange(value) {
-      console.log(value);
-    },
     async toggleModal() {
       if (this.tour.members >= this.tour.capacity) return;
       this.dialogVisible = true;
