@@ -6,11 +6,10 @@
             align-items: center;
             text-align: center;
             background-color: white;
-            height: 57px;
+            height: 60px;
             width: 100%;
             max-width: 45rem;
             border-radius: 50px;
-            margin-bottom: 10rem;
             form {
                 display: flex;
                 width: 100%;
@@ -35,8 +34,8 @@
                 .el-button {
                     color: white;
                     background-color: $main-clr;
-                    height: 50px;
-                    width: 50px;
+                    height: 100%;
+                    width: 100%;
                     .el-icon-search {
                         font-size: 18px;
                     }
