@@ -27,7 +27,6 @@
     <form @submit.prevent="signup" v-else name="signup" novalidate>
       <img class="auth-logo" src="../assets/Signup.svg" alt="" />
       <label class="profile-picture-upload">
-        <!-- <upload-image @save="setImgUrl" /> -->
         <upload-image @save="setImgUrl" />
       </label>
       <label>

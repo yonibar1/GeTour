@@ -17,7 +17,6 @@
         <h3>{{ tour.title }}</h3>
         <p>{{ tour.country }}</p>
         <div class="little-container">
-          <!-- <p>{{ tour.daysCount }} Days</p> -->
           <p>{{ tour.startedAt | moment }}</p>
           <p v-if="tour.members < tour.capacity">
             {{ tour.members }}/{{ tour.capacity }} Joined

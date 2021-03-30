@@ -6,7 +6,6 @@ export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
 
 const baseUrl = process.env.NODE_ENV === 'production' ? '' : '//localhost:3030';
 export const socketService = createSocketService();
-// export const socketService = createDummySocketService();
 
 window.socketService = socketService;
 
@@ -47,49 +46,3 @@ function createSocketService() {
     return socketService;
 }
 
-// eslint-disable-next-line
-// function createDummySocketService() {
-//     var listenersMap = {};
-//     const socketService = {
-//         listenersMap,
-//         setup() {
-//             listenersMap = {};
-//         },
-//         terminate() {
-//             this.setup();
-//         },
-//         on(eventName, cb) {
-//             listenersMap[eventName] = [...(listenersMap[eventName] || []), cb];
-//         },
-//         off(eventName, cb) {
-//             if (!listenersMap[eventName]) return;
-//             if (!cb) delete listenersMap[eventName];
-//             else
-//                 listenersMap[eventName] = listenersMap[eventName].filter(
-//                     (l) => l !== cb
-//                 );
-//         },
-//         emit(eventName, data) {
-//             if (!listenersMap[eventName]) return;
-//             listenersMap[eventName].forEach((listener) => {
-//                 listener(data);
-//             });
-//         },
-//         debugMsg() {
-//             this.emit('chat newMsg', {
-//                 from: 'Someone',
-//                 txt: 'Aha it worked!',
-//             });
-//         },
-//         debounce(func, timeout = 500) {
-//             let timer;
-//             return (...args) => {
-//                 clearTimeout(timer);
-//                 timer = setTimeout(() => {
-//                     func.apply(this, args);
-//                 }, timeout);
-//             };
-//         },
-//     };
-//     return socketService;
-// }

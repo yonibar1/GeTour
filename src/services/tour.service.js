@@ -1,7 +1,5 @@
-// import axios from 'axios';
 import { httpService } from './http.service.js';
 
-// const KEY = 'toursDB';
 const TOURS_URL = 'tour/';
 export const tourService = {
     query,
@@ -12,7 +10,6 @@ export const tourService = {
     queryAllByType,
     loadToursByUser
 };
-
 
 async function query(filterBy = {}) {
     var tours = await httpService.get(TOURS_URL);

@@ -15,14 +15,8 @@ export const userStore = {
         loggedInUser(state) {
             return state.loggedInUser
         }
-        // userToEdit(state) {
-        //     return state.userToEdit;
-        // },
     },
     mutations: {
-        // query(state, { users }) {
-        //     state.users = users;
-        // },
         setUser(state, { user }) {
             state.user = user;
         },
@@ -49,15 +43,6 @@ export const userStore = {
         },
     },
     actions: {
-        // async query({ state }) {
-        //     try {
-        //         const users = await userService.query(state.filterBy);
-        //         state.commit({ type: 'query', users });
-        //         return users;
-        //     } catch (err) {
-        //         console.log('Cannot get Users', err);
-        //     }
-        // },
         async logout({ commit }) {
             await userService.logout()
             commit({ type: 'logout' })
@@ -76,16 +61,6 @@ export const userStore = {
             const loggedUser = await userService.getLoggedUser()
             commit({ type: 'login', loggedUser });
         },
-        // async saveUser({ commit }, { user }) {
-        //     const type = user._id ? 'login' : 'signup';
-        //     const userAfterSave = await userService.signup(user);
-        //     commit({ type, userAfterSave });
-        //     return userAfterSave;
-        // },
-        // async removeUser({ commit }, { id }) {
-        //     await userService.remove(id);
-        //     commit({ type: 'remove', id });
-        // },
         async loadUser({ commit }, { id }) {
             try {
                 const user = await userService.getById(id);

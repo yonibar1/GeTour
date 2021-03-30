@@ -185,7 +185,6 @@ export default {
     },
     async saveTour() {
       try {
-        console.log(" this.tourToEdit:", this.tourToEdit);
         await this.$store.dispatch({
           type: "saveTour",
           tour: this.tourToEdit,

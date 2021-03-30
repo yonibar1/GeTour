@@ -17,9 +17,6 @@ export const tourStore = {
         tour(state) {
             return state.tour;
         },
-        // tourToEdit(state) {
-        //     return state.tourToEdit;
-        // },
         filterBy(state) {
             return state.filterBy;
         },
@@ -41,9 +38,6 @@ export const tourStore = {
                 byPriceRange: { min: 0, max: 2000 },
             }
         },
-        // setTourToEdit(state, { tour }) {
-        //     state.tourToEdit = tour;
-        // },
         updateTour(state, { tourAfterSave }) {
             const idx = state.tours.findIndex((t) => {
                 return t._id === tourAfterSave._id;
@@ -88,13 +82,11 @@ export const tourStore = {
             try {
                 if (!id) {
                     const tour = tourService.getEmptyTour();
-                    // commit({ type: 'setTourToEdit', tour });
                     const tourCopy = JSON.parse(JSON.stringify(tour));
                     return tourCopy;
                 } else {
                     const tour = await tourService.getById(id);
                     const tourCopy = JSON.parse(JSON.stringify(tour));
-                    // commit({ type: 'setTourToEdit', tour });
                     return tourCopy;
                 }
             } catch (err) {
@@ -106,7 +98,6 @@ export const tourStore = {
             try {
                 const type = tour._id ? 'updateTour' : 'addTour';
                 const tourAfterSave = await tourService.save(tour);
-                console.log('tourAfterSave:', tourAfterSave);
                 commit({ type, tourAfterSave });
                 return tourAfterSave;
             } catch (err) {
