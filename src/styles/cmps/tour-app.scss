@@ -5,17 +5,28 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-image: linear-gradient(to bottom, #ffffff00, #00000046), url("../assets/img/hero.jpg");
+        background-image: url("../assets/img/hero.jpg");
+        // background-image: linear-gradient(to bottom, #ffffff00, #00000046), url("../assets/img/hero.jpg");
+        background-image: linear-gradient(to top, #ffffff00, #ffffff00,#ffffff00, #000000ad), url("../assets/img/hero.jpg");
         background-size: cover;
         background-attachment: fixed;
         height: 600px;
-        h1 {
+        h2{
             user-select: none;
             width: 50rem;
-            text-align: center;
-            font-size: 40px;
-            color: white;
+            text-shadow: 1px 1px 10px rgb(44, 44, 44);
+            // background-color: rgba(0, 0, 0, 0.288);
+            text-align: left;
+            width: 100%;
+            margin-left: 10rem;
+            font-size: 50px;
+            color: #fff;
             font-family: JosefinSans;
+            line-height: 45px;
+            span {
+                color: $main-clr;
+                font-size: 70px;
+            }
         }
     }
 
@@ -266,7 +277,7 @@
             margin-left: 10px;
         }
     }
-    .app-header{
+    .app-header {
         padding-left: 20px;
         padding-right: 20px;
     }

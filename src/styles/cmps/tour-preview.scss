@@ -31,7 +31,7 @@
     }
     .reviews-length {
         color: $muted;
-        font-size: 14px;
+        margin-left: 4px;
     }
     .el-icon-star-on {
         color: $main-clr;
@@ -79,7 +79,7 @@
         font-family: LibreFranklin;
         color: $black;
         transition: color 0.3s;
-        font-size: 18px;
+        font-size: 17px;
         line-height: 25px;
     }
     p {
@@ -95,6 +95,8 @@
         justify-content: space-between;
         align-items: center;
         p {
+            display: flex;
+            align-items: center;
             color: $main-clr;
             font-weight: bold;
         }
