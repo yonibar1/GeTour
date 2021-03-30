@@ -2,13 +2,23 @@
   <section class="tour-app">
     <div class="hero-container">
       <tour-filter />
-      <h2>
+      <div class="hero-line">
+      <h1>
+        Explore
+      </h1>
+      <h2>the most amazing places</h2>
+      <h1>With </h1> 
+      <h2> the most amazing guides<span>.</span> </h2>
+
+      </div>
+
+      <!-- <h1>
         Best Tours<span>.</span>
         <br />
         Best Guides<span>.</span>
         <br />
         Best Locations<span>.</span>
-      </h2>
+      </h1> -->
     </div>
 
     <!-- COUNTRIES -->
@@ -26,7 +36,7 @@
             <div class="category-card">
               <img src="../assets/demo-tours/chaing-mai.jpg" alt="" />
             </div>
-          Thailand
+            Thailand
           </router-link>
         </li>
         <li>
