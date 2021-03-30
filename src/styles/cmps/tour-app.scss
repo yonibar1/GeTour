@@ -3,17 +3,15 @@
     .hero-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        justify-content: space-evenly;
         background-image: url("../assets/img/hero.jpg");
-        // background-image: linear-gradient(to bottom, #ffffff00, #00000046), url("../assets/img/hero.jpg");
         background-image: linear-gradient(to top, #ffffff00, #ffffff00, #ffffff00, #000000ad),
             url("../assets/img/hero.jpg");
         background-size: cover;
         background-attachment: fixed;
         height: 600px;
         .hero-line {
+            margin-top: 8rem;
             width: 100%;
             user-select: none;
             text-align: left;
@@ -29,15 +27,18 @@
             line-height: 50px;
         }
         h2 {
-            // line-height: 50px;
-            font-size: 30px;
+            text-shadow: 1px 1px 7px black;
+            font-size: 35px;
             width: 100%;
             color: white;
             span {
-                font-size: 60px;
                 color: $main-clr;
             }
         }
+        .h2-2 {
+            line-height: 40px;
+        }
+
     }
     .preview-container {
         margin: 0;
@@ -162,6 +163,12 @@
 // @@@@@@@@@@ MEDIA @@@@@@@@@@@@@@@
 
 
+
+
+
+
+
+
 @media (max-width: 1030px) {
     .app-header,
     .app-footer,
@@ -186,22 +193,15 @@
 @media (max-width: 880px) {
     .tour-app {
         .hero-container {
-            background-size: cover;
             background-attachment: unset;
             background-position-x: center;
-            height: 25rem;
+            height: 30rem;
             .hero-line {
-                h1 {
-                    font-size: 20px;
-                    width: 100%;
-                }
-                h2 {
-                    font-size: 20px;
-                    width: 100%;
-                }
+                display: none;
             }
             .tour-filter {
-                height: 45px;
+               max-width: 350px;
+               margin-top: 5rem;
                 form {
                     .date-input,
                     .price-input {
@@ -210,9 +210,9 @@
                 }
             }
         }
+
         .tours-container {
             .tours-title {
-                align-items: center;
                 h1 {
                     font-size: 20px;
                 }
@@ -259,8 +259,10 @@
 
 @media (max-width: 740px) {
     .app-header {
+        padding: 0px 10px;
         nav {
             position: fixed;
+            box-shadow: none;
             right: 0;
             top: 0;
             justify-content: flex-end;
@@ -269,11 +271,9 @@
             background-color: white;
             width: 200px;
             transform: translateX(100%);
-            box-shadow: none;
             transition: transform 0.5s, box-shadow 0.5s;
             button {
                 color: $main-clr;
-                // padding: 32px 10px;
                 width: 100%;
             }
             button:first-child {
@@ -292,7 +292,6 @@
         }
         .logo-container {
             width: 100px;
-            margin-left: 10px;
         }
     }
 

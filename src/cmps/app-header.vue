@@ -33,7 +33,7 @@
         :src="user.imgUrl"
       />
       <button class="btn-menu-close" @click="toggleMenu()">
-        <img src="@/assets/arrow-right-g.svg" alt="" />
+        <i class="el-icon-close"></i>
       </button>
     </nav>
     <div v-if="isOpen" class="user-options-container">

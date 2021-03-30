@@ -3,22 +3,11 @@
     <div class="hero-container">
       <tour-filter />
       <div class="hero-line">
-      <h1>
-        Explore
-      </h1>
-      <h2>the most amazing places</h2>
-      <h1>With </h1> 
-      <h2> the most amazing guides. </h2>
-
+        <h1>Explore</h1>
+        <h2>The best places</h2>
+        <h1>With</h1>
+        <h2 class="h2-2">The best guides<span>.</span></h2>
       </div>
-
-      <!-- <h1>
-        Best Tours<span>.</span>
-        <br />
-        Best Guides<span>.</span>
-        <br />
-        Best Locations<span>.</span>
-      </h1> -->
     </div>
 
     <!-- COUNTRIES -->

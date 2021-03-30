@@ -1,31 +1,29 @@
 .tour-explore {
-    .btn-filters{
+    .btn-filters {
         margin: 30px auto 10px 100px;
-        border:none;
-            background-color: $main-clr;
-            color:white;
-        &:hover{
-            box-shadow:0 0 0 1px $main-clr;
+        border: none;
+        background-color: $main-clr;
+        color: white;
+        &:hover {
+            box-shadow: 0 0 0 1px $main-clr;
             color: $main-clr;
-            background-color:white;
+            background-color: white;
         }
-        &:focus{
-            box-shadow:0 0 0 1px $main-clr;
+        &:focus {
+            box-shadow: 0 0 0 1px $main-clr;
             color: $main-clr;
-            background-color:white;
+            background-color: white;
         }
     }
     .tour-filter {
-        margin-top:40px;
+        margin-top: 40px;
         input {
             border-right: none;
         }
         padding: $main-padding;
         width: 100%;
-        border-radius: 30px;
         margin-left: auto;
         margin-right: auto;
-        border-radius: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -39,14 +37,16 @@
             display: flex;
             justify-content: space-between;
             position: relative;
-            >*:not(:last-child){
+            > *:not(:last-child) {
                 margin-block-end: 10px;
             }
             .price-input {
                 display: flex;
-                width: 100px;
+                width: 150px;
                 align-items: center;
-                justify-content: center;
+                text-align: left;
+                padding-left: 20px;
+                height: 40px;
                 border: 1px solid #dcdfe5;
                 border-radius: 2em;
                 cursor: pointer;
@@ -62,7 +62,16 @@
 @media (max-width: 880px) {
     .tour-explore {
         .tour-filter {
-            display: none;
+            padding: 0 20px;
+            form {
+                flex-wrap: wrap;
+                .el-date-editor.date-input.el-input.el-input--prefix.el-input--suffix.el-date-editor--date {
+                    width: 180px;
+                }
+                .price-input {
+                    width: 100px;
+                }
+            }
         }
         .tour-list {
             padding: 0 20px;
