@@ -37,9 +37,11 @@
       </button>
     </nav>
     <div v-if="isOpen" class="user-options-container">
-      <p>Welcome {{ user.fullname }}</p>
-      <router-link :to="'/user-profile/' + user._id">My Profile</router-link>
-      <el-button plain type="danger" @click="logout">Logout</el-button>
+      <p class="option-item">Welcome {{ user.fullname }}</p>
+      <router-link class="option-item" :to="'/user-profile/' + user._id"
+        >My Profile</router-link
+      >
+      <p class="option-item logout" @click="logout">Log out</p>
     </div>
     <button class="btn-menu" @click="toggleMenu()">☰</button>
   </section>
