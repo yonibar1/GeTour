@@ -15,7 +15,7 @@
             text-align: center;
             font-size: 40px;
             color: white;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-family: JosefinSans;
         }
     }
 
@@ -108,6 +108,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         grid-gap: 15px;
+        font-family: LibreFranklin;
         li {
             color: #0b3331;
             font-weight: 500;

@@ -3,7 +3,9 @@
 
         <div class="hero-container">
             <tour-filter />
-            <h1>Travel Anywhere Together.</h1>
+            <h1>Best Guides. <br>
+            Best Tours.
+            </h1>
         </div>
 
         <!-- COUNTRIES -->

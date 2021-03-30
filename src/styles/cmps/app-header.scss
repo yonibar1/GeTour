@@ -61,7 +61,6 @@
         width: 220px;
         right: 100px;
         height: 13rem;
-
         a {
             text-decoration: underline;
         }
@@ -81,11 +80,12 @@
     }
 
     nav {
+        z-index: 3;
         color: white;
         font-size: 20px;
         display: flex;
         align-items: center;
-        & > * {
+        a{
             margin-right: 10px;
         }
         button {
