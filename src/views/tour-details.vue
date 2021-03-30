@@ -140,7 +140,7 @@ import tourReview from "../cmps/tour-review";
 import moment from "moment";
 import TourMap from "../cmps/tour-map.vue";
 import { socketService } from "../services/socket.service";
-// import chat from "@/cmps/chat.vue";
+
 export default {
   data() {
     return {
@@ -272,7 +272,6 @@ export default {
   components: {
     tourReview,
     TourMap,
-    // chat,
   },
 };
 </script>
