@@ -8,7 +8,7 @@
       </h1>
       <h2>the most amazing places</h2>
       <h1>With </h1> 
-      <h2> the most amazing guides<span>.</span> </h2>
+      <h2> the most amazing guides. </h2>
 
       </div>
 
