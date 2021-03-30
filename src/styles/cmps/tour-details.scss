@@ -2,45 +2,60 @@
     display: grid;
     padding: $main-padding;
     margin-top: 2rem;
+
     h2 {
         color: #2b2b2b;
         font-weight: 600;
         font-size: 30px;
     }
-    .el-dialog{
-        .order-default-msg{
+
+    .el-dialog {
+        .order-default-msg {
             word-break: break-word;
         }
-        .order-date{
-            margin-bottom:10px;
+
+        .order-date {
+            margin-bottom: 10px;
         }
-        button.el-button--primary{
+
+        button.el-button--primary {
             background-color: $main-clr;
             border-color: $main-clr;
         }
-        button.el-button--default{
+
+        button.el-button--default {
             background-color: white;
             border-color: $main-clr;
             color: $main-clr;
         }
-        .title{
-            color:$main-clr;
+
+        .title {
+            color: $main-clr;
         }
     }
+
     .reviews-length {
         font-size: rem(14px);
     }
+
     .details-container-primary {
         display: flex;
         flex-direction: column;
         line-height: 40px;
+
+        .el-carousel--horizontal {
+            display: none;
+        }
+
         .header-container {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+
             p {
                 color: $muted;
             }
+
             h5 {
                 color: $muted;
                 margin-left: 10px;
@@ -48,6 +63,7 @@
                 text-decoration: underline;
                 font-weight: 500;
             }
+
             .reviews {
                 display: flex;
                 align-items: center;
@@ -58,14 +74,17 @@
                     font-size: 15px;
                     color: $muted;
                 }
+
                 .el-rate {
                     display: inline;
                     color: #3a7271;
+
                     .el-rate__text {
                         font-weight: bold;
                         font-size: 16px;
                         margin-right: 2px;
                     }
+
                     .el-rate__item {
                         width: 20px;
                     }
@@ -115,18 +134,18 @@
             border-top-right-radius: 12px;
         }
     }
-    
+
     .img4 {
         grid-area: img4;
-        
+
         img {
             height: 100%;
         }
     }
-    
+
     .img5 {
         grid-area: img5;
-        
+
         img {
             height: 100%;
             border-bottom-right-radius: 10px;
@@ -137,6 +156,7 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
+
         .details-container-secondry {
             max-width: 60rem;
             border-radius: 14px;
@@ -144,6 +164,7 @@
             flex-direction: column;
             line-height: 40px;
             margin-right: 40px;
+
             .guide-container {
                 display: flex;
                 align-items: center;
@@ -151,12 +172,14 @@
                 padding-bottom: 10px;
                 border-bottom: 1px solid #e7e7e7;
                 margin-bottom: 10px;
+
                 img {
                     width: 50px;
                     height: 50px;
                     border-radius: 50%;
                 }
             }
+
             .tour-members {
                 color: $muted;
                 font-size: 1rem;
@@ -184,6 +207,7 @@
                     }
                 }
             }
+
             .tour-desc {
                 border-bottom: 1px solid #e7e7e7;
                 padding-bottom: 30px;
@@ -210,30 +234,37 @@
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
+
                 .rate {
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        color: $main-clr-dark;
-                        font-weight: bold;
-                        span{
-                            font-weight: lighter;
-                        }
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: $main-clr-dark;
+                    font-weight: bold;
+
+                    span {
+                        font-weight: lighter;
+                    }
                 }
+
                 .el-icon-star-on {
                     font-size: 1rem;
                     color: #42aba7;
                     font-weight: bold;
                 }
+
                 .reviews-length {
                     font-size: rem(14px);
                     color: $muted;
                 }
             }
+
             .el-input-number {
                 width: 7rem;
-                .el-input__inner{
+
+                .el-input__inner {
                     border: none;
                 }
             }
+
             .el-input-number__decrease,
             .el-input-number__increase {
                 border-radius: 50%;
@@ -261,14 +292,66 @@
                 resize: none;
                 margin-top: 10px;
             }
+
             .btn-order {
                 background-color: $main-clr;
                 color: white;
                 width: 100%;
+
                 &:hover {
                     background-color: #52cfcb;
                 }
             }
         }
     }
+}
+
+// @@@@@ MEDIA @@@@ //@at-root
+
+
+
+
+@media (max-width: 740px) {
+    .tour-details {
+        padding: 0;
+    }
+
+    .guide-container h2 {
+        margin-right: 10px;
+    }
+
+    .details-container-primary {
+        align-items: center;
+    }
+
+    .images-container {
+        display: none !important;
+    }
+
+    .el-carousel--horizontal {
+        display: block !important;
+        width: 100%;
+        height: 400px;
+    }
+
+    .details-container-secondry {
+        align-items: center;
+        justify-content: center;
+        margin-right: 0px !important;
+
+        .tour-desc {
+            width: 90%;
+        }
+    }
+
+    .order-details-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tour-order {
+        min-width: 60%;
+        max-width: 60%;
+    }
+
 }
