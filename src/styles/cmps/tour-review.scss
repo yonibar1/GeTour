@@ -159,6 +159,7 @@
 
 
 @media (max-width: 740px) {
+
     .review-list .tour-review ul {
         display: flex;
         flex-direction: column;
@@ -173,12 +174,13 @@
 
     .add-review-container {
         max-width: 80%;
+        form {
+            display: flex;
+            flex-direction: column;
+        }
     }
-
-    form {
-        display: flex;
-        flex-direction: column;
-    }
+    
+    
 
     textarea {
         max-width: 70%;
