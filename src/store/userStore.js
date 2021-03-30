@@ -34,6 +34,7 @@ export const userStore = {
         },
         login(state, { loggedUser }) {
             state.loggedInUser = loggedUser
+            // console.log(state.loggedInUser,'Logged in user');
         },
         remove(state, { id }) {
             const idx = state.users.findIndex((u) => {

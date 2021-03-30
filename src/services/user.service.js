@@ -17,7 +17,7 @@ async function login(user) {
     return userFromBack;
 }
 
-async function getLoggedUser() {
+function getLoggedUser() {
     const user = JSON.parse(sessionStorage.getItem('login'));
     return user;
 }

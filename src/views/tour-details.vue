@@ -245,10 +245,9 @@ export default {
       const msg = {
         title: `Order Added by - ${this.loggedInUser.fullname}`,
         message: `${this.loggedInUser.fullname} Would Like To Join Your Tour In ${this.tour.title}`,
+        targetId: this.tour.byUser._id,
       };
-       socketService.emit("private msg", this.tour.byUser._id);
-       socketService.emit("add private msg",msg);
-      // socketService.emit("add msg", msg);
+      socketService.emit("add private msg", msg);
       this.order.guestsCount = 1;
       this.order.requests = "";
     },

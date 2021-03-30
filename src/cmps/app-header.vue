@@ -58,6 +58,10 @@ export default {
   },
   computed: {
     user() {
+      // console.log(
+      //   "this.$store.getters.loggedInUser",
+      //   this.$store.getters.loggedInUser
+      // );
       return this.$store.getters.loggedInUser;
     },
   },
@@ -118,9 +122,11 @@ export default {
         position: "top-right",
       });
     });
-    
+    console.log(this.user, "this.user");
+    if (!this.user) return;
     socketService.emit("private msg", this.user._id);
     socketService.on("show private msg", ({ title, message }) => {
+      console.log(message, "Message");
       this.$notify({
         title,
         message,
