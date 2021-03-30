@@ -31,11 +31,13 @@
                         flex-direction: column;
                         p {
                             font-size: 17px;
-                            text-transform: capitalize;
                             margin-bottom: 10px;
                             line-height: 25px;
                             color: $muted;
                             word-break: break-word;
+                            &::first-letter {
+                                text-transform: capitalize;
+                            }
                         }
                         .review-rate {
                             display: flex;

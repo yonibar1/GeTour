@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
+
     box-shadow: 0 0 0 0 #cecece;
     &:hover {
         cursor: pointer;
@@ -60,7 +61,6 @@
         .mini-user-fullname {
             color: $main-clr-dark;
             transition: text-decoration 0.2s;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             &:hover {
                 text-decoration: underline;
             }
@@ -69,17 +69,21 @@
     .tour-description-container {
         line-height: 1.2;
         .little-container {
+            margin-top: 8px;
+            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
-            margin-top:5px;
-            margin-bottom: 5px;
         }
     }
     h3 {
+        font-family: LibreFranklin;
         color: $black;
         transition: color 0.3s;
+        font-size: 18px;
+        line-height: 25px;
     }
     p {
+        font-family: LibreFranklin-lighter;
         color: $muted;
         i {
             margin-right: 5px;
