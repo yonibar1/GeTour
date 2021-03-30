@@ -78,7 +78,7 @@
         display: grid;
         margin-bottom: 2rem;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 250px 250px;
         gap: 5px 5px;
         grid-template-areas:
             "first-img first-img img-2 img3"
@@ -264,7 +264,7 @@
             .btn-order {
                 background-color: $main-clr;
                 color: white;
-                width: 17rem;
+                width: 100%;
                 &:hover {
                     background-color: #52cfcb;
                 }

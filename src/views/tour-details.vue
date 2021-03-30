@@ -92,7 +92,7 @@
         <el-input
           type="textarea"
           :rows="2"
-          placeholder="Any Speaicel Requests?"
+          placeholder="Any Special Requests?"
           v-model="order.requests"
         >
         </el-input>

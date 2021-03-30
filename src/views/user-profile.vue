@@ -230,7 +230,6 @@ export default {
     socketService.emit("order topic", this.user._id);
     socketService.on("addOrder", (order) => {
       this.orders.push(order);
-      console.log(this.orders, "Orders");
       this.user = this.loadUser();
     });
   },

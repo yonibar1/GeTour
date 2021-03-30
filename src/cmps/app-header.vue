@@ -108,7 +108,6 @@ export default {
     socketService.setup();
     socketService.emit("user msg", "msgs");
     socketService.on("show msg", ({ title, message }) => {
-      console.log("In show msg");
       this.$notify({
         title,
         message,
