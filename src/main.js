@@ -11,7 +11,7 @@ import locale from 'element-ui/lib/locale/lang/en';
 import * as VueGoogleMaps from 'vue2-google-maps'
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'YOUR-KEY-HERE',
+    key: 'AIzaSyA2qHxHwbvK29L2wBnhw0TVRF4afPuJLGs',
     libraries: 'places',
   },
 })
