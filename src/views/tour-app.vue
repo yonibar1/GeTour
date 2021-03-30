@@ -19,11 +19,11 @@
       </div>
       <ul class="countries">
         <li>
-          <router-link to="/explore/Italy">
+          <router-link to="/explore/Thailand">
             <div class="category-card">
-              <img src="../assets/demo-tours/rome.jpg" alt="" />
+              <img src="../assets/demo-tours/chaing-mai.jpg" alt="" />
             </div>
-            Italy
+          Thailand
           </router-link>
         </li>
         <li>
