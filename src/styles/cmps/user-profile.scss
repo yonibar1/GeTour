@@ -180,7 +180,9 @@
                 .request-card{
                     padding:10px;
                     font-size:10px;
-
+                    .order-details-container{
+                        flex-direction: row;
+                    }
                 }
             }
         }
