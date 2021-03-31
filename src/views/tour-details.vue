@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <p class="tour-desc">{{ tour.description }}</p>
-                <hr />
+               
                 <div class="review-list">
                     <tour-review :tour="tour" />
                 </div>

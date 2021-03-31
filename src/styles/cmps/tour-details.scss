@@ -314,44 +314,61 @@
 @media (max-width: 740px) {
     .tour-details {
         padding: 0;
-    }
 
-    .guide-container h2 {
-        margin-right: 10px;
-    }
+        h2 {
+            font-size: 1rem;
+        }
 
-    .details-container-primary {
-        align-items: center;
-    }
+        .details-container-primary {
+            align-items: center;
+            line-height: 20px;
 
-    .images-container {
-        display: none !important;
-    }
+            .header-container {
+                flex-direction: column;
+            }
+        }
 
-    .el-carousel--horizontal {
-        display: block !important;
-        width: 100%;
-        height: 400px;
-    }
+        .order-details-container {
+            flex-direction: column;
+            align-items: center;
 
-    .details-container-secondry {
-        align-items: center;
-        justify-content: center;
-        margin-right: 0px !important;
+            .details-container-secondry {
+                align-items: center;
+                justify-content: center;
+                margin-right: 0px !important;
 
-        .tour-desc {
-            width: 90%;
+                .icons-container {
+                    line-height: 10px;
+                    h4 {
+                        font-weight: bold;
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .guide-container h2 {
+                    margin-right: 10px;
+                }
+
+                .tour-desc {
+                    width: 90%;
+                }
+            }
+
+            .tour-order {
+                min-width: 60%;
+                max-width: 60%;
+
+
+            }
+        }
+        .images-container {
+            display: none !important;
+        }
+
+        .el-carousel--horizontal {
+            display: block !important;
+            width: 100%;
+            // height: 400px;
         }
     }
-
-    .order-details-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tour-order {
-        min-width: 60%;
-        max-width: 60%;
-    }
-
 }

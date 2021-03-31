@@ -157,44 +157,46 @@
 }
 
 
-
+// .review 
 @media (max-width: 740px) {
 
-    .review-list .tour-review ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    .review-list {
+        .tour-review {
+            ul {
+                grid-template-columns: repeat(1, minmax(131px, 1fr)) !important;
 
-    ul {
+                li {
+                    margin-right: unset !important;
 
-        grid-template-columns: repeat(1, minmax(131px, 1fr)) !important;
+                    .review {
+                        width: 100%;
+                    }
+                }
 
-    }
 
-    .add-review-container {
-        max-width: 80%;
-        form {
-            display: flex;
-            flex-direction: column;
+
+
+            }
+
+            .add-review-container {
+                width: 100%;
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+
+                    textarea {
+                        width: 100% !important;
+                    }
+                }
+            }
+
+            .block {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+
         }
-    }
-    
-    
-
-    textarea {
-        max-width: 70%;
-    }
-
-    .block {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .review {
-        width: 100%;
-    }
-    li{
-        margin-right:unset !important;
     }
 }
