@@ -175,6 +175,9 @@
         grid-gap:20px;
         grid-template-columns: 1fr ;
         .left-container{
+            .avatar{
+                margin-bottom: 20px;
+            }
             padding:10px;
             .requests-container{
                 .request-card{

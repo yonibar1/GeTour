@@ -311,7 +311,7 @@
 
 
 
-@media (max-width: 740px) {
+@media (max-width: 940px) {
     .tour-details {
         padding: 0;
 
@@ -320,22 +320,28 @@
         }
 
         .details-container-primary {
-            align-items: center;
-            line-height: 20px;
-
-            .header-container {
-                flex-direction: column;
+            // align-items: center;
+            // line-height: 20px;
+            h2,.header-container {
+                padding:0 2rem;
+                // padding:0 2rem;
+                // flex-direction: column;
+            }
+            h2{
+                font-size:25px;
             }
         }
 
         .order-details-container {
-            flex-direction: column;
-            align-items: center;
+            // flex-direction: column;
+            // align-items: center;
+            padding:2rem;
 
             .details-container-secondry {
-                align-items: center;
+                // align-items: center;
                 justify-content: center;
                 margin-right: 0px !important;
+                padding-right: 2rem;
 
                 .icons-container {
                     line-height: 10px;
@@ -355,10 +361,8 @@
             }
 
             .tour-order {
-                min-width: 60%;
+                // min-width: 60%;
                 max-width: 60%;
-
-
             }
         }
         .images-container {
@@ -369,6 +373,21 @@
             display: block !important;
             width: 100%;
             // height: 400px;
+        }
+    }
+}
+
+@media (max-width: 740px) {
+    .tour-details{
+
+        .order-details-container {
+            flex-direction: column;
+            align-items: center;
+            padding:0;
+            .details-container-secondry {
+                align-items: center;
+                padding-right: 0;
+            }
         }
     }
 }
