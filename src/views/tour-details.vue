@@ -20,7 +20,7 @@
         <h5>{{ tour.daysCount }} Days In {{ tour.country }}</h5>
       </div>
 
-      <el-carousel trigger="click">
+      <el-carousel height="400px" :autoplay="false" trigger="click">
         <el-carousel-item v-for="(img, idx) in tour.imgs" :key="idx">
           <img :src="img" alt="" />
         </el-carousel-item>
@@ -103,9 +103,9 @@
         >
         </el-input>
         <h4>Total Price: ${{ totalPriceToShow }}</h4>
-        <button class="btn-order" ref="btnOrder" type="" @click="toggleModal"
-          >Order Tour</button
-        >
+        <button class="btn-order" ref="btnOrder" type="" @click="toggleModal">
+          Order Tour
+        </button>
       </div>
     </div>
     <div class="order-modal">
@@ -200,7 +200,6 @@ export default {
     },
   },
   methods: {
-      
     setLimitCount() {
       const diff = this.tour.capacity - this.tour.members;
       this.limitCount = diff;
@@ -267,7 +266,7 @@ export default {
     },
     // moveGrad: function(ev) {
     //     let btn = this.$refs.btnOrder;
-    //       let btnWidth = btn.clientWidth;        
+    //       let btnWidth = btn.clientWidth;
     //       let btnHeight = btn.clientHeight;
 
     //   let mouseXpercentage = Math.round((ev.pageX / btnWidth) * 100);

@@ -375,6 +375,9 @@
             display: block !important;
             width: 100%;
             // height: 400px;
+            .el-carousel__indicator--horizontal{
+                display: none;
+            }
         }
     }
 }
