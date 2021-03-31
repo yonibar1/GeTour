@@ -236,7 +236,7 @@
                 width: 100%;
 
                 .rate {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
                     color: $main-clr-dark;
                     font-weight: bold;
 
@@ -296,8 +296,10 @@
             .btn-order {
                 background-color: $main-clr;
                 color: white;
+                height: 45px;
+                border-radius: 5px;
                 width: 100%;
-
+                transition: 0.3s;
                 &:hover {
                     background-color: #52cfcb;
                 }
