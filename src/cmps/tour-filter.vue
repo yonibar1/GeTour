@@ -5,6 +5,7 @@
         class="dest-input"
         placeholder="Destination"
         v-model="filterBy.byDestination"
+        prefix-icon="el-icon-location-information"
         clearable
       >
       </el-input>
@@ -16,30 +17,38 @@
         value-format="timestamp"
       >
       </el-date-picker>
-      <div class="price-input" @click="toggleRangeBox()">{{ priceToShow }}</div>
-      <div v-if="isOpen" class="range-box-modal">
-        <div class="range-box-modal-header">
-          <h4>Pick Your Price</h4>
-          <el-slider v-model="filterBy.byPriceRange" range :max="2000">
-          </el-slider>
-        </div>
-        <div class="price-box-container">
-          <div class="min-box">
-            min price
-            <br />
-            <span> $ {{ filterBy.byPriceRange[0] }} </span>
-          </div>
-          -
-          <div class="min-box">
-            max price
-            <br />
-            <span> $ {{ filterBy.byPriceRange[1] }} </span>
-          </div>
-          <el-button class="price-ok-btn" @click="toggleRangeBox()"
-            >Save</el-button
-          >
-        </div>
-      </div>
+
+      <el-dropdown trigger="click" class="price-input">
+        <span class="el-dropdown-link">
+          <i class="el-icon-coin"></i>
+          {{ priceToShow }}<i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <li class="range-box-modal">
+            <div class="range-box-modal-header">
+              <h4>Pick Your Price</h4>
+              <el-slider v-model="filterBy.byPriceRange" range :max="2000">
+              </el-slider>
+            </div>
+            <div class="price-box-container">
+              <div class="min-box">
+                min price
+                <br />
+                <span> $ {{ filterBy.byPriceRange[0] }} </span>
+              </div>
+              -
+              <div class="min-box">
+                max price
+                <br />
+                <span> $ {{ filterBy.byPriceRange[1] }} </span>
+              </div>
+              <el-button class="price-ok-btn" @click="setPrice()">
+                Save
+              </el-button>
+            </div>
+          </li>
+        </el-dropdown-menu>
+      </el-dropdown>
       <router-link to="/explore">
         <el-button
           @click="setFilter()"
@@ -55,7 +64,6 @@
 export default {
   data() {
     return {
-      isOpen: false,
       priceToShow: "Price",
       filterBy: {
         byDestination: "",
@@ -65,10 +73,6 @@ export default {
     };
   },
   methods: {
-    toggleRangeBox() {
-      if (this.isOpen) this.setPrice();
-      this.isOpen = !this.isOpen;
-    },
     setPrice() {
       const [min, max] = this.filterBy.byPriceRange;
       this.priceToShow = `$${min} - $${max}`;

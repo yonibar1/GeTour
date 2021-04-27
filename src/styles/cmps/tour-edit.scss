@@ -1,95 +1,127 @@
 .tour-edit {
     background-color: #fff;
-    background-image: url('../assets/img/signup-img.jpg');
+    background-image: url("../assets/img/signup-img.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
     padding: 20px;
     color: $black;
-    .imgs-container{
-        display: flex;
-        width: 100%;
-        justify-content: flex-start;
-        align-items: center;
-        >*{
+    .img-upload-container {
+        width: fit-content;
+    }
+    .imgs-container {
+        // display: flex;
+
+        // justify-content: flex-start;
+        // align-items: center;
+        > * {
             margin-inline-start: 10px;
-            padding:4px;
-            border:1px solid black;
+            padding: 4px;
+            border: 1px solid black;
         }
-        .uploaded-img{
+        .uploaded-img {
             width: 40px;
         }
     }
-        .form-edit {
-            padding: $main-padding;
-            
-            form {
-                margin-top: 20px;
-                background-color: #fffafab6;
-                width: 40rem;
-                display: flex;
-                flex-direction: column;
-                border-radius: 20px;
-                padding: 20px;
-                .el-form-item__content{
-                    display: flex;
-                    width: 100%;
-                    padding:5px;
-                    .el-select{
-                        width: 400px;
-                        margin-left:40px;
-                    }
-                }
-                div.el-form-item {
-                    .upload-images {
-                        display: inline;
-                    }
+    .form-edit {
+        padding: $main-padding;
 
-                }
-
-                .el-input-number {
-                    width: 8rem;
-                }
-
-                .file-input {
-                    display: none;
-                }
-
-                &>* {
-                    margin-bottom: 20px;
-                }
-
-                i.fas {
-                    font-size: 40px;
-                    color: $main-clr;
-                    cursor: pointer;
-                }
-
-                input {
-                    width: 100%;
-                }
-
-                textarea {
-                    resize: none;
-                }
-
-                button {
-                    padding: 15px;
-                    background-color: $main-clr;
-                    border-radius: 5px;
-                    outline: none;
-                    border: none;
-                    color: snow;
-                    transition: .3s;
-                    margin-top: 5px;
-
-                    &:hover {
-                        background-color: snow;
-                        color: $main-clr;
-                        box-shadow: 0 0 1px 1px $main-clr;
+        form {
+            margin-top: 20px;
+            background-color: #ffffffe5;
+            max-width: 35rem;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            padding: 0 20px;
+            & > * {
+                margin-bottom: 20px;
+            }
+            h2 {
+                line-height: 50px;
+                border-bottom: 1px solid black;
+                padding: 10px 0;
+            }
+            .el-form-item.images-section {
+                .el-form-item__content {
+                    flex-direction: row;
+                    align-items: center;
+                    .img-upload-container {
+                        margin-right: 10px;
                     }
                 }
             }
+            .el-form-item {
+                .el-form-item__content {
+                    display: flex;
+                    font-size: 15px;
+                    flex-direction: column;
+                    text-transform: uppercase;
+                }
+            }
+            div.el-form-item {
+                .upload-images {
+                    display: inline;
+                }
+            }
+
+            .file-input {
+                display: none;
+            }
+
+            i.fas {
+                font-size: 40px;
+                color: $main-clr;
+                cursor: pointer;
+            }
+
+            .el-input,
+            .el-date-editor,
+            .el-textarea {
+                width: 100%;
+            }
+
+            .quantities-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                .el-form-item__content {
+                    // width: 100%;
+                }
+                label {
+                    width: fit-content;
+                }
+            }
+
+            textarea {
+                resize: none;
+            }
+
+            button {
+                padding: 15px;
+                background-color: $main-clr;
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                color: snow;
+                transition: 0.3s;
+                margin-top: 5px;
+
+                &:hover {
+                    background-color: snow;
+                    color: $main-clr;
+                    box-shadow: 0 0 1px 1px $main-clr;
+                }
+            }
         }
+    }
+}
+
+@media (max-width: 880px) {
+    .tour-edit {
+        padding: 10px;
+        .form-edit {
+            padding: 0 5px;
+        }
+    }
 }

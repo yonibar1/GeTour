@@ -1,6 +1,5 @@
 <template>
   <section class="login-signup">
-    <img class="logo" src="../assets/logo-signs-green.svg" alt="" />
     <form @submit.prevent="login" v-if="isLogin" name="login">
       <img class="auth-logo" src="../assets/Login.svg" alt="" />
       <label>
@@ -74,7 +73,6 @@ export default {
       isLogin: true,
     };
   },
-  computed: {},
   methods: {
     setForm() {
       this.isLogin = !this.isLogin;

@@ -1,15 +1,14 @@
 .tour-app {
     margin-bottom: 7rem;
     .hero-container {
+        height: 600px;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        background-image: url("../assets/img/hero.jpg");
-        background-image: linear-gradient(to top, #ffffff00, #ffffff00, #ffffff00, #000000ad),
-            url("../assets/img/hero.jpg");
+        flex-direction: column;
         background-size: cover;
         background-attachment: fixed;
-        height: 600px;
+        background-image: url("../assets/img/hero.jpg");
+        background-image: linear-gradient(to top, #ffffff00, #ffffff00, #ffffff00, #000000ad), url("../assets/img/hero.jpg");
         .hero-line {
             margin-top: 8rem;
             width: 100%;
@@ -38,7 +37,6 @@
         .h2-2 {
             line-height: 40px;
         }
-
     }
     .preview-container {
         margin: 0;
@@ -158,29 +156,20 @@
     }
 }
 
-
-
 // @@@@@@@@@@ MEDIA @@@@@@@@@@@@@@@
-
-
-
-
-
-
-
 
 @media (max-width: 1030px) {
     .app-header,
     .app-footer,
     .tour-app .countries-container,
     .tour-app .tours-container,
-    .tour-app .hero-container .hero-line{
+    .tour-app .hero-container .hero-line {
         padding: 0 2rem;
     }
     .tour-app .become-guide-container .title {
         padding: 13rem 2rem;
     }
-    
+
     .tour-app {
         .preview-container {
             ul {
@@ -200,8 +189,8 @@
                 display: none;
             }
             .tour-filter {
-               max-width: 350px;
-               margin-top: 5rem;
+                max-width: 350px;
+                margin-top: 5rem;
                 form {
                     .date-input,
                     .price-input {

@@ -1,94 +1,78 @@
-.tour-app {
-    .hero-container,.tour-explore {
-        .tour-filter {
+.tour-app .hero-container,
+.tour-explore {
+    .tour-filter {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        height: 60px;
+        width: 100%;
+        margin-top: 10rem;
+        max-width: 45rem;
+        border-radius: 50px;
+        form {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: white;
-            height: 60px;
             width: 100%;
-            margin-top: 10rem;
-            max-width: 45rem;
-            border-radius: 50px;
-            form {
-                display: flex;
+            padding: 0 10px;
+            align-items: center;
+            color: #758b85;
+            border-radius: 5px;
+            input.el-input__inner {
+                border: none;
+                font-size: 14px;
+            }
+            .dest-input,
+            .date-input,
+            .price-input {
                 width: 100%;
-                padding: 0 10px;
+                color: $main-clr;
+                ::placeholder,
+                span {
+                    color: #758b85;
+                    opacity: 1;
+                }
+            }
+            .el-button {
+                color: white;
+                background-color: $main-clr;
+                height: 100%;
+                width: 100%;
+                &:hover {
+                    background-color: $main-clr-dark;
+                }
+                .el-icon-search {
+                    font-size: 18px;
+                }
+            }
+            .el-dropdown {
+                display: flex;
                 align-items: center;
-                color: #758b85;
-                border-radius: 5px;
-                .dest-input, .date-input, .price-input {
-                    width: 100%;
-                }
-                .price-input {
-                    padding: 0 30px;
-                    text-align: left;
-                }
-                input,
-                .el-date-editor {
-                    border-radius: 50px;
-                    border: none;
-                    color: $main-clr;
-                    ::placeholder {
-                        color: #758b85;
-                        opacity: 1;
-                    }
-                }
-                .el-button {
-                    color: white;
-                    background-color: $main-clr;
-                    height: 100%;
-                    width: 100%;
-                    .el-icon-search {
-                        font-size: 18px;
-                    }
-                    &:hover {
-                        background-color: $main-clr-dark;
-                    }
-                }
-                .dest-input {
-                    ::placeholder {
-                        color: #758b85;
-                        opacity: 1;
-                    }
-                }
+                cursor: pointer;
+                font-size: 16px;
+                height: 40px;
+                text-align: left;
+                border-radius: 4px;
+                padding-left: 10px;
             }
         }
     }
 }
-.tour-explore .tour-filter {
-    .range-box-modal {
-        top: 140px;
-        right: 240px;
-    }
-}
 
-.hero-container .tour-filter {
+ul.el-dropdown-menu {
+    padding: 15px 20px;
     .range-box-modal {
-        top: 0px;
-        right: 0px;
-    }
-}
-
-.tour-explore .tour-filter {
-    
-    .range-box-modal {
-        position: absolute;
-        margin-top: 16rem;
-        margin-right: 14rem;
-        width: 350px;
-        height: 200px;
-        z-index: 1;
-        border: 1px solid $main-clr;
-        color: $main-clr;
-        background: #fff;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        padding: 20px;
-        .price-ok-btn {
-            margin-top: 10px;
+        color: $main-clr-dark;
+        .el-button {
+            color: $main-clr;
+            &:focus {
+                background-color: white;
+            }
+            &:hover {
+                background-color: $main-clr;
+                color: white;
+            }
         }
         .price-box-container {
             display: flex;
@@ -117,5 +101,13 @@
                 border: 2px solid $main-clr;
             }
         }
+    }
+}
+
+.tour-explore {
+    .tour-filter {
+        margin-top: 20px;
+        max-width: none;
+        padding: $main-padding;
     }
 }

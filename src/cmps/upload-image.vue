@@ -1,6 +1,5 @@
 <template>
   <section class="img-upload-container">
-    Upload images
     <label v-if="!isLoading">
       <i class="fas fa-cloud-upload-alt">
         <input class="file-input" type="file" @change="onUploadImg" />

@@ -1,14 +1,14 @@
 <template>
   <section class="tour-edit">
     <div class="form-edit">
-      <h3>Plan Your Special Tour</h3>
       <el-form v-if="tourToEdit" action="">
+        <h2>Plan Your Own Tour</h2>
         <el-form-item>
           <label for="title">Title</label>
           <el-input
             id="title"
             v-model="tourToEdit.title"
-            placeholder="Title"
+            placeholder=""
             type="text"
           />
         </el-form-item>
@@ -17,12 +17,41 @@
           <el-input
             id="country"
             v-model="tourToEdit.country"
-            placeholder="Country"
+            placeholder=""
             type="text"
           />
         </el-form-item>
         <el-form-item>
-          <label for="price">Price</label>
+          <label for="date">Date</label>
+          <el-date-picker
+            id="date"
+            v-model="tourToEdit.startedAt"
+            type="date"
+            placeholder="When the tour starts?"
+            value-format="timestamp"
+          >
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item>
+          <label for="tags">Tour Tags</label>
+          <el-select
+            id="tags"
+            v-model="tourToEdit.tags"
+            multiple
+            placeholder="Select tags "
+          >
+            <el-option
+              v-for="option in options"
+              :key="option.id"
+              :label="option.label"
+              :value="option.value"
+            >
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <div class="quantities-container">
+        <el-form-item>
+          <label for="price">Tour Price</label>
           <el-input-number
             id="price"
             class="input-number"
@@ -31,6 +60,7 @@
             type="number"
           />
         </el-form-item>
+
         <el-form-item>
           <label for="capacity">Capacity</label>
           <el-input-number
@@ -39,16 +69,6 @@
             placeholder="Capacity"
             type="number"
           />
-        </el-form-item>
-
-        <el-form-item>
-          <el-date-picker
-            v-model="tourToEdit.startedAt"
-            type="date"
-            placeholder="Pick a day"
-            value-format="timestamp"
-          >
-          </el-date-picker>
         </el-form-item>
 
         <el-form-item>
@@ -69,23 +89,8 @@
             type="number"
           />
         </el-form-item>
-        <el-form-item>
-          <label for="tags">Tags</label>
-          <el-select
-            id="tags"
-            v-model="tourToEdit.tags"
-            multiple
-            placeholder="Select"
-          >
-            <el-option
-              v-for="option in options"
-              :key="option.id"
-              :label="option.label"
-              :value="option.value"
-            >
-            </el-option>
-          </el-select>
-        </el-form-item>
+        </div>
+        
         <el-form-item>
           <label for="description">Description</label>
           <el-input
@@ -94,12 +99,12 @@
             maxlength="600"
             show-word-limit
             v-model="tourToEdit.description"
-            :autosize="{ minRows: 2, maxRows: 6 }"
-            placeholder="Description"
+            :autosize="{ minRows: 6, maxRows: 6 }"
+            placeholder="Add information about you tour"
           >
           </el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item class="images-section">
           <upload-image @save="saveImg" />
           <div class="imgs-container">
             {{ tourToEdit.imgs.length }} / 5
