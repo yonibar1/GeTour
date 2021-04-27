@@ -166,6 +166,11 @@
     .tour-app .hero-container .hero-line {
         padding: 0 2rem;
     }
+    .app-header {
+        .user-options-container {
+            right: 2rem;
+        }
+    }
     .tour-app .become-guide-container .title {
         padding: 13rem 2rem;
     }
@@ -249,6 +254,7 @@
 @media (max-width: 740px) {
     .app-header {
         padding: 0px 10px;
+        
         nav {
             position: fixed;
             box-shadow: none;

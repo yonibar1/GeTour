@@ -5,7 +5,7 @@
         <input class="file-input" type="file" @change="onUploadImg" />
       </i>
     </label>
-    <div v-else class="loader"></div>
+    <div  v-else class="loader"></div>
   </section>
 </template>
 

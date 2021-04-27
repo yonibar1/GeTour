@@ -36,13 +36,14 @@
         <i class="el-icon-close"></i>
       </button>
     </nav>
-    <div v-if="isOpen" class="user-options-container">
+    <div v-if="isOpen" @click="isOpen = !isOpen" class="user-options-container" >
       <p class="option-item">Welcome {{ user.fullname }}</p>
       <router-link class="option-item" :to="'/user-profile/' + user._id"
         >My Profile</router-link
       >
       <p class="option-item logout" @click="logout">Log out</p>
     </div>
+    <div class="bg-screen" @click="isOpen = !isOpen" v-if="isOpen"></div>
     <button class="btn-menu" @click="toggleMenu()">☰</button>
   </section>
 </template>
@@ -58,10 +59,6 @@ export default {
   },
   computed: {
     user() {
-      // console.log(
-      //   "this.$store.getters.loggedInUser",
-      //   this.$store.getters.loggedInUser
-      // );
       return this.$store.getters.loggedInUser;
     },
   },

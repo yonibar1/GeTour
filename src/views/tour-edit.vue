@@ -6,6 +6,7 @@
         <el-form-item>
           <label for="title">Title</label>
           <el-input
+            require
             id="title"
             v-model="tourToEdit.title"
             placeholder=""
@@ -44,53 +45,53 @@
               v-for="option in options"
               :key="option.id"
               :label="option.label"
-              :value="option.value"
+              :value="option.id"
             >
             </el-option>
           </el-select>
         </el-form-item>
         <div class="quantities-container">
-        <el-form-item>
-          <label for="price">Tour Price</label>
-          <el-input-number
-            id="price"
-            class="input-number"
-            v-model.number="tourToEdit.price"
-            placeholder="Price"
-            type="number"
-          />
-        </el-form-item>
+          <el-form-item>
+            <label for="price">Tour Price</label>
+            <el-input-number
+              id="price"
+              class="input-number"
+              v-model.number="tourToEdit.price"
+              placeholder="Price"
+              type="number"
+            />
+          </el-form-item>
 
-        <el-form-item>
-          <label for="capacity">Capacity</label>
-          <el-input-number
-            id="capacity"
-            v-model.number="tourToEdit.capacity"
-            placeholder="Capacity"
-            type="number"
-          />
-        </el-form-item>
+          <el-form-item>
+            <label for="capacity">Capacity</label>
+            <el-input-number
+              id="capacity"
+              v-model.number="tourToEdit.capacity"
+              placeholder="Capacity"
+              type="number"
+            />
+          </el-form-item>
 
-        <el-form-item>
-          <label for="daysCount">Days Count</label>
-          <el-input-number
-            id="daysCount"
-            v-model.number="tourToEdit.daysCount"
-            placeholder="Days"
-            type="number"
-          />
-        </el-form-item>
-        <el-form-item>
-          <label for="Difficulty">Difficulty</label>
-          <el-input-number
-            id="Difficulty"
-            v-model.number="tourToEdit.difficulty"
-            placeholder="Difficulty"
-            type="number"
-          />
-        </el-form-item>
+          <el-form-item>
+            <label for="daysCount">Days Count</label>
+            <el-input-number
+              id="daysCount"
+              v-model.number="tourToEdit.daysCount"
+              placeholder="Days"
+              type="number"
+            />
+          </el-form-item>
+          <el-form-item>
+            <label for="Difficulty">Difficulty</label>
+            <el-input-number
+              id="Difficulty"
+              v-model.number="tourToEdit.difficulty"
+              placeholder="Difficulty"
+              type="number"
+            />
+          </el-form-item>
         </div>
-        
+
         <el-form-item>
           <label for="description">Description</label>
           <el-input
@@ -116,7 +117,9 @@
             />
           </div>
         </el-form-item>
-        <label for="tourMap"> Enter Tour Checkpoints </label>
+        <label for="tourMap">
+          Enter Tour Checkpoints (Don't forget to save them)</label
+        >
         <tour-map id="tourMap" @setCheckPoints="setCheckPoints" />
         <el-button @click="saveTour" v-if="tourToEdit._id"
           >Update Tour</el-button
@@ -188,8 +191,20 @@ export default {
     saveImg(url) {
       this.tourToEdit.imgs.push(url);
     },
+    setTags(ids) {
+      const options = ids.map((id) => {
+        return this.options.find((opt) => {
+          return opt.id === id;
+        });
+      });
+      const tags = options.map((opt) => {
+        return opt.value;
+      });
+      return tags;
+    },
     async saveTour() {
       try {
+        this.tourToEdit.tags = this.setTags(this.tourToEdit.tags);
         await this.$store.dispatch({
           type: "saveTour",
           tour: this.tourToEdit,
@@ -202,6 +217,15 @@ export default {
         this.$router.push(`/`);
       } catch (err) {
         console.log("Cannot Save Tour", err);
+        if (!this.$store.getters.loggedInUser) {
+          this.$notify({
+            title: "Cannot save tour",
+            message: "Please login first",
+            duration: 6000,
+            type: "error",
+            position: "top-right",
+          });
+        }
       }
     },
     async loadTour(id) {
