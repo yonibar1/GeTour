@@ -17,7 +17,6 @@
             width: 100%;
             padding: 0 10px;
             align-items: center;
-            color: #758b85;
             border-radius: 5px;
             input.el-input__inner {
                 border: none;
@@ -27,11 +26,12 @@
             .date-input,
             .price-input {
                 width: 100%;
-                color: $main-clr;
                 ::placeholder,
-                span {
-                    color: #758b85;
-                    opacity: 1;
+                span,
+                .el-input__prefix {
+                     color: rgba(0, 0, 0, 0.685);
+                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                     font-size: 14px;
                 }
             }
             .el-button {
