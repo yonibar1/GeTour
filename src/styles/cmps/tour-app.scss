@@ -7,7 +7,7 @@
         flex-direction: column;
         background-size: cover;
         background-attachment: fixed;
-        background-image: url("../assets/img/hero.jpg");
+        background-image: url("../assets/img/hero-min.jpg");
         background-image: linear-gradient(to top, #ffffff00, #ffffff00, #ffffff00, #000000ad), url("../assets/img/hero.jpg");
         .hero-line {
             margin-top: 8rem;
@@ -90,7 +90,7 @@
         }
     }
     .become-guide-container {
-        background-image: url("../assets/demo-guides/guide5.jpg");
+        background-image: url("../assets/demo-guides/guide5-min.jpg");
         background-size: cover;
         height: 30rem;
         padding: 0;

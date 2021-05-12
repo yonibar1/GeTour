@@ -248,6 +248,7 @@ export default {
         order: this.order,
       });
       socketService.emit("orderSent", this.order);
+      console.log(this.loggedInUser, "LOGGED IN USER");
       const msg = {
         title: `Order Added by - ${this.loggedInUser.fullname}`,
         message: `${this.loggedInUser.fullname} Would Like To Join Your Tour In ${this.tour.title}`,

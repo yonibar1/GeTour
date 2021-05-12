@@ -36,7 +36,7 @@
         <i class="el-icon-close"></i>
       </button>
     </nav>
-    <div v-if="isOpen" @click="isOpen = !isOpen" class="user-options-container" >
+    <div v-if="isOpen" @click="isOpen = !isOpen" class="user-options-container">
       <p class="option-item">Welcome {{ user.fullname }}</p>
       <router-link class="option-item" :to="'/user-profile/' + user._id"
         >My Profile</router-link
@@ -123,7 +123,6 @@ export default {
     if (!this.user) return;
     socketService.emit("private msg", this.user._id);
     socketService.on("show private msg", ({ title, message }) => {
-      console.log(message, "Message");
       this.$notify({
         title,
         message,

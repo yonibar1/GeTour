@@ -23,7 +23,10 @@
         <li>
           <router-link to="/explore/Thailand">
             <div class="category-card">
-              <img src="../assets/demo-tours/chaing-mai.jpg" alt="" />
+              <img
+                src="https://res.cloudinary.com/yonibar/image/upload/v1620819642/chaing-mai-min_ec42xb.jpg"
+                alt=""
+              />
             </div>
             Thailand
           </router-link>
@@ -31,7 +34,10 @@
         <li>
           <router-link to="/explore/Israel">
             <div class="category-card">
-              <img src="../assets/demo-tours/western-wall.jpg" alt="" />
+              <img
+                src="https://res.cloudinary.com/yonibar/image/upload/v1620819642/western-wall-min_bzb341.jpg"
+                alt=""
+              />
             </div>
             Israel
           </router-link>
@@ -39,7 +45,10 @@
         <li>
           <router-link to="/explore/Spain">
             <div class="category-card">
-              <img src="../assets/demo-tours/barcelona.jpg" alt="" />
+              <img
+                src="https://res.cloudinary.com/yonibar/image/upload/v1620819640/barcelona-min_clinxc.jpg"
+                alt=""
+              />
             </div>
             Spain
           </router-link>
@@ -47,7 +56,10 @@
         <li>
           <router-link to="/explore/Netherlands">
             <div class="category-card">
-              <img src="../assets/demo-tours/amsterdam2.jpg" alt="" />
+              <img
+                src="https://res.cloudinary.com/yonibar/image/upload/v1620819646/amsterdam2-min_hhpffl.jpg"
+                alt=""
+              />
             </div>
             Netherlands
           </router-link>
