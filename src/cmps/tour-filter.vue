@@ -26,7 +26,7 @@
         <el-dropdown-menu slot="dropdown">
           <li class="range-box-modal">
             <div class="range-box-modal-header">
-              <h4>Pick Your Price</h4>
+              <p>Pick Your Price</p>
               <el-slider v-model="filterBy.byPriceRange" range :max="2000">
               </el-slider>
             </div>
